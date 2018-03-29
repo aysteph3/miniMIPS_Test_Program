@@ -25,6 +25,9 @@ transcript*
 sc_dpiheader.h
 vsim.dbg
 
+# ignore python editor backup
+*.pyc
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
