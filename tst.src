@@ -1,0 +1,71 @@
+
+;
+; CODE MEMORY: (0x00000000-0x0000FFFF)
+; DATA MEMORY: (0x00010000-0x0001FFFF)
+;
+
+org 0000
+
+_reset:
+
+	xor $0, $0, $0
+	xor $1, $1, $1
+	xor $2, $2, $2
+	xor $3, $3, $3
+	xor $4, $4, $4
+	xor $5, $5, $5
+	xor $6, $6, $6
+	xor $7, $7, $7
+	xor $8, $8, $8
+	xor $9, $9, $9
+	xor $10, $10, $10
+	xor $11, $11, $11
+	xor $12, $12, $12
+	xor $13, $13, $13
+	xor $14, $14, $14
+	xor $15, $15, $15
+	xor $16, $16, $16
+	xor $17, $17, $17
+	xor $18, $18, $18
+	xor $19, $19, $19
+	xor $20, $20, $20
+	xor $21, $21, $21
+	xor $22, $22, $22
+	xor $23, $23, $23
+	xor $24, $24, $24
+	xor $25, $25, $25
+	xor $26, $26, $26
+	xor $27, $27, $27
+	xor $28, $28, $28
+	xor $29, $29, $29
+	xor $30, $30, $30
+	xor $31, $31, $31
+
+main:
+
+	lui $31, 1		; signature address: 0x00010000
+
+	lui $3, 1234
+	ori $3, $3, -1234
+
+	lui $4, 1234
+	ori $4, $5, -5678
+
+	addu $5, $3, $4
+;	addu $6, $4, $3
+;	addu $7, $3, $3
+;	addu $8, $4, $4
+
+
+
+	sw $5, 0($31)	; store result
+	sw $6, 4($31)	; store result
+	sw $7, 8($31)	; store result
+	sw $8, 12($31)	; store result
+
+	nop
+	nop
+	nop
+	nop
+
+end: j end
