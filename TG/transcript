@@ -14,7 +14,7 @@
 # //
 # do vsim_gui.tcl
 # vsim -vopt -coverage -voptargs=""+acc"" minimips_rtl.sim_minimips(bench) 
-# Start time: 21:17:18 on Mar 29,2018
+# Start time: 23:09:44 on Mar 29,2018
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading std.standard
 # Loading std.textio(body)
@@ -2086,5 +2086,5 @@
 #    Time: 0 ps  Iteration: 2  Instance: :sim_minimips:U_ram
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 50 ns  Iteration: 0  Instance: :sim_minimips:U_ram
-# End time: 21:21:11 on Mar 29,2018, Elapsed time: 0:03:53
+# End time: 23:10:18 on Mar 29,2018, Elapsed time: 0:00:34
 # Errors: 1010, Warnings: 14
