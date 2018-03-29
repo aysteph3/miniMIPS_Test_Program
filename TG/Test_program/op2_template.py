@@ -1,5 +1,5 @@
 # Copyright (C) 2018 Oyeniran Adeboye Stephen, Olusiji
-#This template takes care of OP2 instructions. The functionality is described as follow
+#This template generates OP2 instructions. The functionality is described as follow
 #op2_func and variants generate test for OP2 instructions while hi_lo and variants generate
 #test for HILO. The parameter file helps organize the test with the help of the HLDD
 
