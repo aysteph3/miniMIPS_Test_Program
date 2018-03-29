@@ -1,0 +1,57 @@
+;paremeters: Define parameter for test program generation.
+iterator=27
+pattern_count=28
+result_address=29
+pattern_address=30
+result_register=18
+shift_amount=5
+
+;for testing OP1
+;a_add
+a_addu
+a_and
+a_nor
+a_or
+;a_sub
+a_subu
+a_xor
+a_sllv
+a_slt
+a_sltu
+a_srav
+a_srlv
+a_sll
+a_srl
+a_sra
+
+a_mult
+a_multu
+a_mfhi
+a_mflo
+a_mthi
+a_mtlo
+
+;for testing HILO
+b_mult
+b_multu
+
+c_mthi
+c_mtlo
+
+; for immediate
+;i_addi
+i_addiu
+i_andi
+i_ori
+i_slti
+i_sltiu
+i_xori
+
+#for coprocssor writing
+1_mtc0_mfc0
+
+#for load and store
+2_lw_sw
+
+# For co_processor load and store
+3_lw0_sw0
