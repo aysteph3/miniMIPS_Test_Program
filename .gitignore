@@ -18,6 +18,7 @@ sim_input/
 wlf*
 *.wlf
 *.vstf
+*.vcd
 *.ucdb
 cov*/
 transcript*
