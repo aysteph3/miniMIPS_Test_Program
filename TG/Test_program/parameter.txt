@@ -1,4 +1,4 @@
-;paremeters: Define parameter for test program generation.
+;parameters: Define parameter for test program generation.
 iterator=27
 pattern_count=28
 result_address=29
