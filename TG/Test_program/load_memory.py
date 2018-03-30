@@ -39,7 +39,6 @@ def init_patterns(out,data_f):
          else:
              most_sig_bit   = int(bit_set3,2)
              least_sig_bit  = int(bit_set4,2)
-
          out.write(" lui $%d, %d\n" % (register, most_sig_bit))
          out.write(" ori $%d, $%d, %d\n" % (register, register, least_sig_bit))
          out.write(" sw $%d, %d($30)\n" % (register, offset))
