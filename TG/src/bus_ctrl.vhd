@@ -41,7 +41,7 @@
 --                                                                      --
 --                                                                      --
 -- Authors : Hangouet  Samuel                                           --
---           Jan       Sébastien                                        --
+--           Jan       Sï¿½bastien                                        --
 --           Mouton    Louis-Marie                                      --
 --           Schneider Olivier                                          --
 --                                                                      --
@@ -97,6 +97,7 @@ architecture rtl of bus_ctrl is
     signal r_w : std_logic;         -- Current utilisation of the tristate bus
     signal data_in : bus32;         -- Data read on the tristate bus
     signal req_allowed : std_logic;
+    --file out_file    : text open write_mode is "sim_generated_file/bus.txt";
 
 begin
 
@@ -151,7 +152,7 @@ begin
             req_to_ram <= '0';
         end if;
     end process;
-    
+
     process (cs, interrupt, adr_from_ei, req_from_mem, r_w_from_mem, adr_from_mem, ack_from_ram)
     begin
         if interrupt = '1' then -- An interruption is detected
@@ -167,7 +168,7 @@ begin
                     r_w <= '0';
 
                     if ack_from_ram='1' then
-                        
+
                         if req_from_mem='1' then
                             -- If request from MEM, then step 2
                             ns <= ST2;
@@ -202,5 +203,18 @@ begin
 
     data_to_mem <= data_in;
     instr_to_ei <= ei_buffer when cs=ST2 else data_in;
+
+  --  writing_to_file: process(res_buff, clock)
+  --  variable line_v     : line;
+  --  begin
+  --    if rising_edge (clock) then
+        --if (ctrl /= "UUUUUUUUUUUUUUUUUUUUUUUUUUUU") then
+  --          write(line_v, to_bstring(clock)& " " & to_bstring(reset)& " " & to_bstring(ctrl)
+                                           --& " " & to_bstring(op1)& " " & to_bstring(op2)
+                                           --& " " & to_bstring(res_buff));
+  --          writeline(out_file, line_v);
+       --end if;
+  --   end if;
+  --  end process;
 
 end rtl;

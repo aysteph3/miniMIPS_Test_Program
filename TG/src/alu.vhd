@@ -41,7 +41,7 @@
 --                                                                      --
 --                                                                      --
 -- Authors : Hangouet  Samuel                                           --
---           Jan       Sébastien                                        --
+--           Jan       Sï¿½bastien                                        --
 --           Mouton    Louis-Marie                                      --
 --           Schneider Olivier                                          --
 --                                                                      --
@@ -51,9 +51,11 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use std.textio.all;
 
 library work;
 use work.pack_mips.all;
+use work.my_package.all;
 
 entity alu is
 port
@@ -89,6 +91,8 @@ architecture rtl of alu is
     signal nul : bus1;               -- Check if the adder result is zero
     signal hilo : bus64;             -- Internal registers to store the multiplication operation
     signal tmp_hilo : bus64;         -- Internal registers to store the multiplication operation (synchronised)
+    signal res_buff: std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
+    file out_file    : text open write_mode is "sim_generated_file/alu.txt";
 
 begin
 
@@ -147,7 +151,7 @@ begin
                 '0'; -- Only ADD and SUB can overflow
 
     -- Result affectation
-    res <=
+    res_buff <=
         -- Arithmetical operations
         res_add(31 downto 0)                     when (ctrl=OP_ADD or ctrl=OP_ADDU or ctrl=OP_SUB or ctrl=OP_SUBU) else
         -- Logical operations
@@ -176,6 +180,7 @@ begin
         X"00000001"                              when (ctrl=OP_OUI) else
         -- Unknown operation or nul result desired
         (others => '0');
+        res <= res_buff;
 
     -- Save the hilo register
     process (clock)
@@ -188,4 +193,19 @@ begin
             end if;
         end if;
     end process;
+
+    writing_to_file: process(res_buff, clock)
+    variable line_v     : line;
+    begin
+      if rising_edge (clock) then
+        if (ctrl /= "UUUUUUUUUUUUUUUUUUUUUUUUUUUU") then
+            write(line_v, to_bstring(clock)& " " & to_bstring(reset)& " " & to_bstring(ctrl)
+                                           & " " & to_bstring(op1)& " " & to_bstring(op2)
+                                           & " " & to_bstring(hilo)& " " & to_bstring(res_buff)
+                                           & " " & to_bstring(tmp_hilo));
+            writeline(out_file, line_v);
+       end if;
+     end if;
+    end process;
+
 end rtl;

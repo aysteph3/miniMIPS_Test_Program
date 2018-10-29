@@ -1,0 +1,5 @@
+target_library			= {class.db};
+link_library			= {class.db};
+symbol_library    		= {class.sdb};
+search_path			= {. /cad/synopsys_1999_10/libraries/syn}
+
