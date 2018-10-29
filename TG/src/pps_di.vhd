@@ -41,7 +41,7 @@
 --                                                                      --
 --                                                                      --
 -- Authors : Hangouet  Samuel                                           --
---           Jan       Sébastien                                        --
+--           Jan       Sï¿½bastien                                        --
 --           Mouton    Louis-Marie                                      --
 --           Schneider Olivier                                          --
 --                                                                      --
@@ -51,9 +51,11 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use std.textio.all;
 
 library work;
 use work.pack_mips.all;
+use work.my_package.all;
 
 entity pps_di is
 port (
@@ -78,7 +80,7 @@ port (
     EI_it_ok : in std_logic;            -- Allow hardware interruptions
 
     -- Synchronous output to EX stage
-    DI_bra : out std_logic;             -- Branch decoded 
+    DI_bra : out std_logic;             -- Branch decoded
     DI_link : out std_logic;            -- A link for that instruction
     DI_op1 : out bus32;                 -- operand 1 for alu
     DI_op2 : out bus32;                 -- operand 2 for alu
@@ -98,6 +100,7 @@ end entity;
 
 
 architecture rtl of pps_di is
+    file out_file    : text open write_mode is "sim_generated_file/decoder.txt";
 
     -- Enumeration type used for the micro-code of the instruction
     type op_mode_type is (OP_NORMAL, OP_SPECIAL, OP_REGIMM, OP_COP0);   -- selection du mode de l'instruction
@@ -196,7 +199,7 @@ architecture rtl of pps_di is
     signal PRE_adr_reg_dest : adr_reg_type; -- Destination register adress for result
     signal PRE_ecr_reg : std_logic;         -- Writing of result in the bank register
     signal PRE_mode : std_logic;            -- Address calculation with current pc
-    signal PRE_op_mem : std_logic;          -- Memory access operation instruction 
+    signal PRE_op_mem : std_logic;          -- Memory access operation instruction
     signal PRE_r_w : std_logic;             -- Read/write selection in memory
     signal PRE_exc_cause : bus32;           -- Potential exception cause
     signal PRE_level : level_type;          -- Result availability stage for bypass
@@ -222,7 +225,7 @@ begin
 
         -- Selection of the instruction codop and its mode
         case EI_instr(31 downto 26) is
-            when "000000" => -- special mode 
+            when "000000" => -- special mode
                 op_mode := OP_SPECIAL;
                 op_code := EI_instr(5 downto 0);
             when "000001" => -- regimm mode
@@ -267,7 +270,7 @@ begin
             PRE_adr_reg_dest <= (others => '0');  -- Destination register adress for result
             PRE_ecr_reg      <= '0';              -- Writing of result in the bank register
             PRE_mode         <= '0';              -- Address calculation with current pc
-            PRE_op_mem       <= '0';              -- Memory access operation instruction 
+            PRE_op_mem       <= '0';              -- Memory access operation instruction
             PRE_r_w          <= '0';              -- Read/write selection in memory
             PRE_exc_cause    <= IT_ERINS;         -- Potential exception cause
             PRE_level        <= LVL_DI;           -- Result availability stage for bypass
@@ -424,6 +427,19 @@ begin
         end if;
     end process;
 
+    writing_to_file: process(clock)
+    variable line_v     : line;
+    begin
+      if rising_edge (clock) then
+        --if (ctrl /= "UUUUUUUUUUUUUUUUUUUUUUUUUUUU") then
+            write(line_v, to_bstring(clock)& " " & to_bstring(reset)& " " & to_bstring(stop_all)
+                                           & " " & to_bstring(clear)& " " & to_bstring(stop_di)
+                                           & " " & to_bstring(data1)& " " & to_bstring(data2)
+                                           & " " & to_bstring(EI_adr)& " " & to_bstring(EI_instr)
+                                           & " " & to_bstring(EI_it_ok)
+                                           );
+            writeline(out_file, line_v);
+       --end if;
+     end if;
+    end process;
 end rtl;
-
-
