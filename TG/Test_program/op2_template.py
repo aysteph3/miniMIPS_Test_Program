@@ -81,7 +81,7 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
  			line = line.rstrip()
  			instru = line[2:]
  			instr = str.strip(instru)
- 			instruction = instr[0:4]
+ 			instruction = instr[0:]
  			if (catergory == 'a_'):
 				if ((instr == 'mult') or (instr == 'multu')):
 				 	print_tags(out, instr)

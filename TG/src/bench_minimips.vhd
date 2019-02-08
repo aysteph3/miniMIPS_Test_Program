@@ -49,7 +49,7 @@ end;
 
 architecture bench of sim_minimips is
 
-   constant threshold : integer := 7;
+   constant threshold : integer := 21;
 
   component minimips is
   port (
