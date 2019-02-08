@@ -38,6 +38,7 @@ b_multu
 c_mthi
 c_mtlo
 
+
 ; for immediate
 ;i_addi
 i_addiu
@@ -55,3 +56,30 @@ i_xori
 
 # For co_processor load and store
 3_lw0_sw0
+
+
+#pseudo-exhaustive data
+p_addu
+p_subu
+p_and
+p_or
+p_xor
+p_nor
+p_sll
+p_srl
+p_srlv
+p_sra
+p_slt
+p_sltu
+p_mult
+p_multu
+
+;Branches
+;d_beq
+;d_bne
+;e_bgez
+e_bgezal
+;e_bgtz
+;e_blez
+;e_bltz
+e_bltzal

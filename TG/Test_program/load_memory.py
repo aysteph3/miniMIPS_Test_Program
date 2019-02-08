@@ -16,7 +16,7 @@ else:
 #f = open(inputFile,'r')         #input file
 #out = open(outputFile, 'w')     #output file
 
-def init_patterns(out,data_f):
+def init_patterns(out,data_f, pattern_address):
  out.write("init_patterns:\n")
  offset = 0
  register = 8
@@ -41,7 +41,7 @@ def init_patterns(out,data_f):
              least_sig_bit  = int(bit_set4,2)
          out.write(" lui $%d, %d\n" % (register, most_sig_bit))
          out.write(" ori $%d, $%d, %d\n" % (register, register, least_sig_bit))
-         out.write(" sw $%d, %d($30)\n" % (register, offset))
+         out.write(" sw $%d, %d($%s)\n" % (register, offset, pattern_address))
          offset += 4
          if (register >= 15):
              register = 8

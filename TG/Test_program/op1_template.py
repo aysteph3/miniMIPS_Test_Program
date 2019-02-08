@@ -21,9 +21,21 @@ def immediate_fun(instruction, file, result_register, result_address, immediate,
     file.write("\tsw $%s, %s($%s)\n" % (result_register, k, result_address))
     file.write("\tjal increment_offset\n")
 
+def branch_1(instruction, file, result_register,result_address,iterator,pattern_count, instr):
+    file.write("\tjal load_patterns\n")
+    file.write("\t%s $%d, $%d, store_branch\n" % (instruction, 2, 3))
+    file.write("\tjal increment_offset\n")
+    file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
+
+def branch_2(instruction, file, result_register,result_address,iterator,pattern_count, instr):
+    file.write("\tjal load_patterns\n")
+    file.write("\t%s $%d, store_branch\n" % (instruction, 2))
+    file.write("\tjal increment_offset\n")
+    file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
+
 def co_processor_fun(instruction, file, result_register, result_address, iterator, pattern_count, instr):
 	file.write("\tjal load_patterns\n")
-	file.write("\t%s $%d, $%d\n" % (instruction, 2, 4))
+	file.write("\t%s $%d, $%d\n" % (instruction[0:4], 2, 4))
 	file.write("\t%s $%s, $%d\n" % ('mfc0', result_register, 4))
 	file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
 	file.write("\tjal increment_offset\n")
@@ -57,7 +69,7 @@ def ops1_template(para, out, result_register, result_address, inputFile,iterator
 		 line = line.rstrip()
 		 instru = line[2:]
 		 instr = str.strip(instru)
-		 instruction = instr[0:4]
+		 instruction = instr[0:]
 		 if (catergory == 'i_'):
 			print_tags(out, instr)
 			generate_immediate(instru,out,result_register,result_address, inputFile)
@@ -70,7 +82,13 @@ def ops1_template(para, out, result_register, result_address, inputFile,iterator
 		 elif(catergory == '3_'):
 			 print_tags(out, instr)
 			 lw0_sw0_fun(instruction, out,result_register,result_address, iterator,pattern_count, instr, pattern_address)
- 		except IndexError:
+		 elif(catergory == 'd_'):
+			print_tags(out, instr)
+			branch_1(instruction, out,result_register,result_address,iterator,pattern_count, instr)
+		 elif(catergory == 'e_'):
+			print_tags(out, instr)
+			branch_2(instruction, out,result_register,result_address,iterator,pattern_count, instr)
+		except IndexError:
  				firstPass = False
 	else:
 		do='nothing'

@@ -8,6 +8,12 @@ def reset_function(file):
         file.write("\txor $%d, $%d, $%d\n" % (x, x, x))
     file.write("\n")
 
+def reset_reg(file):
+    for x in range(29):
+        if not ((x == 0)):
+            file.write(" xor $%d, $%d, $%d\n" % (x, x, x))
+    file.write("\n")
+
 def reset_offsets(file, pattern_address, iterator, result_register):
     file.write("reset_offsets:\n")
     file.write("\tlui $%s, %d\n" % (pattern_address, 1))
@@ -35,4 +41,10 @@ def reset_hi_lo(file):
     file.write("\tori $%d, $%d, %d\n" % (1, 1, 0))
     file.write("\tmthi $%d\n" % (1))
     file.write("\tmtlo $%d\n" % (1))
+    file.write("\tjr $31\n\n")
+
+def store_branch(file, result_address):
+    file.write("store_branch:\n")
+    file.write("\tsw $%d, %d($%s)\n" % (2, 0, result_address))
+    file.write("\tsw $%d, %d($%s)\n" % (3, 4, result_address))
     file.write("\tjr $31\n\n")
