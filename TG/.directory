@@ -1,7 +1,8 @@
 [Dolphin]
 GroupedSorting=true
+HeaderColumnWidths=360,89,72,86,100,79
 SortRole=group
-Timestamp=2018,12,21,3,19,53
+Timestamp=2019,9,14,23,33,42
 Version=3
 ViewMode=1
 VisibleRoles=CustomizedDetails,Details_text,Details_permissions,Details_owner,Details_group,Details_date,Details_size

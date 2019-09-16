@@ -13,6 +13,8 @@ def pseudo_template(inputFile, out, instruct, result_register):
   out.write("jal reset_offsets\n")
   if(instruction[0:2] =="mf" or instruction[0:2] =="mt"):
       out.write("jal reset_hi_lo\n")
+  if(instruction[0:] =="add" or instruction[0:] =="sub"):
+      out.write("jal init_cp\n")
   #out.write("operation_"+instruction+":\n")
   out.write("operation_"+instruction+"_psuedo:\n")
   offset = 0
@@ -93,14 +95,14 @@ def pseudo_template(inputFile, out, instruct, result_register):
       for i in (line):
           load_data_shift(i, register, opcode)
           out.write("\tsw $%s, %d($29)\n" % (result_register, offset))
-          out.write("\tjal increment_offset\n")
+          out.write("\tjal increment\n")
           #offset += 4
   
   def alu_immediate(file_name, offset, opcode):
       for i in (line):
           load_data_immediate(i, register, opcode)
           out.write("\tsw $%s, %d($29)\n" % (result_register, offset))
-          out.write("\tjal increment_offset\n")
+          out.write("\tjal increment\n")
           #offset += 4
   
   def alu_op(file_name, offset):
@@ -108,7 +110,7 @@ def pseudo_template(inputFile, out, instruct, result_register):
           load_data(i, register)
           out.write("\t%s $%s, $%d, $%d\n" % (instruction, result_register, register, register+1))
           out.write("\tsw $%s, %d($29)\n" % (result_register, offset))
-          out.write("\tjal increment_offset\n")
+          out.write("\tjal increment\n")
           #offset += 4
   
   def mult_op(file_name, offset):
@@ -119,7 +121,7 @@ def pseudo_template(inputFile, out, instruct, result_register):
           out.write("\tsw $%s, %d($29)\n" % (result_register, offset))
           out.write("\tmfhi $%s\n" % (result_register)) 
           out.write("\tsw $%s, %d($29)\n" % (result_register, offset))
-          out.write("\tjal increment_offset\n")
+          out.write("\tjal increment\n")
           #offset += 4
   
   def hi_lo(file_name, offset,opcode):
@@ -130,7 +132,7 @@ def pseudo_template(inputFile, out, instruct, result_register):
           else:
               out.write("\tmflo $%d\n" % (register+2)) 
           out.write("\tsw $%d, %d($29)\n" % (register+2, offset))
-          out.write("\tjal increment_offset\n")
+          out.write("\tjal increment\n")
           #offset += 4
   
   if ((instruction =="mult") or (instruction =="multu")):
@@ -160,11 +162,11 @@ def make_pseudo_template(para, outputFile, result_register):
         instr = str.strip(instru)
         instruction = instr[0:]
         if (catergory == 'p_'):
-          if (instruction == 'addu'):
+          if (instruction == 'addu' or instruction == 'add'):
             inputFile = '../input/pseudo_input/add.txt'
             pseudo_template(inputFile, outputFile, instruction, result_register)
             outputFile.write("\n")
-          elif(instruction == 'subu'):
+          elif(instruction == 'subu'or instruction == 'sub'):
             inputFile = '../input/pseudo_input/sub.txt'
             pseudo_template(inputFile, outputFile, instruction, result_register)
             outputFile.write("\n")     

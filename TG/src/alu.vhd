@@ -194,7 +194,7 @@ begin
         end if;
     end process;
 
-    writing_to_file: process(res_buff, clock)
+    writing_to_file: process(clock)
     variable line_v     : line;
     begin
       if rising_edge (clock) then
