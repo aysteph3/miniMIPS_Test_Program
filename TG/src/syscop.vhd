@@ -41,7 +41,7 @@
 --                                                                      --
 --                                                                      --
 -- Authors : Hangouet  Samuel                                           --
---           Jan       Sébastien                                        --
+--           Jan       Sï¿½bastien                                        --
 --           Mouton    Louis-Marie                                      --
 --           Schneider Olivier                                          --
 --                                                                      --
@@ -196,7 +196,7 @@ begin
             end if;
 
             scp_reg <= pre_reg;
-            
+
         end if;
     end process;
 

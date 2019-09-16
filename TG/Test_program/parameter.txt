@@ -1,64 +1,71 @@
 ;parameters: Define parameter for test program generation.
 iterator=27
 pattern_count=28
+branch_count=26
 result_address=29
 pattern_address=30
 result_register=18
+source_register1=15
+source_register2=16
+jump_address=25
 shift_amount=5
 
 ;for testing OP1
-;a_add
-a_addu
-a_and
-a_nor
-a_or
-;a_sub
-a_subu
-a_xor
-a_sllv
-a_slt
-a_sltu
-a_srav
-a_srlv
-a_sll
-a_srl
-a_sra
+y a_add
+n a_addu
+n a_and
+n a _nor
+n a_or
+n a_subu
+y a_sub
+n a_xor
+n a_sllv
+n a_slt
+n a_sltu
+n a_srav
+n a_srlv
+n a_sll
+n a_srl
+n a_sra
 
-a_mult
-a_multu
-a_mfhi
-a_mflo
-a_mthi
-a_mtlo
+;n a_mult
+;n a_multu
+;n a_mfhi
+;n a_mflo
+;n a_mthi
+;n a_mtlo
 
 ;for testing HILO
-b_mult
-b_multu
+n b_mult
+n b_multu
 
-c_mthi
-c_mtlo
+n c_mthi
+n c_mtlo
 
 
 ; for immediate
-;i_addi
-i_addiu
-i_andi
-i_ori
-i_slti
-i_sltiu
-i_xori
+y i_addi
+n i_addiu
+n i_andi
+n i_ori
+n i_slti
+n i_sltiu
+n i_xori
 
 #for coprocssor writing
-1_mtc0_mfc0
+n 1_mtc0
+n 1_mfc0
 
 #for load and store
-2_lw_sw
+n 2_lw_sw
 
-# For co_processor load and store
-3_lw0_sw0
+# For co_processor load and store -- modify
+n 3_lw0_sw0
 
 
 #pseudo-exhaustive data
+p_add
+p_sub
 p_addu
 p_subu
 p_and
@@ -75,11 +82,11 @@ p_mult
 p_multu
 
 ;Branches
-;d_beq
-;d_bne
-;e_bgez
-e_bgezal
-;e_bgtz
-;e_blez
-;e_bltz
-e_bltzal
+n d_beq
+n d_bne
+n e_bgez
+n e_bgezal
+n e_bgtz
+n e_blez
+n e_bltz
+n e_bltzal
