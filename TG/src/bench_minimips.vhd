@@ -298,8 +298,9 @@ begin
       end if;
 
       if count > threshold then
---          print("ENDSIM_ADDRESS: " & hstr(ram_adr));
---          print("ENDSIM_TIME: " & time'image(now));
+          --print("ENDSIM_ADDRESS: " & hstr(ram_adr));
+          --print("ENDSIM_TIME: " & time'image(now));
+          --report ("ENDSIM_TIME: " & time'image(now));
          end_sim <= '1';
       end if;
 
