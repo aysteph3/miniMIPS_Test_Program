@@ -10,13 +10,13 @@ import op2_template_optimized
 import op1_template_optimized
 
 #test data file
-inputFile = "../input/data.txt"
+inputFile = "../input/data_tdf.txt"
 parameter = "parameter.txt"
 data_f = open(inputFile,'r')
 
 l = open(parameter,'r')
 out = open('outputme.txt', 'w')
-total_pattern = len(open('../input/data.txt').readlines())
+total_pattern = len(open('../input/data_tdf.txt').readlines())
 
 branchFile = "../input/branch.txt"
 branch_f = open(branchFile,'r')
@@ -38,6 +38,7 @@ jump_address = 0
 branch_count = 0
 source_register1 = 0
 source_register2 = 0
+transition_address = 0
 
 # fixes the parameter used for the program
 print "............parameters............."
@@ -66,6 +67,10 @@ for line in l:
 				source_register1 = check[1].rstrip()
 			elif (check[0] == 'source_register2'):
 				source_register2 = check[1].rstrip()
+			elif (check[0] == 'transition_address'):
+				transition_address = check[1].rstrip()
+			elif (check[0] == 'source_register3'):
+				source_register3 = check[1].rstrip()
 		except IndexError:
 			firstPass = False
 
@@ -78,6 +83,8 @@ print 'jump_address =', jump_address
 print 'branch_count =', branch_count
 print 'source_register1 =', source_register1
 print 'source_register2 =', source_register2
+print 'transition_address =', transition_address
+print 'source_register3 =', source_register3
 print "...................................."
 
 out.write(" main:\n")
@@ -120,10 +127,10 @@ out.write(" jal init_branch\n\n")
 
 #template for op2
 ###op2_template.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount)
-op2_template_optimized.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount, source_register1, source_register2)
+op2_template_optimized.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount, source_register1, source_register2, transition_address, source_register3)
 
 #template for op1
-op1_template_optimized.ops1_template(parameter, out, result_register, result_address, inputFile, iterator, pattern_count, pattern_address, branch_count, source_register1, source_register2)
+op1_template_optimized.ops1_template(parameter, out, result_register, result_address, inputFile, iterator, pattern_count, pattern_address, branch_count, source_register1, source_register2, transition_address)
 ###out.write("jal reset_offsets\n\n") # reset offsets after all immediate operations. Remove if you plan other instructions after this
 
 #syscall
@@ -144,7 +151,7 @@ register_test.hilo(out, result_address, pattern_address)
 
 #pattern loading, reset offset module, increment offset
 reset.end_program(out)
-reset.load_pattern(out, pattern_address)
+reset.load_pattern(out, pattern_address, transition_address)
 reset.reset_offsets(out, pattern_address,iterator,result_register)
 reset.reset_hi_lo(out)
 reset.increment_offset(out, pattern_address,iterator, result_address)

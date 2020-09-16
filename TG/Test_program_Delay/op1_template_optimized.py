@@ -1,9 +1,9 @@
 # Copyright (C) 2018 Oyeniran Adeboye Stephen, Olusiji
 import reset
 
-def generate_immediate(instruct, out, result_register, result_address, inputFile, src1, src2):
+def generate_immediate(instruct, out, result_register, result_address, inputFile, src1, src2, transition_address):
 	data_lines = []
-	total_pattern = len(open('../input/data.txt').readlines())
+	total_pattern = len(open('../input/data_tdf.txt').readlines())
  	f = open(inputFile,'r')
 	k = 0
 	n = 0
@@ -11,7 +11,7 @@ def generate_immediate(instruct, out, result_register, result_address, inputFile
 	 n = n + 1
  	 bit_set1 = line[48:64]
  	 immediate = str(int(bit_set1,2))
-	 immediate_fun_2(instruct, out, result_register,result_address, immediate, src1, src2)
+	 immediate_fun_2(instruct, out, result_register,result_address, immediate, src1, src2, transition_address)
 	 if (total_pattern == n):
 	 	out.write("\n")
 	f.close()
@@ -22,10 +22,17 @@ def immediate_fun(instruction, file, result_register, result_address, immediate,
     file.write("\tsw $%s, %s($%s)\n" % (result_register, k, result_address))
     #file.write("\tjal increment_offset\n")
 
-def immediate_fun_2(instruction, file, result_register, result_address, immediate, src1, src2):
+def immediate_fun_2(instruction, file, result_register, result_address, immediate, src1, src2, transition_address):
    file.write("\tjal load_patterns\n")
+   file.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
    file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src1, immediate))
    file.write("\tsw $%s, %s($%s)\n" % (result_register, 0, result_address))
+
+   #file.write("\tlui $%s, %d\n" % (transition_address, 65533))
+   #file.write("\tori $%s, $%s, %d\n" % (transition_address, transition_address, 65533))
+   #file.write("\tlui $%s, %d\n" % (src3, 0))
+   #file.write("\tori $%s, $%s, %d\n" % (src3, src3, 0))
+
    file.write("\tjal increment_offset\n")
 
 def branch_1(instruction, file, jump_address,result_address,iterator,branch_count, instr, src1, src2):
@@ -68,8 +75,9 @@ def branc_location(instruction, file, result_address):
     file.write("\tsw $%d, %d($%s)\n" % (18, 0, result_address))
     file.write("\tjal increment_offset\n\n")
 
-def co_processor_fun(instruction, file, result_register, result_address, iterator, pattern_count, instr, cp_register, src1, src2):
+def co_processor_fun(instruction, file, result_register, result_address, iterator, pattern_count, instr, cp_register, src1, src2, transition_address):
 	file.write("\tjal load_patterns\n")
+	file.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
 	file.write("\t%s $%s, $%d\n" % (instruction, src1, cp_register-1))
 	file.write("\t%s $%s, $%d\n" % (instruction, src2, cp_register))
 	file.write("\tswc0 $%s, %d($%s)\n" % (cp_register-1, 0, result_address))
@@ -77,8 +85,9 @@ def co_processor_fun(instruction, file, result_register, result_address, iterato
 	file.write("\tjal increment_offset\n")
 	file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
 
-def co_processor_fun_2(instruction, file, result_register, result_address, iterator, pattern_count, instr, cp_register, src1, src2):
+def co_processor_fun_2(instruction, file, result_register, result_address, iterator, pattern_count, instr, cp_register, src1, src2, transition_address):
 	file.write("\tjal load_patterns\n")
+	file.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
 	file.write("\t%s $%s, $%d\n" % ('mtc0', src1, cp_register-1))
 	file.write("\t%s $%s, $%d\n" % (instruction, result_register, cp_register-1))
 	file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
@@ -142,7 +151,7 @@ def branch_template(para, out, jump_address, result_register, result_address, in
 	else:
 		do='nothing'
 
-def ops1_template(para, out, result_register, result_address, inputFile,iterator, pattern_count, pattern_address, branch_count, src1, src2):
+def ops1_template(para, out, result_register, result_address, inputFile,iterator, pattern_count, pattern_address, branch_count, src1, src2, transition_address):
  Ins = open(para,'r')
  data_lines = []
  opcode = []
@@ -164,13 +173,13 @@ def ops1_template(para, out, result_register, result_address, inputFile,iterator
 				opcode.append(instruction)
 			else:
 				print_tags_cp(out, instr)
-				generate_immediate(instruction, out, result_register, result_address, inputFile, src1, src2)
+				generate_immediate(instruction, out, result_register, result_address, inputFile, src1, src2, transition_address)
 		 elif(catergory == '1_'):
 			 print_tags(out, instr)
 			 if (instruction == 'mtc0'):
-			 	co_processor_fun(instruction, out,result_register,result_address, iterator,pattern_count, instr, cp_register, src1, src2)
+			 	co_processor_fun(instruction, out,result_register,result_address, iterator,pattern_count, instr, cp_register, src1, src2, transition_address)
 			 elif(instruction == 'mfc0'):
-			 	co_processor_fun_2(instruction, out,result_register,result_address, iterator,pattern_count, instr, cp_register, src1, src2)
+			 	co_processor_fun_2(instruction, out,result_register,result_address, iterator,pattern_count, instr, cp_register, src1, src2, transition_address)
 		 elif(catergory == '2_'):
 			 print_tags(out, instr)
 			 lw_sw_fun(instruction, out,result_register,result_address, iterator,pattern_count, instr, pattern_address)
@@ -207,6 +216,7 @@ def ops1_template(para, out, result_register, result_address, inputFile,iterator
   immediate = str(int(bit_set1,2))
   out.write("\tjal load_patterns\n")
   for x in opcode:
+	out.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
 	immediate_fun(x, out, result_register,result_address, immediate, offset, src1, src2)
 	offset+=4
   offset+=4
