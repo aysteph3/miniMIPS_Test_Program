@@ -6,7 +6,7 @@ def interrupt_function(file):
     file.write(" org 0000 \n\n")
     file.write(" mfc0 $%d, $%d\n" % (16, 13))
     file.write(" beq $%d, $%d, %s\n\n" % (16, 0, "_reset"))
-    
+
     file.write(" exception_handler: \n")
     file.write("\tmfc0 $%d, $%d\n" % (16, 12))
     file.write("\tmfc0 $%d, $%d\n" % (17, 13))
@@ -54,8 +54,10 @@ def reset_offsets(file, pattern_address, iterator, result_register):
     file.write("\txor $%s, $%s, $%s\n" % (result_register, result_register, result_register))
     file.write("\tjr $31\n\n")
 
-def load_pattern(file, pattern_address):
+def load_pattern(file, pattern_address, transition_address):
     file.write("load_patterns:\n")
+    file.write("\tlui $%s, %d\n" % (transition_address, 0))
+    file.write("\tori $%s, $%s, %d\n" % (transition_address, transition_address, 0))
     file.write("\tlw $%d, %d($%s)\n" % (15, 0, pattern_address))
     file.write("\tlw $%d, %d($%s)\n" % (16, 4, pattern_address))
     file.write("\tjr $31\n\n")
@@ -98,6 +100,6 @@ def store_branch(file, source_register1, result_address):
 def store(file, result_register, result_address):
     file.write("store:\n")
     file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
-    result_register = int(result_register)+1
-    file.write("\tsw $%d, %d($%s)\n" % (result_register, 0, result_address))
+    #result_register = int(result_register)+1
+    #file.write("\tsw $%d, %d($%s)\n" % (result_register, 0, result_address))
     file.write("\tjr $31\n\n")
