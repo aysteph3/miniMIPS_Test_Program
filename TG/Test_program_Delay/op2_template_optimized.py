@@ -18,6 +18,7 @@ def op2_func2(instruction, file, result_register,result_address,iterator,pattern
     file.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
     file.write("\t%s $%s, $%s, $%s\n" % (instruction, result_register, src1, src2))
     file.write("\tjal store\n")
+    file.write("\tjal increment\n")  # added 20th Sep
     file.write("\tlui $%s, %d\n" % (transition_address, 65533))
     file.write("\tori $%s, $%s, %d\n" % (transition_address, transition_address, 65533))
     file.write("\tlui $%s, %d\n" % (src3, 0))
@@ -94,6 +95,7 @@ def hi_lo_func_func(instruction, file, result_register,result_address,iterator,p
     file.write("\t%s $%s, $%s\n" % (instruction, src1, src2))
     file.write("\t%s $%s\n" % ('mflo',result_register))
     file.write("\tjal store\n")
+    file.write("\tjal increment\n")  # added 20th Sep
     file.write("\tlui $%s, %d\n" % (transition_address, 65533))
     file.write("\tori $%s, $%s, %d\n" % (transition_address, transition_address, 65533))
     file.write("\tlui $%s, %d\n" % (src3, 0))
@@ -111,6 +113,7 @@ def hi_lo_func_func_a(instruction, file, result_register,result_address,iterator
     file.write("\t%s $%s, $%s\n" % (instruction, src1, src2))
     file.write("\t%s $%s\n" % ('mfhi',result_register))
     file.write("\tjal store\n")
+    file.write("\tjal increment\n")  # added 20th Sep
     file.write("\tlui $%s, %d\n" % (transition_address, 65533))
     file.write("\tori $%s, $%s, %d\n" % (transition_address, transition_address, 65533))
     file.write("\tlui $%s, %d\n" % (src3, 0))
@@ -204,6 +207,7 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
     out.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
     out.write("\t%s $%s, $%s, $%s\n" % (x, result_register, src1, src2))
     out.write("\tjal store\n") #added
+    out.write("\tjal increment\n")  # added 20th Sep
     out.write("\tlui $%s, %d\n" % (transition_address, 65533))
     out.write("\tori $%s, $%s, %d\n" % (transition_address, transition_address, 65533))
     out.write("\tlui $%s, %d\n" % (src3, 0))
