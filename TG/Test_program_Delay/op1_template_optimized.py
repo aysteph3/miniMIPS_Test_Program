@@ -58,18 +58,6 @@ def branch_test(instruction, file, result_register,result_address,iterator,branc
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, branch_count, instr))
 
-#def branch_test2(instruction, file, result_register,result_address,iterator,pattern_count, instr):
-#    file.write("\tjal load_patterns\n")
-#    file.write("\t%s $%s, $%d, $%d\n" % ('and', result_register, 15, 16))
-#    if ((instruction == 'bgezal') or (instruction == 'bltzal')):
-#    	file.write("\t%s $%d, store_branch\n" % (instruction, 15))
-#    else:
-#    	store = str("store_"+instruction)
-#    	file.write("\t%s $%d, %s\n" % (instruction, 15, store))
-#    #file.write("\tsw $%d, %d($%s)\n" % (0, 0, result_address))
-#    file.write("\tjal increment_offset\n")
-#    file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
-
 def branc_location(instruction, file, result_address):
     file.write(" store_"+instruction+":\n")
     file.write("\tsw $%d, %d($%s)\n" % (18, 0, result_address))
