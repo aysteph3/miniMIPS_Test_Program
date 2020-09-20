@@ -16,10 +16,18 @@ def generate_immediate(instruct, out, result_register, result_address, inputFile
 	 	out.write("\n")
 	f.close()
 
-def immediate_fun(instruction, file, result_register, result_address, immediate,k, src1, src2):
+def immediate_fun(instruction, file, result_register, result_address, immediate,k, src1, src2, src3, transition_address):
     #file.write("\tjal load_patterns\n")
     file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src1, immediate))
     file.write("\tsw $%s, %s($%s)\n" % (result_register, k, result_address))
+    file.write("\tlui $%s, %d\n" % (transition_address, 65533))
+    file.write("\tori $%s, $%s, %d\n" % (transition_address, transition_address, 65533))
+    file.write("\tlui $%s, %d\n" % (src3, 0))
+    file.write("\tori $%s, $%s, %d\n" % (src3, src3, 0))
+    k+=4
+    file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src3, 0))
+    file.write("\tsw $%s, %s($%s)\n" % (result_register, k, result_address))
+    k+=4
     #file.write("\tjal increment_offset\n")
 
 def immediate_fun_2(instruction, file, result_register, result_address, immediate, src1, src2, transition_address):
@@ -27,11 +35,13 @@ def immediate_fun_2(instruction, file, result_register, result_address, immediat
    file.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
    file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src1, immediate))
    file.write("\tsw $%s, %s($%s)\n" % (result_register, 0, result_address))
-
    #file.write("\tlui $%s, %d\n" % (transition_address, 65533))
    #file.write("\tori $%s, $%s, %d\n" % (transition_address, transition_address, 65533))
    #file.write("\tlui $%s, %d\n" % (src3, 0))
    #file.write("\tori $%s, $%s, %d\n" % (src3, src3, 0))
+   #file.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
+   #file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src1, 0))
+   #file.write("\tsw $%s, %s($%s)\n" % (result_register, 0, result_address))
 
    file.write("\tjal increment_offset\n")
 
@@ -139,7 +149,7 @@ def branch_template(para, out, jump_address, result_register, result_address, in
 	else:
 		do='nothing'
 
-def ops1_template(para, out, result_register, result_address, inputFile,iterator, pattern_count, pattern_address, branch_count, src1, src2, transition_address):
+def ops1_template(para, out, result_register, result_address, inputFile,iterator, pattern_count, pattern_address, branch_count, src1, src2, src3, transition_address):
  Ins = open(para,'r')
  data_lines = []
  opcode = []
@@ -205,8 +215,8 @@ def ops1_template(para, out, result_register, result_address, inputFile,iterator
   out.write("\tjal load_patterns\n")
   for x in opcode:
 	out.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
-	immediate_fun(x, out, result_register,result_address, immediate, offset, src1, src2)
-	offset+=4
+	immediate_fun(x, out, result_register,result_address, immediate, offset, src1, src2, src3, transition_address)
+	offset+=8
   offset+=4
   out.write("\tjal increment_offset\n")
  out.write("\n")
