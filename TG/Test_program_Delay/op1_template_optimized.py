@@ -3,7 +3,7 @@ import reset
 
 def generate_immediate(instruct, out, result_register, result_address, inputFile, src1, src2, transition_address):
 	data_lines = []
-	total_pattern = len(open('../input/data_tdf.txt').readlines())
+	total_pattern = len(open('../input/data.txt').readlines())
  	f = open(inputFile,'r')
 	k = 0
 	n = 0

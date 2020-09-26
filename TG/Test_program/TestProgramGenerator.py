@@ -129,7 +129,7 @@ op1_template_optimized.ops1_template(parameter, out, result_register, result_add
 #syscall
 pipeline.syscall(out)
 
-#template for psuedo-exhaustive data
+##template for psuedo-exhaustive data
 #out.write(";..........data-path test..........;\n")
 #out.write(" lui $%s, %d\n" % (result_address, 1))
 #out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 10000))
