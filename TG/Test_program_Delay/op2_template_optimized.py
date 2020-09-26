@@ -17,6 +17,8 @@ def op2_func2(instruction, file, result_register,result_address,iterator,pattern
     file.write("\tjal load_patterns\n")
     file.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
     file.write("\t%s $%s, $%s, $%s\n" % (instruction, result_register, src1, src2))
+    file.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
+    file.write("\t%s $%s, $%s, $%s\n" % (instruction, str(int(result_register)+1), src2, src1))
     file.write("\tjal store\n")
     file.write("\tjal increment\n")  # added 20th Sep
     file.write("\tlui $%s, %d\n" % (transition_address, 65533))
@@ -25,6 +27,8 @@ def op2_func2(instruction, file, result_register,result_address,iterator,pattern
     file.write("\tori $%s, $%s, %d\n" % (src3, src3, 0))
     file.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
     file.write("\t%s $%s, $%s, $%s\n" % (instruction, result_register, src3, src3))
+    file.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
+    file.write("\t%s $%s, $%s, $%s\n" % (instruction, str(int(result_register)+1), src3, src3))
     file.write("\tjal store\n")
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
@@ -206,6 +210,8 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
  for x in opcode:
     out.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
     out.write("\t%s $%s, $%s, $%s\n" % (x, result_register, src1, src2))
+    out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
+    out.write("\t%s $%s, $%s, $%s\n" % (x, str(int(result_register)+1), src2, src1))
     out.write("\tjal store\n") #added
     out.write("\tjal increment\n")  # added 20th Sep
     out.write("\tlui $%s, %d\n" % (transition_address, 65533))
@@ -214,6 +220,8 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
     out.write("\tori $%s, $%s, %d\n" % (src3, src3, 0))
     out.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
     out.write("\t%s $%s, $%s, $%s\n" % (x, result_register, src3, src3))
+    out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
+    out.write("\t%s $%s, $%s, $%s\n" % (x, str(int(result_register)+1), src3, src3))
     out.write("\tjal store\n") #added
     out.write("\tjal increment\n") #added
  out.write("\tjal increment_offset\n")

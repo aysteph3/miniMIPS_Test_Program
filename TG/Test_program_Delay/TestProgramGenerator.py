@@ -11,13 +11,13 @@ import op1_template_optimized
 import transition_1to0
 
 #test data file
-inputFile = "../input/data_tdf.txt"
+inputFile = "../input/data.txt"
 parameter = "parameter.txt"
 data_f = open(inputFile,'r')
 
 l = open(parameter,'r')
 out = open('outputme.txt', 'w')
-total_pattern = len(open('../input/data_tdf.txt').readlines())
+total_pattern = len(open('../input/data.txt').readlines())
 
 branchFile = "../input/branch.txt"
 branch_f = open(branchFile,'r')
@@ -143,11 +143,11 @@ pipeline.syscall(out)
 #out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 10000))
 #transition_1to0.make_transition10_template(parameter,out, result_register,transition_address,source_register3)
 
-#template for psuedo-exhaustive data
-out.write(";..........data-path test..........;\n")
-out.write(" lui $%s, %d\n" % (result_address, 1))
-out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 10000))
-pseudo_template.make_pseudo_template(parameter,out, result_register)
+##template for psuedo-exhaustive data
+#out.write(";..........data-path test..........;\n")
+#out.write(" lui $%s, %d\n" % (result_address, 1))
+#out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 10000))
+#pseudo_template.make_pseudo_template(parameter,out, result_register)
 
 
 #break

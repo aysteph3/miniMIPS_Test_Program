@@ -100,6 +100,6 @@ def store_branch(file, source_register1, result_address):
 def store(file, result_register, result_address):
     file.write("store:\n")
     file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
-    #result_register = int(result_register)+1
-    #file.write("\tsw $%d, %d($%s)\n" % (result_register, 0, result_address))
+    result_register = int(result_register)+1
+    file.write("\tsw $%d, %d($%s)\n" % (result_register, 0, result_address))
     file.write("\tjr $31\n\n")
