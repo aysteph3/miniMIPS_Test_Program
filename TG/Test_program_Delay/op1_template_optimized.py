@@ -35,14 +35,6 @@ def immediate_fun_2(instruction, file, result_register, result_address, immediat
    file.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
    file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src1, immediate))
    file.write("\tsw $%s, %s($%s)\n" % (result_register, 0, result_address))
-   #file.write("\tlui $%s, %d\n" % (transition_address, 65533))
-   #file.write("\tori $%s, $%s, %d\n" % (transition_address, transition_address, 65533))
-   #file.write("\tlui $%s, %d\n" % (src3, 0))
-   #file.write("\tori $%s, $%s, %d\n" % (src3, src3, 0))
-   #file.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
-   #file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src1, 0))
-   #file.write("\tsw $%s, %s($%s)\n" % (result_register, 0, result_address))
-
    file.write("\tjal increment_offset\n")
 
 def branch_1(instruction, file, jump_address,result_address,iterator,branch_count, instr, src1, src2):

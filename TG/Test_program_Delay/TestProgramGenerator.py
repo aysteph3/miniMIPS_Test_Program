@@ -135,6 +135,7 @@ op1_template_optimized.ops1_template(parameter, out, result_register, result_add
 ###out.write("jal reset_offsets\n\n") # reset offsets after all immediate operations. Remove if you plan other instructions after this
 
 #syscall
+out.write(";..........system call..........;\n")
 pipeline.syscall(out)
 
 ##template for transition(1 to 0)
@@ -151,6 +152,7 @@ pipeline.syscall(out)
 
 
 #break
+out.write(";..........break..........;\n")
 pipeline.breaks(out)
 
 #template for HILO

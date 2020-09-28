@@ -1794,389 +1794,3763 @@ cop0_register:
 
 jal reset_offsets
 jal init_cp
-operation_add:
+operation_add_addu:
 	jal load_patterns
-	or $18, $17, $17
 	add $18, $15, $16
-	sll $0, $0, 0
-	add $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	add $18, $20, $20
-	sll $0, $0, 0
-	add $19, $20, $20
+	addu $18, $15, $16
+	add $19, $15, $16
 	jal store
 	jal increment_offset
-	bne $27, $28, operation_add
+	bne $27, $28, operation_add_addu
 
 jal reset_offsets
 jal init_cp
-operation_sub:
+operation_add_and:
 	jal load_patterns
-	or $18, $17, $17
-	sub $18, $15, $16
-	sll $0, $0, 0
-	sub $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	sub $18, $20, $20
-	sll $0, $0, 0
-	sub $19, $20, $20
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub
-
-jal reset_offsets
-operation_sll:
-	jal load_patterns
-	or $18, $17, $17
-	sll $18 ,$15, 5
-	sw $18, 0($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	sll $18 ,$20, 5
-	sw $18, 0($29)
-	jal increment_offset
-	bne $27, $28, operation_sll
-
-jal reset_offsets
-operation_srl:
-	jal load_patterns
-	or $18, $17, $17
-	srl $18 ,$15, 5
-	sw $18, 0($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	srl $18 ,$20, 5
-	sw $18, 0($29)
-	jal increment_offset
-	bne $27, $28, operation_srl
-
-jal reset_offsets
-operation_sra:
-	jal load_patterns
-	or $18, $17, $17
-	sra $18 ,$15, 5
-	sw $18, 0($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	sra $18 ,$20, 5
-	sw $18, 0($29)
-	jal increment_offset
-	bne $27, $28, operation_sra
-
-jal reset_offsets
-operation_mult_lo:
-	jal load_patterns
-	or $18, $17, $17
-	mult $15, $16
-	mflo $18
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	mult $20, $20
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_mult_lo
-
-jal reset_offsets
-operation_mult_hi:
-	jal load_patterns
-	or $18, $17, $17
-	mult $15, $16
-	mfhi $18
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	mult $20, $20
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_mult_hi
-
-jal reset_offsets
-operation_multu_lo:
-	jal load_patterns
-	or $18, $17, $17
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	multu $20, $20
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_lo
-
-jal reset_offsets
-operation_multu_hi:
-	jal load_patterns
-	or $18, $17, $17
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	multu $20, $20
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_hi
-
-jal reset_offsets
-operation_mthi_hi_lo:
-	jal load_patterns
-	or $18, $17, $17
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_hi_lo
-
-jal reset_offsets
-operation_mtlo_hi_lo:
-	jal load_patterns
-	or $18, $17, $17
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_hi_lo
-
-jal reset_offsets
-operation_op2:
-	jal load_patterns
-	or $18, $17, $17
-	addu $18, $15, $16
-	sll $0, $0, 0
-	addu $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	addu $18, $20, $20
-	sll $0, $0, 0
-	addu $19, $20, $20
-	jal store
-	jal increment
-	or $18, $17, $17
+	add $18, $15, $16
 	and $18, $15, $16
-	sll $0, $0, 0
-	and $19, $16, $15
+	add $19, $15, $16
 	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	and $18, $20, $20
-	sll $0, $0, 0
-	and $19, $20, $20
-	jal store
-	jal increment
-	or $18, $17, $17
-	nor $18, $15, $16
-	sll $0, $0, 0
-	nor $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	nor $18, $20, $20
-	sll $0, $0, 0
-	nor $19, $20, $20
-	jal store
-	jal increment
-	or $18, $17, $17
-	or $18, $15, $16
-	sll $0, $0, 0
-	or $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	or $18, $20, $20
-	sll $0, $0, 0
-	or $19, $20, $20
-	jal store
-	jal increment
-	or $18, $17, $17
-	subu $18, $15, $16
-	sll $0, $0, 0
-	subu $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	subu $18, $20, $20
-	sll $0, $0, 0
-	subu $19, $20, $20
-	jal store
-	jal increment
-	or $18, $17, $17
-	xor $18, $15, $16
-	sll $0, $0, 0
-	xor $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	xor $18, $20, $20
-	sll $0, $0, 0
-	xor $19, $20, $20
-	jal store
-	jal increment
-	or $18, $17, $17
-	sllv $18, $15, $16
-	sll $0, $0, 0
-	sllv $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	sllv $18, $20, $20
-	sll $0, $0, 0
-	sllv $19, $20, $20
-	jal store
-	jal increment
-	or $18, $17, $17
-	slt $18, $15, $16
-	sll $0, $0, 0
-	slt $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	slt $18, $20, $20
-	sll $0, $0, 0
-	slt $19, $20, $20
-	jal store
-	jal increment
-	or $18, $17, $17
-	sltu $18, $15, $16
-	sll $0, $0, 0
-	sltu $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	sltu $18, $20, $20
-	sll $0, $0, 0
-	sltu $19, $20, $20
-	jal store
-	jal increment
-	or $18, $17, $17
-	srav $18, $15, $16
-	sll $0, $0, 0
-	srav $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	srav $18, $20, $20
-	sll $0, $0, 0
-	srav $19, $20, $20
-	jal store
-	jal increment
-	or $18, $17, $17
-	srlv $18, $15, $16
-	sll $0, $0, 0
-	srlv $19, $16, $15
-	jal store
-	jal increment
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	or $18, $17, $17
-	srlv $18, $20, $20
-	sll $0, $0, 0
-	srlv $19, $20, $20
-	jal store
-	jal increment
 	jal increment_offset
-	bne $27, $28, operation_op2
+	bne $27, $28, operation_add_and
+
+jal reset_offsets
+jal init_cp
+operation_add_nor:
+	jal load_patterns
+	add $18, $15, $16
+	nor $18, $15, $16
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_nor
+
+jal reset_offsets
+jal init_cp
+operation_add_or:
+	jal load_patterns
+	add $18, $15, $16
+	or $18, $15, $16
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_or
+
+jal reset_offsets
+jal init_cp
+operation_add_subu:
+	jal load_patterns
+	add $18, $15, $16
+	subu $18, $15, $16
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_subu
+
+jal reset_offsets
+jal init_cp
+operation_add_sub:
+	jal load_patterns
+	add $18, $15, $16
+	sub $18, $15, $16
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_sub
+
+jal reset_offsets
+jal init_cp
+operation_add_xor:
+	jal load_patterns
+	add $18, $15, $16
+	xor $18, $15, $16
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_xor
+
+jal reset_offsets
+jal init_cp
+operation_add_sllv:
+	jal load_patterns
+	add $18, $15, $16
+	sllv $18, $15, $16
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_sllv
+
+jal reset_offsets
+jal init_cp
+operation_add_slt:
+	jal load_patterns
+	add $18, $15, $16
+	slt $18, $15, $16
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_slt
+
+jal reset_offsets
+jal init_cp
+operation_add_sltu:
+	jal load_patterns
+	add $18, $15, $16
+	sltu $18, $15, $16
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_sltu
+
+jal reset_offsets
+jal init_cp
+operation_add_srav:
+	jal load_patterns
+	add $18, $15, $16
+	srav $18, $15, $16
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_srav
+
+jal reset_offsets
+jal init_cp
+operation_add_srlv:
+	jal load_patterns
+	add $18, $15, $16
+	srlv $18, $15, $16
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_srlv
+
+jal reset_offsets
+jal init_cp
+operation_add_sll:
+	jal load_patterns
+	add $18, $15, $16
+	sll $18 ,$15, 5
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_sll
+
+jal reset_offsets
+jal init_cp
+operation_add_srl:
+	jal load_patterns
+	add $18, $15, $16
+	srl $18 ,$15, 5
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_srl
+
+jal reset_offsets
+jal init_cp
+operation_add_sra:
+	jal load_patterns
+	add $18, $15, $16
+	sra $18 ,$15, 5
+	add $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_add_sra
+
+jal reset_offsets
+jal init_cp
+operation_addu_add:
+	jal load_patterns
+	addu $18, $15, $16
+	add $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_add
+
+jal reset_offsets
+jal init_cp
+operation_addu_and:
+	jal load_patterns
+	addu $18, $15, $16
+	and $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_and
+
+jal reset_offsets
+jal init_cp
+operation_addu_nor:
+	jal load_patterns
+	addu $18, $15, $16
+	nor $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_nor
+
+jal reset_offsets
+jal init_cp
+operation_addu_or:
+	jal load_patterns
+	addu $18, $15, $16
+	or $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_or
+
+jal reset_offsets
+jal init_cp
+operation_addu_subu:
+	jal load_patterns
+	addu $18, $15, $16
+	subu $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_subu
+
+jal reset_offsets
+jal init_cp
+operation_addu_sub:
+	jal load_patterns
+	addu $18, $15, $16
+	sub $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_sub
+
+jal reset_offsets
+jal init_cp
+operation_addu_xor:
+	jal load_patterns
+	addu $18, $15, $16
+	xor $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_xor
+
+jal reset_offsets
+jal init_cp
+operation_addu_sllv:
+	jal load_patterns
+	addu $18, $15, $16
+	sllv $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_sllv
+
+jal reset_offsets
+jal init_cp
+operation_addu_slt:
+	jal load_patterns
+	addu $18, $15, $16
+	slt $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_slt
+
+jal reset_offsets
+jal init_cp
+operation_addu_sltu:
+	jal load_patterns
+	addu $18, $15, $16
+	sltu $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_sltu
+
+jal reset_offsets
+jal init_cp
+operation_addu_srav:
+	jal load_patterns
+	addu $18, $15, $16
+	srav $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_srav
+
+jal reset_offsets
+jal init_cp
+operation_addu_srlv:
+	jal load_patterns
+	addu $18, $15, $16
+	srlv $18, $15, $16
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_srlv
+
+jal reset_offsets
+jal init_cp
+operation_addu_sll:
+	jal load_patterns
+	addu $18, $15, $16
+	sll $18 ,$15, 5
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_sll
+
+jal reset_offsets
+jal init_cp
+operation_addu_srl:
+	jal load_patterns
+	addu $18, $15, $16
+	srl $18 ,$15, 5
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_srl
+
+jal reset_offsets
+jal init_cp
+operation_addu_sra:
+	jal load_patterns
+	addu $18, $15, $16
+	sra $18 ,$15, 5
+	addu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_addu_sra
+
+jal reset_offsets
+jal init_cp
+operation_and_add:
+	jal load_patterns
+	and $18, $15, $16
+	add $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_add
+
+jal reset_offsets
+jal init_cp
+operation_and_addu:
+	jal load_patterns
+	and $18, $15, $16
+	addu $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_addu
+
+jal reset_offsets
+jal init_cp
+operation_and_nor:
+	jal load_patterns
+	and $18, $15, $16
+	nor $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_nor
+
+jal reset_offsets
+jal init_cp
+operation_and_or:
+	jal load_patterns
+	and $18, $15, $16
+	or $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_or
+
+jal reset_offsets
+jal init_cp
+operation_and_subu:
+	jal load_patterns
+	and $18, $15, $16
+	subu $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_subu
+
+jal reset_offsets
+jal init_cp
+operation_and_sub:
+	jal load_patterns
+	and $18, $15, $16
+	sub $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_sub
+
+jal reset_offsets
+jal init_cp
+operation_and_xor:
+	jal load_patterns
+	and $18, $15, $16
+	xor $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_xor
+
+jal reset_offsets
+jal init_cp
+operation_and_sllv:
+	jal load_patterns
+	and $18, $15, $16
+	sllv $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_sllv
+
+jal reset_offsets
+jal init_cp
+operation_and_slt:
+	jal load_patterns
+	and $18, $15, $16
+	slt $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_slt
+
+jal reset_offsets
+jal init_cp
+operation_and_sltu:
+	jal load_patterns
+	and $18, $15, $16
+	sltu $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_sltu
+
+jal reset_offsets
+jal init_cp
+operation_and_srav:
+	jal load_patterns
+	and $18, $15, $16
+	srav $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_srav
+
+jal reset_offsets
+jal init_cp
+operation_and_srlv:
+	jal load_patterns
+	and $18, $15, $16
+	srlv $18, $15, $16
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_srlv
+
+jal reset_offsets
+jal init_cp
+operation_and_sll:
+	jal load_patterns
+	and $18, $15, $16
+	sll $18 ,$15, 5
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_sll
+
+jal reset_offsets
+jal init_cp
+operation_and_srl:
+	jal load_patterns
+	and $18, $15, $16
+	srl $18 ,$15, 5
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_srl
+
+jal reset_offsets
+jal init_cp
+operation_and_sra:
+	jal load_patterns
+	and $18, $15, $16
+	sra $18 ,$15, 5
+	and $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_and_sra
+
+jal reset_offsets
+jal init_cp
+operation_nor_add:
+	jal load_patterns
+	nor $18, $15, $16
+	add $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_add
+
+jal reset_offsets
+jal init_cp
+operation_nor_addu:
+	jal load_patterns
+	nor $18, $15, $16
+	addu $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_addu
+
+jal reset_offsets
+jal init_cp
+operation_nor_and:
+	jal load_patterns
+	nor $18, $15, $16
+	and $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_and
+
+jal reset_offsets
+jal init_cp
+operation_nor_or:
+	jal load_patterns
+	nor $18, $15, $16
+	or $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_or
+
+jal reset_offsets
+jal init_cp
+operation_nor_subu:
+	jal load_patterns
+	nor $18, $15, $16
+	subu $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_subu
+
+jal reset_offsets
+jal init_cp
+operation_nor_sub:
+	jal load_patterns
+	nor $18, $15, $16
+	sub $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_sub
+
+jal reset_offsets
+jal init_cp
+operation_nor_xor:
+	jal load_patterns
+	nor $18, $15, $16
+	xor $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_xor
+
+jal reset_offsets
+jal init_cp
+operation_nor_sllv:
+	jal load_patterns
+	nor $18, $15, $16
+	sllv $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_sllv
+
+jal reset_offsets
+jal init_cp
+operation_nor_slt:
+	jal load_patterns
+	nor $18, $15, $16
+	slt $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_slt
+
+jal reset_offsets
+jal init_cp
+operation_nor_sltu:
+	jal load_patterns
+	nor $18, $15, $16
+	sltu $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_sltu
+
+jal reset_offsets
+jal init_cp
+operation_nor_srav:
+	jal load_patterns
+	nor $18, $15, $16
+	srav $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_srav
+
+jal reset_offsets
+jal init_cp
+operation_nor_srlv:
+	jal load_patterns
+	nor $18, $15, $16
+	srlv $18, $15, $16
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_srlv
+
+jal reset_offsets
+jal init_cp
+operation_nor_sll:
+	jal load_patterns
+	nor $18, $15, $16
+	sll $18 ,$15, 5
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_sll
+
+jal reset_offsets
+jal init_cp
+operation_nor_srl:
+	jal load_patterns
+	nor $18, $15, $16
+	srl $18 ,$15, 5
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_srl
+
+jal reset_offsets
+jal init_cp
+operation_nor_sra:
+	jal load_patterns
+	nor $18, $15, $16
+	sra $18 ,$15, 5
+	nor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_nor_sra
+
+jal reset_offsets
+jal init_cp
+operation_or_add:
+	jal load_patterns
+	or $18, $15, $16
+	add $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_add
+
+jal reset_offsets
+jal init_cp
+operation_or_addu:
+	jal load_patterns
+	or $18, $15, $16
+	addu $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_addu
+
+jal reset_offsets
+jal init_cp
+operation_or_and:
+	jal load_patterns
+	or $18, $15, $16
+	and $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_and
+
+jal reset_offsets
+jal init_cp
+operation_or_nor:
+	jal load_patterns
+	or $18, $15, $16
+	nor $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_nor
+
+jal reset_offsets
+jal init_cp
+operation_or_subu:
+	jal load_patterns
+	or $18, $15, $16
+	subu $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_subu
+
+jal reset_offsets
+jal init_cp
+operation_or_sub:
+	jal load_patterns
+	or $18, $15, $16
+	sub $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_sub
+
+jal reset_offsets
+jal init_cp
+operation_or_xor:
+	jal load_patterns
+	or $18, $15, $16
+	xor $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_xor
+
+jal reset_offsets
+jal init_cp
+operation_or_sllv:
+	jal load_patterns
+	or $18, $15, $16
+	sllv $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_sllv
+
+jal reset_offsets
+jal init_cp
+operation_or_slt:
+	jal load_patterns
+	or $18, $15, $16
+	slt $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_slt
+
+jal reset_offsets
+jal init_cp
+operation_or_sltu:
+	jal load_patterns
+	or $18, $15, $16
+	sltu $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_sltu
+
+jal reset_offsets
+jal init_cp
+operation_or_srav:
+	jal load_patterns
+	or $18, $15, $16
+	srav $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_srav
+
+jal reset_offsets
+jal init_cp
+operation_or_srlv:
+	jal load_patterns
+	or $18, $15, $16
+	srlv $18, $15, $16
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_srlv
+
+jal reset_offsets
+jal init_cp
+operation_or_sll:
+	jal load_patterns
+	or $18, $15, $16
+	sll $18 ,$15, 5
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_sll
+
+jal reset_offsets
+jal init_cp
+operation_or_srl:
+	jal load_patterns
+	or $18, $15, $16
+	srl $18 ,$15, 5
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_srl
+
+jal reset_offsets
+jal init_cp
+operation_or_sra:
+	jal load_patterns
+	or $18, $15, $16
+	sra $18 ,$15, 5
+	or $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_or_sra
+
+jal reset_offsets
+jal init_cp
+operation_subu_add:
+	jal load_patterns
+	subu $18, $15, $16
+	add $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_add
+
+jal reset_offsets
+jal init_cp
+operation_subu_addu:
+	jal load_patterns
+	subu $18, $15, $16
+	addu $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_addu
+
+jal reset_offsets
+jal init_cp
+operation_subu_and:
+	jal load_patterns
+	subu $18, $15, $16
+	and $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_and
+
+jal reset_offsets
+jal init_cp
+operation_subu_nor:
+	jal load_patterns
+	subu $18, $15, $16
+	nor $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_nor
+
+jal reset_offsets
+jal init_cp
+operation_subu_or:
+	jal load_patterns
+	subu $18, $15, $16
+	or $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_or
+
+jal reset_offsets
+jal init_cp
+operation_subu_sub:
+	jal load_patterns
+	subu $18, $15, $16
+	sub $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_sub
+
+jal reset_offsets
+jal init_cp
+operation_subu_xor:
+	jal load_patterns
+	subu $18, $15, $16
+	xor $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_xor
+
+jal reset_offsets
+jal init_cp
+operation_subu_sllv:
+	jal load_patterns
+	subu $18, $15, $16
+	sllv $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_sllv
+
+jal reset_offsets
+jal init_cp
+operation_subu_slt:
+	jal load_patterns
+	subu $18, $15, $16
+	slt $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_slt
+
+jal reset_offsets
+jal init_cp
+operation_subu_sltu:
+	jal load_patterns
+	subu $18, $15, $16
+	sltu $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_sltu
+
+jal reset_offsets
+jal init_cp
+operation_subu_srav:
+	jal load_patterns
+	subu $18, $15, $16
+	srav $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_srav
+
+jal reset_offsets
+jal init_cp
+operation_subu_srlv:
+	jal load_patterns
+	subu $18, $15, $16
+	srlv $18, $15, $16
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_srlv
+
+jal reset_offsets
+jal init_cp
+operation_subu_sll:
+	jal load_patterns
+	subu $18, $15, $16
+	sll $18 ,$15, 5
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_sll
+
+jal reset_offsets
+jal init_cp
+operation_subu_srl:
+	jal load_patterns
+	subu $18, $15, $16
+	srl $18 ,$15, 5
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_srl
+
+jal reset_offsets
+jal init_cp
+operation_subu_sra:
+	jal load_patterns
+	subu $18, $15, $16
+	sra $18 ,$15, 5
+	subu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_subu_sra
+
+jal reset_offsets
+jal init_cp
+operation_sub_add:
+	jal load_patterns
+	sub $18, $15, $16
+	add $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_add
+
+jal reset_offsets
+jal init_cp
+operation_sub_addu:
+	jal load_patterns
+	sub $18, $15, $16
+	addu $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_addu
+
+jal reset_offsets
+jal init_cp
+operation_sub_and:
+	jal load_patterns
+	sub $18, $15, $16
+	and $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_and
+
+jal reset_offsets
+jal init_cp
+operation_sub_nor:
+	jal load_patterns
+	sub $18, $15, $16
+	nor $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_nor
+
+jal reset_offsets
+jal init_cp
+operation_sub_or:
+	jal load_patterns
+	sub $18, $15, $16
+	or $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_or
+
+jal reset_offsets
+jal init_cp
+operation_sub_subu:
+	jal load_patterns
+	sub $18, $15, $16
+	subu $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_subu
+
+jal reset_offsets
+jal init_cp
+operation_sub_xor:
+	jal load_patterns
+	sub $18, $15, $16
+	xor $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_xor
+
+jal reset_offsets
+jal init_cp
+operation_sub_sllv:
+	jal load_patterns
+	sub $18, $15, $16
+	sllv $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_sllv
+
+jal reset_offsets
+jal init_cp
+operation_sub_slt:
+	jal load_patterns
+	sub $18, $15, $16
+	slt $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_slt
+
+jal reset_offsets
+jal init_cp
+operation_sub_sltu:
+	jal load_patterns
+	sub $18, $15, $16
+	sltu $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_sltu
+
+jal reset_offsets
+jal init_cp
+operation_sub_srav:
+	jal load_patterns
+	sub $18, $15, $16
+	srav $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_srav
+
+jal reset_offsets
+jal init_cp
+operation_sub_srlv:
+	jal load_patterns
+	sub $18, $15, $16
+	srlv $18, $15, $16
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_srlv
+
+jal reset_offsets
+jal init_cp
+operation_sub_sll:
+	jal load_patterns
+	sub $18, $15, $16
+	sll $18 ,$15, 5
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_sll
+
+jal reset_offsets
+jal init_cp
+operation_sub_srl:
+	jal load_patterns
+	sub $18, $15, $16
+	srl $18 ,$15, 5
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_srl
+
+jal reset_offsets
+jal init_cp
+operation_sub_sra:
+	jal load_patterns
+	sub $18, $15, $16
+	sra $18 ,$15, 5
+	sub $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sub_sra
+
+jal reset_offsets
+jal init_cp
+operation_xor_add:
+	jal load_patterns
+	xor $18, $15, $16
+	add $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_add
+
+jal reset_offsets
+jal init_cp
+operation_xor_addu:
+	jal load_patterns
+	xor $18, $15, $16
+	addu $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_addu
+
+jal reset_offsets
+jal init_cp
+operation_xor_and:
+	jal load_patterns
+	xor $18, $15, $16
+	and $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_and
+
+jal reset_offsets
+jal init_cp
+operation_xor_nor:
+	jal load_patterns
+	xor $18, $15, $16
+	nor $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_nor
+
+jal reset_offsets
+jal init_cp
+operation_xor_or:
+	jal load_patterns
+	xor $18, $15, $16
+	or $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_or
+
+jal reset_offsets
+jal init_cp
+operation_xor_subu:
+	jal load_patterns
+	xor $18, $15, $16
+	subu $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_subu
+
+jal reset_offsets
+jal init_cp
+operation_xor_sub:
+	jal load_patterns
+	xor $18, $15, $16
+	sub $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_sub
+
+jal reset_offsets
+jal init_cp
+operation_xor_sllv:
+	jal load_patterns
+	xor $18, $15, $16
+	sllv $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_sllv
+
+jal reset_offsets
+jal init_cp
+operation_xor_slt:
+	jal load_patterns
+	xor $18, $15, $16
+	slt $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_slt
+
+jal reset_offsets
+jal init_cp
+operation_xor_sltu:
+	jal load_patterns
+	xor $18, $15, $16
+	sltu $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_sltu
+
+jal reset_offsets
+jal init_cp
+operation_xor_srav:
+	jal load_patterns
+	xor $18, $15, $16
+	srav $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_srav
+
+jal reset_offsets
+jal init_cp
+operation_xor_srlv:
+	jal load_patterns
+	xor $18, $15, $16
+	srlv $18, $15, $16
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_srlv
+
+jal reset_offsets
+jal init_cp
+operation_xor_sll:
+	jal load_patterns
+	xor $18, $15, $16
+	sll $18 ,$15, 5
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_sll
+
+jal reset_offsets
+jal init_cp
+operation_xor_srl:
+	jal load_patterns
+	xor $18, $15, $16
+	srl $18 ,$15, 5
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_srl
+
+jal reset_offsets
+jal init_cp
+operation_xor_sra:
+	jal load_patterns
+	xor $18, $15, $16
+	sra $18 ,$15, 5
+	xor $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_xor_sra
+
+jal reset_offsets
+jal init_cp
+operation_sllv_add:
+	jal load_patterns
+	sllv $18, $15, $16
+	add $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_add
+
+jal reset_offsets
+jal init_cp
+operation_sllv_addu:
+	jal load_patterns
+	sllv $18, $15, $16
+	addu $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_addu
+
+jal reset_offsets
+jal init_cp
+operation_sllv_and:
+	jal load_patterns
+	sllv $18, $15, $16
+	and $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_and
+
+jal reset_offsets
+jal init_cp
+operation_sllv_nor:
+	jal load_patterns
+	sllv $18, $15, $16
+	nor $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_nor
+
+jal reset_offsets
+jal init_cp
+operation_sllv_or:
+	jal load_patterns
+	sllv $18, $15, $16
+	or $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_or
+
+jal reset_offsets
+jal init_cp
+operation_sllv_subu:
+	jal load_patterns
+	sllv $18, $15, $16
+	subu $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_subu
+
+jal reset_offsets
+jal init_cp
+operation_sllv_sub:
+	jal load_patterns
+	sllv $18, $15, $16
+	sub $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_sub
+
+jal reset_offsets
+jal init_cp
+operation_sllv_xor:
+	jal load_patterns
+	sllv $18, $15, $16
+	xor $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_xor
+
+jal reset_offsets
+jal init_cp
+operation_sllv_slt:
+	jal load_patterns
+	sllv $18, $15, $16
+	slt $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_slt
+
+jal reset_offsets
+jal init_cp
+operation_sllv_sltu:
+	jal load_patterns
+	sllv $18, $15, $16
+	sltu $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_sltu
+
+jal reset_offsets
+jal init_cp
+operation_sllv_srav:
+	jal load_patterns
+	sllv $18, $15, $16
+	srav $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_srav
+
+jal reset_offsets
+jal init_cp
+operation_sllv_srlv:
+	jal load_patterns
+	sllv $18, $15, $16
+	srlv $18, $15, $16
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_srlv
+
+jal reset_offsets
+jal init_cp
+operation_sllv_sll:
+	jal load_patterns
+	sllv $18, $15, $16
+	sll $18 ,$15, 5
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_sll
+
+jal reset_offsets
+jal init_cp
+operation_sllv_srl:
+	jal load_patterns
+	sllv $18, $15, $16
+	srl $18 ,$15, 5
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_srl
+
+jal reset_offsets
+jal init_cp
+operation_sllv_sra:
+	jal load_patterns
+	sllv $18, $15, $16
+	sra $18 ,$15, 5
+	sllv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sllv_sra
+
+jal reset_offsets
+jal init_cp
+operation_slt_add:
+	jal load_patterns
+	slt $18, $15, $16
+	add $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_add
+
+jal reset_offsets
+jal init_cp
+operation_slt_addu:
+	jal load_patterns
+	slt $18, $15, $16
+	addu $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_addu
+
+jal reset_offsets
+jal init_cp
+operation_slt_and:
+	jal load_patterns
+	slt $18, $15, $16
+	and $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_and
+
+jal reset_offsets
+jal init_cp
+operation_slt_nor:
+	jal load_patterns
+	slt $18, $15, $16
+	nor $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_nor
+
+jal reset_offsets
+jal init_cp
+operation_slt_or:
+	jal load_patterns
+	slt $18, $15, $16
+	or $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_or
+
+jal reset_offsets
+jal init_cp
+operation_slt_subu:
+	jal load_patterns
+	slt $18, $15, $16
+	subu $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_subu
+
+jal reset_offsets
+jal init_cp
+operation_slt_sub:
+	jal load_patterns
+	slt $18, $15, $16
+	sub $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_sub
+
+jal reset_offsets
+jal init_cp
+operation_slt_xor:
+	jal load_patterns
+	slt $18, $15, $16
+	xor $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_xor
+
+jal reset_offsets
+jal init_cp
+operation_slt_sllv:
+	jal load_patterns
+	slt $18, $15, $16
+	sllv $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_sllv
+
+jal reset_offsets
+jal init_cp
+operation_slt_sltu:
+	jal load_patterns
+	slt $18, $15, $16
+	sltu $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_sltu
+
+jal reset_offsets
+jal init_cp
+operation_slt_srav:
+	jal load_patterns
+	slt $18, $15, $16
+	srav $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_srav
+
+jal reset_offsets
+jal init_cp
+operation_slt_srlv:
+	jal load_patterns
+	slt $18, $15, $16
+	srlv $18, $15, $16
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_srlv
+
+jal reset_offsets
+jal init_cp
+operation_slt_sll:
+	jal load_patterns
+	slt $18, $15, $16
+	sll $18 ,$15, 5
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_sll
+
+jal reset_offsets
+jal init_cp
+operation_slt_srl:
+	jal load_patterns
+	slt $18, $15, $16
+	srl $18 ,$15, 5
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_srl
+
+jal reset_offsets
+jal init_cp
+operation_slt_sra:
+	jal load_patterns
+	slt $18, $15, $16
+	sra $18 ,$15, 5
+	slt $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_slt_sra
+
+jal reset_offsets
+jal init_cp
+operation_sltu_add:
+	jal load_patterns
+	sltu $18, $15, $16
+	add $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_add
+
+jal reset_offsets
+jal init_cp
+operation_sltu_addu:
+	jal load_patterns
+	sltu $18, $15, $16
+	addu $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_addu
+
+jal reset_offsets
+jal init_cp
+operation_sltu_and:
+	jal load_patterns
+	sltu $18, $15, $16
+	and $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_and
+
+jal reset_offsets
+jal init_cp
+operation_sltu_nor:
+	jal load_patterns
+	sltu $18, $15, $16
+	nor $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_nor
+
+jal reset_offsets
+jal init_cp
+operation_sltu_or:
+	jal load_patterns
+	sltu $18, $15, $16
+	or $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_or
+
+jal reset_offsets
+jal init_cp
+operation_sltu_subu:
+	jal load_patterns
+	sltu $18, $15, $16
+	subu $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_subu
+
+jal reset_offsets
+jal init_cp
+operation_sltu_sub:
+	jal load_patterns
+	sltu $18, $15, $16
+	sub $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_sub
+
+jal reset_offsets
+jal init_cp
+operation_sltu_xor:
+	jal load_patterns
+	sltu $18, $15, $16
+	xor $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_xor
+
+jal reset_offsets
+jal init_cp
+operation_sltu_sllv:
+	jal load_patterns
+	sltu $18, $15, $16
+	sllv $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_sllv
+
+jal reset_offsets
+jal init_cp
+operation_sltu_slt:
+	jal load_patterns
+	sltu $18, $15, $16
+	slt $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_slt
+
+jal reset_offsets
+jal init_cp
+operation_sltu_srav:
+	jal load_patterns
+	sltu $18, $15, $16
+	srav $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_srav
+
+jal reset_offsets
+jal init_cp
+operation_sltu_srlv:
+	jal load_patterns
+	sltu $18, $15, $16
+	srlv $18, $15, $16
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_srlv
+
+jal reset_offsets
+jal init_cp
+operation_sltu_sll:
+	jal load_patterns
+	sltu $18, $15, $16
+	sll $18 ,$15, 5
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_sll
+
+jal reset_offsets
+jal init_cp
+operation_sltu_srl:
+	jal load_patterns
+	sltu $18, $15, $16
+	srl $18 ,$15, 5
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_srl
+
+jal reset_offsets
+jal init_cp
+operation_sltu_sra:
+	jal load_patterns
+	sltu $18, $15, $16
+	sra $18 ,$15, 5
+	sltu $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_sltu_sra
+
+jal reset_offsets
+jal init_cp
+operation_srav_add:
+	jal load_patterns
+	srav $18, $15, $16
+	add $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_add
+
+jal reset_offsets
+jal init_cp
+operation_srav_addu:
+	jal load_patterns
+	srav $18, $15, $16
+	addu $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_addu
+
+jal reset_offsets
+jal init_cp
+operation_srav_and:
+	jal load_patterns
+	srav $18, $15, $16
+	and $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_and
+
+jal reset_offsets
+jal init_cp
+operation_srav_nor:
+	jal load_patterns
+	srav $18, $15, $16
+	nor $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_nor
+
+jal reset_offsets
+jal init_cp
+operation_srav_or:
+	jal load_patterns
+	srav $18, $15, $16
+	or $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_or
+
+jal reset_offsets
+jal init_cp
+operation_srav_subu:
+	jal load_patterns
+	srav $18, $15, $16
+	subu $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_subu
+
+jal reset_offsets
+jal init_cp
+operation_srav_sub:
+	jal load_patterns
+	srav $18, $15, $16
+	sub $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_sub
+
+jal reset_offsets
+jal init_cp
+operation_srav_xor:
+	jal load_patterns
+	srav $18, $15, $16
+	xor $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_xor
+
+jal reset_offsets
+jal init_cp
+operation_srav_sllv:
+	jal load_patterns
+	srav $18, $15, $16
+	sllv $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_sllv
+
+jal reset_offsets
+jal init_cp
+operation_srav_slt:
+	jal load_patterns
+	srav $18, $15, $16
+	slt $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_slt
+
+jal reset_offsets
+jal init_cp
+operation_srav_sltu:
+	jal load_patterns
+	srav $18, $15, $16
+	sltu $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_sltu
+
+jal reset_offsets
+jal init_cp
+operation_srav_srlv:
+	jal load_patterns
+	srav $18, $15, $16
+	srlv $18, $15, $16
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_srlv
+
+jal reset_offsets
+jal init_cp
+operation_srav_sll:
+	jal load_patterns
+	srav $18, $15, $16
+	sll $18 ,$15, 5
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_sll
+
+jal reset_offsets
+jal init_cp
+operation_srav_srl:
+	jal load_patterns
+	srav $18, $15, $16
+	srl $18 ,$15, 5
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_srl
+
+jal reset_offsets
+jal init_cp
+operation_srav_sra:
+	jal load_patterns
+	srav $18, $15, $16
+	sra $18 ,$15, 5
+	srav $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srav_sra
+
+jal reset_offsets
+jal init_cp
+operation_srlv_add:
+	jal load_patterns
+	srlv $18, $15, $16
+	add $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_add
+
+jal reset_offsets
+jal init_cp
+operation_srlv_addu:
+	jal load_patterns
+	srlv $18, $15, $16
+	addu $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_addu
+
+jal reset_offsets
+jal init_cp
+operation_srlv_and:
+	jal load_patterns
+	srlv $18, $15, $16
+	and $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_and
+
+jal reset_offsets
+jal init_cp
+operation_srlv_nor:
+	jal load_patterns
+	srlv $18, $15, $16
+	nor $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_nor
+
+jal reset_offsets
+jal init_cp
+operation_srlv_or:
+	jal load_patterns
+	srlv $18, $15, $16
+	or $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_or
+
+jal reset_offsets
+jal init_cp
+operation_srlv_subu:
+	jal load_patterns
+	srlv $18, $15, $16
+	subu $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_subu
+
+jal reset_offsets
+jal init_cp
+operation_srlv_sub:
+	jal load_patterns
+	srlv $18, $15, $16
+	sub $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_sub
+
+jal reset_offsets
+jal init_cp
+operation_srlv_xor:
+	jal load_patterns
+	srlv $18, $15, $16
+	xor $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_xor
+
+jal reset_offsets
+jal init_cp
+operation_srlv_sllv:
+	jal load_patterns
+	srlv $18, $15, $16
+	sllv $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_sllv
+
+jal reset_offsets
+jal init_cp
+operation_srlv_slt:
+	jal load_patterns
+	srlv $18, $15, $16
+	slt $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_slt
+
+jal reset_offsets
+jal init_cp
+operation_srlv_sltu:
+	jal load_patterns
+	srlv $18, $15, $16
+	sltu $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_sltu
+
+jal reset_offsets
+jal init_cp
+operation_srlv_srav:
+	jal load_patterns
+	srlv $18, $15, $16
+	srav $18, $15, $16
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_srav
+
+jal reset_offsets
+jal init_cp
+operation_srlv_sll:
+	jal load_patterns
+	srlv $18, $15, $16
+	sll $18 ,$15, 5
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_sll
+
+jal reset_offsets
+jal init_cp
+operation_srlv_srl:
+	jal load_patterns
+	srlv $18, $15, $16
+	srl $18 ,$15, 5
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_srl
+
+jal reset_offsets
+jal init_cp
+operation_srlv_sra:
+	jal load_patterns
+	srlv $18, $15, $16
+	sra $18 ,$15, 5
+	srlv $19, $15, $16
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_srlv_sra
+
+jal reset_offsets
+operation_sll_add:
+	jal load_patterns
+	sll $18 ,$15, 5
+	add $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_add
+
+jal reset_offsets
+operation_sll_addu:
+	jal load_patterns
+	sll $18 ,$15, 5
+	addu $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_addu
+
+jal reset_offsets
+operation_sll_and:
+	jal load_patterns
+	sll $18 ,$15, 5
+	and $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_and
+
+jal reset_offsets
+operation_sll_nor:
+	jal load_patterns
+	sll $18 ,$15, 5
+	nor $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_nor
+
+jal reset_offsets
+operation_sll_or:
+	jal load_patterns
+	sll $18 ,$15, 5
+	or $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_or
+
+jal reset_offsets
+operation_sll_subu:
+	jal load_patterns
+	sll $18 ,$15, 5
+	subu $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_subu
+
+jal reset_offsets
+operation_sll_sub:
+	jal load_patterns
+	sll $18 ,$15, 5
+	sub $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_sub
+
+jal reset_offsets
+operation_sll_xor:
+	jal load_patterns
+	sll $18 ,$15, 5
+	xor $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_xor
+
+jal reset_offsets
+operation_sll_sllv:
+	jal load_patterns
+	sll $18 ,$15, 5
+	sllv $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_sllv
+
+jal reset_offsets
+operation_sll_slt:
+	jal load_patterns
+	sll $18 ,$15, 5
+	slt $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_slt
+
+jal reset_offsets
+operation_sll_sltu:
+	jal load_patterns
+	sll $18 ,$15, 5
+	sltu $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_sltu
+
+jal reset_offsets
+operation_sll_srav:
+	jal load_patterns
+	sll $18 ,$15, 5
+	srav $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_srav
+
+jal reset_offsets
+operation_sll_srlv:
+	jal load_patterns
+	sll $18 ,$15, 5
+	srlv $18, $15, $16
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_srlv
+
+jal reset_offsets
+operation_sll_srl:
+	jal load_patterns
+	sll $18 ,$15, 5
+	srl $18 ,$15, 5
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_srl
+
+jal reset_offsets
+operation_sll_sra:
+	jal load_patterns
+	sll $18 ,$15, 5
+	sra $18 ,$15, 5
+	sll $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sll_sra
+
+jal reset_offsets
+operation_srl_add:
+	jal load_patterns
+	srl $18 ,$15, 5
+	add $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_add
+
+jal reset_offsets
+operation_srl_addu:
+	jal load_patterns
+	srl $18 ,$15, 5
+	addu $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_addu
+
+jal reset_offsets
+operation_srl_and:
+	jal load_patterns
+	srl $18 ,$15, 5
+	and $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_and
+
+jal reset_offsets
+operation_srl_nor:
+	jal load_patterns
+	srl $18 ,$15, 5
+	nor $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_nor
+
+jal reset_offsets
+operation_srl_or:
+	jal load_patterns
+	srl $18 ,$15, 5
+	or $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_or
+
+jal reset_offsets
+operation_srl_subu:
+	jal load_patterns
+	srl $18 ,$15, 5
+	subu $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_subu
+
+jal reset_offsets
+operation_srl_sub:
+	jal load_patterns
+	srl $18 ,$15, 5
+	sub $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_sub
+
+jal reset_offsets
+operation_srl_xor:
+	jal load_patterns
+	srl $18 ,$15, 5
+	xor $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_xor
+
+jal reset_offsets
+operation_srl_sllv:
+	jal load_patterns
+	srl $18 ,$15, 5
+	sllv $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_sllv
+
+jal reset_offsets
+operation_srl_slt:
+	jal load_patterns
+	srl $18 ,$15, 5
+	slt $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_slt
+
+jal reset_offsets
+operation_srl_sltu:
+	jal load_patterns
+	srl $18 ,$15, 5
+	sltu $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_sltu
+
+jal reset_offsets
+operation_srl_srav:
+	jal load_patterns
+	srl $18 ,$15, 5
+	srav $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_srav
+
+jal reset_offsets
+operation_srl_srlv:
+	jal load_patterns
+	srl $18 ,$15, 5
+	srlv $18, $15, $16
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_srlv
+
+jal reset_offsets
+operation_srl_sll:
+	jal load_patterns
+	srl $18 ,$15, 5
+	sll $18 ,$15, 5
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_sll
+
+jal reset_offsets
+operation_srl_sra:
+	jal load_patterns
+	srl $18 ,$15, 5
+	sra $18 ,$15, 5
+	srl $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_srl_sra
+
+jal reset_offsets
+operation_sra_add:
+	jal load_patterns
+	sra $18 ,$15, 5
+	add $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_add
+
+jal reset_offsets
+operation_sra_addu:
+	jal load_patterns
+	sra $18 ,$15, 5
+	addu $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_addu
+
+jal reset_offsets
+operation_sra_and:
+	jal load_patterns
+	sra $18 ,$15, 5
+	and $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_and
+
+jal reset_offsets
+operation_sra_nor:
+	jal load_patterns
+	sra $18 ,$15, 5
+	nor $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_nor
+
+jal reset_offsets
+operation_sra_or:
+	jal load_patterns
+	sra $18 ,$15, 5
+	or $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_or
+
+jal reset_offsets
+operation_sra_subu:
+	jal load_patterns
+	sra $18 ,$15, 5
+	subu $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_subu
+
+jal reset_offsets
+operation_sra_sub:
+	jal load_patterns
+	sra $18 ,$15, 5
+	sub $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_sub
+
+jal reset_offsets
+operation_sra_xor:
+	jal load_patterns
+	sra $18 ,$15, 5
+	xor $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_xor
+
+jal reset_offsets
+operation_sra_sllv:
+	jal load_patterns
+	sra $18 ,$15, 5
+	sllv $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_sllv
+
+jal reset_offsets
+operation_sra_slt:
+	jal load_patterns
+	sra $18 ,$15, 5
+	slt $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_slt
+
+jal reset_offsets
+operation_sra_sltu:
+	jal load_patterns
+	sra $18 ,$15, 5
+	sltu $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_sltu
+
+jal reset_offsets
+operation_sra_srav:
+	jal load_patterns
+	sra $18 ,$15, 5
+	srav $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_srav
+
+jal reset_offsets
+operation_sra_srlv:
+	jal load_patterns
+	sra $18 ,$15, 5
+	srlv $18, $15, $16
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_srlv
+
+jal reset_offsets
+operation_sra_sll:
+	jal load_patterns
+	sra $18 ,$15, 5
+	sll $18 ,$15, 5
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_sll
+
+jal reset_offsets
+operation_sra_srl:
+	jal load_patterns
+	sra $18 ,$15, 5
+	srl $18 ,$15, 5
+	sra $19 ,$15, 5
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_sra_srl
+
+jal reset_offsets
+operation_mult_add_lo:
+	jal load_patterns
+	mult $15, $16
+	add $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_add_lo
+
+jal reset_offsets
+operation_mult_add_hi:
+	jal load_patterns
+	mult $15, $16
+	add $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_add_hi
+
+jal reset_offsets
+operation_mult_addu_lo:
+	jal load_patterns
+	mult $15, $16
+	addu $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_addu_lo
+
+jal reset_offsets
+operation_mult_addu_hi:
+	jal load_patterns
+	mult $15, $16
+	addu $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_addu_hi
+
+jal reset_offsets
+operation_mult_and_lo:
+	jal load_patterns
+	mult $15, $16
+	and $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_and_lo
+
+jal reset_offsets
+operation_mult_and_hi:
+	jal load_patterns
+	mult $15, $16
+	and $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_and_hi
+
+jal reset_offsets
+operation_mult_nor_lo:
+	jal load_patterns
+	mult $15, $16
+	nor $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_nor_lo
+
+jal reset_offsets
+operation_mult_nor_hi:
+	jal load_patterns
+	mult $15, $16
+	nor $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_nor_hi
+
+jal reset_offsets
+operation_mult_or_lo:
+	jal load_patterns
+	mult $15, $16
+	or $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_or_lo
+
+jal reset_offsets
+operation_mult_or_hi:
+	jal load_patterns
+	mult $15, $16
+	or $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_or_hi
+
+jal reset_offsets
+operation_mult_subu_lo:
+	jal load_patterns
+	mult $15, $16
+	subu $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_subu_lo
+
+jal reset_offsets
+operation_mult_subu_hi:
+	jal load_patterns
+	mult $15, $16
+	subu $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_subu_hi
+
+jal reset_offsets
+operation_mult_sub_lo:
+	jal load_patterns
+	mult $15, $16
+	sub $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_sub_lo
+
+jal reset_offsets
+operation_mult_sub_hi:
+	jal load_patterns
+	mult $15, $16
+	sub $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_sub_hi
+
+jal reset_offsets
+operation_mult_xor_lo:
+	jal load_patterns
+	mult $15, $16
+	xor $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_xor_lo
+
+jal reset_offsets
+operation_mult_xor_hi:
+	jal load_patterns
+	mult $15, $16
+	xor $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_xor_hi
+
+jal reset_offsets
+operation_mult_sllv_lo:
+	jal load_patterns
+	mult $15, $16
+	sllv $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_sllv_lo
+
+jal reset_offsets
+operation_mult_sllv_hi:
+	jal load_patterns
+	mult $15, $16
+	sllv $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_sllv_hi
+
+jal reset_offsets
+operation_mult_slt_lo:
+	jal load_patterns
+	mult $15, $16
+	slt $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_slt_lo
+
+jal reset_offsets
+operation_mult_slt_hi:
+	jal load_patterns
+	mult $15, $16
+	slt $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_slt_hi
+
+jal reset_offsets
+operation_mult_sltu_lo:
+	jal load_patterns
+	mult $15, $16
+	sltu $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_sltu_lo
+
+jal reset_offsets
+operation_mult_sltu_hi:
+	jal load_patterns
+	mult $15, $16
+	sltu $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_sltu_hi
+
+jal reset_offsets
+operation_mult_srav_lo:
+	jal load_patterns
+	mult $15, $16
+	srav $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_srav_lo
+
+jal reset_offsets
+operation_mult_srav_hi:
+	jal load_patterns
+	mult $15, $16
+	srav $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_srav_hi
+
+jal reset_offsets
+operation_mult_srlv_lo:
+	jal load_patterns
+	mult $15, $16
+	srlv $19, $15, $16
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_srlv_lo
+
+jal reset_offsets
+operation_mult_srlv_hi:
+	jal load_patterns
+	mult $15, $16
+	srlv $19, $15, $16
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_srlv_hi
+
+jal reset_offsets
+operation_mult_sll_lo:
+	jal load_patterns
+	mult $15, $16
+	sll $18 ,$15, 5
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_sll_lo
+
+jal reset_offsets
+operation_mult_sll_hi:
+	jal load_patterns
+	mult $15, $16
+	sll $18 ,$15, 5
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_sll_hi
+
+jal reset_offsets
+operation_mult_srl_lo:
+	jal load_patterns
+	mult $15, $16
+	srl $18 ,$15, 5
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_srl_lo
+
+jal reset_offsets
+operation_mult_srl_hi:
+	jal load_patterns
+	mult $15, $16
+	srl $18 ,$15, 5
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_srl_hi
+
+jal reset_offsets
+operation_mult_sra_lo:
+	jal load_patterns
+	mult $15, $16
+	sra $18 ,$15, 5
+	mult $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_sra_lo
+
+jal reset_offsets
+operation_mult_sra_hi:
+	jal load_patterns
+	mult $15, $16
+	sra $18 ,$15, 5
+	mult $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_mult_sra_hi
+
+jal reset_offsets
+operation_multu_add_lo:
+	jal load_patterns
+	multu $15, $16
+	add $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_add_lo
+
+jal reset_offsets
+operation_multu_add_hi:
+	jal load_patterns
+	multu $15, $16
+	add $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_add_hi
+
+jal reset_offsets
+operation_multu_addu_lo:
+	jal load_patterns
+	multu $15, $16
+	addu $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_addu_lo
+
+jal reset_offsets
+operation_multu_addu_hi:
+	jal load_patterns
+	multu $15, $16
+	addu $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_addu_hi
+
+jal reset_offsets
+operation_multu_and_lo:
+	jal load_patterns
+	multu $15, $16
+	and $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_and_lo
+
+jal reset_offsets
+operation_multu_and_hi:
+	jal load_patterns
+	multu $15, $16
+	and $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_and_hi
+
+jal reset_offsets
+operation_multu_nor_lo:
+	jal load_patterns
+	multu $15, $16
+	nor $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_nor_lo
+
+jal reset_offsets
+operation_multu_nor_hi:
+	jal load_patterns
+	multu $15, $16
+	nor $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_nor_hi
+
+jal reset_offsets
+operation_multu_or_lo:
+	jal load_patterns
+	multu $15, $16
+	or $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_or_lo
+
+jal reset_offsets
+operation_multu_or_hi:
+	jal load_patterns
+	multu $15, $16
+	or $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_or_hi
+
+jal reset_offsets
+operation_multu_subu_lo:
+	jal load_patterns
+	multu $15, $16
+	subu $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_subu_lo
+
+jal reset_offsets
+operation_multu_subu_hi:
+	jal load_patterns
+	multu $15, $16
+	subu $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_subu_hi
+
+jal reset_offsets
+operation_multu_sub_lo:
+	jal load_patterns
+	multu $15, $16
+	sub $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_sub_lo
+
+jal reset_offsets
+operation_multu_sub_hi:
+	jal load_patterns
+	multu $15, $16
+	sub $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_sub_hi
+
+jal reset_offsets
+operation_multu_xor_lo:
+	jal load_patterns
+	multu $15, $16
+	xor $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_xor_lo
+
+jal reset_offsets
+operation_multu_xor_hi:
+	jal load_patterns
+	multu $15, $16
+	xor $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_xor_hi
+
+jal reset_offsets
+operation_multu_sllv_lo:
+	jal load_patterns
+	multu $15, $16
+	sllv $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_sllv_lo
+
+jal reset_offsets
+operation_multu_sllv_hi:
+	jal load_patterns
+	multu $15, $16
+	sllv $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_sllv_hi
+
+jal reset_offsets
+operation_multu_slt_lo:
+	jal load_patterns
+	multu $15, $16
+	slt $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_slt_lo
+
+jal reset_offsets
+operation_multu_slt_hi:
+	jal load_patterns
+	multu $15, $16
+	slt $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_slt_hi
+
+jal reset_offsets
+operation_multu_sltu_lo:
+	jal load_patterns
+	multu $15, $16
+	sltu $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_sltu_lo
+
+jal reset_offsets
+operation_multu_sltu_hi:
+	jal load_patterns
+	multu $15, $16
+	sltu $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_sltu_hi
+
+jal reset_offsets
+operation_multu_srav_lo:
+	jal load_patterns
+	multu $15, $16
+	srav $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_srav_lo
+
+jal reset_offsets
+operation_multu_srav_hi:
+	jal load_patterns
+	multu $15, $16
+	srav $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_srav_hi
+
+jal reset_offsets
+operation_multu_srlv_lo:
+	jal load_patterns
+	multu $15, $16
+	srlv $19, $15, $16
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_srlv_lo
+
+jal reset_offsets
+operation_multu_srlv_hi:
+	jal load_patterns
+	multu $15, $16
+	srlv $19, $15, $16
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_srlv_hi
+
+jal reset_offsets
+operation_multu_sll_lo:
+	jal load_patterns
+	multu $15, $16
+	sll $18 ,$15, 5
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_sll_lo
+
+jal reset_offsets
+operation_multu_sll_hi:
+	jal load_patterns
+	multu $15, $16
+	sll $18 ,$15, 5
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_sll_hi
+
+jal reset_offsets
+operation_multu_srl_lo:
+	jal load_patterns
+	multu $15, $16
+	srl $18 ,$15, 5
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_srl_lo
+
+jal reset_offsets
+operation_multu_srl_hi:
+	jal load_patterns
+	multu $15, $16
+	srl $18 ,$15, 5
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_srl_hi
+
+jal reset_offsets
+operation_multu_sra_lo:
+	jal load_patterns
+	multu $15, $16
+	sra $18 ,$15, 5
+	multu $15, $16
+	mflo $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_sra_lo
+
+jal reset_offsets
+operation_multu_sra_hi:
+	jal load_patterns
+	multu $15, $16
+	sra $18 ,$15, 5
+	multu $15, $16
+	mfhi $18
+	jal store
+	jal increment_offset
+	bne $27, $28, operation_multu_sra_hi
+
+jal reset_offsets
+operation_mthi_add_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	add $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_add_hi_lo
+
+jal reset_offsets
+operation_mthi_addu_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	addu $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_addu_hi_lo
+
+jal reset_offsets
+operation_mthi_and_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	and $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_and_hi_lo
+
+jal reset_offsets
+operation_mthi_nor_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	nor $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_nor_hi_lo
+
+jal reset_offsets
+operation_mthi_or_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	or $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_or_hi_lo
+
+jal reset_offsets
+operation_mthi_subu_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	subu $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_subu_hi_lo
+
+jal reset_offsets
+operation_mthi_sub_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	sub $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_sub_hi_lo
+
+jal reset_offsets
+operation_mthi_xor_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	xor $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_xor_hi_lo
+
+jal reset_offsets
+operation_mthi_sllv_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	sllv $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_sllv_hi_lo
+
+jal reset_offsets
+operation_mthi_slt_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	slt $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_slt_hi_lo
+
+jal reset_offsets
+operation_mthi_sltu_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	sltu $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_sltu_hi_lo
+
+jal reset_offsets
+operation_mthi_srav_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	srav $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_srav_hi_lo
+
+jal reset_offsets
+operation_mthi_srlv_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	srlv $19, $15, $16
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_srlv_hi_lo
+
+jal reset_offsets
+operation_mthi_sll_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	sll $18 ,$15, 5
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_sll_hi_lo
+
+jal reset_offsets
+operation_mthi_srl_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	srl $18 ,$15, 5
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_srl_hi_lo
+
+jal reset_offsets
+operation_mthi_sra_hi_lo:
+	jal load_patterns
+	mthi $16
+	mfhi $18
+	sra $18 ,$15, 5
+	mthi $16
+	mfhi $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mthi_sra_hi_lo
+
+jal reset_offsets
+operation_mtlo_add_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	add $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_add_hi_lo
+
+jal reset_offsets
+operation_mtlo_addu_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	addu $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_addu_hi_lo
+
+jal reset_offsets
+operation_mtlo_and_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	and $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_and_hi_lo
+
+jal reset_offsets
+operation_mtlo_nor_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	nor $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_nor_hi_lo
+
+jal reset_offsets
+operation_mtlo_or_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	or $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_or_hi_lo
+
+jal reset_offsets
+operation_mtlo_subu_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	subu $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_subu_hi_lo
+
+jal reset_offsets
+operation_mtlo_sub_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	sub $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_sub_hi_lo
+
+jal reset_offsets
+operation_mtlo_xor_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	xor $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_xor_hi_lo
+
+jal reset_offsets
+operation_mtlo_sllv_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	sllv $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_sllv_hi_lo
+
+jal reset_offsets
+operation_mtlo_slt_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	slt $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_slt_hi_lo
+
+jal reset_offsets
+operation_mtlo_sltu_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	sltu $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_sltu_hi_lo
+
+jal reset_offsets
+operation_mtlo_srav_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	srav $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_srav_hi_lo
+
+jal reset_offsets
+operation_mtlo_srlv_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	srlv $19, $15, $16
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_srlv_hi_lo
+
+jal reset_offsets
+operation_mtlo_sll_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	sll $18 ,$15, 5
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_sll_hi_lo
+
+jal reset_offsets
+operation_mtlo_srl_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	srl $18 ,$15, 5
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_srl_hi_lo
+
+jal reset_offsets
+operation_mtlo_sra_hi_lo:
+	jal load_patterns
+	mtlo $16
+	mflo $18
+	sra $18 ,$15, 5
+	mtlo $16
+	mflo $18
+	sw $18, 0($29)
+	sw $19, 4($29)
+	jal increment_offset
+	bne $27, $28, operation_mtlo_sra_hi_lo
 
 jal reset_offsets
 jal init_cp
@@ -6185,14 +9559,16 @@ operation_immediate:
 	sw $18, 3320($29)
 	jal increment_offset
 
- jal init_cp
- j syscalls
+;..........system call..........;
+	jal init_cp
+	j syscalls
 
 syscalls:
 	syscall
 
- jal init_cp
-j breaks
+;..........break..........;
+	jal init_cp
+	j breaks
 
 breaks:
 	break
@@ -6200,16 +9576,16 @@ breaks:
 jal reset_offsets
 jal reset_hi_lo
 hilo_register_operation:
- jal init_upward_1
- jal hi_upward_0
- jal hi_downward_1
- jal lo_upward_0
- jal lo_downward_1
- jal init_upward_0
- jal hi_upward_1
- jal hi_downward_0
- jal lo_upward_1
- jal lo_downward_0
+	jal init_upward_1
+	jal hi_upward_0
+	jal hi_downward_1
+	jal lo_upward_0
+	jal lo_downward_1
+	jal init_upward_0
+	jal hi_upward_1
+	jal hi_downward_0
+	jal lo_upward_1
+	jal lo_downward_0
 
  j end
 
@@ -8033,982 +11409,982 @@ lo_downward_0:
 
 ;..........memory_initialization..........;
 init_patterns:
- lui $8, 40501
- ori $8, $8, 1416
- sw $8, 0($30)
- lui $9, 31451
- ori $9, $9, 51701
- sw $9, 4($30)
- lui $10, 21391
- ori $10, $10, 6693
- sw $10, 8($30)
- lui $11, 58372
- ori $11, $11, 13425
- sw $11, 12($30)
- lui $12, 41469
- ori $12, $12, 51644
- sw $12, 16($30)
- lui $13, 28500
- ori $13, $13, 4285
- sw $13, 20($30)
- lui $14, 49273
- ori $14, $14, 64223
- sw $14, 24($30)
- lui $15, 49921
- ori $15, $15, 46230
- sw $15, 28($30)
- lui $8, 52318
- ori $8, $8, 29486
- sw $8, 32($30)
- lui $9, 1777
- ori $9, $9, 22387
- sw $9, 36($30)
- lui $10, 31515
- ori $10, $10, 38080
- sw $10, 40($30)
- lui $11, 25617
- ori $11, $11, 18799
- sw $11, 44($30)
- lui $12, 41490
- ori $12, $12, 31586
- sw $12, 48($30)
- lui $13, 45243
- ori $13, $13, 49889
- sw $13, 52($30)
- lui $14, 43633
- ori $14, $14, 48951
- sw $14, 56($30)
- lui $15, 22081
- ori $15, $15, 36023
- sw $15, 60($30)
- lui $8, 30711
- ori $8, $8, 32634
- sw $8, 64($30)
- lui $9, 49038
- ori $9, $9, 13674
- sw $9, 68($30)
- lui $10, 30309
- ori $10, $10, 63
- sw $10, 72($30)
- lui $11, 160
- ori $11, $11, 61121
- sw $11, 76($30)
- lui $12, 7066
- ori $12, $12, 29048
- sw $12, 80($30)
- lui $13, 9779
- ori $13, $13, 9393
- sw $13, 84($30)
- lui $14, 22990
- ori $14, $14, 10311
- sw $14, 88($30)
- lui $15, 35008
- ori $15, $15, 10296
- sw $15, 92($30)
- lui $8, 54751
- ori $8, $8, 57119
- sw $8, 96($30)
- lui $9, 30433
- ori $9, $9, 21809
- sw $9, 100($30)
- lui $10, 2838
- ori $10, $10, 29661
- sw $10, 104($30)
- lui $11, 64135
- ori $11, $11, 8387
- sw $11, 108($30)
- lui $12, 21540
- ori $12, $12, 65254
- sw $12, 112($30)
- lui $13, 48132
- ori $13, $13, 31965
- sw $13, 116($30)
- lui $14, 8450
- ori $14, $14, 466
- sw $14, 120($30)
- lui $15, 62519
- ori $15, $15, 30314
- sw $15, 124($30)
- lui $8, 9455
- ori $8, $8, 801
- sw $8, 128($30)
- lui $9, 3328
- ori $9, $9, 58860
- sw $9, 132($30)
- lui $10, 62457
- ori $10, $10, 45775
- sw $10, 136($30)
- lui $11, 61355
- ori $11, $11, 64833
- sw $11, 140($30)
- lui $12, 60058
- ori $12, $12, 30751
- sw $12, 144($30)
- lui $13, 35322
- ori $13, $13, 568
- sw $13, 148($30)
- lui $14, 32599
- ori $14, $14, 12121
- sw $14, 152($30)
- lui $15, 40792
- ori $15, $15, 51454
- sw $15, 156($30)
- lui $8, 2267
- ori $8, $8, 34336
- sw $8, 160($30)
- lui $9, 48431
- ori $9, $9, 32719
- sw $9, 164($30)
- lui $10, 24954
- ori $10, $10, 19580
- sw $10, 168($30)
- lui $11, 33156
- ori $11, $11, 19650
- sw $11, 172($30)
- lui $12, 42017
- ori $12, $12, 7822
- sw $12, 176($30)
- lui $13, 39711
- ori $13, $13, 43216
- sw $13, 180($30)
- lui $14, 31610
- ori $14, $14, 21404
- sw $14, 184($30)
- lui $15, 15578
- ori $15, $15, 34632
- sw $15, 188($30)
- lui $8, 49907
- ori $8, $8, 14318
- sw $8, 192($30)
- lui $9, 5041
- ori $9, $9, 39324
- sw $9, 196($30)
- lui $10, 18734
- ori $10, $10, 5465
- sw $10, 200($30)
- lui $11, 32195
- ori $11, $11, 55190
- sw $11, 204($30)
- lui $12, 25359
- ori $12, $12, 34980
- sw $12, 208($30)
- lui $13, 18973
- ori $13, $13, 52262
- sw $13, 212($30)
- lui $14, 27069
- ori $14, $14, 19441
- sw $14, 216($30)
- lui $15, 62777
- ori $15, $15, 19244
- sw $15, 220($30)
- lui $8, 58991
- ori $8, $8, 40959
- sw $8, 224($30)
- lui $9, 14930
- ori $9, $9, 45878
- sw $9, 228($30)
- lui $10, 28214
- ori $10, $10, 58939
- sw $10, 232($30)
- lui $11, 42314
- ori $11, $11, 10786
- sw $11, 236($30)
- lui $12, 24035
- ori $12, $12, 51325
- sw $12, 240($30)
- lui $13, 64255
- ori $13, $13, 22487
- sw $13, 244($30)
- lui $14, 62958
- ori $14, $14, 52153
- sw $14, 248($30)
- lui $15, 9178
- ori $15, $15, 40958
- sw $15, 252($30)
- lui $8, 50804
- ori $8, $8, 47009
- sw $8, 256($30)
- lui $9, 57030
- ori $9, $9, 14500
- sw $9, 260($30)
- lui $10, 12812
- ori $10, $10, 15880
- sw $10, 264($30)
- lui $11, 24563
- ori $11, $11, 27106
- sw $11, 268($30)
- lui $12, 17482
- ori $12, $12, 55776
- sw $12, 272($30)
- lui $13, 39660
- ori $13, $13, 18461
- sw $13, 276($30)
- lui $14, 37580
- ori $14, $14, 42923
- sw $14, 280($30)
- lui $15, 12104
- ori $15, $15, 18823
- sw $15, 284($30)
- lui $8, 51713
- ori $8, $8, 4869
- sw $8, 288($30)
- lui $9, 1024
- ori $9, $9, 31305
- sw $9, 292($30)
- lui $10, 31469
- ori $10, $10, 48188
- sw $10, 296($30)
- lui $11, 1036
- ori $11, $11, 44931
- sw $11, 300($30)
- lui $12, 53321
- ori $12, $12, 15330
- sw $12, 304($30)
- lui $13, 27572
- ori $13, $13, 41695
- sw $13, 308($30)
- lui $14, 13839
- ori $14, $14, 24532
- sw $14, 312($30)
- lui $15, 17600
- ori $15, $15, 685
- sw $15, 316($30)
- lui $8, 23155
- ori $8, $8, 45875
- sw $8, 320($30)
- lui $9, 42497
- ori $9, $9, 23920
- sw $9, 324($30)
- lui $10, 48
- ori $10, $10, 54727
- sw $10, 328($30)
- lui $11, 32816
- ori $11, $11, 29712
- sw $11, 332($30)
- lui $12, 7764
- ori $12, $12, 19766
- sw $12, 336($30)
- lui $13, 63112
- ori $13, $13, 53630
- sw $13, 340($30)
- lui $14, 27150
- ori $14, $14, 60453
- sw $14, 344($30)
- lui $15, 51060
- ori $15, $15, 43816
- sw $15, 348($30)
- lui $8, 33895
- ori $8, $8, 17819
- sw $8, 352($30)
- lui $9, 37976
- ori $9, $9, 41391
- sw $9, 356($30)
- lui $10, 54234
- ori $10, $10, 24771
- sw $10, 360($30)
- lui $11, 43285
- ori $11, $11, 6687
- sw $11, 364($30)
- lui $12, 13125
- ori $12, $12, 34368
- sw $12, 368($30)
- lui $13, 27632
- ori $13, $13, 9065
- sw $13, 372($30)
- lui $14, 29590
- ori $14, $14, 30695
- sw $14, 376($30)
- lui $15, 24955
- ori $15, $15, 44990
- sw $15, 380($30)
- lui $8, 45439
- ori $8, $8, 11479
- sw $8, 384($30)
- lui $9, 7782
- ori $9, $9, 26743
- sw $9, 388($30)
- lui $10, 36660
- ori $10, $10, 8323
- sw $10, 392($30)
- lui $11, 17022
- ori $11, $11, 64416
- sw $11, 396($30)
- lui $12, 13932
- ori $12, $12, 13632
- sw $12, 400($30)
- lui $13, 53588
- ori $13, $13, 53241
- sw $13, 404($30)
- lui $14, 60500
- ori $14, $14, 62399
- sw $14, 408($30)
- lui $15, 61375
- ori $15, $15, 45390
- sw $15, 412($30)
- lui $8, 55039
- ori $8, $8, 23036
- sw $8, 416($30)
- lui $9, 4406
- ori $9, $9, 35532
- sw $9, 420($30)
- lui $10, 14596
- ori $10, $10, 54111
- sw $10, 424($30)
- lui $11, 13825
- ori $11, $11, 345
- sw $11, 428($30)
- lui $12, 43577
- ori $12, $12, 58317
- sw $12, 432($30)
- lui $13, 49234
- ori $13, $13, 22658
- sw $13, 436($30)
- lui $14, 58491
- ori $14, $14, 35117
- sw $14, 440($30)
- lui $15, 37805
- ori $15, $15, 7880
- sw $15, 444($30)
- lui $8, 3072
- ori $8, $8, 54485
- sw $8, 448($30)
- lui $9, 44473
- ori $9, $9, 54556
- sw $9, 452($30)
- lui $10, 62477
- ori $10, $10, 64771
- sw $10, 456($30)
- lui $11, 10802
- ori $11, $11, 50408
- sw $11, 460($30)
- lui $12, 37706
- ori $12, $12, 46671
- sw $12, 464($30)
- lui $13, 44107
- ori $13, $13, 23728
- sw $13, 468($30)
- lui $14, 64752
- ori $14, $14, 38623
- sw $14, 472($30)
- lui $15, 64077
- ori $15, $15, 1733
- sw $15, 476($30)
- lui $8, 56580
- ori $8, $8, 37274
- sw $8, 480($30)
- lui $9, 41723
- ori $9, $9, 34730
- sw $9, 484($30)
- lui $10, 20326
- ori $10, $10, 2356
- sw $10, 488($30)
- lui $11, 7677
- ori $11, $11, 64195
- sw $11, 492($30)
- lui $12, 47876
- ori $12, $12, 56107
- sw $12, 496($30)
- lui $13, 64109
- ori $13, $13, 56108
- sw $13, 500($30)
- lui $14, 64380
- ori $14, $14, 15079
- sw $14, 504($30)
- lui $15, 1182
- ori $15, $15, 64659
- sw $15, 508($30)
- jr $31
+	lui $8, 40501
+	ori $8, $8, 1416
+	sw $8, 0($30)
+	lui $9, 31451
+	ori $9, $9, 51701
+	sw $9, 4($30)
+	lui $10, 21391
+	ori $10, $10, 6693
+	sw $10, 8($30)
+	lui $11, 58372
+	ori $11, $11, 13425
+	sw $11, 12($30)
+	lui $12, 41469
+	ori $12, $12, 51644
+	sw $12, 16($30)
+	lui $13, 28500
+	ori $13, $13, 4285
+	sw $13, 20($30)
+	lui $14, 49273
+	ori $14, $14, 64223
+	sw $14, 24($30)
+	lui $15, 49921
+	ori $15, $15, 46230
+	sw $15, 28($30)
+	lui $8, 52318
+	ori $8, $8, 29486
+	sw $8, 32($30)
+	lui $9, 1777
+	ori $9, $9, 22387
+	sw $9, 36($30)
+	lui $10, 31515
+	ori $10, $10, 38080
+	sw $10, 40($30)
+	lui $11, 25617
+	ori $11, $11, 18799
+	sw $11, 44($30)
+	lui $12, 41490
+	ori $12, $12, 31586
+	sw $12, 48($30)
+	lui $13, 45243
+	ori $13, $13, 49889
+	sw $13, 52($30)
+	lui $14, 43633
+	ori $14, $14, 48951
+	sw $14, 56($30)
+	lui $15, 22081
+	ori $15, $15, 36023
+	sw $15, 60($30)
+	lui $8, 30711
+	ori $8, $8, 32634
+	sw $8, 64($30)
+	lui $9, 49038
+	ori $9, $9, 13674
+	sw $9, 68($30)
+	lui $10, 30309
+	ori $10, $10, 63
+	sw $10, 72($30)
+	lui $11, 160
+	ori $11, $11, 61121
+	sw $11, 76($30)
+	lui $12, 7066
+	ori $12, $12, 29048
+	sw $12, 80($30)
+	lui $13, 9779
+	ori $13, $13, 9393
+	sw $13, 84($30)
+	lui $14, 22990
+	ori $14, $14, 10311
+	sw $14, 88($30)
+	lui $15, 35008
+	ori $15, $15, 10296
+	sw $15, 92($30)
+	lui $8, 54751
+	ori $8, $8, 57119
+	sw $8, 96($30)
+	lui $9, 30433
+	ori $9, $9, 21809
+	sw $9, 100($30)
+	lui $10, 2838
+	ori $10, $10, 29661
+	sw $10, 104($30)
+	lui $11, 64135
+	ori $11, $11, 8387
+	sw $11, 108($30)
+	lui $12, 21540
+	ori $12, $12, 65254
+	sw $12, 112($30)
+	lui $13, 48132
+	ori $13, $13, 31965
+	sw $13, 116($30)
+	lui $14, 8450
+	ori $14, $14, 466
+	sw $14, 120($30)
+	lui $15, 62519
+	ori $15, $15, 30314
+	sw $15, 124($30)
+	lui $8, 9455
+	ori $8, $8, 801
+	sw $8, 128($30)
+	lui $9, 3328
+	ori $9, $9, 58860
+	sw $9, 132($30)
+	lui $10, 62457
+	ori $10, $10, 45775
+	sw $10, 136($30)
+	lui $11, 61355
+	ori $11, $11, 64833
+	sw $11, 140($30)
+	lui $12, 60058
+	ori $12, $12, 30751
+	sw $12, 144($30)
+	lui $13, 35322
+	ori $13, $13, 568
+	sw $13, 148($30)
+	lui $14, 32599
+	ori $14, $14, 12121
+	sw $14, 152($30)
+	lui $15, 40792
+	ori $15, $15, 51454
+	sw $15, 156($30)
+	lui $8, 2267
+	ori $8, $8, 34336
+	sw $8, 160($30)
+	lui $9, 48431
+	ori $9, $9, 32719
+	sw $9, 164($30)
+	lui $10, 24954
+	ori $10, $10, 19580
+	sw $10, 168($30)
+	lui $11, 33156
+	ori $11, $11, 19650
+	sw $11, 172($30)
+	lui $12, 42017
+	ori $12, $12, 7822
+	sw $12, 176($30)
+	lui $13, 39711
+	ori $13, $13, 43216
+	sw $13, 180($30)
+	lui $14, 31610
+	ori $14, $14, 21404
+	sw $14, 184($30)
+	lui $15, 15578
+	ori $15, $15, 34632
+	sw $15, 188($30)
+	lui $8, 49907
+	ori $8, $8, 14318
+	sw $8, 192($30)
+	lui $9, 5041
+	ori $9, $9, 39324
+	sw $9, 196($30)
+	lui $10, 18734
+	ori $10, $10, 5465
+	sw $10, 200($30)
+	lui $11, 32195
+	ori $11, $11, 55190
+	sw $11, 204($30)
+	lui $12, 25359
+	ori $12, $12, 34980
+	sw $12, 208($30)
+	lui $13, 18973
+	ori $13, $13, 52262
+	sw $13, 212($30)
+	lui $14, 27069
+	ori $14, $14, 19441
+	sw $14, 216($30)
+	lui $15, 62777
+	ori $15, $15, 19244
+	sw $15, 220($30)
+	lui $8, 58991
+	ori $8, $8, 40959
+	sw $8, 224($30)
+	lui $9, 14930
+	ori $9, $9, 45878
+	sw $9, 228($30)
+	lui $10, 28214
+	ori $10, $10, 58939
+	sw $10, 232($30)
+	lui $11, 42314
+	ori $11, $11, 10786
+	sw $11, 236($30)
+	lui $12, 24035
+	ori $12, $12, 51325
+	sw $12, 240($30)
+	lui $13, 64255
+	ori $13, $13, 22487
+	sw $13, 244($30)
+	lui $14, 62958
+	ori $14, $14, 52153
+	sw $14, 248($30)
+	lui $15, 9178
+	ori $15, $15, 40958
+	sw $15, 252($30)
+	lui $8, 50804
+	ori $8, $8, 47009
+	sw $8, 256($30)
+	lui $9, 57030
+	ori $9, $9, 14500
+	sw $9, 260($30)
+	lui $10, 12812
+	ori $10, $10, 15880
+	sw $10, 264($30)
+	lui $11, 24563
+	ori $11, $11, 27106
+	sw $11, 268($30)
+	lui $12, 17482
+	ori $12, $12, 55776
+	sw $12, 272($30)
+	lui $13, 39660
+	ori $13, $13, 18461
+	sw $13, 276($30)
+	lui $14, 37580
+	ori $14, $14, 42923
+	sw $14, 280($30)
+	lui $15, 12104
+	ori $15, $15, 18823
+	sw $15, 284($30)
+	lui $8, 51713
+	ori $8, $8, 4869
+	sw $8, 288($30)
+	lui $9, 1024
+	ori $9, $9, 31305
+	sw $9, 292($30)
+	lui $10, 31469
+	ori $10, $10, 48188
+	sw $10, 296($30)
+	lui $11, 1036
+	ori $11, $11, 44931
+	sw $11, 300($30)
+	lui $12, 53321
+	ori $12, $12, 15330
+	sw $12, 304($30)
+	lui $13, 27572
+	ori $13, $13, 41695
+	sw $13, 308($30)
+	lui $14, 13839
+	ori $14, $14, 24532
+	sw $14, 312($30)
+	lui $15, 17600
+	ori $15, $15, 685
+	sw $15, 316($30)
+	lui $8, 23155
+	ori $8, $8, 45875
+	sw $8, 320($30)
+	lui $9, 42497
+	ori $9, $9, 23920
+	sw $9, 324($30)
+	lui $10, 48
+	ori $10, $10, 54727
+	sw $10, 328($30)
+	lui $11, 32816
+	ori $11, $11, 29712
+	sw $11, 332($30)
+	lui $12, 7764
+	ori $12, $12, 19766
+	sw $12, 336($30)
+	lui $13, 63112
+	ori $13, $13, 53630
+	sw $13, 340($30)
+	lui $14, 27150
+	ori $14, $14, 60453
+	sw $14, 344($30)
+	lui $15, 51060
+	ori $15, $15, 43816
+	sw $15, 348($30)
+	lui $8, 33895
+	ori $8, $8, 17819
+	sw $8, 352($30)
+	lui $9, 37976
+	ori $9, $9, 41391
+	sw $9, 356($30)
+	lui $10, 54234
+	ori $10, $10, 24771
+	sw $10, 360($30)
+	lui $11, 43285
+	ori $11, $11, 6687
+	sw $11, 364($30)
+	lui $12, 13125
+	ori $12, $12, 34368
+	sw $12, 368($30)
+	lui $13, 27632
+	ori $13, $13, 9065
+	sw $13, 372($30)
+	lui $14, 29590
+	ori $14, $14, 30695
+	sw $14, 376($30)
+	lui $15, 24955
+	ori $15, $15, 44990
+	sw $15, 380($30)
+	lui $8, 45439
+	ori $8, $8, 11479
+	sw $8, 384($30)
+	lui $9, 7782
+	ori $9, $9, 26743
+	sw $9, 388($30)
+	lui $10, 36660
+	ori $10, $10, 8323
+	sw $10, 392($30)
+	lui $11, 17022
+	ori $11, $11, 64416
+	sw $11, 396($30)
+	lui $12, 13932
+	ori $12, $12, 13632
+	sw $12, 400($30)
+	lui $13, 53588
+	ori $13, $13, 53241
+	sw $13, 404($30)
+	lui $14, 60500
+	ori $14, $14, 62399
+	sw $14, 408($30)
+	lui $15, 61375
+	ori $15, $15, 45390
+	sw $15, 412($30)
+	lui $8, 55039
+	ori $8, $8, 23036
+	sw $8, 416($30)
+	lui $9, 4406
+	ori $9, $9, 35532
+	sw $9, 420($30)
+	lui $10, 14596
+	ori $10, $10, 54111
+	sw $10, 424($30)
+	lui $11, 13825
+	ori $11, $11, 345
+	sw $11, 428($30)
+	lui $12, 43577
+	ori $12, $12, 58317
+	sw $12, 432($30)
+	lui $13, 49234
+	ori $13, $13, 22658
+	sw $13, 436($30)
+	lui $14, 58491
+	ori $14, $14, 35117
+	sw $14, 440($30)
+	lui $15, 37805
+	ori $15, $15, 7880
+	sw $15, 444($30)
+	lui $8, 3072
+	ori $8, $8, 54485
+	sw $8, 448($30)
+	lui $9, 44473
+	ori $9, $9, 54556
+	sw $9, 452($30)
+	lui $10, 62477
+	ori $10, $10, 64771
+	sw $10, 456($30)
+	lui $11, 10802
+	ori $11, $11, 50408
+	sw $11, 460($30)
+	lui $12, 37706
+	ori $12, $12, 46671
+	sw $12, 464($30)
+	lui $13, 44107
+	ori $13, $13, 23728
+	sw $13, 468($30)
+	lui $14, 64752
+	ori $14, $14, 38623
+	sw $14, 472($30)
+	lui $15, 64077
+	ori $15, $15, 1733
+	sw $15, 476($30)
+	lui $8, 56580
+	ori $8, $8, 37274
+	sw $8, 480($30)
+	lui $9, 41723
+	ori $9, $9, 34730
+	sw $9, 484($30)
+	lui $10, 20326
+	ori $10, $10, 2356
+	sw $10, 488($30)
+	lui $11, 7677
+	ori $11, $11, 64195
+	sw $11, 492($30)
+	lui $12, 47876
+	ori $12, $12, 56107
+	sw $12, 496($30)
+	lui $13, 64109
+	ori $13, $13, 56108
+	sw $13, 500($30)
+	lui $14, 64380
+	ori $14, $14, 15079
+	sw $14, 504($30)
+	lui $15, 1182
+	ori $15, $15, 64659
+	sw $15, 508($30)
+	jr $31
 
 load_branch:
- lw $15, 512($30)
- lw $16, 516($30)
- jr $31
+	lw $15, 512($30)
+	lw $16, 516($30)
+	jr $31
 
 ;..........branch_memory_initialization..........;
 init_branch:
- lui $8, 65535
- ori $8, $8, 65535
- sw $8, 512($30)
- lui $9, 65535
- ori $9, $9, 65535
- sw $9, 516($30)
- lui $10, 32767
- ori $10, $10, 65535
- sw $10, 520($30)
- lui $11, 65535
- ori $11, $11, 65535
- sw $11, 524($30)
- lui $12, 49151
- ori $12, $12, 65535
- sw $12, 528($30)
- lui $13, 65535
- ori $13, $13, 65535
- sw $13, 532($30)
- lui $14, 57343
- ori $14, $14, 65535
- sw $14, 536($30)
- lui $15, 65535
- ori $15, $15, 65535
- sw $15, 540($30)
- lui $8, 61439
- ori $8, $8, 65535
- sw $8, 544($30)
- lui $9, 65535
- ori $9, $9, 65535
- sw $9, 548($30)
- lui $10, 63487
- ori $10, $10, 65535
- sw $10, 552($30)
- lui $11, 65535
- ori $11, $11, 65535
- sw $11, 556($30)
- lui $12, 31743
- ori $12, $12, 65535
- sw $12, 560($30)
- lui $13, 65535
- ori $13, $13, 65535
- sw $13, 564($30)
- lui $14, 65023
- ori $14, $14, 65535
- sw $14, 568($30)
- lui $15, 65535
- ori $15, $15, 65535
- sw $15, 572($30)
- lui $8, 65279
- ori $8, $8, 65535
- sw $8, 576($30)
- lui $9, 65535
- ori $9, $9, 65535
- sw $9, 580($30)
- lui $10, 65407
- ori $10, $10, 65535
- sw $10, 584($30)
- lui $11, 65535
- ori $11, $11, 65535
- sw $11, 588($30)
- lui $12, 65471
- ori $12, $12, 65535
- sw $12, 592($30)
- lui $13, 65535
- ori $13, $13, 65535
- sw $13, 596($30)
- lui $14, 65503
- ori $14, $14, 65535
- sw $14, 600($30)
- lui $15, 65535
- ori $15, $15, 65535
- sw $15, 604($30)
- lui $8, 65519
- ori $8, $8, 65535
- sw $8, 608($30)
- lui $9, 65535
- ori $9, $9, 65535
- sw $9, 612($30)
- lui $10, 65527
- ori $10, $10, 65535
- sw $10, 616($30)
- lui $11, 65535
- ori $11, $11, 65535
- sw $11, 620($30)
- lui $12, 65531
- ori $12, $12, 65535
- sw $12, 624($30)
- lui $13, 65535
- ori $13, $13, 65535
- sw $13, 628($30)
- lui $14, 65533
- ori $14, $14, 65535
- sw $14, 632($30)
- lui $15, 65535
- ori $15, $15, 65535
- sw $15, 636($30)
- lui $8, 65534
- ori $8, $8, 65535
- sw $8, 640($30)
- lui $9, 65535
- ori $9, $9, 65535
- sw $9, 644($30)
- lui $10, 65535
- ori $10, $10, 32767
- sw $10, 648($30)
- lui $11, 65535
- ori $11, $11, 65535
- sw $11, 652($30)
- lui $12, 65535
- ori $12, $12, 49151
- sw $12, 656($30)
- lui $13, 65535
- ori $13, $13, 65535
- sw $13, 660($30)
- lui $14, 65535
- ori $14, $14, 57343
- sw $14, 664($30)
- lui $15, 65535
- ori $15, $15, 65535
- sw $15, 668($30)
- lui $8, 65535
- ori $8, $8, 61439
- sw $8, 672($30)
- lui $9, 65535
- ori $9, $9, 65535
- sw $9, 676($30)
- lui $10, 65535
- ori $10, $10, 63487
- sw $10, 680($30)
- lui $11, 65535
- ori $11, $11, 65535
- sw $11, 684($30)
- lui $12, 65535
- ori $12, $12, 64511
- sw $12, 688($30)
- lui $13, 65535
- ori $13, $13, 65535
- sw $13, 692($30)
- lui $14, 65535
- ori $14, $14, 65023
- sw $14, 696($30)
- lui $15, 65535
- ori $15, $15, 65535
- sw $15, 700($30)
- lui $8, 65535
- ori $8, $8, 65279
- sw $8, 704($30)
- lui $9, 65535
- ori $9, $9, 65535
- sw $9, 708($30)
- lui $10, 65535
- ori $10, $10, 65407
- sw $10, 712($30)
- lui $11, 65535
- ori $11, $11, 65535
- sw $11, 716($30)
- lui $12, 65535
- ori $12, $12, 65471
- sw $12, 720($30)
- lui $13, 65535
- ori $13, $13, 65535
- sw $13, 724($30)
- lui $14, 65535
- ori $14, $14, 65503
- sw $14, 728($30)
- lui $15, 65535
- ori $15, $15, 65535
- sw $15, 732($30)
- lui $8, 65535
- ori $8, $8, 65519
- sw $8, 736($30)
- lui $9, 65535
- ori $9, $9, 65535
- sw $9, 740($30)
- lui $10, 65535
- ori $10, $10, 65527
- sw $10, 744($30)
- lui $11, 65535
- ori $11, $11, 65535
- sw $11, 748($30)
- lui $12, 65535
- ori $12, $12, 65531
- sw $12, 752($30)
- lui $13, 65535
- ori $13, $13, 65535
- sw $13, 756($30)
- lui $14, 65535
- ori $14, $14, 65533
- sw $14, 760($30)
- lui $15, 65535
- ori $15, $15, 65535
- sw $15, 764($30)
- lui $8, 65535
- ori $8, $8, 65534
- sw $8, 768($30)
- lui $9, 65535
- ori $9, $9, 65535
- sw $9, 772($30)
- lui $10, 65535
- ori $10, $10, 65535
- sw $10, 776($30)
- lui $11, 32767
- ori $11, $11, 65535
- sw $11, 780($30)
- lui $12, 65535
- ori $12, $12, 65535
- sw $12, 784($30)
- lui $13, 49151
- ori $13, $13, 65535
- sw $13, 788($30)
- lui $14, 65535
- ori $14, $14, 65535
- sw $14, 792($30)
- lui $15, 57343
- ori $15, $15, 65535
- sw $15, 796($30)
- lui $8, 65535
- ori $8, $8, 65535
- sw $8, 800($30)
- lui $9, 61439
- ori $9, $9, 65535
- sw $9, 804($30)
- lui $10, 65535
- ori $10, $10, 65535
- sw $10, 808($30)
- lui $11, 63487
- ori $11, $11, 65535
- sw $11, 812($30)
- lui $12, 65535
- ori $12, $12, 65535
- sw $12, 816($30)
- lui $13, 31743
- ori $13, $13, 65535
- sw $13, 820($30)
- lui $14, 65535
- ori $14, $14, 65535
- sw $14, 824($30)
- lui $15, 65023
- ori $15, $15, 65535
- sw $15, 828($30)
- lui $8, 65535
- ori $8, $8, 65535
- sw $8, 832($30)
- lui $9, 65279
- ori $9, $9, 65535
- sw $9, 836($30)
- lui $10, 65535
- ori $10, $10, 65535
- sw $10, 840($30)
- lui $11, 65407
- ori $11, $11, 65535
- sw $11, 844($30)
- lui $12, 65535
- ori $12, $12, 65535
- sw $12, 848($30)
- lui $13, 65471
- ori $13, $13, 65535
- sw $13, 852($30)
- lui $14, 65535
- ori $14, $14, 65535
- sw $14, 856($30)
- lui $15, 65503
- ori $15, $15, 65535
- sw $15, 860($30)
- lui $8, 65535
- ori $8, $8, 65535
- sw $8, 864($30)
- lui $9, 65519
- ori $9, $9, 65535
- sw $9, 868($30)
- lui $10, 65535
- ori $10, $10, 65535
- sw $10, 872($30)
- lui $11, 65527
- ori $11, $11, 65535
- sw $11, 876($30)
- lui $12, 65535
- ori $12, $12, 65535
- sw $12, 880($30)
- lui $13, 65531
- ori $13, $13, 65535
- sw $13, 884($30)
- lui $14, 65535
- ori $14, $14, 65535
- sw $14, 888($30)
- lui $15, 65533
- ori $15, $15, 65535
- sw $15, 892($30)
- lui $8, 65535
- ori $8, $8, 65535
- sw $8, 896($30)
- lui $9, 65534
- ori $9, $9, 65535
- sw $9, 900($30)
- lui $10, 65535
- ori $10, $10, 65535
- sw $10, 904($30)
- lui $11, 65535
- ori $11, $11, 32767
- sw $11, 908($30)
- lui $12, 65535
- ori $12, $12, 65535
- sw $12, 912($30)
- lui $13, 65535
- ori $13, $13, 49151
- sw $13, 916($30)
- lui $14, 65535
- ori $14, $14, 65535
- sw $14, 920($30)
- lui $15, 65535
- ori $15, $15, 57343
- sw $15, 924($30)
- lui $8, 65535
- ori $8, $8, 65535
- sw $8, 928($30)
- lui $9, 65535
- ori $9, $9, 61439
- sw $9, 932($30)
- lui $10, 65535
- ori $10, $10, 65535
- sw $10, 936($30)
- lui $11, 65535
- ori $11, $11, 63487
- sw $11, 940($30)
- lui $12, 65535
- ori $12, $12, 65535
- sw $12, 944($30)
- lui $13, 65535
- ori $13, $13, 64511
- sw $13, 948($30)
- lui $14, 65535
- ori $14, $14, 65535
- sw $14, 952($30)
- lui $15, 65535
- ori $15, $15, 65023
- sw $15, 956($30)
- lui $8, 65535
- ori $8, $8, 65535
- sw $8, 960($30)
- lui $9, 65535
- ori $9, $9, 65279
- sw $9, 964($30)
- lui $10, 65535
- ori $10, $10, 65535
- sw $10, 968($30)
- lui $11, 65535
- ori $11, $11, 65407
- sw $11, 972($30)
- lui $12, 65535
- ori $12, $12, 65535
- sw $12, 976($30)
- lui $13, 65535
- ori $13, $13, 65471
- sw $13, 980($30)
- lui $14, 65535
- ori $14, $14, 65535
- sw $14, 984($30)
- lui $15, 65535
- ori $15, $15, 65503
- sw $15, 988($30)
- lui $8, 65535
- ori $8, $8, 65535
- sw $8, 992($30)
- lui $9, 65535
- ori $9, $9, 65519
- sw $9, 996($30)
- lui $10, 65535
- ori $10, $10, 65535
- sw $10, 1000($30)
- lui $11, 65535
- ori $11, $11, 65527
- sw $11, 1004($30)
- lui $12, 65535
- ori $12, $12, 65535
- sw $12, 1008($30)
- lui $13, 65535
- ori $13, $13, 65531
- sw $13, 1012($30)
- lui $14, 65535
- ori $14, $14, 65535
- sw $14, 1016($30)
- lui $15, 65535
- ori $15, $15, 65533
- sw $15, 1020($30)
- lui $8, 65535
- ori $8, $8, 65535
- sw $8, 1024($30)
- lui $9, 65535
- ori $9, $9, 65534
- sw $9, 1028($30)
- lui $10, 32767
- ori $10, $10, 65535
- sw $10, 1032($30)
- lui $11, 32767
- ori $11, $11, 65535
- sw $11, 1036($30)
- lui $12, 49151
- ori $12, $12, 65535
- sw $12, 1040($30)
- lui $13, 49151
- ori $13, $13, 65535
- sw $13, 1044($30)
- lui $14, 57343
- ori $14, $14, 65535
- sw $14, 1048($30)
- lui $15, 57343
- ori $15, $15, 65535
- sw $15, 1052($30)
- lui $8, 61439
- ori $8, $8, 65535
- sw $8, 1056($30)
- lui $9, 61439
- ori $9, $9, 65535
- sw $9, 1060($30)
- lui $10, 63487
- ori $10, $10, 65535
- sw $10, 1064($30)
- lui $11, 63487
- ori $11, $11, 65535
- sw $11, 1068($30)
- lui $12, 31743
- ori $12, $12, 65535
- sw $12, 1072($30)
- lui $13, 31743
- ori $13, $13, 65535
- sw $13, 1076($30)
- lui $14, 65023
- ori $14, $14, 65535
- sw $14, 1080($30)
- lui $15, 65023
- ori $15, $15, 65535
- sw $15, 1084($30)
- lui $8, 65279
- ori $8, $8, 65535
- sw $8, 1088($30)
- lui $9, 65279
- ori $9, $9, 65535
- sw $9, 1092($30)
- lui $10, 65407
- ori $10, $10, 65535
- sw $10, 1096($30)
- lui $11, 65407
- ori $11, $11, 65535
- sw $11, 1100($30)
- lui $12, 65471
- ori $12, $12, 65535
- sw $12, 1104($30)
- lui $13, 65471
- ori $13, $13, 65535
- sw $13, 1108($30)
- lui $14, 65503
- ori $14, $14, 65535
- sw $14, 1112($30)
- lui $15, 65503
- ori $15, $15, 65535
- sw $15, 1116($30)
- lui $8, 65519
- ori $8, $8, 65535
- sw $8, 1120($30)
- lui $9, 65519
- ori $9, $9, 65535
- sw $9, 1124($30)
- lui $10, 65527
- ori $10, $10, 65535
- sw $10, 1128($30)
- lui $11, 65527
- ori $11, $11, 65535
- sw $11, 1132($30)
- lui $12, 65531
- ori $12, $12, 65535
- sw $12, 1136($30)
- lui $13, 65531
- ori $13, $13, 65535
- sw $13, 1140($30)
- lui $14, 65533
- ori $14, $14, 65535
- sw $14, 1144($30)
- lui $15, 65533
- ori $15, $15, 65535
- sw $15, 1148($30)
- lui $8, 65534
- ori $8, $8, 65535
- sw $8, 1152($30)
- lui $9, 65534
- ori $9, $9, 65535
- sw $9, 1156($30)
- lui $10, 65535
- ori $10, $10, 32767
- sw $10, 1160($30)
- lui $11, 65535
- ori $11, $11, 32767
- sw $11, 1164($30)
- lui $12, 65535
- ori $12, $12, 49151
- sw $12, 1168($30)
- lui $13, 65535
- ori $13, $13, 49151
- sw $13, 1172($30)
- lui $14, 65535
- ori $14, $14, 57343
- sw $14, 1176($30)
- lui $15, 65535
- ori $15, $15, 57343
- sw $15, 1180($30)
- lui $8, 65535
- ori $8, $8, 61439
- sw $8, 1184($30)
- lui $9, 65535
- ori $9, $9, 61439
- sw $9, 1188($30)
- lui $10, 65535
- ori $10, $10, 63487
- sw $10, 1192($30)
- lui $11, 65535
- ori $11, $11, 63487
- sw $11, 1196($30)
- lui $12, 65535
- ori $12, $12, 64511
- sw $12, 1200($30)
- lui $13, 65535
- ori $13, $13, 64511
- sw $13, 1204($30)
- lui $14, 65535
- ori $14, $14, 65023
- sw $14, 1208($30)
- lui $15, 65535
- ori $15, $15, 65023
- sw $15, 1212($30)
- lui $8, 65535
- ori $8, $8, 65279
- sw $8, 1216($30)
- lui $9, 65535
- ori $9, $9, 65279
- sw $9, 1220($30)
- lui $10, 65535
- ori $10, $10, 65407
- sw $10, 1224($30)
- lui $11, 65535
- ori $11, $11, 65407
- sw $11, 1228($30)
- lui $12, 65535
- ori $12, $12, 65471
- sw $12, 1232($30)
- lui $13, 65535
- ori $13, $13, 65471
- sw $13, 1236($30)
- lui $14, 65535
- ori $14, $14, 65503
- sw $14, 1240($30)
- lui $15, 65535
- ori $15, $15, 65503
- sw $15, 1244($30)
- lui $8, 65535
- ori $8, $8, 65519
- sw $8, 1248($30)
- lui $9, 65535
- ori $9, $9, 65519
- sw $9, 1252($30)
- lui $10, 65535
- ori $10, $10, 65527
- sw $10, 1256($30)
- lui $11, 65535
- ori $11, $11, 65527
- sw $11, 1260($30)
- lui $12, 65535
- ori $12, $12, 65531
- sw $12, 1264($30)
- lui $13, 65535
- ori $13, $13, 65531
- sw $13, 1268($30)
- lui $14, 65535
- ori $14, $14, 65533
- sw $14, 1272($30)
- lui $15, 65535
- ori $15, $15, 65533
- sw $15, 1276($30)
- lui $8, 65535
- ori $8, $8, 65534
- sw $8, 1280($30)
- lui $9, 65535
- ori $9, $9, 65534
- sw $9, 1284($30)
- jr $31
+	lui $8, 65535
+	ori $8, $8, 65535
+	sw $8, 512($30)
+	lui $9, 65535
+	ori $9, $9, 65535
+	sw $9, 516($30)
+	lui $10, 32767
+	ori $10, $10, 65535
+	sw $10, 520($30)
+	lui $11, 65535
+	ori $11, $11, 65535
+	sw $11, 524($30)
+	lui $12, 49151
+	ori $12, $12, 65535
+	sw $12, 528($30)
+	lui $13, 65535
+	ori $13, $13, 65535
+	sw $13, 532($30)
+	lui $14, 57343
+	ori $14, $14, 65535
+	sw $14, 536($30)
+	lui $15, 65535
+	ori $15, $15, 65535
+	sw $15, 540($30)
+	lui $8, 61439
+	ori $8, $8, 65535
+	sw $8, 544($30)
+	lui $9, 65535
+	ori $9, $9, 65535
+	sw $9, 548($30)
+	lui $10, 63487
+	ori $10, $10, 65535
+	sw $10, 552($30)
+	lui $11, 65535
+	ori $11, $11, 65535
+	sw $11, 556($30)
+	lui $12, 31743
+	ori $12, $12, 65535
+	sw $12, 560($30)
+	lui $13, 65535
+	ori $13, $13, 65535
+	sw $13, 564($30)
+	lui $14, 65023
+	ori $14, $14, 65535
+	sw $14, 568($30)
+	lui $15, 65535
+	ori $15, $15, 65535
+	sw $15, 572($30)
+	lui $8, 65279
+	ori $8, $8, 65535
+	sw $8, 576($30)
+	lui $9, 65535
+	ori $9, $9, 65535
+	sw $9, 580($30)
+	lui $10, 65407
+	ori $10, $10, 65535
+	sw $10, 584($30)
+	lui $11, 65535
+	ori $11, $11, 65535
+	sw $11, 588($30)
+	lui $12, 65471
+	ori $12, $12, 65535
+	sw $12, 592($30)
+	lui $13, 65535
+	ori $13, $13, 65535
+	sw $13, 596($30)
+	lui $14, 65503
+	ori $14, $14, 65535
+	sw $14, 600($30)
+	lui $15, 65535
+	ori $15, $15, 65535
+	sw $15, 604($30)
+	lui $8, 65519
+	ori $8, $8, 65535
+	sw $8, 608($30)
+	lui $9, 65535
+	ori $9, $9, 65535
+	sw $9, 612($30)
+	lui $10, 65527
+	ori $10, $10, 65535
+	sw $10, 616($30)
+	lui $11, 65535
+	ori $11, $11, 65535
+	sw $11, 620($30)
+	lui $12, 65531
+	ori $12, $12, 65535
+	sw $12, 624($30)
+	lui $13, 65535
+	ori $13, $13, 65535
+	sw $13, 628($30)
+	lui $14, 65533
+	ori $14, $14, 65535
+	sw $14, 632($30)
+	lui $15, 65535
+	ori $15, $15, 65535
+	sw $15, 636($30)
+	lui $8, 65534
+	ori $8, $8, 65535
+	sw $8, 640($30)
+	lui $9, 65535
+	ori $9, $9, 65535
+	sw $9, 644($30)
+	lui $10, 65535
+	ori $10, $10, 32767
+	sw $10, 648($30)
+	lui $11, 65535
+	ori $11, $11, 65535
+	sw $11, 652($30)
+	lui $12, 65535
+	ori $12, $12, 49151
+	sw $12, 656($30)
+	lui $13, 65535
+	ori $13, $13, 65535
+	sw $13, 660($30)
+	lui $14, 65535
+	ori $14, $14, 57343
+	sw $14, 664($30)
+	lui $15, 65535
+	ori $15, $15, 65535
+	sw $15, 668($30)
+	lui $8, 65535
+	ori $8, $8, 61439
+	sw $8, 672($30)
+	lui $9, 65535
+	ori $9, $9, 65535
+	sw $9, 676($30)
+	lui $10, 65535
+	ori $10, $10, 63487
+	sw $10, 680($30)
+	lui $11, 65535
+	ori $11, $11, 65535
+	sw $11, 684($30)
+	lui $12, 65535
+	ori $12, $12, 64511
+	sw $12, 688($30)
+	lui $13, 65535
+	ori $13, $13, 65535
+	sw $13, 692($30)
+	lui $14, 65535
+	ori $14, $14, 65023
+	sw $14, 696($30)
+	lui $15, 65535
+	ori $15, $15, 65535
+	sw $15, 700($30)
+	lui $8, 65535
+	ori $8, $8, 65279
+	sw $8, 704($30)
+	lui $9, 65535
+	ori $9, $9, 65535
+	sw $9, 708($30)
+	lui $10, 65535
+	ori $10, $10, 65407
+	sw $10, 712($30)
+	lui $11, 65535
+	ori $11, $11, 65535
+	sw $11, 716($30)
+	lui $12, 65535
+	ori $12, $12, 65471
+	sw $12, 720($30)
+	lui $13, 65535
+	ori $13, $13, 65535
+	sw $13, 724($30)
+	lui $14, 65535
+	ori $14, $14, 65503
+	sw $14, 728($30)
+	lui $15, 65535
+	ori $15, $15, 65535
+	sw $15, 732($30)
+	lui $8, 65535
+	ori $8, $8, 65519
+	sw $8, 736($30)
+	lui $9, 65535
+	ori $9, $9, 65535
+	sw $9, 740($30)
+	lui $10, 65535
+	ori $10, $10, 65527
+	sw $10, 744($30)
+	lui $11, 65535
+	ori $11, $11, 65535
+	sw $11, 748($30)
+	lui $12, 65535
+	ori $12, $12, 65531
+	sw $12, 752($30)
+	lui $13, 65535
+	ori $13, $13, 65535
+	sw $13, 756($30)
+	lui $14, 65535
+	ori $14, $14, 65533
+	sw $14, 760($30)
+	lui $15, 65535
+	ori $15, $15, 65535
+	sw $15, 764($30)
+	lui $8, 65535
+	ori $8, $8, 65534
+	sw $8, 768($30)
+	lui $9, 65535
+	ori $9, $9, 65535
+	sw $9, 772($30)
+	lui $10, 65535
+	ori $10, $10, 65535
+	sw $10, 776($30)
+	lui $11, 32767
+	ori $11, $11, 65535
+	sw $11, 780($30)
+	lui $12, 65535
+	ori $12, $12, 65535
+	sw $12, 784($30)
+	lui $13, 49151
+	ori $13, $13, 65535
+	sw $13, 788($30)
+	lui $14, 65535
+	ori $14, $14, 65535
+	sw $14, 792($30)
+	lui $15, 57343
+	ori $15, $15, 65535
+	sw $15, 796($30)
+	lui $8, 65535
+	ori $8, $8, 65535
+	sw $8, 800($30)
+	lui $9, 61439
+	ori $9, $9, 65535
+	sw $9, 804($30)
+	lui $10, 65535
+	ori $10, $10, 65535
+	sw $10, 808($30)
+	lui $11, 63487
+	ori $11, $11, 65535
+	sw $11, 812($30)
+	lui $12, 65535
+	ori $12, $12, 65535
+	sw $12, 816($30)
+	lui $13, 31743
+	ori $13, $13, 65535
+	sw $13, 820($30)
+	lui $14, 65535
+	ori $14, $14, 65535
+	sw $14, 824($30)
+	lui $15, 65023
+	ori $15, $15, 65535
+	sw $15, 828($30)
+	lui $8, 65535
+	ori $8, $8, 65535
+	sw $8, 832($30)
+	lui $9, 65279
+	ori $9, $9, 65535
+	sw $9, 836($30)
+	lui $10, 65535
+	ori $10, $10, 65535
+	sw $10, 840($30)
+	lui $11, 65407
+	ori $11, $11, 65535
+	sw $11, 844($30)
+	lui $12, 65535
+	ori $12, $12, 65535
+	sw $12, 848($30)
+	lui $13, 65471
+	ori $13, $13, 65535
+	sw $13, 852($30)
+	lui $14, 65535
+	ori $14, $14, 65535
+	sw $14, 856($30)
+	lui $15, 65503
+	ori $15, $15, 65535
+	sw $15, 860($30)
+	lui $8, 65535
+	ori $8, $8, 65535
+	sw $8, 864($30)
+	lui $9, 65519
+	ori $9, $9, 65535
+	sw $9, 868($30)
+	lui $10, 65535
+	ori $10, $10, 65535
+	sw $10, 872($30)
+	lui $11, 65527
+	ori $11, $11, 65535
+	sw $11, 876($30)
+	lui $12, 65535
+	ori $12, $12, 65535
+	sw $12, 880($30)
+	lui $13, 65531
+	ori $13, $13, 65535
+	sw $13, 884($30)
+	lui $14, 65535
+	ori $14, $14, 65535
+	sw $14, 888($30)
+	lui $15, 65533
+	ori $15, $15, 65535
+	sw $15, 892($30)
+	lui $8, 65535
+	ori $8, $8, 65535
+	sw $8, 896($30)
+	lui $9, 65534
+	ori $9, $9, 65535
+	sw $9, 900($30)
+	lui $10, 65535
+	ori $10, $10, 65535
+	sw $10, 904($30)
+	lui $11, 65535
+	ori $11, $11, 32767
+	sw $11, 908($30)
+	lui $12, 65535
+	ori $12, $12, 65535
+	sw $12, 912($30)
+	lui $13, 65535
+	ori $13, $13, 49151
+	sw $13, 916($30)
+	lui $14, 65535
+	ori $14, $14, 65535
+	sw $14, 920($30)
+	lui $15, 65535
+	ori $15, $15, 57343
+	sw $15, 924($30)
+	lui $8, 65535
+	ori $8, $8, 65535
+	sw $8, 928($30)
+	lui $9, 65535
+	ori $9, $9, 61439
+	sw $9, 932($30)
+	lui $10, 65535
+	ori $10, $10, 65535
+	sw $10, 936($30)
+	lui $11, 65535
+	ori $11, $11, 63487
+	sw $11, 940($30)
+	lui $12, 65535
+	ori $12, $12, 65535
+	sw $12, 944($30)
+	lui $13, 65535
+	ori $13, $13, 64511
+	sw $13, 948($30)
+	lui $14, 65535
+	ori $14, $14, 65535
+	sw $14, 952($30)
+	lui $15, 65535
+	ori $15, $15, 65023
+	sw $15, 956($30)
+	lui $8, 65535
+	ori $8, $8, 65535
+	sw $8, 960($30)
+	lui $9, 65535
+	ori $9, $9, 65279
+	sw $9, 964($30)
+	lui $10, 65535
+	ori $10, $10, 65535
+	sw $10, 968($30)
+	lui $11, 65535
+	ori $11, $11, 65407
+	sw $11, 972($30)
+	lui $12, 65535
+	ori $12, $12, 65535
+	sw $12, 976($30)
+	lui $13, 65535
+	ori $13, $13, 65471
+	sw $13, 980($30)
+	lui $14, 65535
+	ori $14, $14, 65535
+	sw $14, 984($30)
+	lui $15, 65535
+	ori $15, $15, 65503
+	sw $15, 988($30)
+	lui $8, 65535
+	ori $8, $8, 65535
+	sw $8, 992($30)
+	lui $9, 65535
+	ori $9, $9, 65519
+	sw $9, 996($30)
+	lui $10, 65535
+	ori $10, $10, 65535
+	sw $10, 1000($30)
+	lui $11, 65535
+	ori $11, $11, 65527
+	sw $11, 1004($30)
+	lui $12, 65535
+	ori $12, $12, 65535
+	sw $12, 1008($30)
+	lui $13, 65535
+	ori $13, $13, 65531
+	sw $13, 1012($30)
+	lui $14, 65535
+	ori $14, $14, 65535
+	sw $14, 1016($30)
+	lui $15, 65535
+	ori $15, $15, 65533
+	sw $15, 1020($30)
+	lui $8, 65535
+	ori $8, $8, 65535
+	sw $8, 1024($30)
+	lui $9, 65535
+	ori $9, $9, 65534
+	sw $9, 1028($30)
+	lui $10, 32767
+	ori $10, $10, 65535
+	sw $10, 1032($30)
+	lui $11, 32767
+	ori $11, $11, 65535
+	sw $11, 1036($30)
+	lui $12, 49151
+	ori $12, $12, 65535
+	sw $12, 1040($30)
+	lui $13, 49151
+	ori $13, $13, 65535
+	sw $13, 1044($30)
+	lui $14, 57343
+	ori $14, $14, 65535
+	sw $14, 1048($30)
+	lui $15, 57343
+	ori $15, $15, 65535
+	sw $15, 1052($30)
+	lui $8, 61439
+	ori $8, $8, 65535
+	sw $8, 1056($30)
+	lui $9, 61439
+	ori $9, $9, 65535
+	sw $9, 1060($30)
+	lui $10, 63487
+	ori $10, $10, 65535
+	sw $10, 1064($30)
+	lui $11, 63487
+	ori $11, $11, 65535
+	sw $11, 1068($30)
+	lui $12, 31743
+	ori $12, $12, 65535
+	sw $12, 1072($30)
+	lui $13, 31743
+	ori $13, $13, 65535
+	sw $13, 1076($30)
+	lui $14, 65023
+	ori $14, $14, 65535
+	sw $14, 1080($30)
+	lui $15, 65023
+	ori $15, $15, 65535
+	sw $15, 1084($30)
+	lui $8, 65279
+	ori $8, $8, 65535
+	sw $8, 1088($30)
+	lui $9, 65279
+	ori $9, $9, 65535
+	sw $9, 1092($30)
+	lui $10, 65407
+	ori $10, $10, 65535
+	sw $10, 1096($30)
+	lui $11, 65407
+	ori $11, $11, 65535
+	sw $11, 1100($30)
+	lui $12, 65471
+	ori $12, $12, 65535
+	sw $12, 1104($30)
+	lui $13, 65471
+	ori $13, $13, 65535
+	sw $13, 1108($30)
+	lui $14, 65503
+	ori $14, $14, 65535
+	sw $14, 1112($30)
+	lui $15, 65503
+	ori $15, $15, 65535
+	sw $15, 1116($30)
+	lui $8, 65519
+	ori $8, $8, 65535
+	sw $8, 1120($30)
+	lui $9, 65519
+	ori $9, $9, 65535
+	sw $9, 1124($30)
+	lui $10, 65527
+	ori $10, $10, 65535
+	sw $10, 1128($30)
+	lui $11, 65527
+	ori $11, $11, 65535
+	sw $11, 1132($30)
+	lui $12, 65531
+	ori $12, $12, 65535
+	sw $12, 1136($30)
+	lui $13, 65531
+	ori $13, $13, 65535
+	sw $13, 1140($30)
+	lui $14, 65533
+	ori $14, $14, 65535
+	sw $14, 1144($30)
+	lui $15, 65533
+	ori $15, $15, 65535
+	sw $15, 1148($30)
+	lui $8, 65534
+	ori $8, $8, 65535
+	sw $8, 1152($30)
+	lui $9, 65534
+	ori $9, $9, 65535
+	sw $9, 1156($30)
+	lui $10, 65535
+	ori $10, $10, 32767
+	sw $10, 1160($30)
+	lui $11, 65535
+	ori $11, $11, 32767
+	sw $11, 1164($30)
+	lui $12, 65535
+	ori $12, $12, 49151
+	sw $12, 1168($30)
+	lui $13, 65535
+	ori $13, $13, 49151
+	sw $13, 1172($30)
+	lui $14, 65535
+	ori $14, $14, 57343
+	sw $14, 1176($30)
+	lui $15, 65535
+	ori $15, $15, 57343
+	sw $15, 1180($30)
+	lui $8, 65535
+	ori $8, $8, 61439
+	sw $8, 1184($30)
+	lui $9, 65535
+	ori $9, $9, 61439
+	sw $9, 1188($30)
+	lui $10, 65535
+	ori $10, $10, 63487
+	sw $10, 1192($30)
+	lui $11, 65535
+	ori $11, $11, 63487
+	sw $11, 1196($30)
+	lui $12, 65535
+	ori $12, $12, 64511
+	sw $12, 1200($30)
+	lui $13, 65535
+	ori $13, $13, 64511
+	sw $13, 1204($30)
+	lui $14, 65535
+	ori $14, $14, 65023
+	sw $14, 1208($30)
+	lui $15, 65535
+	ori $15, $15, 65023
+	sw $15, 1212($30)
+	lui $8, 65535
+	ori $8, $8, 65279
+	sw $8, 1216($30)
+	lui $9, 65535
+	ori $9, $9, 65279
+	sw $9, 1220($30)
+	lui $10, 65535
+	ori $10, $10, 65407
+	sw $10, 1224($30)
+	lui $11, 65535
+	ori $11, $11, 65407
+	sw $11, 1228($30)
+	lui $12, 65535
+	ori $12, $12, 65471
+	sw $12, 1232($30)
+	lui $13, 65535
+	ori $13, $13, 65471
+	sw $13, 1236($30)
+	lui $14, 65535
+	ori $14, $14, 65503
+	sw $14, 1240($30)
+	lui $15, 65535
+	ori $15, $15, 65503
+	sw $15, 1244($30)
+	lui $8, 65535
+	ori $8, $8, 65519
+	sw $8, 1248($30)
+	lui $9, 65535
+	ori $9, $9, 65519
+	sw $9, 1252($30)
+	lui $10, 65535
+	ori $10, $10, 65527
+	sw $10, 1256($30)
+	lui $11, 65535
+	ori $11, $11, 65527
+	sw $11, 1260($30)
+	lui $12, 65535
+	ori $12, $12, 65531
+	sw $12, 1264($30)
+	lui $13, 65535
+	ori $13, $13, 65531
+	sw $13, 1268($30)
+	lui $14, 65535
+	ori $14, $14, 65533
+	sw $14, 1272($30)
+	lui $15, 65535
+	ori $15, $15, 65533
+	sw $15, 1276($30)
+	lui $8, 65535
+	ori $8, $8, 65534
+	sw $8, 1280($30)
+	lui $9, 65535
+	ori $9, $9, 65534
+	sw $9, 1284($30)
+	jr $31
 
 end:
 	 j end
