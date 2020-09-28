@@ -564,14 +564,14 @@ def comparator_load_alu_hazardnew(test_register, fixed, out, result_address, mem
 #                             syscall and break                          #
 ##########################################################################
 def syscall(out):
-  out.write(" jal init_cp\n")
-  out.write(" j syscalls\n\n")
+  out.write("\tjal init_cp\n")
+  out.write("\tj syscalls\n\n")
   out.write("syscalls:\n")
   out.write("\tsyscall\n\n")
 
 def breaks(out):
-  out.write(" jal init_cp\n")
-  out.write("j breaks\n\n")
+  out.write("\tjal init_cp\n")
+  out.write("\tj breaks\n\n")
   out.write("breaks:\n")
   out.write("\tbreak\n")
 

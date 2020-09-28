@@ -40,23 +40,23 @@ def init_patterns(out,data_f, pattern_address):
          else:
              most_sig_bit   = int(bit_set3,2)
              least_sig_bit  = int(bit_set4,2)
-         out.write(" lui $%d, %d\n" % (register, most_sig_bit))
-         out.write(" ori $%d, $%d, %d\n" % (register, register, least_sig_bit))
-         out.write(" sw $%d, %d($%s)\n" % (register, offset, pattern_address))
+         out.write("\tlui $%d, %d\n" % (register, most_sig_bit))
+         out.write("\tori $%d, $%d, %d\n" % (register, register, least_sig_bit))
+         out.write("\tsw $%d, %d($%s)\n" % (register, offset, pattern_address))
          offset += 4
          if (register >= 15):
              register = 8
          else:
              register += 1
- out.write(" jr $31\n\n")
+ out.write("\tjr $31\n\n")
 
 def load_branch(out, pattern_address):
     global offset
     register = offset
     out.write("load_branch:\n")
-    out.write(" lw $%d, %d($%s)\n" % (15, register, pattern_address))
-    out.write(" lw $%d, %d($%s)\n" % (16, register+4, pattern_address))
-    out.write(" jr $31\n\n")
+    out.write("\tlw $%d, %d($%s)\n" % (15, register, pattern_address))
+    out.write("\tlw $%d, %d($%s)\n" % (16, register+4, pattern_address))
+    out.write("\tjr $31\n\n")
 
 def init_patterns_branch(out,data_f, pattern_address):
  out.write("init_branch:\n")
@@ -82,12 +82,12 @@ def init_patterns_branch(out,data_f, pattern_address):
          else:
              most_sig_bit   = int(bit_set3,2)
              least_sig_bit  = int(bit_set4,2)
-         out.write(" lui $%d, %d\n" % (register, most_sig_bit))
-         out.write(" ori $%d, $%d, %d\n" % (register, register, least_sig_bit))
-         out.write(" sw $%d, %d($%s)\n" % (register, offset, pattern_address))
+         out.write("\tlui $%d, %d\n" % (register, most_sig_bit))
+         out.write("\tori $%d, $%d, %d\n" % (register, register, least_sig_bit))
+         out.write("\tsw $%d, %d($%s)\n" % (register, offset, pattern_address))
          offset += 4
          if (register >= 15):
              register = 8
          else:
              register += 1
- out.write(" jr $31\n\n")
+ out.write("\tjr $31\n\n")
