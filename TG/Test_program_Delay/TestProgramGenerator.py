@@ -128,19 +128,11 @@ out.write(" jal init_branch\n\n")
 
 #template for op2
 ###op2_template.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount)
-<<<<<<< HEAD
 op2_template_optimized.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount, source_register1, source_register2)
 
 #template for op1
 op1_template_optimized.ops1_template(parameter, out, result_register, result_address, inputFile, iterator, pattern_count, pattern_address, branch_count, source_register1, source_register2,source_register3, transition_address)
 #out.write("jal reset_offsets\n\n") # reset offsets after all immediate operations. Remove if you plan other instructions after this
-=======
-op2_template_optimized.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount, source_register1, source_register2, transition_address, source_register3)
-
-#template for op1
-op1_template_optimized.ops1_template(parameter, out, result_register, result_address, inputFile, iterator, pattern_count, pattern_address, branch_count, source_register1, source_register2,source_register3, transition_address)
-###out.write("jal reset_offsets\n\n") # reset offsets after all immediate operations. Remove if you plan other instructions after this
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 
 #syscall
 out.write(";..........system call..........;\n")
@@ -169,11 +161,7 @@ register_test.hilo(out, result_address, pattern_address)
 
 #pattern loading, reset offset module, increment offset
 reset.end_program(out)
-<<<<<<< HEAD
 reset.load_pattern(out, pattern_address)
-=======
-reset.load_pattern(out, pattern_address, transition_address)
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 reset.reset_offsets(out, pattern_address,iterator,result_register)
 reset.reset_hi_lo(out)
 reset.increment_offset(out, pattern_address,iterator, result_address)

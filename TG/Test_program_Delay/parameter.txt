@@ -13,21 +13,13 @@ shift_amount=5
 transition_address=17
 
 ;for testing OP1
-<<<<<<< HEAD
 ;y a_add
-=======
-y a_add
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 n a_addu
 n a_and
 n a _nor
 n a_or
 n a_subu
-<<<<<<< HEAD
 ;y a_sub
-=======
-y a_sub
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 n a_xor
 n a_sllv
 n a_slt
@@ -49,14 +41,8 @@ n a_sra
 n b_mult
 n b_multu
 
-<<<<<<< HEAD
 ;n c_mthi
 ;n c_mtlo
-=======
-n c_mthi
-n c_mtlo
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
-
 
 ; for immediate
 y i_addi

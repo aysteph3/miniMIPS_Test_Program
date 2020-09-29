@@ -1794,185 +1794,6 @@ cop0_register:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_add_addu:
-	jal load_patterns
-	add $18, $15, $16
-	addu $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_addu
-
-jal reset_offsets
-jal init_cp
-operation_add_and:
-	jal load_patterns
-	add $18, $15, $16
-	and $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_and
-
-jal reset_offsets
-jal init_cp
-operation_add_nor:
-	jal load_patterns
-	add $18, $15, $16
-	nor $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_nor
-
-jal reset_offsets
-jal init_cp
-operation_add_or:
-	jal load_patterns
-	add $18, $15, $16
-	or $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_or
-
-jal reset_offsets
-jal init_cp
-operation_add_subu:
-	jal load_patterns
-	add $18, $15, $16
-	subu $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_subu
-
-jal reset_offsets
-jal init_cp
-operation_add_sub:
-	jal load_patterns
-	add $18, $15, $16
-	sub $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_sub
-
-jal reset_offsets
-jal init_cp
-operation_add_xor:
-	jal load_patterns
-	add $18, $15, $16
-	xor $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_xor
-
-jal reset_offsets
-jal init_cp
-operation_add_sllv:
-	jal load_patterns
-	add $18, $15, $16
-	sllv $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_sllv
-
-jal reset_offsets
-jal init_cp
-operation_add_slt:
-	jal load_patterns
-	add $18, $15, $16
-	slt $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_slt
-
-jal reset_offsets
-jal init_cp
-operation_add_sltu:
-	jal load_patterns
-	add $18, $15, $16
-	sltu $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_sltu
-
-jal reset_offsets
-jal init_cp
-operation_add_srav:
-	jal load_patterns
-	add $18, $15, $16
-	srav $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_srav
-
-jal reset_offsets
-jal init_cp
-operation_add_srlv:
-	jal load_patterns
-	add $18, $15, $16
-	srlv $18, $15, $16
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_srlv
-
-jal reset_offsets
-jal init_cp
-operation_add_sll:
-	jal load_patterns
-	add $18, $15, $16
-	sll $18 ,$15, 5
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_sll
-
-jal reset_offsets
-jal init_cp
-operation_add_srl:
-	jal load_patterns
-	add $18, $15, $16
-	srl $18 ,$15, 5
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_srl
-
-jal reset_offsets
-jal init_cp
-operation_add_sra:
-	jal load_patterns
-	add $18, $15, $16
-	sra $18 ,$15, 5
-	add $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_add_sra
-
-jal reset_offsets
-jal init_cp
-operation_addu_add:
-	jal load_patterns
-	addu $18, $15, $16
-	add $18, $15, $16
-	addu $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_addu_add
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_addu_and:
 	jal load_patterns
 	addu $18, $15, $16
@@ -2017,20 +1838,6 @@ operation_addu_subu:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_addu_sub:
-	jal load_patterns
-	addu $18, $15, $16
-	sub $18, $15, $16
-	addu $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_addu_sub
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_addu_xor:
 	jal load_patterns
 	addu $18, $15, $16
@@ -2130,20 +1937,6 @@ operation_addu_sra:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_and_add:
-	jal load_patterns
-	and $18, $15, $16
-	add $18, $15, $16
-	and $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_and_add
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_and_addu:
 	jal load_patterns
 	and $18, $15, $16
@@ -2188,20 +1981,6 @@ operation_and_subu:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_and_sub:
-	jal load_patterns
-	and $18, $15, $16
-	sub $18, $15, $16
-	and $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_and_sub
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_and_xor:
 	jal load_patterns
 	and $18, $15, $16
@@ -2301,20 +2080,6 @@ operation_and_sra:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_nor_add:
-	jal load_patterns
-	nor $18, $15, $16
-	add $18, $15, $16
-	nor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_nor_add
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_nor_addu:
 	jal load_patterns
 	nor $18, $15, $16
@@ -2359,20 +2124,6 @@ operation_nor_subu:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_nor_sub:
-	jal load_patterns
-	nor $18, $15, $16
-	sub $18, $15, $16
-	nor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_nor_sub
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_nor_xor:
 	jal load_patterns
 	nor $18, $15, $16
@@ -2472,20 +2223,6 @@ operation_nor_sra:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_or_add:
-	jal load_patterns
-	or $18, $15, $16
-	add $18, $15, $16
-	or $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_or_add
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_or_addu:
 	jal load_patterns
 	or $18, $15, $16
@@ -2530,20 +2267,6 @@ operation_or_subu:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_or_sub:
-	jal load_patterns
-	or $18, $15, $16
-	sub $18, $15, $16
-	or $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_or_sub
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_or_xor:
 	jal load_patterns
 	or $18, $15, $16
@@ -2643,20 +2366,6 @@ operation_or_sra:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_subu_add:
-	jal load_patterns
-	subu $18, $15, $16
-	add $18, $15, $16
-	subu $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_subu_add
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_subu_addu:
 	jal load_patterns
 	subu $18, $15, $16
@@ -2701,20 +2410,6 @@ operation_subu_or:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_subu_sub:
-	jal load_patterns
-	subu $18, $15, $16
-	sub $18, $15, $16
-	subu $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_subu_sub
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_subu_xor:
 	jal load_patterns
 	subu $18, $15, $16
@@ -2814,7 +2509,6 @@ operation_subu_sra:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
 operation_xor_addu:
 	jal load_patterns
 	xor $18, $15, $16
@@ -2970,361 +2664,6 @@ operation_sllv_addu:
 jal reset_offsets
 jal init_cp
 operation_sllv_and:
-=======
-operation_sub_add:
-	jal load_patterns
-	sub $18, $15, $16
-	add $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_add
-
-jal reset_offsets
-jal init_cp
-operation_sub_addu:
-	jal load_patterns
-	sub $18, $15, $16
-	addu $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_addu
-
-jal reset_offsets
-jal init_cp
-operation_sub_and:
-	jal load_patterns
-	sub $18, $15, $16
-	and $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_and
-
-jal reset_offsets
-jal init_cp
-operation_sub_nor:
-	jal load_patterns
-	sub $18, $15, $16
-	nor $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_nor
-
-jal reset_offsets
-jal init_cp
-operation_sub_or:
-	jal load_patterns
-	sub $18, $15, $16
-	or $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_or
-
-jal reset_offsets
-jal init_cp
-operation_sub_subu:
-	jal load_patterns
-	sub $18, $15, $16
-	subu $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_subu
-
-jal reset_offsets
-jal init_cp
-operation_sub_xor:
-	jal load_patterns
-	sub $18, $15, $16
-	xor $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_xor
-
-jal reset_offsets
-jal init_cp
-operation_sub_sllv:
-	jal load_patterns
-	sub $18, $15, $16
-	sllv $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_sllv
-
-jal reset_offsets
-jal init_cp
-operation_sub_slt:
-	jal load_patterns
-	sub $18, $15, $16
-	slt $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_slt
-
-jal reset_offsets
-jal init_cp
-operation_sub_sltu:
-	jal load_patterns
-	sub $18, $15, $16
-	sltu $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_sltu
-
-jal reset_offsets
-jal init_cp
-operation_sub_srav:
-	jal load_patterns
-	sub $18, $15, $16
-	srav $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_srav
-
-jal reset_offsets
-jal init_cp
-operation_sub_srlv:
-	jal load_patterns
-	sub $18, $15, $16
-	srlv $18, $15, $16
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_srlv
-
-jal reset_offsets
-jal init_cp
-operation_sub_sll:
-	jal load_patterns
-	sub $18, $15, $16
-	sll $18 ,$15, 5
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_sll
-
-jal reset_offsets
-jal init_cp
-operation_sub_srl:
-	jal load_patterns
-	sub $18, $15, $16
-	srl $18 ,$15, 5
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_srl
-
-jal reset_offsets
-jal init_cp
-operation_sub_sra:
-	jal load_patterns
-	sub $18, $15, $16
-	sra $18 ,$15, 5
-	sub $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sub_sra
-
-jal reset_offsets
-jal init_cp
-operation_xor_add:
-	jal load_patterns
-	xor $18, $15, $16
-	add $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_add
-
-jal reset_offsets
-jal init_cp
-operation_xor_addu:
-	jal load_patterns
-	xor $18, $15, $16
-	addu $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_addu
-
-jal reset_offsets
-jal init_cp
-operation_xor_and:
-	jal load_patterns
-	xor $18, $15, $16
-	and $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_and
-
-jal reset_offsets
-jal init_cp
-operation_xor_nor:
-	jal load_patterns
-	xor $18, $15, $16
-	nor $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_nor
-
-jal reset_offsets
-jal init_cp
-operation_xor_or:
-	jal load_patterns
-	xor $18, $15, $16
-	or $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_or
-
-jal reset_offsets
-jal init_cp
-operation_xor_subu:
-	jal load_patterns
-	xor $18, $15, $16
-	subu $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_subu
-
-jal reset_offsets
-jal init_cp
-operation_xor_sub:
-	jal load_patterns
-	xor $18, $15, $16
-	sub $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_sub
-
-jal reset_offsets
-jal init_cp
-operation_xor_sllv:
-	jal load_patterns
-	xor $18, $15, $16
-	sllv $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_sllv
-
-jal reset_offsets
-jal init_cp
-operation_xor_slt:
-	jal load_patterns
-	xor $18, $15, $16
-	slt $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_slt
-
-jal reset_offsets
-jal init_cp
-operation_xor_sltu:
-	jal load_patterns
-	xor $18, $15, $16
-	sltu $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_sltu
-
-jal reset_offsets
-jal init_cp
-operation_xor_srav:
-	jal load_patterns
-	xor $18, $15, $16
-	srav $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_srav
-
-jal reset_offsets
-jal init_cp
-operation_xor_srlv:
-	jal load_patterns
-	xor $18, $15, $16
-	srlv $18, $15, $16
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_srlv
-
-jal reset_offsets
-jal init_cp
-operation_xor_sll:
-	jal load_patterns
-	xor $18, $15, $16
-	sll $18 ,$15, 5
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_sll
-
-jal reset_offsets
-jal init_cp
-operation_xor_srl:
-	jal load_patterns
-	xor $18, $15, $16
-	srl $18 ,$15, 5
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_srl
-
-jal reset_offsets
-jal init_cp
-operation_xor_sra:
-	jal load_patterns
-	xor $18, $15, $16
-	sra $18 ,$15, 5
-	xor $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_xor_sra
-
-jal reset_offsets
-jal init_cp
-operation_sllv_add:
-	jal load_patterns
-	sllv $18, $15, $16
-	add $18, $15, $16
-	sllv $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sllv_add
-
-jal reset_offsets
-jal init_cp
-operation_sllv_addu:
-	jal load_patterns
-	sllv $18, $15, $16
-	addu $18, $15, $16
-	sllv $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sllv_addu
-
-jal reset_offsets
-jal init_cp
-operation_sllv_and:
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 	jal load_patterns
 	sllv $18, $15, $16
 	and $18, $15, $16
@@ -3368,20 +2707,6 @@ operation_sllv_subu:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_sllv_sub:
-	jal load_patterns
-	sllv $18, $15, $16
-	sub $18, $15, $16
-	sllv $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sllv_sub
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sllv_xor:
 	jal load_patterns
 	sllv $18, $15, $16
@@ -3470,20 +2795,6 @@ operation_sllv_sra:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_slt_add:
-	jal load_patterns
-	slt $18, $15, $16
-	add $18, $15, $16
-	slt $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_slt_add
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_slt_addu:
 	jal load_patterns
 	slt $18, $15, $16
@@ -3539,20 +2850,6 @@ operation_slt_subu:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_slt_sub:
-	jal load_patterns
-	slt $18, $15, $16
-	sub $18, $15, $16
-	slt $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_slt_sub
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_slt_xor:
 	jal load_patterns
 	slt $18, $15, $16
@@ -3641,20 +2938,6 @@ operation_slt_sra:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_sltu_add:
-	jal load_patterns
-	sltu $18, $15, $16
-	add $18, $15, $16
-	sltu $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sltu_add
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sltu_addu:
 	jal load_patterns
 	sltu $18, $15, $16
@@ -3710,20 +2993,6 @@ operation_sltu_subu:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_sltu_sub:
-	jal load_patterns
-	sltu $18, $15, $16
-	sub $18, $15, $16
-	sltu $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_sltu_sub
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sltu_xor:
 	jal load_patterns
 	sltu $18, $15, $16
@@ -3812,20 +3081,6 @@ operation_sltu_sra:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_srav_add:
-	jal load_patterns
-	srav $18, $15, $16
-	add $18, $15, $16
-	srav $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_srav_add
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srav_addu:
 	jal load_patterns
 	srav $18, $15, $16
@@ -3881,20 +3136,6 @@ operation_srav_subu:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_srav_sub:
-	jal load_patterns
-	srav $18, $15, $16
-	sub $18, $15, $16
-	srav $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_srav_sub
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srav_xor:
 	jal load_patterns
 	srav $18, $15, $16
@@ -3983,20 +3224,6 @@ operation_srav_sra:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_srlv_add:
-	jal load_patterns
-	srlv $18, $15, $16
-	add $18, $15, $16
-	srlv $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_srlv_add
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srlv_addu:
 	jal load_patterns
 	srlv $18, $15, $16
@@ -4052,20 +3279,6 @@ operation_srlv_subu:
 
 jal reset_offsets
 jal init_cp
-<<<<<<< HEAD
-=======
-operation_srlv_sub:
-	jal load_patterns
-	srlv $18, $15, $16
-	sub $18, $15, $16
-	srlv $19, $15, $16
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_srlv_sub
-
-jal reset_offsets
-jal init_cp
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srlv_xor:
 	jal load_patterns
 	srlv $18, $15, $16
@@ -4153,21 +3366,7 @@ operation_srlv_sra:
 	bne $27, $28, operation_srlv_sra
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
-operation_sll_add:
-	jal load_patterns
-	sll $18 ,$15, 5
-	add $18, $15, $16
-	sll $19 ,$15, 5
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_sll_add
-
-jal reset_offsets
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_addu:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4179,10 +3378,7 @@ operation_sll_addu:
 	bne $27, $28, operation_sll_addu
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_and:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4194,10 +3390,7 @@ operation_sll_and:
 	bne $27, $28, operation_sll_and
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_nor:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4209,10 +3402,7 @@ operation_sll_nor:
 	bne $27, $28, operation_sll_nor
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_or:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4224,10 +3414,7 @@ operation_sll_or:
 	bne $27, $28, operation_sll_or
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_subu:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4239,21 +3426,7 @@ operation_sll_subu:
 	bne $27, $28, operation_sll_subu
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
-operation_sll_sub:
-	jal load_patterns
-	sll $18 ,$15, 5
-	sub $18, $15, $16
-	sll $19 ,$15, 5
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_sll_sub
-
-jal reset_offsets
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_xor:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4265,10 +3438,7 @@ operation_sll_xor:
 	bne $27, $28, operation_sll_xor
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_sllv:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4280,10 +3450,7 @@ operation_sll_sllv:
 	bne $27, $28, operation_sll_sllv
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_slt:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4295,10 +3462,7 @@ operation_sll_slt:
 	bne $27, $28, operation_sll_slt
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_sltu:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4310,10 +3474,7 @@ operation_sll_sltu:
 	bne $27, $28, operation_sll_sltu
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_srav:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4325,10 +3486,7 @@ operation_sll_srav:
 	bne $27, $28, operation_sll_srav
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_srlv:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4340,10 +3498,7 @@ operation_sll_srlv:
 	bne $27, $28, operation_sll_srlv
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_srl:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4355,10 +3510,7 @@ operation_sll_srl:
 	bne $27, $28, operation_sll_srl
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sll_sra:
 	jal load_patterns
 	sll $18 ,$15, 5
@@ -4370,21 +3522,7 @@ operation_sll_sra:
 	bne $27, $28, operation_sll_sra
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
-operation_srl_add:
-	jal load_patterns
-	srl $18 ,$15, 5
-	add $18, $15, $16
-	srl $19 ,$15, 5
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_srl_add
-
-jal reset_offsets
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_addu:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4396,10 +3534,7 @@ operation_srl_addu:
 	bne $27, $28, operation_srl_addu
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_and:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4411,10 +3546,7 @@ operation_srl_and:
 	bne $27, $28, operation_srl_and
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_nor:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4426,10 +3558,7 @@ operation_srl_nor:
 	bne $27, $28, operation_srl_nor
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_or:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4441,10 +3570,7 @@ operation_srl_or:
 	bne $27, $28, operation_srl_or
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_subu:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4456,21 +3582,7 @@ operation_srl_subu:
 	bne $27, $28, operation_srl_subu
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
-operation_srl_sub:
-	jal load_patterns
-	srl $18 ,$15, 5
-	sub $18, $15, $16
-	srl $19 ,$15, 5
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_srl_sub
-
-jal reset_offsets
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_xor:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4482,10 +3594,7 @@ operation_srl_xor:
 	bne $27, $28, operation_srl_xor
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_sllv:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4497,10 +3606,7 @@ operation_srl_sllv:
 	bne $27, $28, operation_srl_sllv
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_slt:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4512,10 +3618,7 @@ operation_srl_slt:
 	bne $27, $28, operation_srl_slt
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_sltu:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4527,10 +3630,7 @@ operation_srl_sltu:
 	bne $27, $28, operation_srl_sltu
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_srav:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4542,10 +3642,7 @@ operation_srl_srav:
 	bne $27, $28, operation_srl_srav
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_srlv:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4557,10 +3654,7 @@ operation_srl_srlv:
 	bne $27, $28, operation_srl_srlv
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_sll:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4572,10 +3666,7 @@ operation_srl_sll:
 	bne $27, $28, operation_srl_sll
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_srl_sra:
 	jal load_patterns
 	srl $18 ,$15, 5
@@ -4587,21 +3678,7 @@ operation_srl_sra:
 	bne $27, $28, operation_srl_sra
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
-operation_sra_add:
-	jal load_patterns
-	sra $18 ,$15, 5
-	add $18, $15, $16
-	sra $19 ,$15, 5
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_sra_add
-
-jal reset_offsets
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_addu:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4613,10 +3690,7 @@ operation_sra_addu:
 	bne $27, $28, operation_sra_addu
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_and:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4628,10 +3702,7 @@ operation_sra_and:
 	bne $27, $28, operation_sra_and
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_nor:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4643,10 +3714,7 @@ operation_sra_nor:
 	bne $27, $28, operation_sra_nor
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_or:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4658,10 +3726,7 @@ operation_sra_or:
 	bne $27, $28, operation_sra_or
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_subu:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4673,21 +3738,7 @@ operation_sra_subu:
 	bne $27, $28, operation_sra_subu
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
-operation_sra_sub:
-	jal load_patterns
-	sra $18 ,$15, 5
-	sub $18, $15, $16
-	sra $19 ,$15, 5
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_sra_sub
-
-jal reset_offsets
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_xor:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4699,10 +3750,7 @@ operation_sra_xor:
 	bne $27, $28, operation_sra_xor
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_sllv:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4714,10 +3762,7 @@ operation_sra_sllv:
 	bne $27, $28, operation_sra_sllv
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_slt:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4729,10 +3774,7 @@ operation_sra_slt:
 	bne $27, $28, operation_sra_slt
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_sltu:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4744,10 +3786,7 @@ operation_sra_sltu:
 	bne $27, $28, operation_sra_sltu
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_srav:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4759,10 +3798,7 @@ operation_sra_srav:
 	bne $27, $28, operation_sra_srav
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_srlv:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4774,10 +3810,7 @@ operation_sra_srlv:
 	bne $27, $28, operation_sra_srlv
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_sll:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4789,10 +3822,7 @@ operation_sra_sll:
 	bne $27, $28, operation_sra_sll
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_sra_srl:
 	jal load_patterns
 	sra $18 ,$15, 5
@@ -4804,32 +3834,7 @@ operation_sra_srl:
 	bne $27, $28, operation_sra_srl
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
-operation_mult_add_lo:
-	jal load_patterns
-	mult $15, $16
-	add $19, $15, $16
-	mult $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_mult_add_lo
-
-jal reset_offsets
-operation_mult_add_hi:
-	jal load_patterns
-	mult $15, $16
-	add $19, $15, $16
-	mult $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_mult_add_hi
-
-jal reset_offsets
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_addu_lo:
 	jal load_patterns
 	mult $15, $16
@@ -4841,10 +3846,7 @@ operation_mult_addu_lo:
 	bne $27, $28, operation_mult_addu_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_addu_hi:
 	jal load_patterns
 	mult $15, $16
@@ -4856,10 +3858,7 @@ operation_mult_addu_hi:
 	bne $27, $28, operation_mult_addu_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_and_lo:
 	jal load_patterns
 	mult $15, $16
@@ -4871,10 +3870,7 @@ operation_mult_and_lo:
 	bne $27, $28, operation_mult_and_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_and_hi:
 	jal load_patterns
 	mult $15, $16
@@ -4886,10 +3882,7 @@ operation_mult_and_hi:
 	bne $27, $28, operation_mult_and_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_nor_lo:
 	jal load_patterns
 	mult $15, $16
@@ -4901,10 +3894,7 @@ operation_mult_nor_lo:
 	bne $27, $28, operation_mult_nor_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_nor_hi:
 	jal load_patterns
 	mult $15, $16
@@ -4916,10 +3906,7 @@ operation_mult_nor_hi:
 	bne $27, $28, operation_mult_nor_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_or_lo:
 	jal load_patterns
 	mult $15, $16
@@ -4931,10 +3918,7 @@ operation_mult_or_lo:
 	bne $27, $28, operation_mult_or_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_or_hi:
 	jal load_patterns
 	mult $15, $16
@@ -4946,10 +3930,7 @@ operation_mult_or_hi:
 	bne $27, $28, operation_mult_or_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_subu_lo:
 	jal load_patterns
 	mult $15, $16
@@ -4961,10 +3942,7 @@ operation_mult_subu_lo:
 	bne $27, $28, operation_mult_subu_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_subu_hi:
 	jal load_patterns
 	mult $15, $16
@@ -4976,32 +3954,7 @@ operation_mult_subu_hi:
 	bne $27, $28, operation_mult_subu_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
-operation_mult_sub_lo:
-	jal load_patterns
-	mult $15, $16
-	sub $19, $15, $16
-	mult $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_mult_sub_lo
-
-jal reset_offsets
-operation_mult_sub_hi:
-	jal load_patterns
-	mult $15, $16
-	sub $19, $15, $16
-	mult $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_mult_sub_hi
-
-jal reset_offsets
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_xor_lo:
 	jal load_patterns
 	mult $15, $16
@@ -5013,10 +3966,7 @@ operation_mult_xor_lo:
 	bne $27, $28, operation_mult_xor_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_xor_hi:
 	jal load_patterns
 	mult $15, $16
@@ -5028,10 +3978,7 @@ operation_mult_xor_hi:
 	bne $27, $28, operation_mult_xor_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_sllv_lo:
 	jal load_patterns
 	mult $15, $16
@@ -5043,10 +3990,7 @@ operation_mult_sllv_lo:
 	bne $27, $28, operation_mult_sllv_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_sllv_hi:
 	jal load_patterns
 	mult $15, $16
@@ -5058,10 +4002,7 @@ operation_mult_sllv_hi:
 	bne $27, $28, operation_mult_sllv_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_slt_lo:
 	jal load_patterns
 	mult $15, $16
@@ -5073,10 +4014,7 @@ operation_mult_slt_lo:
 	bne $27, $28, operation_mult_slt_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_slt_hi:
 	jal load_patterns
 	mult $15, $16
@@ -5088,10 +4026,7 @@ operation_mult_slt_hi:
 	bne $27, $28, operation_mult_slt_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_sltu_lo:
 	jal load_patterns
 	mult $15, $16
@@ -5103,10 +4038,7 @@ operation_mult_sltu_lo:
 	bne $27, $28, operation_mult_sltu_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_sltu_hi:
 	jal load_patterns
 	mult $15, $16
@@ -5118,10 +4050,7 @@ operation_mult_sltu_hi:
 	bne $27, $28, operation_mult_sltu_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_srav_lo:
 	jal load_patterns
 	mult $15, $16
@@ -5133,10 +4062,7 @@ operation_mult_srav_lo:
 	bne $27, $28, operation_mult_srav_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_srav_hi:
 	jal load_patterns
 	mult $15, $16
@@ -5148,10 +4074,7 @@ operation_mult_srav_hi:
 	bne $27, $28, operation_mult_srav_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_srlv_lo:
 	jal load_patterns
 	mult $15, $16
@@ -5163,10 +4086,7 @@ operation_mult_srlv_lo:
 	bne $27, $28, operation_mult_srlv_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_srlv_hi:
 	jal load_patterns
 	mult $15, $16
@@ -5178,10 +4098,7 @@ operation_mult_srlv_hi:
 	bne $27, $28, operation_mult_srlv_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_sll_lo:
 	jal load_patterns
 	mult $15, $16
@@ -5193,10 +4110,7 @@ operation_mult_sll_lo:
 	bne $27, $28, operation_mult_sll_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_sll_hi:
 	jal load_patterns
 	mult $15, $16
@@ -5208,10 +4122,7 @@ operation_mult_sll_hi:
 	bne $27, $28, operation_mult_sll_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_srl_lo:
 	jal load_patterns
 	mult $15, $16
@@ -5223,10 +4134,7 @@ operation_mult_srl_lo:
 	bne $27, $28, operation_mult_srl_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_srl_hi:
 	jal load_patterns
 	mult $15, $16
@@ -5238,10 +4146,7 @@ operation_mult_srl_hi:
 	bne $27, $28, operation_mult_srl_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_sra_lo:
 	jal load_patterns
 	mult $15, $16
@@ -5253,10 +4158,7 @@ operation_mult_sra_lo:
 	bne $27, $28, operation_mult_sra_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_mult_sra_hi:
 	jal load_patterns
 	mult $15, $16
@@ -5268,32 +4170,7 @@ operation_mult_sra_hi:
 	bne $27, $28, operation_mult_sra_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
-operation_multu_add_lo:
-	jal load_patterns
-	multu $15, $16
-	add $19, $15, $16
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_add_lo
-
-jal reset_offsets
-operation_multu_add_hi:
-	jal load_patterns
-	multu $15, $16
-	add $19, $15, $16
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_add_hi
-
-jal reset_offsets
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_multu_addu_lo:
 	jal load_patterns
 	multu $15, $16
@@ -5305,10 +4182,7 @@ operation_multu_addu_lo:
 	bne $27, $28, operation_multu_addu_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_multu_addu_hi:
 	jal load_patterns
 	multu $15, $16
@@ -5320,10 +4194,7 @@ operation_multu_addu_hi:
 	bne $27, $28, operation_multu_addu_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_multu_and_lo:
 	jal load_patterns
 	multu $15, $16
@@ -5335,10 +4206,7 @@ operation_multu_and_lo:
 	bne $27, $28, operation_multu_and_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_multu_and_hi:
 	jal load_patterns
 	multu $15, $16
@@ -5350,10 +4218,7 @@ operation_multu_and_hi:
 	bne $27, $28, operation_multu_and_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_multu_nor_lo:
 	jal load_patterns
 	multu $15, $16
@@ -5365,10 +4230,7 @@ operation_multu_nor_lo:
 	bne $27, $28, operation_multu_nor_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_multu_nor_hi:
 	jal load_patterns
 	multu $15, $16
@@ -5380,10 +4242,7 @@ operation_multu_nor_hi:
 	bne $27, $28, operation_multu_nor_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_multu_or_lo:
 	jal load_patterns
 	multu $15, $16
@@ -5395,10 +4254,7 @@ operation_multu_or_lo:
 	bne $27, $28, operation_multu_or_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_multu_or_hi:
 	jal load_patterns
 	multu $15, $16
@@ -5410,10 +4266,7 @@ operation_multu_or_hi:
 	bne $27, $28, operation_multu_or_hi
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_multu_subu_lo:
 	jal load_patterns
 	multu $15, $16
@@ -5425,17 +4278,13 @@ operation_multu_subu_lo:
 	bne $27, $28, operation_multu_subu_lo
 
 jal reset_offsets
-<<<<<<< HEAD
 jal init_cp
-=======
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 operation_multu_subu_hi:
 	jal load_patterns
 	multu $15, $16
 	subu $19, $15, $16
 	multu $15, $16
 	mfhi $18
-<<<<<<< HEAD
 	jal store
 	jal increment_offset
 	bne $27, $28, operation_multu_subu_hi
@@ -5655,647 +4504,6 @@ operation_multu_sra_hi:
 	jal store
 	jal increment_offset
 	bne $27, $28, operation_multu_sra_hi
-=======
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_subu_hi
-
-jal reset_offsets
-operation_multu_sub_lo:
-	jal load_patterns
-	multu $15, $16
-	sub $19, $15, $16
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_sub_lo
-
-jal reset_offsets
-operation_multu_sub_hi:
-	jal load_patterns
-	multu $15, $16
-	sub $19, $15, $16
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_sub_hi
-
-jal reset_offsets
-operation_multu_xor_lo:
-	jal load_patterns
-	multu $15, $16
-	xor $19, $15, $16
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_xor_lo
-
-jal reset_offsets
-operation_multu_xor_hi:
-	jal load_patterns
-	multu $15, $16
-	xor $19, $15, $16
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_xor_hi
-
-jal reset_offsets
-operation_multu_sllv_lo:
-	jal load_patterns
-	multu $15, $16
-	sllv $19, $15, $16
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_sllv_lo
-
-jal reset_offsets
-operation_multu_sllv_hi:
-	jal load_patterns
-	multu $15, $16
-	sllv $19, $15, $16
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_sllv_hi
-
-jal reset_offsets
-operation_multu_slt_lo:
-	jal load_patterns
-	multu $15, $16
-	slt $19, $15, $16
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_slt_lo
-
-jal reset_offsets
-operation_multu_slt_hi:
-	jal load_patterns
-	multu $15, $16
-	slt $19, $15, $16
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_slt_hi
-
-jal reset_offsets
-operation_multu_sltu_lo:
-	jal load_patterns
-	multu $15, $16
-	sltu $19, $15, $16
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_sltu_lo
-
-jal reset_offsets
-operation_multu_sltu_hi:
-	jal load_patterns
-	multu $15, $16
-	sltu $19, $15, $16
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_sltu_hi
-
-jal reset_offsets
-operation_multu_srav_lo:
-	jal load_patterns
-	multu $15, $16
-	srav $19, $15, $16
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_srav_lo
-
-jal reset_offsets
-operation_multu_srav_hi:
-	jal load_patterns
-	multu $15, $16
-	srav $19, $15, $16
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_srav_hi
-
-jal reset_offsets
-operation_multu_srlv_lo:
-	jal load_patterns
-	multu $15, $16
-	srlv $19, $15, $16
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_srlv_lo
-
-jal reset_offsets
-operation_multu_srlv_hi:
-	jal load_patterns
-	multu $15, $16
-	srlv $19, $15, $16
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_srlv_hi
-
-jal reset_offsets
-operation_multu_sll_lo:
-	jal load_patterns
-	multu $15, $16
-	sll $18 ,$15, 5
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_sll_lo
-
-jal reset_offsets
-operation_multu_sll_hi:
-	jal load_patterns
-	multu $15, $16
-	sll $18 ,$15, 5
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_sll_hi
-
-jal reset_offsets
-operation_multu_srl_lo:
-	jal load_patterns
-	multu $15, $16
-	srl $18 ,$15, 5
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_srl_lo
-
-jal reset_offsets
-operation_multu_srl_hi:
-	jal load_patterns
-	multu $15, $16
-	srl $18 ,$15, 5
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_srl_hi
-
-jal reset_offsets
-operation_multu_sra_lo:
-	jal load_patterns
-	multu $15, $16
-	sra $18 ,$15, 5
-	multu $15, $16
-	mflo $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_sra_lo
-
-jal reset_offsets
-operation_multu_sra_hi:
-	jal load_patterns
-	multu $15, $16
-	sra $18 ,$15, 5
-	multu $15, $16
-	mfhi $18
-	jal store
-	jal increment_offset
-	bne $27, $28, operation_multu_sra_hi
-
-jal reset_offsets
-operation_mthi_add_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	add $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_add_hi_lo
-
-jal reset_offsets
-operation_mthi_addu_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	addu $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_addu_hi_lo
-
-jal reset_offsets
-operation_mthi_and_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	and $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_and_hi_lo
-
-jal reset_offsets
-operation_mthi_nor_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	nor $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_nor_hi_lo
-
-jal reset_offsets
-operation_mthi_or_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	or $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_or_hi_lo
-
-jal reset_offsets
-operation_mthi_subu_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	subu $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_subu_hi_lo
-
-jal reset_offsets
-operation_mthi_sub_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	sub $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_sub_hi_lo
-
-jal reset_offsets
-operation_mthi_xor_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	xor $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_xor_hi_lo
-
-jal reset_offsets
-operation_mthi_sllv_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	sllv $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_sllv_hi_lo
-
-jal reset_offsets
-operation_mthi_slt_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	slt $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_slt_hi_lo
-
-jal reset_offsets
-operation_mthi_sltu_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	sltu $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_sltu_hi_lo
-
-jal reset_offsets
-operation_mthi_srav_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	srav $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_srav_hi_lo
-
-jal reset_offsets
-operation_mthi_srlv_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	srlv $19, $15, $16
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_srlv_hi_lo
-
-jal reset_offsets
-operation_mthi_sll_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	sll $18 ,$15, 5
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_sll_hi_lo
-
-jal reset_offsets
-operation_mthi_srl_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	srl $18 ,$15, 5
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_srl_hi_lo
-
-jal reset_offsets
-operation_mthi_sra_hi_lo:
-	jal load_patterns
-	mthi $16
-	mfhi $18
-	sra $18 ,$15, 5
-	mthi $16
-	mfhi $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mthi_sra_hi_lo
-
-jal reset_offsets
-operation_mtlo_add_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	add $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_add_hi_lo
-
-jal reset_offsets
-operation_mtlo_addu_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	addu $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_addu_hi_lo
-
-jal reset_offsets
-operation_mtlo_and_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	and $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_and_hi_lo
-
-jal reset_offsets
-operation_mtlo_nor_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	nor $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_nor_hi_lo
-
-jal reset_offsets
-operation_mtlo_or_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	or $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_or_hi_lo
-
-jal reset_offsets
-operation_mtlo_subu_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	subu $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_subu_hi_lo
-
-jal reset_offsets
-operation_mtlo_sub_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	sub $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_sub_hi_lo
-
-jal reset_offsets
-operation_mtlo_xor_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	xor $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_xor_hi_lo
-
-jal reset_offsets
-operation_mtlo_sllv_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	sllv $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_sllv_hi_lo
-
-jal reset_offsets
-operation_mtlo_slt_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	slt $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_slt_hi_lo
-
-jal reset_offsets
-operation_mtlo_sltu_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	sltu $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_sltu_hi_lo
-
-jal reset_offsets
-operation_mtlo_srav_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	srav $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_srav_hi_lo
-
-jal reset_offsets
-operation_mtlo_srlv_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	srlv $19, $15, $16
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_srlv_hi_lo
-
-jal reset_offsets
-operation_mtlo_sll_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	sll $18 ,$15, 5
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_sll_hi_lo
-
-jal reset_offsets
-operation_mtlo_srl_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	srl $18 ,$15, 5
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_srl_hi_lo
-
-jal reset_offsets
-operation_mtlo_sra_hi_lo:
-	jal load_patterns
-	mtlo $16
-	mflo $18
-	sra $18 ,$15, 5
-	mtlo $16
-	mflo $18
-	sw $18, 0($29)
-	sw $19, 4($29)
-	jal increment_offset
-	bne $27, $28, operation_mtlo_sra_hi_lo
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 
 jal reset_offsets
 jal init_cp
@@ -10335,11 +8543,6 @@ hilo_register_operation:
  j end
 
 load_patterns:
-<<<<<<< HEAD
-=======
-	lui $17, 0
-	ori $17, $17, 0
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 	lw $15, 0($30)
 	lw $16, 4($30)
 	jr $31
@@ -10377,11 +8580,7 @@ store_branch:
 
 store:
 	sw $18, 0($29)
-<<<<<<< HEAD
 	sw $19, 4($29)
-=======
-	sw $19, 0($29)
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 	jr $31
 
 init_cp:
