@@ -3,14 +3,22 @@
 #op2_func and variants generate test for OP2 instructions while hi_lo and variants generate
 #test for HILO. The parameter file helps organize the test with the help of the HLDD
 
+<<<<<<< HEAD
 def op2_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_address):
+=======
+def op2_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_address, src3):
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
     file.write("jal reset_offsets\n")
     #file.write("jal init_cp\n")
     file.write("operation_op2:\n")
     file.write("\tjal load_patterns\n")
 
 
+<<<<<<< HEAD
 def op2_func2(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, shift_amount):
+=======
+def op2_func2(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, src3, transition_instruction, shift_amount):
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
     file.write("jal reset_offsets\n")
     file.write("jal init_cp\n")
     file.write("operation_"+instr+":\n")
@@ -25,7 +33,11 @@ def op2_func2(instruction, file, result_register,result_address,iterator,pattern
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
 
+<<<<<<< HEAD
 def op2_mult_u_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, shift_amount):
+=======
+def op2_mult_u_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, src3, shift_amount):
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
     file.write("\tjal load_patterns\n")
     file.write("\t%s $%s, $%s\n" % (instruction, src1, src2))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
@@ -34,11 +46,19 @@ def op2_mult_u_func(instruction, file, result_register,result_address,iterator,p
         file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
     file.write("\t%s $%s, $%s\n" % (instruction, src1, src2))
     file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
+<<<<<<< HEAD
     file.write("\tsw $%s, %d($%s)\n" % (str(int(result_register)+1), 4, result_address))
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
 
 def op2_mthi_lo_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, shift_amount):
+=======
+    file.write("\tsw $%s, %d($%s)\n" % (str(int(result_register)+1), 0, result_address))
+    file.write("\tjal increment_offset\n")
+    file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
+
+def op2_mthi_lo_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, src3, shift_amount):
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
     file.write("\tjal load_patterns\n")
     file.write("\t%s $%s\n" % (instruction, src1))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
@@ -50,7 +70,11 @@ def op2_mthi_lo_func(instruction, file, result_register,result_address,iterator,
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
 
+<<<<<<< HEAD
 def op2_mfhi_lo_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction,shift_amount):
+=======
+def op2_mfhi_lo_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, src3, shift_amount):
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
     file.write("\tjal load_patterns\n")
     file.write("\t%s $%s\n" % (instruction, result_register))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
@@ -59,11 +83,19 @@ def op2_mfhi_lo_func(instruction, file, result_register,result_address,iterator,
         file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
     file.write("\t%s $%s\n" % (instruction, str(int(result_register)+1)))
     file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
+<<<<<<< HEAD
     file.write("\tsw $%s, %d($%s)\n" % (str(int(result_register)+1), 4, result_address))
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr)) # check this later
 
 def op2_shift_amount_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, shift_amount, src1, src2, transition_instruction):
+=======
+    file.write("\tsw $%s, %d($%s)\n" % (str(int(result_register)+1), 0, result_address))
+    file.write("\tjal increment_offset\n")
+    file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr)) # check this later
+
+def op2_shift_amount_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, shift_amount, src1, src2, transition_instruction, src3):
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
     file.write("\tjal load_patterns\n")
     file.write("\t%s $%s ,$%s, %s\n" % (instruction, result_register, src1, shift_amount ))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
@@ -76,7 +108,11 @@ def op2_shift_amount_func(instruction, file, result_register,result_address,iter
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
 
+<<<<<<< HEAD
 def hi_lo_func_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, shift_amount):
+=======
+def hi_lo_func_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, src3, shift_amount):
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
     file.write("\tjal load_patterns\n")
     file.write("\t%s $%s, $%s\n" % (instruction, src1, src2))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
@@ -89,7 +125,11 @@ def hi_lo_func_func(instruction, file, result_register,result_address,iterator,p
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s_lo\n\n" % (iterator, pattern_count, instr))
 
+<<<<<<< HEAD
 def hi_lo_func_func_a(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, shift_amount):
+=======
+def hi_lo_func_func_a(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, src3, shift_amount):
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
     file.write("\tjal load_patterns\n")
     file.write("\t%s $%s, $%s\n" % (instruction, src1, src2))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
@@ -102,7 +142,11 @@ def hi_lo_func_func_a(instruction, file, result_register,result_address,iterator
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s_hi\n\n" % (iterator, pattern_count, instr))
 
+<<<<<<< HEAD
 def hi_lo_mt_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, shift_amount):
+=======
+def hi_lo_mt_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, src3, shift_amount):
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
     if (instruction == 'mthi'):
         subInstruct = 'mfhi'
     else:
@@ -122,16 +166,27 @@ def hi_lo_mt_func(instruction, file, result_register,result_address,iterator,pat
     file.write("\tbne $%s, $%s, operation_%s_hi_lo\n\n" % (iterator, pattern_count, instr))
 
 def print_tags(file, instr):
+<<<<<<< HEAD
     file.write("jal reset_offsets\n")
     file.write("jal init_cp\n")
     file.write("operation_"+instr+":\n")
 
 def op2_template(para, out, result_register,result_address,iterator,pattern_count, shift_amount, src1, src2):
+=======
+	file.write("jal reset_offsets\n")
+	file.write("operation_"+instr+":\n")
+
+def op2_template(para, out, result_register,result_address,iterator,pattern_count, shift_amount, src1, src2, transition_address, src3):
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
  f = open(para,'r')
  f2 = open(para,'r')
  firstPass = True
  opcode = []
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
  instruction_t = []
  for line2 in f2:
     if "=" not in line2:
@@ -153,7 +208,11 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
             line = line.rstrip()
             instru = line[3:]
             instr = str.strip(instru)
+<<<<<<< HEAD
             instruction = instr[0:]
+=======
+            instruction = instr[0:]    
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
             if (catergory == 'a_'):
                 for x in instruction_t:
                     inst =""
@@ -161,14 +220,22 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
                     if ((instr == 'mult') or (instr == 'multu')):
                         if not (instruction==x):
                             print_tags(out, inst)
+<<<<<<< HEAD
                             op2_mult_u_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, shift_amount)
                     elif((instr == 'mthi') or (instr == 'mtlo')):
                         print_tags(out, inst)
                         op2_mthi_lo_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x,shift_amount)
+=======
+                            op2_mult_u_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, src3, shift_amount)
+                    elif((instr == 'mthi') or (instr == 'mtlo')):
+                        print_tags(out, inst)
+                        op2_mthi_lo_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, src3,shift_amount)
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
                     elif((instr == 'mfhi') or (instr == 'mflo')):
                         out.write("jal reset_offsets\n")
                         out.write("jal reset_hi_lo\n")
                         out.write("operation_"+inst+":\n")
+<<<<<<< HEAD
                         op2_mfhi_lo_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, shift_amount)
                     elif((instr == 'sll') or (instr == 'sra') or (instr == 'srl')):
                         if not (instruction==x):
@@ -180,11 +247,25 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
                         #else:
                         if not (instruction==x):
                             op2_func2(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, shift_amount)
+=======
+                        op2_mfhi_lo_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, src3, shift_amount)
+                    elif((instr == 'sll') or (instr == 'sra') or (instr == 'srl')):
+                        if not (instruction==x):
+                            print_tags(out, inst)
+                            op2_shift_amount_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, shift_amount, src1, src2, x, src3)
+                    else:
+                        #if not(line[0:1] =='y'):
+                         #   opcode.append(instruction)
+                        #else:
+                        if not (instruction==x):
+                            op2_func2(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, src3, x, shift_amount)
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
             elif (catergory == 'b_'):
                 for x in instruction_t:
                     inst =""
                     inst= instr+"_"+x
                     out.write("jal reset_offsets\n")
+<<<<<<< HEAD
                     out.write("jal init_cp\n")
                     out.write("operation_"+inst+"_lo:\n")
                     hi_lo_func_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, shift_amount)
@@ -192,14 +273,26 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
                     out.write("jal init_cp\n")
                     out.write("operation_"+inst+"_hi:\n")
                     hi_lo_func_func_a(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, shift_amount)
+=======
+                    out.write("operation_"+inst+"_lo:\n")
+                    hi_lo_func_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, src3, shift_amount)
+                    out.write("jal reset_offsets\n")
+                    out.write("operation_"+inst+"_hi:\n")
+                    hi_lo_func_func_a(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, src3, shift_amount)
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
             elif (catergory == 'c_'):
                 for x in instruction_t:
                     inst =""
                     inst= instr+"_"+x
                     out.write("jal reset_offsets\n")
+<<<<<<< HEAD
                     out.write("jal init_cp\n")
                     out.write("operation_"+inst+"_hi_lo:\n")
                     hi_lo_mt_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, shift_amount)
+=======
+                    out.write("operation_"+inst+"_hi_lo:\n")
+                    hi_lo_mt_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, src3, shift_amount)
+>>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
             else:
                 nothing = ''
         except IndexError:
