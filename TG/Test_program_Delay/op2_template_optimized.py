@@ -20,6 +20,10 @@ def op2_func2(instruction, file, result_register,result_address,iterator,pattern
         file.write("\t%s $%s ,$%s, %s\n" % (transition_instruction, result_register, src1, shift_amount ))
     else:
         file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
+    if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
+        file.write("\t%s $%s, $%s, %s\n" % (transition_instruction, str(int(result_register)+1), src1, shift_amount))
+    else:
+        file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, str(int(result_register)+1), src1, src2))
     file.write("\t%s $%s, $%s, $%s\n" % (instruction, str(int(result_register)+1), src1, src2))
     file.write("\tjal store\n")
     file.write("\tjal increment_offset\n")

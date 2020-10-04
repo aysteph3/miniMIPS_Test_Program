@@ -1798,6 +1798,7 @@ operation_addu_and:
 	jal load_patterns
 	addu $18, $15, $16
 	and $18, $15, $16
+	and $19, $15, $16
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1809,6 +1810,7 @@ operation_addu_nor:
 	jal load_patterns
 	addu $18, $15, $16
 	nor $18, $15, $16
+	nor $19, $15, $16
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1820,6 +1822,7 @@ operation_addu_or:
 	jal load_patterns
 	addu $18, $15, $16
 	or $18, $15, $16
+	or $19, $15, $16
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1831,6 +1834,7 @@ operation_addu_subu:
 	jal load_patterns
 	addu $18, $15, $16
 	subu $18, $15, $16
+	subu $19, $15, $16
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1842,6 +1846,7 @@ operation_addu_xor:
 	jal load_patterns
 	addu $18, $15, $16
 	xor $18, $15, $16
+	xor $19, $15, $16
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1853,6 +1858,7 @@ operation_addu_sllv:
 	jal load_patterns
 	addu $18, $15, $16
 	sllv $18, $15, $16
+	sllv $19, $15, $16
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1864,6 +1870,7 @@ operation_addu_slt:
 	jal load_patterns
 	addu $18, $15, $16
 	slt $18, $15, $16
+	slt $19, $15, $16
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1875,6 +1882,7 @@ operation_addu_sltu:
 	jal load_patterns
 	addu $18, $15, $16
 	sltu $18, $15, $16
+	sltu $19, $15, $16
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1886,6 +1894,7 @@ operation_addu_srav:
 	jal load_patterns
 	addu $18, $15, $16
 	srav $18, $15, $16
+	srav $19, $15, $16
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1897,6 +1906,7 @@ operation_addu_srlv:
 	jal load_patterns
 	addu $18, $15, $16
 	srlv $18, $15, $16
+	srlv $19, $15, $16
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1908,6 +1918,7 @@ operation_addu_sll:
 	jal load_patterns
 	addu $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1919,6 +1930,7 @@ operation_addu_srl:
 	jal load_patterns
 	addu $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1930,6 +1942,7 @@ operation_addu_sra:
 	jal load_patterns
 	addu $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	addu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1941,6 +1954,7 @@ operation_and_addu:
 	jal load_patterns
 	and $18, $15, $16
 	addu $18, $15, $16
+	addu $19, $15, $16
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1952,6 +1966,7 @@ operation_and_nor:
 	jal load_patterns
 	and $18, $15, $16
 	nor $18, $15, $16
+	nor $19, $15, $16
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1963,6 +1978,7 @@ operation_and_or:
 	jal load_patterns
 	and $18, $15, $16
 	or $18, $15, $16
+	or $19, $15, $16
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1974,6 +1990,7 @@ operation_and_subu:
 	jal load_patterns
 	and $18, $15, $16
 	subu $18, $15, $16
+	subu $19, $15, $16
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1985,6 +2002,7 @@ operation_and_xor:
 	jal load_patterns
 	and $18, $15, $16
 	xor $18, $15, $16
+	xor $19, $15, $16
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -1996,6 +2014,7 @@ operation_and_sllv:
 	jal load_patterns
 	and $18, $15, $16
 	sllv $18, $15, $16
+	sllv $19, $15, $16
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2007,6 +2026,7 @@ operation_and_slt:
 	jal load_patterns
 	and $18, $15, $16
 	slt $18, $15, $16
+	slt $19, $15, $16
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2018,6 +2038,7 @@ operation_and_sltu:
 	jal load_patterns
 	and $18, $15, $16
 	sltu $18, $15, $16
+	sltu $19, $15, $16
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2029,6 +2050,7 @@ operation_and_srav:
 	jal load_patterns
 	and $18, $15, $16
 	srav $18, $15, $16
+	srav $19, $15, $16
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2040,6 +2062,7 @@ operation_and_srlv:
 	jal load_patterns
 	and $18, $15, $16
 	srlv $18, $15, $16
+	srlv $19, $15, $16
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2051,6 +2074,7 @@ operation_and_sll:
 	jal load_patterns
 	and $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2062,6 +2086,7 @@ operation_and_srl:
 	jal load_patterns
 	and $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2073,6 +2098,7 @@ operation_and_sra:
 	jal load_patterns
 	and $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	and $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2084,6 +2110,7 @@ operation_nor_addu:
 	jal load_patterns
 	nor $18, $15, $16
 	addu $18, $15, $16
+	addu $19, $15, $16
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2095,6 +2122,7 @@ operation_nor_and:
 	jal load_patterns
 	nor $18, $15, $16
 	and $18, $15, $16
+	and $19, $15, $16
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2106,6 +2134,7 @@ operation_nor_or:
 	jal load_patterns
 	nor $18, $15, $16
 	or $18, $15, $16
+	or $19, $15, $16
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2117,6 +2146,7 @@ operation_nor_subu:
 	jal load_patterns
 	nor $18, $15, $16
 	subu $18, $15, $16
+	subu $19, $15, $16
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2128,6 +2158,7 @@ operation_nor_xor:
 	jal load_patterns
 	nor $18, $15, $16
 	xor $18, $15, $16
+	xor $19, $15, $16
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2139,6 +2170,7 @@ operation_nor_sllv:
 	jal load_patterns
 	nor $18, $15, $16
 	sllv $18, $15, $16
+	sllv $19, $15, $16
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2150,6 +2182,7 @@ operation_nor_slt:
 	jal load_patterns
 	nor $18, $15, $16
 	slt $18, $15, $16
+	slt $19, $15, $16
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2161,6 +2194,7 @@ operation_nor_sltu:
 	jal load_patterns
 	nor $18, $15, $16
 	sltu $18, $15, $16
+	sltu $19, $15, $16
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2172,6 +2206,7 @@ operation_nor_srav:
 	jal load_patterns
 	nor $18, $15, $16
 	srav $18, $15, $16
+	srav $19, $15, $16
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2183,6 +2218,7 @@ operation_nor_srlv:
 	jal load_patterns
 	nor $18, $15, $16
 	srlv $18, $15, $16
+	srlv $19, $15, $16
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2194,6 +2230,7 @@ operation_nor_sll:
 	jal load_patterns
 	nor $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2205,6 +2242,7 @@ operation_nor_srl:
 	jal load_patterns
 	nor $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2216,6 +2254,7 @@ operation_nor_sra:
 	jal load_patterns
 	nor $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	nor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2227,6 +2266,7 @@ operation_or_addu:
 	jal load_patterns
 	or $18, $15, $16
 	addu $18, $15, $16
+	addu $19, $15, $16
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2238,6 +2278,7 @@ operation_or_and:
 	jal load_patterns
 	or $18, $15, $16
 	and $18, $15, $16
+	and $19, $15, $16
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2249,6 +2290,7 @@ operation_or_nor:
 	jal load_patterns
 	or $18, $15, $16
 	nor $18, $15, $16
+	nor $19, $15, $16
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2260,6 +2302,7 @@ operation_or_subu:
 	jal load_patterns
 	or $18, $15, $16
 	subu $18, $15, $16
+	subu $19, $15, $16
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2271,6 +2314,7 @@ operation_or_xor:
 	jal load_patterns
 	or $18, $15, $16
 	xor $18, $15, $16
+	xor $19, $15, $16
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2282,6 +2326,7 @@ operation_or_sllv:
 	jal load_patterns
 	or $18, $15, $16
 	sllv $18, $15, $16
+	sllv $19, $15, $16
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2293,6 +2338,7 @@ operation_or_slt:
 	jal load_patterns
 	or $18, $15, $16
 	slt $18, $15, $16
+	slt $19, $15, $16
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2304,6 +2350,7 @@ operation_or_sltu:
 	jal load_patterns
 	or $18, $15, $16
 	sltu $18, $15, $16
+	sltu $19, $15, $16
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2315,6 +2362,7 @@ operation_or_srav:
 	jal load_patterns
 	or $18, $15, $16
 	srav $18, $15, $16
+	srav $19, $15, $16
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2326,6 +2374,7 @@ operation_or_srlv:
 	jal load_patterns
 	or $18, $15, $16
 	srlv $18, $15, $16
+	srlv $19, $15, $16
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2337,6 +2386,7 @@ operation_or_sll:
 	jal load_patterns
 	or $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2348,6 +2398,7 @@ operation_or_srl:
 	jal load_patterns
 	or $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2359,6 +2410,7 @@ operation_or_sra:
 	jal load_patterns
 	or $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	or $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2370,6 +2422,7 @@ operation_subu_addu:
 	jal load_patterns
 	subu $18, $15, $16
 	addu $18, $15, $16
+	addu $19, $15, $16
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2381,6 +2434,7 @@ operation_subu_and:
 	jal load_patterns
 	subu $18, $15, $16
 	and $18, $15, $16
+	and $19, $15, $16
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2392,6 +2446,7 @@ operation_subu_nor:
 	jal load_patterns
 	subu $18, $15, $16
 	nor $18, $15, $16
+	nor $19, $15, $16
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2403,6 +2458,7 @@ operation_subu_or:
 	jal load_patterns
 	subu $18, $15, $16
 	or $18, $15, $16
+	or $19, $15, $16
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2414,6 +2470,7 @@ operation_subu_xor:
 	jal load_patterns
 	subu $18, $15, $16
 	xor $18, $15, $16
+	xor $19, $15, $16
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2425,6 +2482,7 @@ operation_subu_sllv:
 	jal load_patterns
 	subu $18, $15, $16
 	sllv $18, $15, $16
+	sllv $19, $15, $16
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2436,6 +2494,7 @@ operation_subu_slt:
 	jal load_patterns
 	subu $18, $15, $16
 	slt $18, $15, $16
+	slt $19, $15, $16
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2447,6 +2506,7 @@ operation_subu_sltu:
 	jal load_patterns
 	subu $18, $15, $16
 	sltu $18, $15, $16
+	sltu $19, $15, $16
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2458,6 +2518,7 @@ operation_subu_srav:
 	jal load_patterns
 	subu $18, $15, $16
 	srav $18, $15, $16
+	srav $19, $15, $16
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2469,6 +2530,7 @@ operation_subu_srlv:
 	jal load_patterns
 	subu $18, $15, $16
 	srlv $18, $15, $16
+	srlv $19, $15, $16
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2480,6 +2542,7 @@ operation_subu_sll:
 	jal load_patterns
 	subu $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2491,6 +2554,7 @@ operation_subu_srl:
 	jal load_patterns
 	subu $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2502,6 +2566,7 @@ operation_subu_sra:
 	jal load_patterns
 	subu $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	subu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2513,6 +2578,7 @@ operation_xor_addu:
 	jal load_patterns
 	xor $18, $15, $16
 	addu $18, $15, $16
+	addu $19, $15, $16
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2524,6 +2590,7 @@ operation_xor_and:
 	jal load_patterns
 	xor $18, $15, $16
 	and $18, $15, $16
+	and $19, $15, $16
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2535,6 +2602,7 @@ operation_xor_nor:
 	jal load_patterns
 	xor $18, $15, $16
 	nor $18, $15, $16
+	nor $19, $15, $16
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2546,6 +2614,7 @@ operation_xor_or:
 	jal load_patterns
 	xor $18, $15, $16
 	or $18, $15, $16
+	or $19, $15, $16
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2557,6 +2626,7 @@ operation_xor_subu:
 	jal load_patterns
 	xor $18, $15, $16
 	subu $18, $15, $16
+	subu $19, $15, $16
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2568,6 +2638,7 @@ operation_xor_sllv:
 	jal load_patterns
 	xor $18, $15, $16
 	sllv $18, $15, $16
+	sllv $19, $15, $16
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2579,6 +2650,7 @@ operation_xor_slt:
 	jal load_patterns
 	xor $18, $15, $16
 	slt $18, $15, $16
+	slt $19, $15, $16
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2590,6 +2662,7 @@ operation_xor_sltu:
 	jal load_patterns
 	xor $18, $15, $16
 	sltu $18, $15, $16
+	sltu $19, $15, $16
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2601,6 +2674,7 @@ operation_xor_srav:
 	jal load_patterns
 	xor $18, $15, $16
 	srav $18, $15, $16
+	srav $19, $15, $16
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2612,6 +2686,7 @@ operation_xor_srlv:
 	jal load_patterns
 	xor $18, $15, $16
 	srlv $18, $15, $16
+	srlv $19, $15, $16
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2623,6 +2698,7 @@ operation_xor_sll:
 	jal load_patterns
 	xor $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2634,6 +2710,7 @@ operation_xor_srl:
 	jal load_patterns
 	xor $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2645,6 +2722,7 @@ operation_xor_sra:
 	jal load_patterns
 	xor $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	xor $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2656,6 +2734,7 @@ operation_sllv_addu:
 	jal load_patterns
 	sllv $18, $15, $16
 	addu $18, $15, $16
+	addu $19, $15, $16
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2667,6 +2746,7 @@ operation_sllv_and:
 	jal load_patterns
 	sllv $18, $15, $16
 	and $18, $15, $16
+	and $19, $15, $16
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2678,6 +2758,7 @@ operation_sllv_nor:
 	jal load_patterns
 	sllv $18, $15, $16
 	nor $18, $15, $16
+	nor $19, $15, $16
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2689,6 +2770,7 @@ operation_sllv_or:
 	jal load_patterns
 	sllv $18, $15, $16
 	or $18, $15, $16
+	or $19, $15, $16
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2700,6 +2782,7 @@ operation_sllv_subu:
 	jal load_patterns
 	sllv $18, $15, $16
 	subu $18, $15, $16
+	subu $19, $15, $16
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2711,6 +2794,7 @@ operation_sllv_xor:
 	jal load_patterns
 	sllv $18, $15, $16
 	xor $18, $15, $16
+	xor $19, $15, $16
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2722,6 +2806,7 @@ operation_sllv_slt:
 	jal load_patterns
 	sllv $18, $15, $16
 	slt $18, $15, $16
+	slt $19, $15, $16
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2733,6 +2818,7 @@ operation_sllv_sltu:
 	jal load_patterns
 	sllv $18, $15, $16
 	sltu $18, $15, $16
+	sltu $19, $15, $16
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2744,6 +2830,7 @@ operation_sllv_srav:
 	jal load_patterns
 	sllv $18, $15, $16
 	srav $18, $15, $16
+	srav $19, $15, $16
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2755,6 +2842,7 @@ operation_sllv_srlv:
 	jal load_patterns
 	sllv $18, $15, $16
 	srlv $18, $15, $16
+	srlv $19, $15, $16
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2766,6 +2854,7 @@ operation_sllv_sll:
 	jal load_patterns
 	sllv $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2777,6 +2866,7 @@ operation_sllv_srl:
 	jal load_patterns
 	sllv $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2788,6 +2878,7 @@ operation_sllv_sra:
 	jal load_patterns
 	sllv $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	sllv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2799,6 +2890,7 @@ operation_slt_addu:
 	jal load_patterns
 	slt $18, $15, $16
 	addu $18, $15, $16
+	addu $19, $15, $16
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2810,6 +2902,7 @@ operation_slt_and:
 	jal load_patterns
 	slt $18, $15, $16
 	and $18, $15, $16
+	and $19, $15, $16
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2821,6 +2914,7 @@ operation_slt_nor:
 	jal load_patterns
 	slt $18, $15, $16
 	nor $18, $15, $16
+	nor $19, $15, $16
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2832,6 +2926,7 @@ operation_slt_or:
 	jal load_patterns
 	slt $18, $15, $16
 	or $18, $15, $16
+	or $19, $15, $16
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2843,6 +2938,7 @@ operation_slt_subu:
 	jal load_patterns
 	slt $18, $15, $16
 	subu $18, $15, $16
+	subu $19, $15, $16
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2854,6 +2950,7 @@ operation_slt_xor:
 	jal load_patterns
 	slt $18, $15, $16
 	xor $18, $15, $16
+	xor $19, $15, $16
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2865,6 +2962,7 @@ operation_slt_sllv:
 	jal load_patterns
 	slt $18, $15, $16
 	sllv $18, $15, $16
+	sllv $19, $15, $16
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2876,6 +2974,7 @@ operation_slt_sltu:
 	jal load_patterns
 	slt $18, $15, $16
 	sltu $18, $15, $16
+	sltu $19, $15, $16
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2887,6 +2986,7 @@ operation_slt_srav:
 	jal load_patterns
 	slt $18, $15, $16
 	srav $18, $15, $16
+	srav $19, $15, $16
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2898,6 +2998,7 @@ operation_slt_srlv:
 	jal load_patterns
 	slt $18, $15, $16
 	srlv $18, $15, $16
+	srlv $19, $15, $16
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2909,6 +3010,7 @@ operation_slt_sll:
 	jal load_patterns
 	slt $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2920,6 +3022,7 @@ operation_slt_srl:
 	jal load_patterns
 	slt $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2931,6 +3034,7 @@ operation_slt_sra:
 	jal load_patterns
 	slt $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	slt $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2942,6 +3046,7 @@ operation_sltu_addu:
 	jal load_patterns
 	sltu $18, $15, $16
 	addu $18, $15, $16
+	addu $19, $15, $16
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2953,6 +3058,7 @@ operation_sltu_and:
 	jal load_patterns
 	sltu $18, $15, $16
 	and $18, $15, $16
+	and $19, $15, $16
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2964,6 +3070,7 @@ operation_sltu_nor:
 	jal load_patterns
 	sltu $18, $15, $16
 	nor $18, $15, $16
+	nor $19, $15, $16
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2975,6 +3082,7 @@ operation_sltu_or:
 	jal load_patterns
 	sltu $18, $15, $16
 	or $18, $15, $16
+	or $19, $15, $16
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2986,6 +3094,7 @@ operation_sltu_subu:
 	jal load_patterns
 	sltu $18, $15, $16
 	subu $18, $15, $16
+	subu $19, $15, $16
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -2997,6 +3106,7 @@ operation_sltu_xor:
 	jal load_patterns
 	sltu $18, $15, $16
 	xor $18, $15, $16
+	xor $19, $15, $16
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3008,6 +3118,7 @@ operation_sltu_sllv:
 	jal load_patterns
 	sltu $18, $15, $16
 	sllv $18, $15, $16
+	sllv $19, $15, $16
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3019,6 +3130,7 @@ operation_sltu_slt:
 	jal load_patterns
 	sltu $18, $15, $16
 	slt $18, $15, $16
+	slt $19, $15, $16
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3030,6 +3142,7 @@ operation_sltu_srav:
 	jal load_patterns
 	sltu $18, $15, $16
 	srav $18, $15, $16
+	srav $19, $15, $16
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3041,6 +3154,7 @@ operation_sltu_srlv:
 	jal load_patterns
 	sltu $18, $15, $16
 	srlv $18, $15, $16
+	srlv $19, $15, $16
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3052,6 +3166,7 @@ operation_sltu_sll:
 	jal load_patterns
 	sltu $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3063,6 +3178,7 @@ operation_sltu_srl:
 	jal load_patterns
 	sltu $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3074,6 +3190,7 @@ operation_sltu_sra:
 	jal load_patterns
 	sltu $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	sltu $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3085,6 +3202,7 @@ operation_srav_addu:
 	jal load_patterns
 	srav $18, $15, $16
 	addu $18, $15, $16
+	addu $19, $15, $16
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3096,6 +3214,7 @@ operation_srav_and:
 	jal load_patterns
 	srav $18, $15, $16
 	and $18, $15, $16
+	and $19, $15, $16
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3107,6 +3226,7 @@ operation_srav_nor:
 	jal load_patterns
 	srav $18, $15, $16
 	nor $18, $15, $16
+	nor $19, $15, $16
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3118,6 +3238,7 @@ operation_srav_or:
 	jal load_patterns
 	srav $18, $15, $16
 	or $18, $15, $16
+	or $19, $15, $16
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3129,6 +3250,7 @@ operation_srav_subu:
 	jal load_patterns
 	srav $18, $15, $16
 	subu $18, $15, $16
+	subu $19, $15, $16
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3140,6 +3262,7 @@ operation_srav_xor:
 	jal load_patterns
 	srav $18, $15, $16
 	xor $18, $15, $16
+	xor $19, $15, $16
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3151,6 +3274,7 @@ operation_srav_sllv:
 	jal load_patterns
 	srav $18, $15, $16
 	sllv $18, $15, $16
+	sllv $19, $15, $16
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3162,6 +3286,7 @@ operation_srav_slt:
 	jal load_patterns
 	srav $18, $15, $16
 	slt $18, $15, $16
+	slt $19, $15, $16
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3173,6 +3298,7 @@ operation_srav_sltu:
 	jal load_patterns
 	srav $18, $15, $16
 	sltu $18, $15, $16
+	sltu $19, $15, $16
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3184,6 +3310,7 @@ operation_srav_srlv:
 	jal load_patterns
 	srav $18, $15, $16
 	srlv $18, $15, $16
+	srlv $19, $15, $16
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3195,6 +3322,7 @@ operation_srav_sll:
 	jal load_patterns
 	srav $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3206,6 +3334,7 @@ operation_srav_srl:
 	jal load_patterns
 	srav $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3217,6 +3346,7 @@ operation_srav_sra:
 	jal load_patterns
 	srav $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	srav $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3228,6 +3358,7 @@ operation_srlv_addu:
 	jal load_patterns
 	srlv $18, $15, $16
 	addu $18, $15, $16
+	addu $19, $15, $16
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3239,6 +3370,7 @@ operation_srlv_and:
 	jal load_patterns
 	srlv $18, $15, $16
 	and $18, $15, $16
+	and $19, $15, $16
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3250,6 +3382,7 @@ operation_srlv_nor:
 	jal load_patterns
 	srlv $18, $15, $16
 	nor $18, $15, $16
+	nor $19, $15, $16
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3261,6 +3394,7 @@ operation_srlv_or:
 	jal load_patterns
 	srlv $18, $15, $16
 	or $18, $15, $16
+	or $19, $15, $16
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3272,6 +3406,7 @@ operation_srlv_subu:
 	jal load_patterns
 	srlv $18, $15, $16
 	subu $18, $15, $16
+	subu $19, $15, $16
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3283,6 +3418,7 @@ operation_srlv_xor:
 	jal load_patterns
 	srlv $18, $15, $16
 	xor $18, $15, $16
+	xor $19, $15, $16
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3294,6 +3430,7 @@ operation_srlv_sllv:
 	jal load_patterns
 	srlv $18, $15, $16
 	sllv $18, $15, $16
+	sllv $19, $15, $16
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3305,6 +3442,7 @@ operation_srlv_slt:
 	jal load_patterns
 	srlv $18, $15, $16
 	slt $18, $15, $16
+	slt $19, $15, $16
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3316,6 +3454,7 @@ operation_srlv_sltu:
 	jal load_patterns
 	srlv $18, $15, $16
 	sltu $18, $15, $16
+	sltu $19, $15, $16
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3327,6 +3466,7 @@ operation_srlv_srav:
 	jal load_patterns
 	srlv $18, $15, $16
 	srav $18, $15, $16
+	srav $19, $15, $16
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3338,6 +3478,7 @@ operation_srlv_sll:
 	jal load_patterns
 	srlv $18, $15, $16
 	sll $18 ,$15, 5
+	sll $19, $15, 5
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3349,6 +3490,7 @@ operation_srlv_srl:
 	jal load_patterns
 	srlv $18, $15, $16
 	srl $18 ,$15, 5
+	srl $19, $15, 5
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset
@@ -3360,6 +3502,7 @@ operation_srlv_sra:
 	jal load_patterns
 	srlv $18, $15, $16
 	sra $18 ,$15, 5
+	sra $19, $15, 5
 	srlv $19, $15, $16
 	jal store
 	jal increment_offset

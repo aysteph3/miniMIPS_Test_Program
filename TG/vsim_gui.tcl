@@ -36,9 +36,5 @@ when -label end_of_simulation {end_sim == '1'} {
 }
 
 # run the simulation
-<<<<<<< HEAD
 run 400 ms
-=======
-run 100 ms
->>>>>>> fff2ee5a4c15b7808911f3d9b2510b3cdbd88310
 #quit -f
