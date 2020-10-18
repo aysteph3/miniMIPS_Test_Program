@@ -2181,7 +2181,7 @@ jal reset_hi_lo
 operation_mfhi_mflo:
 	jal load_patterns
 	mfhi $18
-	mflo $18, $15, $16
+	mflo $18
 	mfhi $19
 	sw $18, 0($29)
 	sw $19, 4($29)
@@ -2193,7 +2193,7 @@ jal reset_hi_lo
 operation_mfhi_mthi:
 	jal load_patterns
 	mfhi $18
-	mthi $18, $15, $16
+	mthi $18
 	mfhi $19
 	sw $18, 0($29)
 	sw $19, 4($29)
@@ -2227,7 +2227,7 @@ jal reset_hi_lo
 operation_mflo_mthi:
 	jal load_patterns
 	mflo $18
-	mthi $18, $15, $16
+	mthi $18
 	mflo $19
 	sw $18, 0($29)
 	sw $19, 4($29)
@@ -2239,7 +2239,7 @@ jal reset_hi_lo
 operation_mflo_mtlo:
 	jal load_patterns
 	mflo $18
-	mtlo $18, $15, $16
+	mtlo $18
 	mflo $19
 	sw $18, 0($29)
 	sw $19, 4($29)
