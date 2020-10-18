@@ -1,5 +1,24 @@
 # Copyright (C) 2018 Oyeniran Adeboye Stephen, Olusiji
 import reset
+import instruction_decoder
+
+op1_decoder = instruction_decoder.decode("op1")
+for dec, opcode in op1_decoder.items():
+    if dec == '000000':
+        initialval = "{0:b}".format(int(dec,2)+1).zfill(6)
+        nextval = "{0:b}".format(int(dec,2)+2).zfill(6)
+    else:
+        nextval = "{0:b}".format(int(dec,2)+1).zfill(6)
+        initialval = "{0:b}".format(int(dec,2)-1).zfill(6)
+    if nextval not in op1_decoder:
+        nextval = "{0:b}".format(int(initialval,2)-1).zfill(6)
+        if nextval not in op1_decoder:
+            nextval = "{0:b}".format(int(initialval,2)).zfill(6)
+    if initialval not in op1_decoder:
+        initialval = "{0:b}".format(int(nextval,2)+1).zfill(6)
+        if initialval not in op1_decoder:
+            initialval = "{0:b}".format(int(nextval,2)).zfill(6)
+    #print dec, initialval, nextval, opcode.rstrip(), op1_decoder.get(initialval).rstrip(), op1_decoder.get(nextval).rstrip()
 
 def generate_immediate(instruct, out, result_register, result_address, inputFile, src1, src2, transition_address):
 	data_lines = []
