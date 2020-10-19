@@ -82,10 +82,10 @@ p_srav
 p_slt
 p_sltu
 p_mult
-;p_multu
-;p_mthi
-;p_mtlo
-;p_mfhi
+p_multu
+p_mthi
+p_mtlo
+p_mfhi
 ;p_mflo
 ;;
 ;p_addi
