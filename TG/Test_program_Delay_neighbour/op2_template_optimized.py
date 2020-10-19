@@ -183,9 +183,10 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
                     print_tags(out, inst)
                     op2_mult_u_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour1, shift_amount)
                 else:
-                    inst= opcode+"_"+neighbour2
-                    print_tags(out, inst)
-                    op2_mult_u_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour2, shift_amount)
+                    if neighbour1 != neighbour2:
+                        inst= opcode+"_"+neighbour2
+                        print_tags(out, inst)
+                        op2_mult_u_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour2, shift_amount)
         elif((opcode == 'mthi') or (opcode == 'mtlo')):
             for x in range(2):
                 if (x == 0):
@@ -193,9 +194,10 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
                     print_tags(out, inst)
                     op2_mthi_lo_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour1,shift_amount)
                 else:
-                    inst= opcode+"_"+neighbour2
-                    print_tags(out, inst)
-                    op2_mthi_lo_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour2,shift_amount)
+                    if neighbour1 != neighbour2:
+                        inst= opcode+"_"+neighbour2
+                        print_tags(out, inst)
+                        op2_mthi_lo_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour2,shift_amount)
         elif((opcode == 'mfhi') or (opcode == 'mflo')):
             for x in range(2):
                 if (x == 0):
@@ -205,11 +207,12 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
                     out.write("operation_"+inst+":\n")
                     op2_mfhi_lo_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour1, shift_amount)
                 else:
-                    inst= opcode+"_"+neighbour2
-                    out.write("jal reset_offsets\n")
-                    out.write("jal reset_hi_lo\n")
-                    out.write("operation_"+inst+":\n")
-                    op2_mfhi_lo_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour2, shift_amount)
+                    if neighbour1 != neighbour2:
+                        inst= opcode+"_"+neighbour2
+                        out.write("jal reset_offsets\n")
+                        out.write("jal reset_hi_lo\n")
+                        out.write("operation_"+inst+":\n")
+                        op2_mfhi_lo_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour2, shift_amount)
         elif((opcode == 'sll') or (opcode == 'sra') or (opcode == 'srl')):
             for x in range(2):
                 if (x == 0):
@@ -217,9 +220,10 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
                     print_tags(out, inst)
                     op2_shift_amount_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, shift_amount, src1, src2, neighbour1)
                 else:
-                    inst= opcode+"_"+neighbour2
-                    print_tags(out, inst)
-                    op2_shift_amount_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, shift_amount, src1, src2, neighbour2)
+                    if neighbour1 != neighbour2:
+                        inst= opcode+"_"+neighbour2
+                        print_tags(out, inst)
+                        op2_shift_amount_func(opcode, out, result_register,result_address,iterator,pattern_count, inst, shift_amount, src1, src2, neighbour2)
         else:
             for x in range(2):
                 if (x == 0):
@@ -227,8 +231,9 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
                     #if not (instruction==x):
                     op2_func2(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour1, shift_amount)
                 else:
-                    inst= opcode+"_"+neighbour2
-                    op2_func2(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour2, shift_amount)
+                    if neighbour1 != neighbour2:
+                        inst= opcode+"_"+neighbour2
+                        op2_func2(opcode, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, neighbour2, shift_amount)
 
     print "...................................."
 
