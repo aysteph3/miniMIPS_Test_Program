@@ -175,7 +175,6 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
         neighbour1 = op2_decoder.get(initialval).rstrip().lower()
         neighbour2 = op2_decoder.get(nextval).rstrip().lower()
 
-
         if ((opcode == 'mult') or (opcode == 'multu')):
             for x in range(2):
                 if (x == 0):
