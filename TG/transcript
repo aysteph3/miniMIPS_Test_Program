@@ -13,9 +13,9 @@
 # //  18 U.S.C. Section 1905.
 # //
 # do vsim_gui.tcl
-# 1603069347781871
+# 1603073843937786
 # vsim -vopt -coverage -simstats -voptargs=""+acc"" minimips_rtl.sim_minimips(bench) 
-# Start time: 04:02:27 on Oct 19,2020
+# Start time: 05:17:23 on Oct 19,2020
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading std.standard
 # Loading std.textio(body)
@@ -41,6 +41,8 @@
 # Loading ieee.std_logic_textio(body)
 # Loading work.rom(bench)#1
 # ** Warning: (vsim-8634) Code was not compiled with coverage options.
+# ** Error: invalid command name ""
+# Executing ONERROR command at macro ./vsim_gui.tcl line 11
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: :sim_minimips:U_revoi
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -7282,21 +7284,21 @@
 # Simulation stop requested.
 # Memory Statistics                         
 #     mem: size after elab (VSZ)                 317.14 Mb
-#     mem: size during sim (VSZ)                 467.45 Mb
+#     mem: size during sim (VSZ)                 458.07 Mb
 # Elaboration Time                          
-#    elab: wall time                               0.74 s
+#    elab: wall time                               0.78 s
 #    elab: cpu time                                0.16 s
 # Simulation Time                           
-#     sim: wall time                              20.49 s
-#     sim: cpu time                               20.39 s
-#     log: wall time                              20.49 s
-#     log: cpu time                                2.13 s
+#     sim: wall time                              20.33 s
+#     sim: cpu time                               20.25 s
+#     log: wall time                              20.33 s
+#     log: cpu time                                2.11 s
 # Tcl Command Time                          
-#     cmd: wall time                               4.14 s
-#     cmd: cpu time                                0.82 s
+#     cmd: wall time                               2.84 s
+#     cmd: cpu time                                0.41 s
 # Total Time                                
-#   total: wall time                              25.37 s
-#   total: cpu time                               23.50 s
+#   total: wall time                              23.95 s
+#   total: cpu time                               22.93 s
 # 
-# End time: 04:02:53 on Oct 19,2020, Elapsed time: 0:00:26
-# Errors: 7206, Warnings: 31
+# End time: 05:17:47 on Oct 19,2020, Elapsed time: 0:00:24
+# Errors: 7209, Warnings: 31
