@@ -2,10 +2,11 @@
 import reset
 import instruction_decoder
 
+print ".....Decoder for TDF OP1 neighbours....."
 op1_decoder = instruction_decoder.decode("op1")
 for dec, opcode in op1_decoder.items():
     if dec == '000000':
-        initialval = "{0:b}".format(int(dec,2)+1).zfill(6)
+    	initialval = "{0:b}".format(int(dec,2)+1).zfill(6)
         nextval = "{0:b}".format(int(dec,2)+2).zfill(6)
     else:
         nextval = "{0:b}".format(int(dec,2)+1).zfill(6)
@@ -18,7 +19,10 @@ for dec, opcode in op1_decoder.items():
         initialval = "{0:b}".format(int(nextval,2)+1).zfill(6)
         if initialval not in op1_decoder:
             initialval = "{0:b}".format(int(nextval,2)).zfill(6)
-    #print dec, initialval, nextval, opcode.rstrip(), op1_decoder.get(initialval).rstrip(), op1_decoder.get(nextval).rstrip()
+    print dec, initialval, nextval, opcode.rstrip(), op1_decoder.get(initialval).rstrip(), op1_decoder.get(nextval).rstrip()
+    opcode = opcode.rstrip().lower()
+    neighbour1 = op1_decoder.get(initialval).rstrip().lower()
+    neighbour2 = op1_decoder.get(nextval).rstrip().lower()
 
 def generate_immediate(instruct, out, result_register, result_address, inputFile, src1, src2, transition_address):
 	data_lines = []
@@ -36,7 +40,6 @@ def generate_immediate(instruct, out, result_register, result_address, inputFile
 	f.close()
 
 def immediate_fun(instruction, file, result_register, result_address, immediate,k, src1, src2, src3, transition_address):
-    #file.write("\tjal load_patterns\n")
     file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src1, immediate))
     file.write("\tsw $%s, %s($%s)\n" % (result_register, k, result_address))
     file.write("\tlui $%s, %d\n" % (transition_address, 65533))
@@ -47,7 +50,6 @@ def immediate_fun(instruction, file, result_register, result_address, immediate,
     file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src3, 0))
     file.write("\tsw $%s, %s($%s)\n" % (result_register, k, result_address))
     k+=4
-    #file.write("\tjal increment_offset\n")
 
 def immediate_fun_2(instruction, file, result_register, result_address, immediate, src1, src2, transition_address):
    file.write("\tjal load_patterns\n")

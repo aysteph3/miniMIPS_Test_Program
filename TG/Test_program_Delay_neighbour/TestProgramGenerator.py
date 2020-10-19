@@ -135,7 +135,7 @@ out.write(" jal init_branch\n\n")
 op2_template_optimized.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount, source_register1, source_register2)
 
 #template for op1
-#op1_template_optimized.ops1_template(parameter, out, result_register, result_address, inputFile, iterator, pattern_count, pattern_address, branch_count, source_register1, source_register2,source_register3, transition_address)
+op1_template_optimized.ops1_template(parameter, out, result_register, result_address, inputFile, iterator, pattern_count, pattern_address, branch_count, source_register1, source_register2,source_register3, transition_address)
 #out.write("jal reset_offsets\n\n") # reset offsets after all immediate operations. Remove if you plan other instructions after this
 
 #syscall
