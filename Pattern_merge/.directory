@@ -1,0 +1,8 @@
+[Dolphin]
+GroupedSorting=true
+HeaderColumnWidths=368,72,100,89,72,86
+SortRole=type
+Timestamp=2020,4,13,17,47,19
+Version=3
+ViewMode=1
+VisibleRoles=Details_text,Details_size,Details_date,Details_permissions,Details_owner,Details_group,CustomizedDetails

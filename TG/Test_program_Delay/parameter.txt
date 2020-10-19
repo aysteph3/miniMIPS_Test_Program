@@ -86,12 +86,12 @@ p_multu
 p_mthi
 p_mtlo
 p_mfhi
-;p_mflo
+p_mflo
 ;;
-;p_addi
-;p_addiu
-;p_andi
-;p_ori
+p_addi
+p_addiu
+p_andi
+p_ori
 ;p_slti
 ;p_sltiu
 ;p_xori
