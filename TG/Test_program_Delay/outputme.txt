@@ -2162,6 +2162,3264 @@ operation_xor_psuedo:
 	sw $18, 0($29)
 	jal increment
 
+jal reset_offsets
+operation_nor_psuedo:
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 0
+	nor $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 65535
+	ori $3, $3, 65535
+	nor $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+	lui $2, 65535
+	ori $2, $2, 65535
+	lui $3, 0
+	ori $3, $3, 0
+	nor $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+	lui $2, 65535
+	ori $2, $2, 65535
+	lui $3, 65535
+	ori $3, $3, 65535
+	nor $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+
+jal reset_offsets
+operation_sll_psuedo:
+	lui $2, 0
+	ori $2, $2, 1
+	sll $18, $2, 5
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 1
+	sll $18, $2, 5
+	sw $18, 0($29)
+	jal increment
+
+jal reset_offsets
+operation_sllv_psuedo:
+	lui $2, 21845
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 1
+	sllv $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 1
+	sllv $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+
+jal reset_offsets
+operation_srl_psuedo:
+	lui $2, 0
+	ori $2, $2, 1
+	srl $18, $2, 5
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 1
+	srl $18, $2, 5
+	sw $18, 0($29)
+	jal increment
+
+jal reset_offsets
+operation_srlv_psuedo:
+	lui $2, 21845
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 1
+	srlv $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 1
+	srlv $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+
+jal reset_offsets
+operation_sra_psuedo:
+	lui $2, 0
+	ori $2, $2, 1
+	sra $18, $2, 5
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 1
+	sra $18, $2, 5
+	sw $18, 0($29)
+	jal increment
+
+jal reset_offsets
+operation_srav_psuedo:
+	lui $2, 21845
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 1
+	srav $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 1
+	srav $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+
+jal reset_offsets
+operation_slt_psuedo:
+	lui $2, 21845
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 1
+	slt $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 1
+	slt $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+
+jal reset_offsets
+operation_sltu_psuedo:
+	lui $2, 21845
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 1
+	sltu $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 1
+	sltu $18, $2, $3
+	sw $18, 0($29)
+	jal increment
+
+jal reset_offsets
+operation_mult_psuedo:
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 3
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 3
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 3
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 3
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 3
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 3
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 3
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 3
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 3
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 3
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 6
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 6
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 6
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 6
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 6
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 6
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 6
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 6
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 6
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 6
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 12
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 12
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 12
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 12
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 12
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 12
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 12
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 12
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 12
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 12
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 24
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 24
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 24
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 24
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 24
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 24
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 24
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 24
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 24
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 24
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 48
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 48
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 48
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 48
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 48
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 48
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 48
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 48
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 48
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 48
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 96
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 96
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 96
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 96
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 96
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 96
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 96
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 96
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 96
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 96
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 192
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 192
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 192
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 192
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 192
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 192
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 192
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 192
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 192
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 192
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 384
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 384
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 384
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 384
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 384
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 384
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 384
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 384
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 384
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 384
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 1536
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 1536
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 1536
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 1536
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 1536
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 1536
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 1536
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 1536
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 1536
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 1536
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 3072
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 3072
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 3072
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 3072
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 3072
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 3072
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 3072
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 3072
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 3072
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 3072
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 6144
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 6144
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 6144
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 6144
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 6144
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 6144
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 6144
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 6144
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 6144
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 6144
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 12288
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 12288
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 12288
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 12288
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 12288
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 12288
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 12288
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 12288
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 12288
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 12288
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 24576
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 24576
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 24576
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 24576
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 24576
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 24576
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 24576
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 24576
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 24576
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 24576
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 0
+	ori $3, $3, 49152
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 0
+	ori $3, $3, 49152
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 0
+	ori $3, $3, 49152
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 0
+	ori $3, $3, 49152
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 0
+	ori $3, $3, 49152
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 0
+	ori $3, $3, 49152
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 0
+	ori $3, $3, 49152
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 0
+	ori $3, $3, 49152
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 0
+	ori $3, $3, 49152
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 0
+	ori $3, $3, 49152
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 1
+	ori $3, $3, 32768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 1
+	ori $3, $3, 32768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 1
+	ori $3, $3, 32768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 1
+	ori $3, $3, 32768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 1
+	ori $3, $3, 32768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 1
+	ori $3, $3, 32768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 1
+	ori $3, $3, 32768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 1
+	ori $3, $3, 32768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 1
+	ori $3, $3, 32768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 1
+	ori $3, $3, 32768
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 3
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 3
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 3
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 3
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 3
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 3
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 3
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 3
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 3
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 3
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 6
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 6
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 6
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 6
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 6
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 6
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 6
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 6
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 6
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 6
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 12
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 12
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 12
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 12
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 12
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 12
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 12
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 12
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 12
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 12
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 24
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 24
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 24
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 24
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 24
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 24
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 24
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 24
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 24
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 24
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 48
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 48
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 48
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 48
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 48
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 48
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 48
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 48
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 48
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 48
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 96
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 96
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 96
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 96
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 96
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 96
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 96
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 96
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 96
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 96
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 192
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 192
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 192
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 192
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 192
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 192
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 192
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 192
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 192
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 192
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 384
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 384
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 384
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 384
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 384
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 384
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 384
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 384
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 384
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 384
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 768
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 768
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 768
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 768
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 768
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 768
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 768
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 768
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 768
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 768
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 1536
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 1536
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 1536
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 1536
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 1536
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 1536
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 1536
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 1536
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 1536
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 1536
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 3072
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 3072
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 3072
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 3072
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 3072
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 3072
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 3072
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 3072
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 3072
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 3072
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 6144
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 6144
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 6144
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 6144
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 6144
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 6144
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 6144
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 6144
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 6144
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 6144
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 12288
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 12288
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 12288
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 12288
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 12288
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 12288
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 12288
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 12288
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 12288
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 12288
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 24576
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 24576
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 24576
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 24576
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 24576
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 24576
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 24576
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 24576
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 24576
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 24576
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 0
+	ori $2, $2, 0
+	lui $3, 49152
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43690
+	ori $2, $2, 43690
+	lui $3, 49152
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 54093
+	ori $2, $2, 21845
+	lui $3, 49152
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 6553
+	ori $2, $2, 39322
+	lui $3, 49152
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 13622
+	ori $2, $2, 26214
+	lui $3, 49152
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 19668
+	ori $2, $2, 52427
+	lui $3, 49152
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 26483
+	ori $2, $2, 62263
+	lui $3, 49152
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 64989
+	ori $2, $2, 24287
+	lui $3, 49152
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 22118
+	ori $2, $2, 47980
+	lui $3, 49152
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+	lui $2, 43691
+	ori $2, $2, 5555
+	lui $3, 49152
+	ori $3, $3, 0
+	mult $2, $3
+	mflo $18
+	sw $18, 0($29)
+	mfhi $18
+	sw $18, 0($29)
+	jal increment
+
 ;..........break..........;
 	jal init_cp
 	j breaks
