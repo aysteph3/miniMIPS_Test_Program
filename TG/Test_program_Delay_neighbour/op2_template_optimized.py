@@ -52,8 +52,7 @@ def op2_mult_u_func(instruction, file, result_register,result_address,iterator,p
     file.write("\t%s $%s, $%s\n" % (instruction, src1, src2))
     file.write("\t%s $%s\n" % ("mfhi", result_register))
     file.write("\t%s $%s\n" % ("mflo", str(int(result_register)+1)))
-    file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
-    file.write("\tsw $%s, %d($%s)\n" % (str(int(result_register)+1), 4, result_address))
+    file.write("\tjal store\n")
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
 
@@ -75,8 +74,7 @@ def op2_mthi_lo_func(instruction, file, result_register,result_address,iterator,
     file.write("\t%s $%s\n" % (instruction, src2))
     file.write("\t%s $%s\n" % ("mfhi", result_register))
     file.write("\t%s $%s\n" % ("mflo", str(int(result_register)+1)))
-    file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
-    file.write("\tsw $%s, %d($%s)\n" % (str(int(result_register)+1), 4, result_address))
+    file.write("\tjal store\n")
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
 
@@ -98,8 +96,7 @@ def op2_mfhi_lo_func(instruction, file, result_register,result_address,iterator,
     else:
         file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, str(int(result_register)+1), src1, src2))
     file.write("\t%s $%s\n" % (instruction, str(int(result_register)+1)))
-    file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
-    file.write("\tsw $%s, %d($%s)\n" % (str(int(result_register)+1), 4, result_address))
+    file.write("\tjal store\n")
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr)) # check this later
 

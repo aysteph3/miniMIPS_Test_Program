@@ -2144,8 +2144,7 @@ operation_mfhi_mflo:
 	mflo $18
 	mflo $19
 	mfhi $19
-	sw $18, 0($29)
-	sw $19, 4($29)
+	jal store
 	jal increment_offset
 	bne $27, $28, operation_mfhi_mflo
 
@@ -2159,8 +2158,7 @@ operation_mfhi_mthi:
 	mthi $18
 	mthi $19
 	mfhi $19
-	sw $18, 0($29)
-	sw $19, 4($29)
+	jal store
 	jal increment_offset
 	bne $27, $28, operation_mfhi_mthi
 
@@ -2174,8 +2172,7 @@ operation_mthi_mfhi:
 	mthi $16
 	mfhi $18
 	mflo $19
-	sw $18, 0($29)
-	sw $19, 4($29)
+	jal store
 	jal increment_offset
 	bne $27, $28, operation_mthi_mfhi
 
@@ -2189,8 +2186,7 @@ operation_mthi_mflo:
 	mthi $16
 	mfhi $18
 	mflo $19
-	sw $18, 0($29)
-	sw $19, 4($29)
+	jal store
 	jal increment_offset
 	bne $27, $28, operation_mthi_mflo
 
@@ -2204,8 +2200,7 @@ operation_mflo_mthi:
 	mthi $18
 	mthi $19
 	mflo $19
-	sw $18, 0($29)
-	sw $19, 4($29)
+	jal store
 	jal increment_offset
 	bne $27, $28, operation_mflo_mthi
 
@@ -2219,8 +2214,7 @@ operation_mflo_mtlo:
 	mtlo $18
 	mtlo $19
 	mflo $19
-	sw $18, 0($29)
-	sw $19, 4($29)
+	jal store
 	jal increment_offset
 	bne $27, $28, operation_mflo_mtlo
 
@@ -2234,8 +2228,7 @@ operation_mtlo_mflo:
 	mtlo $16
 	mfhi $18
 	mflo $19
-	sw $18, 0($29)
-	sw $19, 4($29)
+	jal store
 	jal increment_offset
 	bne $27, $28, operation_mtlo_mflo
 
@@ -2249,8 +2242,7 @@ operation_mtlo_mthi:
 	mtlo $16
 	mfhi $18
 	mflo $19
-	sw $18, 0($29)
-	sw $19, 4($29)
+	jal store
 	jal increment_offset
 	bne $27, $28, operation_mtlo_mthi
 
@@ -2264,8 +2256,7 @@ operation_mult_multu:
 	mult $15, $16
 	mfhi $18
 	mflo $19
-	sw $18, 0($29)
-	sw $19, 4($29)
+	jal store
 	jal increment_offset
 	bne $27, $28, operation_mult_multu
 
@@ -2279,339 +2270,5437 @@ operation_multu_mult:
 	multu $15, $16
 	mfhi $18
 	mflo $19
-	sw $18, 0($29)
-	sw $19, 4($29)
+	jal store
 	jal increment_offset
 	bne $27, $28, operation_multu_mult
 
 jal reset_offsets
 jal init_cp
-operation_addi:
+operation_addi_ori:
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 51701
-	sw $18, 0($29)
+	ori $18, $15, 51701
+	ori $19, $15, 51701
+	addi $19, $15, 51701
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 13425
-	sw $18, 0($29)
+	ori $18, $15, 13425
+	ori $19, $15, 13425
+	addi $19, $15, 13425
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 4285
-	sw $18, 0($29)
+	ori $18, $15, 4285
+	ori $19, $15, 4285
+	addi $19, $15, 4285
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 46230
-	sw $18, 0($29)
+	ori $18, $15, 46230
+	ori $19, $15, 46230
+	addi $19, $15, 46230
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 22387
-	sw $18, 0($29)
+	ori $18, $15, 22387
+	ori $19, $15, 22387
+	addi $19, $15, 22387
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 18799
-	sw $18, 0($29)
+	ori $18, $15, 18799
+	ori $19, $15, 18799
+	addi $19, $15, 18799
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 49889
-	sw $18, 0($29)
+	ori $18, $15, 49889
+	ori $19, $15, 49889
+	addi $19, $15, 49889
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 36023
-	sw $18, 0($29)
+	ori $18, $15, 36023
+	ori $19, $15, 36023
+	addi $19, $15, 36023
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 13674
-	sw $18, 0($29)
+	ori $18, $15, 13674
+	ori $19, $15, 13674
+	addi $19, $15, 13674
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 61121
-	sw $18, 0($29)
+	ori $18, $15, 61121
+	ori $19, $15, 61121
+	addi $19, $15, 61121
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 9393
-	sw $18, 0($29)
+	ori $18, $15, 9393
+	ori $19, $15, 9393
+	addi $19, $15, 9393
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 10296
-	sw $18, 0($29)
+	ori $18, $15, 10296
+	ori $19, $15, 10296
+	addi $19, $15, 10296
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 21809
-	sw $18, 0($29)
+	ori $18, $15, 21809
+	ori $19, $15, 21809
+	addi $19, $15, 21809
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 8387
-	sw $18, 0($29)
+	ori $18, $15, 8387
+	ori $19, $15, 8387
+	addi $19, $15, 8387
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 31965
-	sw $18, 0($29)
+	ori $18, $15, 31965
+	ori $19, $15, 31965
+	addi $19, $15, 31965
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 30314
-	sw $18, 0($29)
+	ori $18, $15, 30314
+	ori $19, $15, 30314
+	addi $19, $15, 30314
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 58860
-	sw $18, 0($29)
+	ori $18, $15, 58860
+	ori $19, $15, 58860
+	addi $19, $15, 58860
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 64833
-	sw $18, 0($29)
+	ori $18, $15, 64833
+	ori $19, $15, 64833
+	addi $19, $15, 64833
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 568
-	sw $18, 0($29)
+	ori $18, $15, 568
+	ori $19, $15, 568
+	addi $19, $15, 568
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 51454
-	sw $18, 0($29)
+	ori $18, $15, 51454
+	ori $19, $15, 51454
+	addi $19, $15, 51454
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 32719
-	sw $18, 0($29)
+	ori $18, $15, 32719
+	ori $19, $15, 32719
+	addi $19, $15, 32719
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 19650
-	sw $18, 0($29)
+	ori $18, $15, 19650
+	ori $19, $15, 19650
+	addi $19, $15, 19650
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 43216
-	sw $18, 0($29)
+	ori $18, $15, 43216
+	ori $19, $15, 43216
+	addi $19, $15, 43216
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 34632
-	sw $18, 0($29)
+	ori $18, $15, 34632
+	ori $19, $15, 34632
+	addi $19, $15, 34632
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 39324
-	sw $18, 0($29)
+	ori $18, $15, 39324
+	ori $19, $15, 39324
+	addi $19, $15, 39324
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 55190
-	sw $18, 0($29)
+	ori $18, $15, 55190
+	ori $19, $15, 55190
+	addi $19, $15, 55190
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 52262
-	sw $18, 0($29)
+	ori $18, $15, 52262
+	ori $19, $15, 52262
+	addi $19, $15, 52262
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 19244
-	sw $18, 0($29)
+	ori $18, $15, 19244
+	ori $19, $15, 19244
+	addi $19, $15, 19244
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 45878
-	sw $18, 0($29)
+	ori $18, $15, 45878
+	ori $19, $15, 45878
+	addi $19, $15, 45878
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 10786
-	sw $18, 0($29)
+	ori $18, $15, 10786
+	ori $19, $15, 10786
+	addi $19, $15, 10786
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 22487
-	sw $18, 0($29)
+	ori $18, $15, 22487
+	ori $19, $15, 22487
+	addi $19, $15, 22487
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 40958
-	sw $18, 0($29)
+	ori $18, $15, 40958
+	ori $19, $15, 40958
+	addi $19, $15, 40958
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 14500
-	sw $18, 0($29)
+	ori $18, $15, 14500
+	ori $19, $15, 14500
+	addi $19, $15, 14500
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 27106
-	sw $18, 0($29)
+	ori $18, $15, 27106
+	ori $19, $15, 27106
+	addi $19, $15, 27106
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 18461
-	sw $18, 0($29)
+	ori $18, $15, 18461
+	ori $19, $15, 18461
+	addi $19, $15, 18461
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 18823
-	sw $18, 0($29)
+	ori $18, $15, 18823
+	ori $19, $15, 18823
+	addi $19, $15, 18823
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 31305
-	sw $18, 0($29)
+	ori $18, $15, 31305
+	ori $19, $15, 31305
+	addi $19, $15, 31305
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 44931
-	sw $18, 0($29)
+	ori $18, $15, 44931
+	ori $19, $15, 44931
+	addi $19, $15, 44931
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 41695
-	sw $18, 0($29)
+	ori $18, $15, 41695
+	ori $19, $15, 41695
+	addi $19, $15, 41695
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 685
-	sw $18, 0($29)
+	ori $18, $15, 685
+	ori $19, $15, 685
+	addi $19, $15, 685
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 23920
-	sw $18, 0($29)
+	ori $18, $15, 23920
+	ori $19, $15, 23920
+	addi $19, $15, 23920
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 29712
-	sw $18, 0($29)
+	ori $18, $15, 29712
+	ori $19, $15, 29712
+	addi $19, $15, 29712
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 53630
-	sw $18, 0($29)
+	ori $18, $15, 53630
+	ori $19, $15, 53630
+	addi $19, $15, 53630
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 43816
-	sw $18, 0($29)
+	ori $18, $15, 43816
+	ori $19, $15, 43816
+	addi $19, $15, 43816
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 41391
-	sw $18, 0($29)
+	ori $18, $15, 41391
+	ori $19, $15, 41391
+	addi $19, $15, 41391
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 6687
-	sw $18, 0($29)
+	ori $18, $15, 6687
+	ori $19, $15, 6687
+	addi $19, $15, 6687
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 9065
-	sw $18, 0($29)
+	ori $18, $15, 9065
+	ori $19, $15, 9065
+	addi $19, $15, 9065
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 44990
-	sw $18, 0($29)
+	ori $18, $15, 44990
+	ori $19, $15, 44990
+	addi $19, $15, 44990
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 26743
-	sw $18, 0($29)
+	ori $18, $15, 26743
+	ori $19, $15, 26743
+	addi $19, $15, 26743
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 64416
-	sw $18, 0($29)
+	ori $18, $15, 64416
+	ori $19, $15, 64416
+	addi $19, $15, 64416
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 53241
-	sw $18, 0($29)
+	ori $18, $15, 53241
+	ori $19, $15, 53241
+	addi $19, $15, 53241
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 45390
-	sw $18, 0($29)
+	ori $18, $15, 45390
+	ori $19, $15, 45390
+	addi $19, $15, 45390
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 35532
-	sw $18, 0($29)
+	ori $18, $15, 35532
+	ori $19, $15, 35532
+	addi $19, $15, 35532
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 345
-	sw $18, 0($29)
+	ori $18, $15, 345
+	ori $19, $15, 345
+	addi $19, $15, 345
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 22658
-	sw $18, 0($29)
+	ori $18, $15, 22658
+	ori $19, $15, 22658
+	addi $19, $15, 22658
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 7880
-	sw $18, 0($29)
+	ori $18, $15, 7880
+	ori $19, $15, 7880
+	addi $19, $15, 7880
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 54556
-	sw $18, 0($29)
+	ori $18, $15, 54556
+	ori $19, $15, 54556
+	addi $19, $15, 54556
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 50408
-	sw $18, 0($29)
+	ori $18, $15, 50408
+	ori $19, $15, 50408
+	addi $19, $15, 50408
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 23728
-	sw $18, 0($29)
+	ori $18, $15, 23728
+	ori $19, $15, 23728
+	addi $19, $15, 23728
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 1733
-	sw $18, 0($29)
+	ori $18, $15, 1733
+	ori $19, $15, 1733
+	addi $19, $15, 1733
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 34730
-	sw $18, 0($29)
+	ori $18, $15, 34730
+	ori $19, $15, 34730
+	addi $19, $15, 34730
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 64195
-	sw $18, 0($29)
+	ori $18, $15, 64195
+	ori $19, $15, 64195
+	addi $19, $15, 64195
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 56108
-	sw $18, 0($29)
+	ori $18, $15, 56108
+	ori $19, $15, 56108
+	addi $19, $15, 56108
+	jal store
 	jal increment_offset
 	jal load_patterns
-	or $18, $17, $17
 	addi $18, $15, 64659
-	sw $18, 0($29)
+	ori $18, $15, 64659
+	ori $19, $15, 64659
+	addi $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_addi_andi:
+	jal load_patterns
+	addi $18, $15, 51701
+	andi $18, $15, 51701
+	andi $19, $15, 51701
+	addi $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 13425
+	andi $18, $15, 13425
+	andi $19, $15, 13425
+	addi $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 4285
+	andi $18, $15, 4285
+	andi $19, $15, 4285
+	addi $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 46230
+	andi $18, $15, 46230
+	andi $19, $15, 46230
+	addi $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 22387
+	andi $18, $15, 22387
+	andi $19, $15, 22387
+	addi $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 18799
+	andi $18, $15, 18799
+	andi $19, $15, 18799
+	addi $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 49889
+	andi $18, $15, 49889
+	andi $19, $15, 49889
+	addi $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 36023
+	andi $18, $15, 36023
+	andi $19, $15, 36023
+	addi $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 13674
+	andi $18, $15, 13674
+	andi $19, $15, 13674
+	addi $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 61121
+	andi $18, $15, 61121
+	andi $19, $15, 61121
+	addi $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 9393
+	andi $18, $15, 9393
+	andi $19, $15, 9393
+	addi $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 10296
+	andi $18, $15, 10296
+	andi $19, $15, 10296
+	addi $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 21809
+	andi $18, $15, 21809
+	andi $19, $15, 21809
+	addi $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 8387
+	andi $18, $15, 8387
+	andi $19, $15, 8387
+	addi $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 31965
+	andi $18, $15, 31965
+	andi $19, $15, 31965
+	addi $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 30314
+	andi $18, $15, 30314
+	andi $19, $15, 30314
+	addi $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 58860
+	andi $18, $15, 58860
+	andi $19, $15, 58860
+	addi $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 64833
+	andi $18, $15, 64833
+	andi $19, $15, 64833
+	addi $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 568
+	andi $18, $15, 568
+	andi $19, $15, 568
+	addi $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 51454
+	andi $18, $15, 51454
+	andi $19, $15, 51454
+	addi $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 32719
+	andi $18, $15, 32719
+	andi $19, $15, 32719
+	addi $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 19650
+	andi $18, $15, 19650
+	andi $19, $15, 19650
+	addi $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 43216
+	andi $18, $15, 43216
+	andi $19, $15, 43216
+	addi $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 34632
+	andi $18, $15, 34632
+	andi $19, $15, 34632
+	addi $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 39324
+	andi $18, $15, 39324
+	andi $19, $15, 39324
+	addi $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 55190
+	andi $18, $15, 55190
+	andi $19, $15, 55190
+	addi $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 52262
+	andi $18, $15, 52262
+	andi $19, $15, 52262
+	addi $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 19244
+	andi $18, $15, 19244
+	andi $19, $15, 19244
+	addi $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 45878
+	andi $18, $15, 45878
+	andi $19, $15, 45878
+	addi $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 10786
+	andi $18, $15, 10786
+	andi $19, $15, 10786
+	addi $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 22487
+	andi $18, $15, 22487
+	andi $19, $15, 22487
+	addi $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 40958
+	andi $18, $15, 40958
+	andi $19, $15, 40958
+	addi $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 14500
+	andi $18, $15, 14500
+	andi $19, $15, 14500
+	addi $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 27106
+	andi $18, $15, 27106
+	andi $19, $15, 27106
+	addi $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 18461
+	andi $18, $15, 18461
+	andi $19, $15, 18461
+	addi $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 18823
+	andi $18, $15, 18823
+	andi $19, $15, 18823
+	addi $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 31305
+	andi $18, $15, 31305
+	andi $19, $15, 31305
+	addi $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 44931
+	andi $18, $15, 44931
+	andi $19, $15, 44931
+	addi $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 41695
+	andi $18, $15, 41695
+	andi $19, $15, 41695
+	addi $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 685
+	andi $18, $15, 685
+	andi $19, $15, 685
+	addi $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 23920
+	andi $18, $15, 23920
+	andi $19, $15, 23920
+	addi $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 29712
+	andi $18, $15, 29712
+	andi $19, $15, 29712
+	addi $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 53630
+	andi $18, $15, 53630
+	andi $19, $15, 53630
+	addi $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 43816
+	andi $18, $15, 43816
+	andi $19, $15, 43816
+	addi $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 41391
+	andi $18, $15, 41391
+	andi $19, $15, 41391
+	addi $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 6687
+	andi $18, $15, 6687
+	andi $19, $15, 6687
+	addi $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 9065
+	andi $18, $15, 9065
+	andi $19, $15, 9065
+	addi $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 44990
+	andi $18, $15, 44990
+	andi $19, $15, 44990
+	addi $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 26743
+	andi $18, $15, 26743
+	andi $19, $15, 26743
+	addi $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 64416
+	andi $18, $15, 64416
+	andi $19, $15, 64416
+	addi $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 53241
+	andi $18, $15, 53241
+	andi $19, $15, 53241
+	addi $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 45390
+	andi $18, $15, 45390
+	andi $19, $15, 45390
+	addi $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 35532
+	andi $18, $15, 35532
+	andi $19, $15, 35532
+	addi $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 345
+	andi $18, $15, 345
+	andi $19, $15, 345
+	addi $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 22658
+	andi $18, $15, 22658
+	andi $19, $15, 22658
+	addi $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 7880
+	andi $18, $15, 7880
+	andi $19, $15, 7880
+	addi $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 54556
+	andi $18, $15, 54556
+	andi $19, $15, 54556
+	addi $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 50408
+	andi $18, $15, 50408
+	andi $19, $15, 50408
+	addi $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 23728
+	andi $18, $15, 23728
+	andi $19, $15, 23728
+	addi $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 1733
+	andi $18, $15, 1733
+	andi $19, $15, 1733
+	addi $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 34730
+	andi $18, $15, 34730
+	andi $19, $15, 34730
+	addi $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 64195
+	andi $18, $15, 64195
+	andi $19, $15, 64195
+	addi $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 56108
+	andi $18, $15, 56108
+	andi $19, $15, 56108
+	addi $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addi $18, $15, 64659
+	andi $18, $15, 64659
+	andi $19, $15, 64659
+	addi $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_addiu_ori:
+	jal load_patterns
+	addiu $18, $15, 51701
+	ori $18, $15, 51701
+	ori $19, $15, 51701
+	addiu $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 13425
+	ori $18, $15, 13425
+	ori $19, $15, 13425
+	addiu $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 4285
+	ori $18, $15, 4285
+	ori $19, $15, 4285
+	addiu $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 46230
+	ori $18, $15, 46230
+	ori $19, $15, 46230
+	addiu $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 22387
+	ori $18, $15, 22387
+	ori $19, $15, 22387
+	addiu $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 18799
+	ori $18, $15, 18799
+	ori $19, $15, 18799
+	addiu $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 49889
+	ori $18, $15, 49889
+	ori $19, $15, 49889
+	addiu $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 36023
+	ori $18, $15, 36023
+	ori $19, $15, 36023
+	addiu $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 13674
+	ori $18, $15, 13674
+	ori $19, $15, 13674
+	addiu $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 61121
+	ori $18, $15, 61121
+	ori $19, $15, 61121
+	addiu $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 9393
+	ori $18, $15, 9393
+	ori $19, $15, 9393
+	addiu $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 10296
+	ori $18, $15, 10296
+	ori $19, $15, 10296
+	addiu $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 21809
+	ori $18, $15, 21809
+	ori $19, $15, 21809
+	addiu $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 8387
+	ori $18, $15, 8387
+	ori $19, $15, 8387
+	addiu $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 31965
+	ori $18, $15, 31965
+	ori $19, $15, 31965
+	addiu $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 30314
+	ori $18, $15, 30314
+	ori $19, $15, 30314
+	addiu $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 58860
+	ori $18, $15, 58860
+	ori $19, $15, 58860
+	addiu $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 64833
+	ori $18, $15, 64833
+	ori $19, $15, 64833
+	addiu $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 568
+	ori $18, $15, 568
+	ori $19, $15, 568
+	addiu $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 51454
+	ori $18, $15, 51454
+	ori $19, $15, 51454
+	addiu $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 32719
+	ori $18, $15, 32719
+	ori $19, $15, 32719
+	addiu $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 19650
+	ori $18, $15, 19650
+	ori $19, $15, 19650
+	addiu $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 43216
+	ori $18, $15, 43216
+	ori $19, $15, 43216
+	addiu $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 34632
+	ori $18, $15, 34632
+	ori $19, $15, 34632
+	addiu $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 39324
+	ori $18, $15, 39324
+	ori $19, $15, 39324
+	addiu $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 55190
+	ori $18, $15, 55190
+	ori $19, $15, 55190
+	addiu $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 52262
+	ori $18, $15, 52262
+	ori $19, $15, 52262
+	addiu $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 19244
+	ori $18, $15, 19244
+	ori $19, $15, 19244
+	addiu $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 45878
+	ori $18, $15, 45878
+	ori $19, $15, 45878
+	addiu $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 10786
+	ori $18, $15, 10786
+	ori $19, $15, 10786
+	addiu $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 22487
+	ori $18, $15, 22487
+	ori $19, $15, 22487
+	addiu $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 40958
+	ori $18, $15, 40958
+	ori $19, $15, 40958
+	addiu $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 14500
+	ori $18, $15, 14500
+	ori $19, $15, 14500
+	addiu $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 27106
+	ori $18, $15, 27106
+	ori $19, $15, 27106
+	addiu $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 18461
+	ori $18, $15, 18461
+	ori $19, $15, 18461
+	addiu $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 18823
+	ori $18, $15, 18823
+	ori $19, $15, 18823
+	addiu $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 31305
+	ori $18, $15, 31305
+	ori $19, $15, 31305
+	addiu $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 44931
+	ori $18, $15, 44931
+	ori $19, $15, 44931
+	addiu $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 41695
+	ori $18, $15, 41695
+	ori $19, $15, 41695
+	addiu $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 685
+	ori $18, $15, 685
+	ori $19, $15, 685
+	addiu $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 23920
+	ori $18, $15, 23920
+	ori $19, $15, 23920
+	addiu $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 29712
+	ori $18, $15, 29712
+	ori $19, $15, 29712
+	addiu $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 53630
+	ori $18, $15, 53630
+	ori $19, $15, 53630
+	addiu $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 43816
+	ori $18, $15, 43816
+	ori $19, $15, 43816
+	addiu $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 41391
+	ori $18, $15, 41391
+	ori $19, $15, 41391
+	addiu $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 6687
+	ori $18, $15, 6687
+	ori $19, $15, 6687
+	addiu $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 9065
+	ori $18, $15, 9065
+	ori $19, $15, 9065
+	addiu $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 44990
+	ori $18, $15, 44990
+	ori $19, $15, 44990
+	addiu $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 26743
+	ori $18, $15, 26743
+	ori $19, $15, 26743
+	addiu $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 64416
+	ori $18, $15, 64416
+	ori $19, $15, 64416
+	addiu $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 53241
+	ori $18, $15, 53241
+	ori $19, $15, 53241
+	addiu $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 45390
+	ori $18, $15, 45390
+	ori $19, $15, 45390
+	addiu $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 35532
+	ori $18, $15, 35532
+	ori $19, $15, 35532
+	addiu $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 345
+	ori $18, $15, 345
+	ori $19, $15, 345
+	addiu $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 22658
+	ori $18, $15, 22658
+	ori $19, $15, 22658
+	addiu $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 7880
+	ori $18, $15, 7880
+	ori $19, $15, 7880
+	addiu $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 54556
+	ori $18, $15, 54556
+	ori $19, $15, 54556
+	addiu $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 50408
+	ori $18, $15, 50408
+	ori $19, $15, 50408
+	addiu $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 23728
+	ori $18, $15, 23728
+	ori $19, $15, 23728
+	addiu $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 1733
+	ori $18, $15, 1733
+	ori $19, $15, 1733
+	addiu $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 34730
+	ori $18, $15, 34730
+	ori $19, $15, 34730
+	addiu $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 64195
+	ori $18, $15, 64195
+	ori $19, $15, 64195
+	addiu $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 56108
+	ori $18, $15, 56108
+	ori $19, $15, 56108
+	addiu $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 64659
+	ori $18, $15, 64659
+	ori $19, $15, 64659
+	addiu $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_addiu_andi:
+	jal load_patterns
+	addiu $18, $15, 51701
+	andi $18, $15, 51701
+	andi $19, $15, 51701
+	addiu $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 13425
+	andi $18, $15, 13425
+	andi $19, $15, 13425
+	addiu $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 4285
+	andi $18, $15, 4285
+	andi $19, $15, 4285
+	addiu $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 46230
+	andi $18, $15, 46230
+	andi $19, $15, 46230
+	addiu $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 22387
+	andi $18, $15, 22387
+	andi $19, $15, 22387
+	addiu $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 18799
+	andi $18, $15, 18799
+	andi $19, $15, 18799
+	addiu $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 49889
+	andi $18, $15, 49889
+	andi $19, $15, 49889
+	addiu $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 36023
+	andi $18, $15, 36023
+	andi $19, $15, 36023
+	addiu $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 13674
+	andi $18, $15, 13674
+	andi $19, $15, 13674
+	addiu $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 61121
+	andi $18, $15, 61121
+	andi $19, $15, 61121
+	addiu $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 9393
+	andi $18, $15, 9393
+	andi $19, $15, 9393
+	addiu $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 10296
+	andi $18, $15, 10296
+	andi $19, $15, 10296
+	addiu $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 21809
+	andi $18, $15, 21809
+	andi $19, $15, 21809
+	addiu $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 8387
+	andi $18, $15, 8387
+	andi $19, $15, 8387
+	addiu $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 31965
+	andi $18, $15, 31965
+	andi $19, $15, 31965
+	addiu $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 30314
+	andi $18, $15, 30314
+	andi $19, $15, 30314
+	addiu $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 58860
+	andi $18, $15, 58860
+	andi $19, $15, 58860
+	addiu $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 64833
+	andi $18, $15, 64833
+	andi $19, $15, 64833
+	addiu $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 568
+	andi $18, $15, 568
+	andi $19, $15, 568
+	addiu $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 51454
+	andi $18, $15, 51454
+	andi $19, $15, 51454
+	addiu $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 32719
+	andi $18, $15, 32719
+	andi $19, $15, 32719
+	addiu $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 19650
+	andi $18, $15, 19650
+	andi $19, $15, 19650
+	addiu $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 43216
+	andi $18, $15, 43216
+	andi $19, $15, 43216
+	addiu $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 34632
+	andi $18, $15, 34632
+	andi $19, $15, 34632
+	addiu $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 39324
+	andi $18, $15, 39324
+	andi $19, $15, 39324
+	addiu $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 55190
+	andi $18, $15, 55190
+	andi $19, $15, 55190
+	addiu $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 52262
+	andi $18, $15, 52262
+	andi $19, $15, 52262
+	addiu $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 19244
+	andi $18, $15, 19244
+	andi $19, $15, 19244
+	addiu $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 45878
+	andi $18, $15, 45878
+	andi $19, $15, 45878
+	addiu $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 10786
+	andi $18, $15, 10786
+	andi $19, $15, 10786
+	addiu $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 22487
+	andi $18, $15, 22487
+	andi $19, $15, 22487
+	addiu $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 40958
+	andi $18, $15, 40958
+	andi $19, $15, 40958
+	addiu $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 14500
+	andi $18, $15, 14500
+	andi $19, $15, 14500
+	addiu $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 27106
+	andi $18, $15, 27106
+	andi $19, $15, 27106
+	addiu $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 18461
+	andi $18, $15, 18461
+	andi $19, $15, 18461
+	addiu $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 18823
+	andi $18, $15, 18823
+	andi $19, $15, 18823
+	addiu $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 31305
+	andi $18, $15, 31305
+	andi $19, $15, 31305
+	addiu $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 44931
+	andi $18, $15, 44931
+	andi $19, $15, 44931
+	addiu $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 41695
+	andi $18, $15, 41695
+	andi $19, $15, 41695
+	addiu $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 685
+	andi $18, $15, 685
+	andi $19, $15, 685
+	addiu $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 23920
+	andi $18, $15, 23920
+	andi $19, $15, 23920
+	addiu $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 29712
+	andi $18, $15, 29712
+	andi $19, $15, 29712
+	addiu $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 53630
+	andi $18, $15, 53630
+	andi $19, $15, 53630
+	addiu $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 43816
+	andi $18, $15, 43816
+	andi $19, $15, 43816
+	addiu $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 41391
+	andi $18, $15, 41391
+	andi $19, $15, 41391
+	addiu $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 6687
+	andi $18, $15, 6687
+	andi $19, $15, 6687
+	addiu $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 9065
+	andi $18, $15, 9065
+	andi $19, $15, 9065
+	addiu $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 44990
+	andi $18, $15, 44990
+	andi $19, $15, 44990
+	addiu $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 26743
+	andi $18, $15, 26743
+	andi $19, $15, 26743
+	addiu $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 64416
+	andi $18, $15, 64416
+	andi $19, $15, 64416
+	addiu $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 53241
+	andi $18, $15, 53241
+	andi $19, $15, 53241
+	addiu $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 45390
+	andi $18, $15, 45390
+	andi $19, $15, 45390
+	addiu $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 35532
+	andi $18, $15, 35532
+	andi $19, $15, 35532
+	addiu $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 345
+	andi $18, $15, 345
+	andi $19, $15, 345
+	addiu $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 22658
+	andi $18, $15, 22658
+	andi $19, $15, 22658
+	addiu $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 7880
+	andi $18, $15, 7880
+	andi $19, $15, 7880
+	addiu $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 54556
+	andi $18, $15, 54556
+	andi $19, $15, 54556
+	addiu $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 50408
+	andi $18, $15, 50408
+	andi $19, $15, 50408
+	addiu $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 23728
+	andi $18, $15, 23728
+	andi $19, $15, 23728
+	addiu $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 1733
+	andi $18, $15, 1733
+	andi $19, $15, 1733
+	addiu $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 34730
+	andi $18, $15, 34730
+	andi $19, $15, 34730
+	addiu $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 64195
+	andi $18, $15, 64195
+	andi $19, $15, 64195
+	addiu $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 56108
+	andi $18, $15, 56108
+	andi $19, $15, 56108
+	addiu $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	addiu $18, $15, 64659
+	andi $18, $15, 64659
+	andi $19, $15, 64659
+	addiu $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_andi_ori:
+	jal load_patterns
+	andi $18, $15, 51701
+	ori $18, $15, 51701
+	ori $19, $15, 51701
+	andi $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 13425
+	ori $18, $15, 13425
+	ori $19, $15, 13425
+	andi $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 4285
+	ori $18, $15, 4285
+	ori $19, $15, 4285
+	andi $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 46230
+	ori $18, $15, 46230
+	ori $19, $15, 46230
+	andi $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 22387
+	ori $18, $15, 22387
+	ori $19, $15, 22387
+	andi $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 18799
+	ori $18, $15, 18799
+	ori $19, $15, 18799
+	andi $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 49889
+	ori $18, $15, 49889
+	ori $19, $15, 49889
+	andi $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 36023
+	ori $18, $15, 36023
+	ori $19, $15, 36023
+	andi $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 13674
+	ori $18, $15, 13674
+	ori $19, $15, 13674
+	andi $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 61121
+	ori $18, $15, 61121
+	ori $19, $15, 61121
+	andi $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 9393
+	ori $18, $15, 9393
+	ori $19, $15, 9393
+	andi $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 10296
+	ori $18, $15, 10296
+	ori $19, $15, 10296
+	andi $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 21809
+	ori $18, $15, 21809
+	ori $19, $15, 21809
+	andi $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 8387
+	ori $18, $15, 8387
+	ori $19, $15, 8387
+	andi $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 31965
+	ori $18, $15, 31965
+	ori $19, $15, 31965
+	andi $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 30314
+	ori $18, $15, 30314
+	ori $19, $15, 30314
+	andi $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 58860
+	ori $18, $15, 58860
+	ori $19, $15, 58860
+	andi $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 64833
+	ori $18, $15, 64833
+	ori $19, $15, 64833
+	andi $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 568
+	ori $18, $15, 568
+	ori $19, $15, 568
+	andi $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 51454
+	ori $18, $15, 51454
+	ori $19, $15, 51454
+	andi $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 32719
+	ori $18, $15, 32719
+	ori $19, $15, 32719
+	andi $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 19650
+	ori $18, $15, 19650
+	ori $19, $15, 19650
+	andi $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 43216
+	ori $18, $15, 43216
+	ori $19, $15, 43216
+	andi $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 34632
+	ori $18, $15, 34632
+	ori $19, $15, 34632
+	andi $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 39324
+	ori $18, $15, 39324
+	ori $19, $15, 39324
+	andi $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 55190
+	ori $18, $15, 55190
+	ori $19, $15, 55190
+	andi $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 52262
+	ori $18, $15, 52262
+	ori $19, $15, 52262
+	andi $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 19244
+	ori $18, $15, 19244
+	ori $19, $15, 19244
+	andi $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 45878
+	ori $18, $15, 45878
+	ori $19, $15, 45878
+	andi $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 10786
+	ori $18, $15, 10786
+	ori $19, $15, 10786
+	andi $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 22487
+	ori $18, $15, 22487
+	ori $19, $15, 22487
+	andi $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 40958
+	ori $18, $15, 40958
+	ori $19, $15, 40958
+	andi $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 14500
+	ori $18, $15, 14500
+	ori $19, $15, 14500
+	andi $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 27106
+	ori $18, $15, 27106
+	ori $19, $15, 27106
+	andi $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 18461
+	ori $18, $15, 18461
+	ori $19, $15, 18461
+	andi $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 18823
+	ori $18, $15, 18823
+	ori $19, $15, 18823
+	andi $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 31305
+	ori $18, $15, 31305
+	ori $19, $15, 31305
+	andi $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 44931
+	ori $18, $15, 44931
+	ori $19, $15, 44931
+	andi $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 41695
+	ori $18, $15, 41695
+	ori $19, $15, 41695
+	andi $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 685
+	ori $18, $15, 685
+	ori $19, $15, 685
+	andi $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 23920
+	ori $18, $15, 23920
+	ori $19, $15, 23920
+	andi $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 29712
+	ori $18, $15, 29712
+	ori $19, $15, 29712
+	andi $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 53630
+	ori $18, $15, 53630
+	ori $19, $15, 53630
+	andi $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 43816
+	ori $18, $15, 43816
+	ori $19, $15, 43816
+	andi $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 41391
+	ori $18, $15, 41391
+	ori $19, $15, 41391
+	andi $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 6687
+	ori $18, $15, 6687
+	ori $19, $15, 6687
+	andi $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 9065
+	ori $18, $15, 9065
+	ori $19, $15, 9065
+	andi $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 44990
+	ori $18, $15, 44990
+	ori $19, $15, 44990
+	andi $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 26743
+	ori $18, $15, 26743
+	ori $19, $15, 26743
+	andi $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 64416
+	ori $18, $15, 64416
+	ori $19, $15, 64416
+	andi $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 53241
+	ori $18, $15, 53241
+	ori $19, $15, 53241
+	andi $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 45390
+	ori $18, $15, 45390
+	ori $19, $15, 45390
+	andi $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 35532
+	ori $18, $15, 35532
+	ori $19, $15, 35532
+	andi $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 345
+	ori $18, $15, 345
+	ori $19, $15, 345
+	andi $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 22658
+	ori $18, $15, 22658
+	ori $19, $15, 22658
+	andi $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 7880
+	ori $18, $15, 7880
+	ori $19, $15, 7880
+	andi $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 54556
+	ori $18, $15, 54556
+	ori $19, $15, 54556
+	andi $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 50408
+	ori $18, $15, 50408
+	ori $19, $15, 50408
+	andi $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 23728
+	ori $18, $15, 23728
+	ori $19, $15, 23728
+	andi $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 1733
+	ori $18, $15, 1733
+	ori $19, $15, 1733
+	andi $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 34730
+	ori $18, $15, 34730
+	ori $19, $15, 34730
+	andi $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 64195
+	ori $18, $15, 64195
+	ori $19, $15, 64195
+	andi $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 56108
+	ori $18, $15, 56108
+	ori $19, $15, 56108
+	andi $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	andi $18, $15, 64659
+	ori $18, $15, 64659
+	ori $19, $15, 64659
+	andi $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_ori_andi:
+	jal load_patterns
+	ori $18, $15, 51701
+	andi $18, $15, 51701
+	andi $19, $15, 51701
+	ori $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 13425
+	andi $18, $15, 13425
+	andi $19, $15, 13425
+	ori $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 4285
+	andi $18, $15, 4285
+	andi $19, $15, 4285
+	ori $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 46230
+	andi $18, $15, 46230
+	andi $19, $15, 46230
+	ori $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 22387
+	andi $18, $15, 22387
+	andi $19, $15, 22387
+	ori $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 18799
+	andi $18, $15, 18799
+	andi $19, $15, 18799
+	ori $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 49889
+	andi $18, $15, 49889
+	andi $19, $15, 49889
+	ori $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 36023
+	andi $18, $15, 36023
+	andi $19, $15, 36023
+	ori $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 13674
+	andi $18, $15, 13674
+	andi $19, $15, 13674
+	ori $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 61121
+	andi $18, $15, 61121
+	andi $19, $15, 61121
+	ori $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 9393
+	andi $18, $15, 9393
+	andi $19, $15, 9393
+	ori $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 10296
+	andi $18, $15, 10296
+	andi $19, $15, 10296
+	ori $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 21809
+	andi $18, $15, 21809
+	andi $19, $15, 21809
+	ori $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 8387
+	andi $18, $15, 8387
+	andi $19, $15, 8387
+	ori $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 31965
+	andi $18, $15, 31965
+	andi $19, $15, 31965
+	ori $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 30314
+	andi $18, $15, 30314
+	andi $19, $15, 30314
+	ori $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 58860
+	andi $18, $15, 58860
+	andi $19, $15, 58860
+	ori $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 64833
+	andi $18, $15, 64833
+	andi $19, $15, 64833
+	ori $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 568
+	andi $18, $15, 568
+	andi $19, $15, 568
+	ori $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 51454
+	andi $18, $15, 51454
+	andi $19, $15, 51454
+	ori $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 32719
+	andi $18, $15, 32719
+	andi $19, $15, 32719
+	ori $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 19650
+	andi $18, $15, 19650
+	andi $19, $15, 19650
+	ori $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 43216
+	andi $18, $15, 43216
+	andi $19, $15, 43216
+	ori $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 34632
+	andi $18, $15, 34632
+	andi $19, $15, 34632
+	ori $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 39324
+	andi $18, $15, 39324
+	andi $19, $15, 39324
+	ori $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 55190
+	andi $18, $15, 55190
+	andi $19, $15, 55190
+	ori $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 52262
+	andi $18, $15, 52262
+	andi $19, $15, 52262
+	ori $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 19244
+	andi $18, $15, 19244
+	andi $19, $15, 19244
+	ori $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 45878
+	andi $18, $15, 45878
+	andi $19, $15, 45878
+	ori $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 10786
+	andi $18, $15, 10786
+	andi $19, $15, 10786
+	ori $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 22487
+	andi $18, $15, 22487
+	andi $19, $15, 22487
+	ori $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 40958
+	andi $18, $15, 40958
+	andi $19, $15, 40958
+	ori $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 14500
+	andi $18, $15, 14500
+	andi $19, $15, 14500
+	ori $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 27106
+	andi $18, $15, 27106
+	andi $19, $15, 27106
+	ori $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 18461
+	andi $18, $15, 18461
+	andi $19, $15, 18461
+	ori $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 18823
+	andi $18, $15, 18823
+	andi $19, $15, 18823
+	ori $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 31305
+	andi $18, $15, 31305
+	andi $19, $15, 31305
+	ori $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 44931
+	andi $18, $15, 44931
+	andi $19, $15, 44931
+	ori $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 41695
+	andi $18, $15, 41695
+	andi $19, $15, 41695
+	ori $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 685
+	andi $18, $15, 685
+	andi $19, $15, 685
+	ori $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 23920
+	andi $18, $15, 23920
+	andi $19, $15, 23920
+	ori $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 29712
+	andi $18, $15, 29712
+	andi $19, $15, 29712
+	ori $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 53630
+	andi $18, $15, 53630
+	andi $19, $15, 53630
+	ori $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 43816
+	andi $18, $15, 43816
+	andi $19, $15, 43816
+	ori $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 41391
+	andi $18, $15, 41391
+	andi $19, $15, 41391
+	ori $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 6687
+	andi $18, $15, 6687
+	andi $19, $15, 6687
+	ori $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 9065
+	andi $18, $15, 9065
+	andi $19, $15, 9065
+	ori $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 44990
+	andi $18, $15, 44990
+	andi $19, $15, 44990
+	ori $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 26743
+	andi $18, $15, 26743
+	andi $19, $15, 26743
+	ori $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 64416
+	andi $18, $15, 64416
+	andi $19, $15, 64416
+	ori $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 53241
+	andi $18, $15, 53241
+	andi $19, $15, 53241
+	ori $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 45390
+	andi $18, $15, 45390
+	andi $19, $15, 45390
+	ori $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 35532
+	andi $18, $15, 35532
+	andi $19, $15, 35532
+	ori $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 345
+	andi $18, $15, 345
+	andi $19, $15, 345
+	ori $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 22658
+	andi $18, $15, 22658
+	andi $19, $15, 22658
+	ori $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 7880
+	andi $18, $15, 7880
+	andi $19, $15, 7880
+	ori $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 54556
+	andi $18, $15, 54556
+	andi $19, $15, 54556
+	ori $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 50408
+	andi $18, $15, 50408
+	andi $19, $15, 50408
+	ori $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 23728
+	andi $18, $15, 23728
+	andi $19, $15, 23728
+	ori $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 1733
+	andi $18, $15, 1733
+	andi $19, $15, 1733
+	ori $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 34730
+	andi $18, $15, 34730
+	andi $19, $15, 34730
+	ori $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 64195
+	andi $18, $15, 64195
+	andi $19, $15, 64195
+	ori $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 56108
+	andi $18, $15, 56108
+	andi $19, $15, 56108
+	ori $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	ori $18, $15, 64659
+	andi $18, $15, 64659
+	andi $19, $15, 64659
+	ori $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_slti_ori:
+	jal load_patterns
+	slti $18, $15, 51701
+	ori $18, $15, 51701
+	ori $19, $15, 51701
+	slti $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 13425
+	ori $18, $15, 13425
+	ori $19, $15, 13425
+	slti $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 4285
+	ori $18, $15, 4285
+	ori $19, $15, 4285
+	slti $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 46230
+	ori $18, $15, 46230
+	ori $19, $15, 46230
+	slti $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 22387
+	ori $18, $15, 22387
+	ori $19, $15, 22387
+	slti $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 18799
+	ori $18, $15, 18799
+	ori $19, $15, 18799
+	slti $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 49889
+	ori $18, $15, 49889
+	ori $19, $15, 49889
+	slti $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 36023
+	ori $18, $15, 36023
+	ori $19, $15, 36023
+	slti $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 13674
+	ori $18, $15, 13674
+	ori $19, $15, 13674
+	slti $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 61121
+	ori $18, $15, 61121
+	ori $19, $15, 61121
+	slti $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 9393
+	ori $18, $15, 9393
+	ori $19, $15, 9393
+	slti $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 10296
+	ori $18, $15, 10296
+	ori $19, $15, 10296
+	slti $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 21809
+	ori $18, $15, 21809
+	ori $19, $15, 21809
+	slti $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 8387
+	ori $18, $15, 8387
+	ori $19, $15, 8387
+	slti $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 31965
+	ori $18, $15, 31965
+	ori $19, $15, 31965
+	slti $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 30314
+	ori $18, $15, 30314
+	ori $19, $15, 30314
+	slti $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 58860
+	ori $18, $15, 58860
+	ori $19, $15, 58860
+	slti $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 64833
+	ori $18, $15, 64833
+	ori $19, $15, 64833
+	slti $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 568
+	ori $18, $15, 568
+	ori $19, $15, 568
+	slti $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 51454
+	ori $18, $15, 51454
+	ori $19, $15, 51454
+	slti $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 32719
+	ori $18, $15, 32719
+	ori $19, $15, 32719
+	slti $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 19650
+	ori $18, $15, 19650
+	ori $19, $15, 19650
+	slti $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 43216
+	ori $18, $15, 43216
+	ori $19, $15, 43216
+	slti $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 34632
+	ori $18, $15, 34632
+	ori $19, $15, 34632
+	slti $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 39324
+	ori $18, $15, 39324
+	ori $19, $15, 39324
+	slti $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 55190
+	ori $18, $15, 55190
+	ori $19, $15, 55190
+	slti $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 52262
+	ori $18, $15, 52262
+	ori $19, $15, 52262
+	slti $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 19244
+	ori $18, $15, 19244
+	ori $19, $15, 19244
+	slti $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 45878
+	ori $18, $15, 45878
+	ori $19, $15, 45878
+	slti $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 10786
+	ori $18, $15, 10786
+	ori $19, $15, 10786
+	slti $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 22487
+	ori $18, $15, 22487
+	ori $19, $15, 22487
+	slti $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 40958
+	ori $18, $15, 40958
+	ori $19, $15, 40958
+	slti $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 14500
+	ori $18, $15, 14500
+	ori $19, $15, 14500
+	slti $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 27106
+	ori $18, $15, 27106
+	ori $19, $15, 27106
+	slti $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 18461
+	ori $18, $15, 18461
+	ori $19, $15, 18461
+	slti $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 18823
+	ori $18, $15, 18823
+	ori $19, $15, 18823
+	slti $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 31305
+	ori $18, $15, 31305
+	ori $19, $15, 31305
+	slti $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 44931
+	ori $18, $15, 44931
+	ori $19, $15, 44931
+	slti $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 41695
+	ori $18, $15, 41695
+	ori $19, $15, 41695
+	slti $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 685
+	ori $18, $15, 685
+	ori $19, $15, 685
+	slti $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 23920
+	ori $18, $15, 23920
+	ori $19, $15, 23920
+	slti $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 29712
+	ori $18, $15, 29712
+	ori $19, $15, 29712
+	slti $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 53630
+	ori $18, $15, 53630
+	ori $19, $15, 53630
+	slti $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 43816
+	ori $18, $15, 43816
+	ori $19, $15, 43816
+	slti $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 41391
+	ori $18, $15, 41391
+	ori $19, $15, 41391
+	slti $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 6687
+	ori $18, $15, 6687
+	ori $19, $15, 6687
+	slti $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 9065
+	ori $18, $15, 9065
+	ori $19, $15, 9065
+	slti $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 44990
+	ori $18, $15, 44990
+	ori $19, $15, 44990
+	slti $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 26743
+	ori $18, $15, 26743
+	ori $19, $15, 26743
+	slti $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 64416
+	ori $18, $15, 64416
+	ori $19, $15, 64416
+	slti $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 53241
+	ori $18, $15, 53241
+	ori $19, $15, 53241
+	slti $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 45390
+	ori $18, $15, 45390
+	ori $19, $15, 45390
+	slti $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 35532
+	ori $18, $15, 35532
+	ori $19, $15, 35532
+	slti $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 345
+	ori $18, $15, 345
+	ori $19, $15, 345
+	slti $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 22658
+	ori $18, $15, 22658
+	ori $19, $15, 22658
+	slti $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 7880
+	ori $18, $15, 7880
+	ori $19, $15, 7880
+	slti $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 54556
+	ori $18, $15, 54556
+	ori $19, $15, 54556
+	slti $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 50408
+	ori $18, $15, 50408
+	ori $19, $15, 50408
+	slti $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 23728
+	ori $18, $15, 23728
+	ori $19, $15, 23728
+	slti $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 1733
+	ori $18, $15, 1733
+	ori $19, $15, 1733
+	slti $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 34730
+	ori $18, $15, 34730
+	ori $19, $15, 34730
+	slti $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 64195
+	ori $18, $15, 64195
+	ori $19, $15, 64195
+	slti $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 56108
+	ori $18, $15, 56108
+	ori $19, $15, 56108
+	slti $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 64659
+	ori $18, $15, 64659
+	ori $19, $15, 64659
+	slti $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_slti_andi:
+	jal load_patterns
+	slti $18, $15, 51701
+	andi $18, $15, 51701
+	andi $19, $15, 51701
+	slti $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 13425
+	andi $18, $15, 13425
+	andi $19, $15, 13425
+	slti $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 4285
+	andi $18, $15, 4285
+	andi $19, $15, 4285
+	slti $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 46230
+	andi $18, $15, 46230
+	andi $19, $15, 46230
+	slti $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 22387
+	andi $18, $15, 22387
+	andi $19, $15, 22387
+	slti $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 18799
+	andi $18, $15, 18799
+	andi $19, $15, 18799
+	slti $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 49889
+	andi $18, $15, 49889
+	andi $19, $15, 49889
+	slti $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 36023
+	andi $18, $15, 36023
+	andi $19, $15, 36023
+	slti $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 13674
+	andi $18, $15, 13674
+	andi $19, $15, 13674
+	slti $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 61121
+	andi $18, $15, 61121
+	andi $19, $15, 61121
+	slti $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 9393
+	andi $18, $15, 9393
+	andi $19, $15, 9393
+	slti $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 10296
+	andi $18, $15, 10296
+	andi $19, $15, 10296
+	slti $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 21809
+	andi $18, $15, 21809
+	andi $19, $15, 21809
+	slti $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 8387
+	andi $18, $15, 8387
+	andi $19, $15, 8387
+	slti $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 31965
+	andi $18, $15, 31965
+	andi $19, $15, 31965
+	slti $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 30314
+	andi $18, $15, 30314
+	andi $19, $15, 30314
+	slti $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 58860
+	andi $18, $15, 58860
+	andi $19, $15, 58860
+	slti $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 64833
+	andi $18, $15, 64833
+	andi $19, $15, 64833
+	slti $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 568
+	andi $18, $15, 568
+	andi $19, $15, 568
+	slti $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 51454
+	andi $18, $15, 51454
+	andi $19, $15, 51454
+	slti $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 32719
+	andi $18, $15, 32719
+	andi $19, $15, 32719
+	slti $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 19650
+	andi $18, $15, 19650
+	andi $19, $15, 19650
+	slti $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 43216
+	andi $18, $15, 43216
+	andi $19, $15, 43216
+	slti $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 34632
+	andi $18, $15, 34632
+	andi $19, $15, 34632
+	slti $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 39324
+	andi $18, $15, 39324
+	andi $19, $15, 39324
+	slti $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 55190
+	andi $18, $15, 55190
+	andi $19, $15, 55190
+	slti $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 52262
+	andi $18, $15, 52262
+	andi $19, $15, 52262
+	slti $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 19244
+	andi $18, $15, 19244
+	andi $19, $15, 19244
+	slti $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 45878
+	andi $18, $15, 45878
+	andi $19, $15, 45878
+	slti $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 10786
+	andi $18, $15, 10786
+	andi $19, $15, 10786
+	slti $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 22487
+	andi $18, $15, 22487
+	andi $19, $15, 22487
+	slti $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 40958
+	andi $18, $15, 40958
+	andi $19, $15, 40958
+	slti $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 14500
+	andi $18, $15, 14500
+	andi $19, $15, 14500
+	slti $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 27106
+	andi $18, $15, 27106
+	andi $19, $15, 27106
+	slti $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 18461
+	andi $18, $15, 18461
+	andi $19, $15, 18461
+	slti $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 18823
+	andi $18, $15, 18823
+	andi $19, $15, 18823
+	slti $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 31305
+	andi $18, $15, 31305
+	andi $19, $15, 31305
+	slti $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 44931
+	andi $18, $15, 44931
+	andi $19, $15, 44931
+	slti $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 41695
+	andi $18, $15, 41695
+	andi $19, $15, 41695
+	slti $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 685
+	andi $18, $15, 685
+	andi $19, $15, 685
+	slti $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 23920
+	andi $18, $15, 23920
+	andi $19, $15, 23920
+	slti $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 29712
+	andi $18, $15, 29712
+	andi $19, $15, 29712
+	slti $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 53630
+	andi $18, $15, 53630
+	andi $19, $15, 53630
+	slti $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 43816
+	andi $18, $15, 43816
+	andi $19, $15, 43816
+	slti $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 41391
+	andi $18, $15, 41391
+	andi $19, $15, 41391
+	slti $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 6687
+	andi $18, $15, 6687
+	andi $19, $15, 6687
+	slti $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 9065
+	andi $18, $15, 9065
+	andi $19, $15, 9065
+	slti $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 44990
+	andi $18, $15, 44990
+	andi $19, $15, 44990
+	slti $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 26743
+	andi $18, $15, 26743
+	andi $19, $15, 26743
+	slti $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 64416
+	andi $18, $15, 64416
+	andi $19, $15, 64416
+	slti $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 53241
+	andi $18, $15, 53241
+	andi $19, $15, 53241
+	slti $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 45390
+	andi $18, $15, 45390
+	andi $19, $15, 45390
+	slti $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 35532
+	andi $18, $15, 35532
+	andi $19, $15, 35532
+	slti $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 345
+	andi $18, $15, 345
+	andi $19, $15, 345
+	slti $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 22658
+	andi $18, $15, 22658
+	andi $19, $15, 22658
+	slti $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 7880
+	andi $18, $15, 7880
+	andi $19, $15, 7880
+	slti $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 54556
+	andi $18, $15, 54556
+	andi $19, $15, 54556
+	slti $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 50408
+	andi $18, $15, 50408
+	andi $19, $15, 50408
+	slti $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 23728
+	andi $18, $15, 23728
+	andi $19, $15, 23728
+	slti $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 1733
+	andi $18, $15, 1733
+	andi $19, $15, 1733
+	slti $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 34730
+	andi $18, $15, 34730
+	andi $19, $15, 34730
+	slti $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 64195
+	andi $18, $15, 64195
+	andi $19, $15, 64195
+	slti $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 56108
+	andi $18, $15, 56108
+	andi $19, $15, 56108
+	slti $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	slti $18, $15, 64659
+	andi $18, $15, 64659
+	andi $19, $15, 64659
+	slti $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_sltiu_ori:
+	jal load_patterns
+	sltiu $18, $15, 51701
+	ori $18, $15, 51701
+	ori $19, $15, 51701
+	sltiu $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 13425
+	ori $18, $15, 13425
+	ori $19, $15, 13425
+	sltiu $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 4285
+	ori $18, $15, 4285
+	ori $19, $15, 4285
+	sltiu $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 46230
+	ori $18, $15, 46230
+	ori $19, $15, 46230
+	sltiu $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 22387
+	ori $18, $15, 22387
+	ori $19, $15, 22387
+	sltiu $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 18799
+	ori $18, $15, 18799
+	ori $19, $15, 18799
+	sltiu $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 49889
+	ori $18, $15, 49889
+	ori $19, $15, 49889
+	sltiu $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 36023
+	ori $18, $15, 36023
+	ori $19, $15, 36023
+	sltiu $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 13674
+	ori $18, $15, 13674
+	ori $19, $15, 13674
+	sltiu $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 61121
+	ori $18, $15, 61121
+	ori $19, $15, 61121
+	sltiu $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 9393
+	ori $18, $15, 9393
+	ori $19, $15, 9393
+	sltiu $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 10296
+	ori $18, $15, 10296
+	ori $19, $15, 10296
+	sltiu $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 21809
+	ori $18, $15, 21809
+	ori $19, $15, 21809
+	sltiu $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 8387
+	ori $18, $15, 8387
+	ori $19, $15, 8387
+	sltiu $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 31965
+	ori $18, $15, 31965
+	ori $19, $15, 31965
+	sltiu $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 30314
+	ori $18, $15, 30314
+	ori $19, $15, 30314
+	sltiu $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 58860
+	ori $18, $15, 58860
+	ori $19, $15, 58860
+	sltiu $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 64833
+	ori $18, $15, 64833
+	ori $19, $15, 64833
+	sltiu $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 568
+	ori $18, $15, 568
+	ori $19, $15, 568
+	sltiu $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 51454
+	ori $18, $15, 51454
+	ori $19, $15, 51454
+	sltiu $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 32719
+	ori $18, $15, 32719
+	ori $19, $15, 32719
+	sltiu $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 19650
+	ori $18, $15, 19650
+	ori $19, $15, 19650
+	sltiu $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 43216
+	ori $18, $15, 43216
+	ori $19, $15, 43216
+	sltiu $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 34632
+	ori $18, $15, 34632
+	ori $19, $15, 34632
+	sltiu $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 39324
+	ori $18, $15, 39324
+	ori $19, $15, 39324
+	sltiu $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 55190
+	ori $18, $15, 55190
+	ori $19, $15, 55190
+	sltiu $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 52262
+	ori $18, $15, 52262
+	ori $19, $15, 52262
+	sltiu $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 19244
+	ori $18, $15, 19244
+	ori $19, $15, 19244
+	sltiu $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 45878
+	ori $18, $15, 45878
+	ori $19, $15, 45878
+	sltiu $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 10786
+	ori $18, $15, 10786
+	ori $19, $15, 10786
+	sltiu $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 22487
+	ori $18, $15, 22487
+	ori $19, $15, 22487
+	sltiu $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 40958
+	ori $18, $15, 40958
+	ori $19, $15, 40958
+	sltiu $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 14500
+	ori $18, $15, 14500
+	ori $19, $15, 14500
+	sltiu $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 27106
+	ori $18, $15, 27106
+	ori $19, $15, 27106
+	sltiu $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 18461
+	ori $18, $15, 18461
+	ori $19, $15, 18461
+	sltiu $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 18823
+	ori $18, $15, 18823
+	ori $19, $15, 18823
+	sltiu $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 31305
+	ori $18, $15, 31305
+	ori $19, $15, 31305
+	sltiu $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 44931
+	ori $18, $15, 44931
+	ori $19, $15, 44931
+	sltiu $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 41695
+	ori $18, $15, 41695
+	ori $19, $15, 41695
+	sltiu $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 685
+	ori $18, $15, 685
+	ori $19, $15, 685
+	sltiu $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 23920
+	ori $18, $15, 23920
+	ori $19, $15, 23920
+	sltiu $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 29712
+	ori $18, $15, 29712
+	ori $19, $15, 29712
+	sltiu $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 53630
+	ori $18, $15, 53630
+	ori $19, $15, 53630
+	sltiu $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 43816
+	ori $18, $15, 43816
+	ori $19, $15, 43816
+	sltiu $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 41391
+	ori $18, $15, 41391
+	ori $19, $15, 41391
+	sltiu $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 6687
+	ori $18, $15, 6687
+	ori $19, $15, 6687
+	sltiu $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 9065
+	ori $18, $15, 9065
+	ori $19, $15, 9065
+	sltiu $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 44990
+	ori $18, $15, 44990
+	ori $19, $15, 44990
+	sltiu $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 26743
+	ori $18, $15, 26743
+	ori $19, $15, 26743
+	sltiu $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 64416
+	ori $18, $15, 64416
+	ori $19, $15, 64416
+	sltiu $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 53241
+	ori $18, $15, 53241
+	ori $19, $15, 53241
+	sltiu $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 45390
+	ori $18, $15, 45390
+	ori $19, $15, 45390
+	sltiu $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 35532
+	ori $18, $15, 35532
+	ori $19, $15, 35532
+	sltiu $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 345
+	ori $18, $15, 345
+	ori $19, $15, 345
+	sltiu $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 22658
+	ori $18, $15, 22658
+	ori $19, $15, 22658
+	sltiu $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 7880
+	ori $18, $15, 7880
+	ori $19, $15, 7880
+	sltiu $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 54556
+	ori $18, $15, 54556
+	ori $19, $15, 54556
+	sltiu $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 50408
+	ori $18, $15, 50408
+	ori $19, $15, 50408
+	sltiu $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 23728
+	ori $18, $15, 23728
+	ori $19, $15, 23728
+	sltiu $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 1733
+	ori $18, $15, 1733
+	ori $19, $15, 1733
+	sltiu $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 34730
+	ori $18, $15, 34730
+	ori $19, $15, 34730
+	sltiu $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 64195
+	ori $18, $15, 64195
+	ori $19, $15, 64195
+	sltiu $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 56108
+	ori $18, $15, 56108
+	ori $19, $15, 56108
+	sltiu $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 64659
+	ori $18, $15, 64659
+	ori $19, $15, 64659
+	sltiu $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_sltiu_andi:
+	jal load_patterns
+	sltiu $18, $15, 51701
+	andi $18, $15, 51701
+	andi $19, $15, 51701
+	sltiu $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 13425
+	andi $18, $15, 13425
+	andi $19, $15, 13425
+	sltiu $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 4285
+	andi $18, $15, 4285
+	andi $19, $15, 4285
+	sltiu $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 46230
+	andi $18, $15, 46230
+	andi $19, $15, 46230
+	sltiu $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 22387
+	andi $18, $15, 22387
+	andi $19, $15, 22387
+	sltiu $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 18799
+	andi $18, $15, 18799
+	andi $19, $15, 18799
+	sltiu $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 49889
+	andi $18, $15, 49889
+	andi $19, $15, 49889
+	sltiu $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 36023
+	andi $18, $15, 36023
+	andi $19, $15, 36023
+	sltiu $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 13674
+	andi $18, $15, 13674
+	andi $19, $15, 13674
+	sltiu $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 61121
+	andi $18, $15, 61121
+	andi $19, $15, 61121
+	sltiu $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 9393
+	andi $18, $15, 9393
+	andi $19, $15, 9393
+	sltiu $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 10296
+	andi $18, $15, 10296
+	andi $19, $15, 10296
+	sltiu $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 21809
+	andi $18, $15, 21809
+	andi $19, $15, 21809
+	sltiu $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 8387
+	andi $18, $15, 8387
+	andi $19, $15, 8387
+	sltiu $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 31965
+	andi $18, $15, 31965
+	andi $19, $15, 31965
+	sltiu $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 30314
+	andi $18, $15, 30314
+	andi $19, $15, 30314
+	sltiu $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 58860
+	andi $18, $15, 58860
+	andi $19, $15, 58860
+	sltiu $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 64833
+	andi $18, $15, 64833
+	andi $19, $15, 64833
+	sltiu $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 568
+	andi $18, $15, 568
+	andi $19, $15, 568
+	sltiu $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 51454
+	andi $18, $15, 51454
+	andi $19, $15, 51454
+	sltiu $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 32719
+	andi $18, $15, 32719
+	andi $19, $15, 32719
+	sltiu $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 19650
+	andi $18, $15, 19650
+	andi $19, $15, 19650
+	sltiu $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 43216
+	andi $18, $15, 43216
+	andi $19, $15, 43216
+	sltiu $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 34632
+	andi $18, $15, 34632
+	andi $19, $15, 34632
+	sltiu $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 39324
+	andi $18, $15, 39324
+	andi $19, $15, 39324
+	sltiu $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 55190
+	andi $18, $15, 55190
+	andi $19, $15, 55190
+	sltiu $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 52262
+	andi $18, $15, 52262
+	andi $19, $15, 52262
+	sltiu $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 19244
+	andi $18, $15, 19244
+	andi $19, $15, 19244
+	sltiu $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 45878
+	andi $18, $15, 45878
+	andi $19, $15, 45878
+	sltiu $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 10786
+	andi $18, $15, 10786
+	andi $19, $15, 10786
+	sltiu $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 22487
+	andi $18, $15, 22487
+	andi $19, $15, 22487
+	sltiu $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 40958
+	andi $18, $15, 40958
+	andi $19, $15, 40958
+	sltiu $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 14500
+	andi $18, $15, 14500
+	andi $19, $15, 14500
+	sltiu $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 27106
+	andi $18, $15, 27106
+	andi $19, $15, 27106
+	sltiu $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 18461
+	andi $18, $15, 18461
+	andi $19, $15, 18461
+	sltiu $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 18823
+	andi $18, $15, 18823
+	andi $19, $15, 18823
+	sltiu $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 31305
+	andi $18, $15, 31305
+	andi $19, $15, 31305
+	sltiu $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 44931
+	andi $18, $15, 44931
+	andi $19, $15, 44931
+	sltiu $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 41695
+	andi $18, $15, 41695
+	andi $19, $15, 41695
+	sltiu $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 685
+	andi $18, $15, 685
+	andi $19, $15, 685
+	sltiu $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 23920
+	andi $18, $15, 23920
+	andi $19, $15, 23920
+	sltiu $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 29712
+	andi $18, $15, 29712
+	andi $19, $15, 29712
+	sltiu $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 53630
+	andi $18, $15, 53630
+	andi $19, $15, 53630
+	sltiu $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 43816
+	andi $18, $15, 43816
+	andi $19, $15, 43816
+	sltiu $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 41391
+	andi $18, $15, 41391
+	andi $19, $15, 41391
+	sltiu $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 6687
+	andi $18, $15, 6687
+	andi $19, $15, 6687
+	sltiu $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 9065
+	andi $18, $15, 9065
+	andi $19, $15, 9065
+	sltiu $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 44990
+	andi $18, $15, 44990
+	andi $19, $15, 44990
+	sltiu $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 26743
+	andi $18, $15, 26743
+	andi $19, $15, 26743
+	sltiu $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 64416
+	andi $18, $15, 64416
+	andi $19, $15, 64416
+	sltiu $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 53241
+	andi $18, $15, 53241
+	andi $19, $15, 53241
+	sltiu $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 45390
+	andi $18, $15, 45390
+	andi $19, $15, 45390
+	sltiu $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 35532
+	andi $18, $15, 35532
+	andi $19, $15, 35532
+	sltiu $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 345
+	andi $18, $15, 345
+	andi $19, $15, 345
+	sltiu $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 22658
+	andi $18, $15, 22658
+	andi $19, $15, 22658
+	sltiu $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 7880
+	andi $18, $15, 7880
+	andi $19, $15, 7880
+	sltiu $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 54556
+	andi $18, $15, 54556
+	andi $19, $15, 54556
+	sltiu $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 50408
+	andi $18, $15, 50408
+	andi $19, $15, 50408
+	sltiu $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 23728
+	andi $18, $15, 23728
+	andi $19, $15, 23728
+	sltiu $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 1733
+	andi $18, $15, 1733
+	andi $19, $15, 1733
+	sltiu $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 34730
+	andi $18, $15, 34730
+	andi $19, $15, 34730
+	sltiu $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 64195
+	andi $18, $15, 64195
+	andi $19, $15, 64195
+	sltiu $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 56108
+	andi $18, $15, 56108
+	andi $19, $15, 56108
+	sltiu $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	sltiu $18, $15, 64659
+	andi $18, $15, 64659
+	andi $19, $15, 64659
+	sltiu $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_xori_ori:
+	jal load_patterns
+	xori $18, $15, 51701
+	ori $18, $15, 51701
+	ori $19, $15, 51701
+	xori $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 13425
+	ori $18, $15, 13425
+	ori $19, $15, 13425
+	xori $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 4285
+	ori $18, $15, 4285
+	ori $19, $15, 4285
+	xori $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 46230
+	ori $18, $15, 46230
+	ori $19, $15, 46230
+	xori $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 22387
+	ori $18, $15, 22387
+	ori $19, $15, 22387
+	xori $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 18799
+	ori $18, $15, 18799
+	ori $19, $15, 18799
+	xori $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 49889
+	ori $18, $15, 49889
+	ori $19, $15, 49889
+	xori $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 36023
+	ori $18, $15, 36023
+	ori $19, $15, 36023
+	xori $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 13674
+	ori $18, $15, 13674
+	ori $19, $15, 13674
+	xori $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 61121
+	ori $18, $15, 61121
+	ori $19, $15, 61121
+	xori $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 9393
+	ori $18, $15, 9393
+	ori $19, $15, 9393
+	xori $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 10296
+	ori $18, $15, 10296
+	ori $19, $15, 10296
+	xori $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 21809
+	ori $18, $15, 21809
+	ori $19, $15, 21809
+	xori $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 8387
+	ori $18, $15, 8387
+	ori $19, $15, 8387
+	xori $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 31965
+	ori $18, $15, 31965
+	ori $19, $15, 31965
+	xori $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 30314
+	ori $18, $15, 30314
+	ori $19, $15, 30314
+	xori $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 58860
+	ori $18, $15, 58860
+	ori $19, $15, 58860
+	xori $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 64833
+	ori $18, $15, 64833
+	ori $19, $15, 64833
+	xori $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 568
+	ori $18, $15, 568
+	ori $19, $15, 568
+	xori $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 51454
+	ori $18, $15, 51454
+	ori $19, $15, 51454
+	xori $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 32719
+	ori $18, $15, 32719
+	ori $19, $15, 32719
+	xori $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 19650
+	ori $18, $15, 19650
+	ori $19, $15, 19650
+	xori $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 43216
+	ori $18, $15, 43216
+	ori $19, $15, 43216
+	xori $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 34632
+	ori $18, $15, 34632
+	ori $19, $15, 34632
+	xori $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 39324
+	ori $18, $15, 39324
+	ori $19, $15, 39324
+	xori $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 55190
+	ori $18, $15, 55190
+	ori $19, $15, 55190
+	xori $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 52262
+	ori $18, $15, 52262
+	ori $19, $15, 52262
+	xori $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 19244
+	ori $18, $15, 19244
+	ori $19, $15, 19244
+	xori $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 45878
+	ori $18, $15, 45878
+	ori $19, $15, 45878
+	xori $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 10786
+	ori $18, $15, 10786
+	ori $19, $15, 10786
+	xori $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 22487
+	ori $18, $15, 22487
+	ori $19, $15, 22487
+	xori $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 40958
+	ori $18, $15, 40958
+	ori $19, $15, 40958
+	xori $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 14500
+	ori $18, $15, 14500
+	ori $19, $15, 14500
+	xori $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 27106
+	ori $18, $15, 27106
+	ori $19, $15, 27106
+	xori $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 18461
+	ori $18, $15, 18461
+	ori $19, $15, 18461
+	xori $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 18823
+	ori $18, $15, 18823
+	ori $19, $15, 18823
+	xori $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 31305
+	ori $18, $15, 31305
+	ori $19, $15, 31305
+	xori $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 44931
+	ori $18, $15, 44931
+	ori $19, $15, 44931
+	xori $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 41695
+	ori $18, $15, 41695
+	ori $19, $15, 41695
+	xori $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 685
+	ori $18, $15, 685
+	ori $19, $15, 685
+	xori $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 23920
+	ori $18, $15, 23920
+	ori $19, $15, 23920
+	xori $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 29712
+	ori $18, $15, 29712
+	ori $19, $15, 29712
+	xori $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 53630
+	ori $18, $15, 53630
+	ori $19, $15, 53630
+	xori $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 43816
+	ori $18, $15, 43816
+	ori $19, $15, 43816
+	xori $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 41391
+	ori $18, $15, 41391
+	ori $19, $15, 41391
+	xori $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 6687
+	ori $18, $15, 6687
+	ori $19, $15, 6687
+	xori $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 9065
+	ori $18, $15, 9065
+	ori $19, $15, 9065
+	xori $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 44990
+	ori $18, $15, 44990
+	ori $19, $15, 44990
+	xori $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 26743
+	ori $18, $15, 26743
+	ori $19, $15, 26743
+	xori $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 64416
+	ori $18, $15, 64416
+	ori $19, $15, 64416
+	xori $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 53241
+	ori $18, $15, 53241
+	ori $19, $15, 53241
+	xori $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 45390
+	ori $18, $15, 45390
+	ori $19, $15, 45390
+	xori $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 35532
+	ori $18, $15, 35532
+	ori $19, $15, 35532
+	xori $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 345
+	ori $18, $15, 345
+	ori $19, $15, 345
+	xori $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 22658
+	ori $18, $15, 22658
+	ori $19, $15, 22658
+	xori $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 7880
+	ori $18, $15, 7880
+	ori $19, $15, 7880
+	xori $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 54556
+	ori $18, $15, 54556
+	ori $19, $15, 54556
+	xori $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 50408
+	ori $18, $15, 50408
+	ori $19, $15, 50408
+	xori $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 23728
+	ori $18, $15, 23728
+	ori $19, $15, 23728
+	xori $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 1733
+	ori $18, $15, 1733
+	ori $19, $15, 1733
+	xori $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 34730
+	ori $18, $15, 34730
+	ori $19, $15, 34730
+	xori $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 64195
+	ori $18, $15, 64195
+	ori $19, $15, 64195
+	xori $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 56108
+	ori $18, $15, 56108
+	ori $19, $15, 56108
+	xori $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 64659
+	ori $18, $15, 64659
+	ori $19, $15, 64659
+	xori $19, $15, 64659
+	jal store
+	jal increment_offset
+
+jal reset_offsets
+jal init_cp
+operation_xori_andi:
+	jal load_patterns
+	xori $18, $15, 51701
+	andi $18, $15, 51701
+	andi $19, $15, 51701
+	xori $19, $15, 51701
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 13425
+	andi $18, $15, 13425
+	andi $19, $15, 13425
+	xori $19, $15, 13425
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 4285
+	andi $18, $15, 4285
+	andi $19, $15, 4285
+	xori $19, $15, 4285
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 46230
+	andi $18, $15, 46230
+	andi $19, $15, 46230
+	xori $19, $15, 46230
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 22387
+	andi $18, $15, 22387
+	andi $19, $15, 22387
+	xori $19, $15, 22387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 18799
+	andi $18, $15, 18799
+	andi $19, $15, 18799
+	xori $19, $15, 18799
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 49889
+	andi $18, $15, 49889
+	andi $19, $15, 49889
+	xori $19, $15, 49889
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 36023
+	andi $18, $15, 36023
+	andi $19, $15, 36023
+	xori $19, $15, 36023
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 13674
+	andi $18, $15, 13674
+	andi $19, $15, 13674
+	xori $19, $15, 13674
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 61121
+	andi $18, $15, 61121
+	andi $19, $15, 61121
+	xori $19, $15, 61121
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 9393
+	andi $18, $15, 9393
+	andi $19, $15, 9393
+	xori $19, $15, 9393
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 10296
+	andi $18, $15, 10296
+	andi $19, $15, 10296
+	xori $19, $15, 10296
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 21809
+	andi $18, $15, 21809
+	andi $19, $15, 21809
+	xori $19, $15, 21809
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 8387
+	andi $18, $15, 8387
+	andi $19, $15, 8387
+	xori $19, $15, 8387
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 31965
+	andi $18, $15, 31965
+	andi $19, $15, 31965
+	xori $19, $15, 31965
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 30314
+	andi $18, $15, 30314
+	andi $19, $15, 30314
+	xori $19, $15, 30314
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 58860
+	andi $18, $15, 58860
+	andi $19, $15, 58860
+	xori $19, $15, 58860
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 64833
+	andi $18, $15, 64833
+	andi $19, $15, 64833
+	xori $19, $15, 64833
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 568
+	andi $18, $15, 568
+	andi $19, $15, 568
+	xori $19, $15, 568
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 51454
+	andi $18, $15, 51454
+	andi $19, $15, 51454
+	xori $19, $15, 51454
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 32719
+	andi $18, $15, 32719
+	andi $19, $15, 32719
+	xori $19, $15, 32719
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 19650
+	andi $18, $15, 19650
+	andi $19, $15, 19650
+	xori $19, $15, 19650
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 43216
+	andi $18, $15, 43216
+	andi $19, $15, 43216
+	xori $19, $15, 43216
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 34632
+	andi $18, $15, 34632
+	andi $19, $15, 34632
+	xori $19, $15, 34632
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 39324
+	andi $18, $15, 39324
+	andi $19, $15, 39324
+	xori $19, $15, 39324
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 55190
+	andi $18, $15, 55190
+	andi $19, $15, 55190
+	xori $19, $15, 55190
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 52262
+	andi $18, $15, 52262
+	andi $19, $15, 52262
+	xori $19, $15, 52262
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 19244
+	andi $18, $15, 19244
+	andi $19, $15, 19244
+	xori $19, $15, 19244
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 45878
+	andi $18, $15, 45878
+	andi $19, $15, 45878
+	xori $19, $15, 45878
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 10786
+	andi $18, $15, 10786
+	andi $19, $15, 10786
+	xori $19, $15, 10786
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 22487
+	andi $18, $15, 22487
+	andi $19, $15, 22487
+	xori $19, $15, 22487
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 40958
+	andi $18, $15, 40958
+	andi $19, $15, 40958
+	xori $19, $15, 40958
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 14500
+	andi $18, $15, 14500
+	andi $19, $15, 14500
+	xori $19, $15, 14500
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 27106
+	andi $18, $15, 27106
+	andi $19, $15, 27106
+	xori $19, $15, 27106
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 18461
+	andi $18, $15, 18461
+	andi $19, $15, 18461
+	xori $19, $15, 18461
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 18823
+	andi $18, $15, 18823
+	andi $19, $15, 18823
+	xori $19, $15, 18823
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 31305
+	andi $18, $15, 31305
+	andi $19, $15, 31305
+	xori $19, $15, 31305
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 44931
+	andi $18, $15, 44931
+	andi $19, $15, 44931
+	xori $19, $15, 44931
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 41695
+	andi $18, $15, 41695
+	andi $19, $15, 41695
+	xori $19, $15, 41695
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 685
+	andi $18, $15, 685
+	andi $19, $15, 685
+	xori $19, $15, 685
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 23920
+	andi $18, $15, 23920
+	andi $19, $15, 23920
+	xori $19, $15, 23920
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 29712
+	andi $18, $15, 29712
+	andi $19, $15, 29712
+	xori $19, $15, 29712
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 53630
+	andi $18, $15, 53630
+	andi $19, $15, 53630
+	xori $19, $15, 53630
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 43816
+	andi $18, $15, 43816
+	andi $19, $15, 43816
+	xori $19, $15, 43816
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 41391
+	andi $18, $15, 41391
+	andi $19, $15, 41391
+	xori $19, $15, 41391
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 6687
+	andi $18, $15, 6687
+	andi $19, $15, 6687
+	xori $19, $15, 6687
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 9065
+	andi $18, $15, 9065
+	andi $19, $15, 9065
+	xori $19, $15, 9065
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 44990
+	andi $18, $15, 44990
+	andi $19, $15, 44990
+	xori $19, $15, 44990
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 26743
+	andi $18, $15, 26743
+	andi $19, $15, 26743
+	xori $19, $15, 26743
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 64416
+	andi $18, $15, 64416
+	andi $19, $15, 64416
+	xori $19, $15, 64416
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 53241
+	andi $18, $15, 53241
+	andi $19, $15, 53241
+	xori $19, $15, 53241
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 45390
+	andi $18, $15, 45390
+	andi $19, $15, 45390
+	xori $19, $15, 45390
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 35532
+	andi $18, $15, 35532
+	andi $19, $15, 35532
+	xori $19, $15, 35532
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 345
+	andi $18, $15, 345
+	andi $19, $15, 345
+	xori $19, $15, 345
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 22658
+	andi $18, $15, 22658
+	andi $19, $15, 22658
+	xori $19, $15, 22658
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 7880
+	andi $18, $15, 7880
+	andi $19, $15, 7880
+	xori $19, $15, 7880
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 54556
+	andi $18, $15, 54556
+	andi $19, $15, 54556
+	xori $19, $15, 54556
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 50408
+	andi $18, $15, 50408
+	andi $19, $15, 50408
+	xori $19, $15, 50408
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 23728
+	andi $18, $15, 23728
+	andi $19, $15, 23728
+	xori $19, $15, 23728
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 1733
+	andi $18, $15, 1733
+	andi $19, $15, 1733
+	xori $19, $15, 1733
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 34730
+	andi $18, $15, 34730
+	andi $19, $15, 34730
+	xori $19, $15, 34730
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 64195
+	andi $18, $15, 64195
+	andi $19, $15, 64195
+	xori $19, $15, 64195
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 56108
+	andi $18, $15, 56108
+	andi $19, $15, 56108
+	xori $19, $15, 56108
+	jal store
+	jal increment_offset
+	jal load_patterns
+	xori $18, $15, 64659
+	andi $18, $15, 64659
+	andi $19, $15, 64659
+	xori $19, $15, 64659
+	jal store
 	jal increment_offset
 
 jal reset_offsets
 operation_mtc0:
 	jal load_patterns
-	or $18, $17, $17
 	mtc0 $15, $12
 	mtc0 $16, $13
 	swc0 $12, 0($29)
@@ -2622,7 +7711,6 @@ operation_mtc0:
 jal reset_offsets
 operation_mfc0:
 	jal load_patterns
-	or $18, $17, $17
 	mtc0 $15, $12
 	mfc0 $18, $12
 	sw $18, 0($29)
@@ -2703,3593 +7791,6 @@ operation_bltzal:
 	jal branch_bltzal
 	jal increment_offset
 	bne $27, $26, operation_bltzal
-
-jal reset_offsets
-operation_immediate:
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 51701
-	sw $18, 0($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 4($29)
-	or $18, $17, $17
-	andi $18, $15, 51701
-	sw $18, 8($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 12($29)
-	or $18, $17, $17
-	ori $18, $15, 51701
-	sw $18, 16($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 20($29)
-	or $18, $17, $17
-	slti $18, $15, 51701
-	sw $18, 24($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 28($29)
-	or $18, $17, $17
-	sltiu $18, $15, 51701
-	sw $18, 32($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 36($29)
-	or $18, $17, $17
-	xori $18, $15, 51701
-	sw $18, 40($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 44($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 13425
-	sw $18, 52($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 56($29)
-	or $18, $17, $17
-	andi $18, $15, 13425
-	sw $18, 60($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 64($29)
-	or $18, $17, $17
-	ori $18, $15, 13425
-	sw $18, 68($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 72($29)
-	or $18, $17, $17
-	slti $18, $15, 13425
-	sw $18, 76($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 80($29)
-	or $18, $17, $17
-	sltiu $18, $15, 13425
-	sw $18, 84($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 88($29)
-	or $18, $17, $17
-	xori $18, $15, 13425
-	sw $18, 92($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 96($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 4285
-	sw $18, 104($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 108($29)
-	or $18, $17, $17
-	andi $18, $15, 4285
-	sw $18, 112($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 116($29)
-	or $18, $17, $17
-	ori $18, $15, 4285
-	sw $18, 120($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 124($29)
-	or $18, $17, $17
-	slti $18, $15, 4285
-	sw $18, 128($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 132($29)
-	or $18, $17, $17
-	sltiu $18, $15, 4285
-	sw $18, 136($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 140($29)
-	or $18, $17, $17
-	xori $18, $15, 4285
-	sw $18, 144($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 148($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 46230
-	sw $18, 156($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 160($29)
-	or $18, $17, $17
-	andi $18, $15, 46230
-	sw $18, 164($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 168($29)
-	or $18, $17, $17
-	ori $18, $15, 46230
-	sw $18, 172($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 176($29)
-	or $18, $17, $17
-	slti $18, $15, 46230
-	sw $18, 180($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 184($29)
-	or $18, $17, $17
-	sltiu $18, $15, 46230
-	sw $18, 188($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 192($29)
-	or $18, $17, $17
-	xori $18, $15, 46230
-	sw $18, 196($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 200($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 22387
-	sw $18, 208($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 212($29)
-	or $18, $17, $17
-	andi $18, $15, 22387
-	sw $18, 216($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 220($29)
-	or $18, $17, $17
-	ori $18, $15, 22387
-	sw $18, 224($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 228($29)
-	or $18, $17, $17
-	slti $18, $15, 22387
-	sw $18, 232($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 236($29)
-	or $18, $17, $17
-	sltiu $18, $15, 22387
-	sw $18, 240($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 244($29)
-	or $18, $17, $17
-	xori $18, $15, 22387
-	sw $18, 248($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 252($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 18799
-	sw $18, 260($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 264($29)
-	or $18, $17, $17
-	andi $18, $15, 18799
-	sw $18, 268($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 272($29)
-	or $18, $17, $17
-	ori $18, $15, 18799
-	sw $18, 276($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 280($29)
-	or $18, $17, $17
-	slti $18, $15, 18799
-	sw $18, 284($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 288($29)
-	or $18, $17, $17
-	sltiu $18, $15, 18799
-	sw $18, 292($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 296($29)
-	or $18, $17, $17
-	xori $18, $15, 18799
-	sw $18, 300($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 304($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 49889
-	sw $18, 312($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 316($29)
-	or $18, $17, $17
-	andi $18, $15, 49889
-	sw $18, 320($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 324($29)
-	or $18, $17, $17
-	ori $18, $15, 49889
-	sw $18, 328($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 332($29)
-	or $18, $17, $17
-	slti $18, $15, 49889
-	sw $18, 336($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 340($29)
-	or $18, $17, $17
-	sltiu $18, $15, 49889
-	sw $18, 344($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 348($29)
-	or $18, $17, $17
-	xori $18, $15, 49889
-	sw $18, 352($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 356($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 36023
-	sw $18, 364($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 368($29)
-	or $18, $17, $17
-	andi $18, $15, 36023
-	sw $18, 372($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 376($29)
-	or $18, $17, $17
-	ori $18, $15, 36023
-	sw $18, 380($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 384($29)
-	or $18, $17, $17
-	slti $18, $15, 36023
-	sw $18, 388($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 392($29)
-	or $18, $17, $17
-	sltiu $18, $15, 36023
-	sw $18, 396($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 400($29)
-	or $18, $17, $17
-	xori $18, $15, 36023
-	sw $18, 404($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 408($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 13674
-	sw $18, 416($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 420($29)
-	or $18, $17, $17
-	andi $18, $15, 13674
-	sw $18, 424($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 428($29)
-	or $18, $17, $17
-	ori $18, $15, 13674
-	sw $18, 432($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 436($29)
-	or $18, $17, $17
-	slti $18, $15, 13674
-	sw $18, 440($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 444($29)
-	or $18, $17, $17
-	sltiu $18, $15, 13674
-	sw $18, 448($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 452($29)
-	or $18, $17, $17
-	xori $18, $15, 13674
-	sw $18, 456($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 460($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 61121
-	sw $18, 468($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 472($29)
-	or $18, $17, $17
-	andi $18, $15, 61121
-	sw $18, 476($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 480($29)
-	or $18, $17, $17
-	ori $18, $15, 61121
-	sw $18, 484($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 488($29)
-	or $18, $17, $17
-	slti $18, $15, 61121
-	sw $18, 492($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 496($29)
-	or $18, $17, $17
-	sltiu $18, $15, 61121
-	sw $18, 500($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 504($29)
-	or $18, $17, $17
-	xori $18, $15, 61121
-	sw $18, 508($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 512($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 9393
-	sw $18, 520($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 524($29)
-	or $18, $17, $17
-	andi $18, $15, 9393
-	sw $18, 528($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 532($29)
-	or $18, $17, $17
-	ori $18, $15, 9393
-	sw $18, 536($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 540($29)
-	or $18, $17, $17
-	slti $18, $15, 9393
-	sw $18, 544($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 548($29)
-	or $18, $17, $17
-	sltiu $18, $15, 9393
-	sw $18, 552($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 556($29)
-	or $18, $17, $17
-	xori $18, $15, 9393
-	sw $18, 560($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 564($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 10296
-	sw $18, 572($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 576($29)
-	or $18, $17, $17
-	andi $18, $15, 10296
-	sw $18, 580($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 584($29)
-	or $18, $17, $17
-	ori $18, $15, 10296
-	sw $18, 588($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 592($29)
-	or $18, $17, $17
-	slti $18, $15, 10296
-	sw $18, 596($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 600($29)
-	or $18, $17, $17
-	sltiu $18, $15, 10296
-	sw $18, 604($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 608($29)
-	or $18, $17, $17
-	xori $18, $15, 10296
-	sw $18, 612($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 616($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 21809
-	sw $18, 624($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 628($29)
-	or $18, $17, $17
-	andi $18, $15, 21809
-	sw $18, 632($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 636($29)
-	or $18, $17, $17
-	ori $18, $15, 21809
-	sw $18, 640($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 644($29)
-	or $18, $17, $17
-	slti $18, $15, 21809
-	sw $18, 648($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 652($29)
-	or $18, $17, $17
-	sltiu $18, $15, 21809
-	sw $18, 656($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 660($29)
-	or $18, $17, $17
-	xori $18, $15, 21809
-	sw $18, 664($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 668($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 8387
-	sw $18, 676($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 680($29)
-	or $18, $17, $17
-	andi $18, $15, 8387
-	sw $18, 684($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 688($29)
-	or $18, $17, $17
-	ori $18, $15, 8387
-	sw $18, 692($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 696($29)
-	or $18, $17, $17
-	slti $18, $15, 8387
-	sw $18, 700($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 704($29)
-	or $18, $17, $17
-	sltiu $18, $15, 8387
-	sw $18, 708($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 712($29)
-	or $18, $17, $17
-	xori $18, $15, 8387
-	sw $18, 716($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 720($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 31965
-	sw $18, 728($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 732($29)
-	or $18, $17, $17
-	andi $18, $15, 31965
-	sw $18, 736($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 740($29)
-	or $18, $17, $17
-	ori $18, $15, 31965
-	sw $18, 744($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 748($29)
-	or $18, $17, $17
-	slti $18, $15, 31965
-	sw $18, 752($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 756($29)
-	or $18, $17, $17
-	sltiu $18, $15, 31965
-	sw $18, 760($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 764($29)
-	or $18, $17, $17
-	xori $18, $15, 31965
-	sw $18, 768($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 772($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 30314
-	sw $18, 780($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 784($29)
-	or $18, $17, $17
-	andi $18, $15, 30314
-	sw $18, 788($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 792($29)
-	or $18, $17, $17
-	ori $18, $15, 30314
-	sw $18, 796($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 800($29)
-	or $18, $17, $17
-	slti $18, $15, 30314
-	sw $18, 804($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 808($29)
-	or $18, $17, $17
-	sltiu $18, $15, 30314
-	sw $18, 812($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 816($29)
-	or $18, $17, $17
-	xori $18, $15, 30314
-	sw $18, 820($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 824($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 58860
-	sw $18, 832($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 836($29)
-	or $18, $17, $17
-	andi $18, $15, 58860
-	sw $18, 840($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 844($29)
-	or $18, $17, $17
-	ori $18, $15, 58860
-	sw $18, 848($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 852($29)
-	or $18, $17, $17
-	slti $18, $15, 58860
-	sw $18, 856($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 860($29)
-	or $18, $17, $17
-	sltiu $18, $15, 58860
-	sw $18, 864($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 868($29)
-	or $18, $17, $17
-	xori $18, $15, 58860
-	sw $18, 872($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 876($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 64833
-	sw $18, 884($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 888($29)
-	or $18, $17, $17
-	andi $18, $15, 64833
-	sw $18, 892($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 896($29)
-	or $18, $17, $17
-	ori $18, $15, 64833
-	sw $18, 900($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 904($29)
-	or $18, $17, $17
-	slti $18, $15, 64833
-	sw $18, 908($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 912($29)
-	or $18, $17, $17
-	sltiu $18, $15, 64833
-	sw $18, 916($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 920($29)
-	or $18, $17, $17
-	xori $18, $15, 64833
-	sw $18, 924($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 928($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 568
-	sw $18, 936($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 940($29)
-	or $18, $17, $17
-	andi $18, $15, 568
-	sw $18, 944($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 948($29)
-	or $18, $17, $17
-	ori $18, $15, 568
-	sw $18, 952($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 956($29)
-	or $18, $17, $17
-	slti $18, $15, 568
-	sw $18, 960($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 964($29)
-	or $18, $17, $17
-	sltiu $18, $15, 568
-	sw $18, 968($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 972($29)
-	or $18, $17, $17
-	xori $18, $15, 568
-	sw $18, 976($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 980($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 51454
-	sw $18, 988($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 992($29)
-	or $18, $17, $17
-	andi $18, $15, 51454
-	sw $18, 996($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1000($29)
-	or $18, $17, $17
-	ori $18, $15, 51454
-	sw $18, 1004($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1008($29)
-	or $18, $17, $17
-	slti $18, $15, 51454
-	sw $18, 1012($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1016($29)
-	or $18, $17, $17
-	sltiu $18, $15, 51454
-	sw $18, 1020($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1024($29)
-	or $18, $17, $17
-	xori $18, $15, 51454
-	sw $18, 1028($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1032($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 32719
-	sw $18, 1040($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1044($29)
-	or $18, $17, $17
-	andi $18, $15, 32719
-	sw $18, 1048($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1052($29)
-	or $18, $17, $17
-	ori $18, $15, 32719
-	sw $18, 1056($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1060($29)
-	or $18, $17, $17
-	slti $18, $15, 32719
-	sw $18, 1064($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1068($29)
-	or $18, $17, $17
-	sltiu $18, $15, 32719
-	sw $18, 1072($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1076($29)
-	or $18, $17, $17
-	xori $18, $15, 32719
-	sw $18, 1080($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1084($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 19650
-	sw $18, 1092($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1096($29)
-	or $18, $17, $17
-	andi $18, $15, 19650
-	sw $18, 1100($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1104($29)
-	or $18, $17, $17
-	ori $18, $15, 19650
-	sw $18, 1108($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1112($29)
-	or $18, $17, $17
-	slti $18, $15, 19650
-	sw $18, 1116($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1120($29)
-	or $18, $17, $17
-	sltiu $18, $15, 19650
-	sw $18, 1124($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1128($29)
-	or $18, $17, $17
-	xori $18, $15, 19650
-	sw $18, 1132($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1136($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 43216
-	sw $18, 1144($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1148($29)
-	or $18, $17, $17
-	andi $18, $15, 43216
-	sw $18, 1152($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1156($29)
-	or $18, $17, $17
-	ori $18, $15, 43216
-	sw $18, 1160($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1164($29)
-	or $18, $17, $17
-	slti $18, $15, 43216
-	sw $18, 1168($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1172($29)
-	or $18, $17, $17
-	sltiu $18, $15, 43216
-	sw $18, 1176($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1180($29)
-	or $18, $17, $17
-	xori $18, $15, 43216
-	sw $18, 1184($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1188($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 34632
-	sw $18, 1196($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1200($29)
-	or $18, $17, $17
-	andi $18, $15, 34632
-	sw $18, 1204($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1208($29)
-	or $18, $17, $17
-	ori $18, $15, 34632
-	sw $18, 1212($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1216($29)
-	or $18, $17, $17
-	slti $18, $15, 34632
-	sw $18, 1220($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1224($29)
-	or $18, $17, $17
-	sltiu $18, $15, 34632
-	sw $18, 1228($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1232($29)
-	or $18, $17, $17
-	xori $18, $15, 34632
-	sw $18, 1236($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1240($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 39324
-	sw $18, 1248($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1252($29)
-	or $18, $17, $17
-	andi $18, $15, 39324
-	sw $18, 1256($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1260($29)
-	or $18, $17, $17
-	ori $18, $15, 39324
-	sw $18, 1264($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1268($29)
-	or $18, $17, $17
-	slti $18, $15, 39324
-	sw $18, 1272($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1276($29)
-	or $18, $17, $17
-	sltiu $18, $15, 39324
-	sw $18, 1280($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1284($29)
-	or $18, $17, $17
-	xori $18, $15, 39324
-	sw $18, 1288($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1292($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 55190
-	sw $18, 1300($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1304($29)
-	or $18, $17, $17
-	andi $18, $15, 55190
-	sw $18, 1308($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1312($29)
-	or $18, $17, $17
-	ori $18, $15, 55190
-	sw $18, 1316($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1320($29)
-	or $18, $17, $17
-	slti $18, $15, 55190
-	sw $18, 1324($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1328($29)
-	or $18, $17, $17
-	sltiu $18, $15, 55190
-	sw $18, 1332($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1336($29)
-	or $18, $17, $17
-	xori $18, $15, 55190
-	sw $18, 1340($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1344($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 52262
-	sw $18, 1352($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1356($29)
-	or $18, $17, $17
-	andi $18, $15, 52262
-	sw $18, 1360($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1364($29)
-	or $18, $17, $17
-	ori $18, $15, 52262
-	sw $18, 1368($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1372($29)
-	or $18, $17, $17
-	slti $18, $15, 52262
-	sw $18, 1376($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1380($29)
-	or $18, $17, $17
-	sltiu $18, $15, 52262
-	sw $18, 1384($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1388($29)
-	or $18, $17, $17
-	xori $18, $15, 52262
-	sw $18, 1392($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1396($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 19244
-	sw $18, 1404($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1408($29)
-	or $18, $17, $17
-	andi $18, $15, 19244
-	sw $18, 1412($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1416($29)
-	or $18, $17, $17
-	ori $18, $15, 19244
-	sw $18, 1420($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1424($29)
-	or $18, $17, $17
-	slti $18, $15, 19244
-	sw $18, 1428($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1432($29)
-	or $18, $17, $17
-	sltiu $18, $15, 19244
-	sw $18, 1436($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1440($29)
-	or $18, $17, $17
-	xori $18, $15, 19244
-	sw $18, 1444($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1448($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 45878
-	sw $18, 1456($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1460($29)
-	or $18, $17, $17
-	andi $18, $15, 45878
-	sw $18, 1464($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1468($29)
-	or $18, $17, $17
-	ori $18, $15, 45878
-	sw $18, 1472($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1476($29)
-	or $18, $17, $17
-	slti $18, $15, 45878
-	sw $18, 1480($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1484($29)
-	or $18, $17, $17
-	sltiu $18, $15, 45878
-	sw $18, 1488($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1492($29)
-	or $18, $17, $17
-	xori $18, $15, 45878
-	sw $18, 1496($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1500($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 10786
-	sw $18, 1508($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1512($29)
-	or $18, $17, $17
-	andi $18, $15, 10786
-	sw $18, 1516($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1520($29)
-	or $18, $17, $17
-	ori $18, $15, 10786
-	sw $18, 1524($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1528($29)
-	or $18, $17, $17
-	slti $18, $15, 10786
-	sw $18, 1532($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1536($29)
-	or $18, $17, $17
-	sltiu $18, $15, 10786
-	sw $18, 1540($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1544($29)
-	or $18, $17, $17
-	xori $18, $15, 10786
-	sw $18, 1548($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1552($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 22487
-	sw $18, 1560($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1564($29)
-	or $18, $17, $17
-	andi $18, $15, 22487
-	sw $18, 1568($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1572($29)
-	or $18, $17, $17
-	ori $18, $15, 22487
-	sw $18, 1576($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1580($29)
-	or $18, $17, $17
-	slti $18, $15, 22487
-	sw $18, 1584($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1588($29)
-	or $18, $17, $17
-	sltiu $18, $15, 22487
-	sw $18, 1592($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1596($29)
-	or $18, $17, $17
-	xori $18, $15, 22487
-	sw $18, 1600($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1604($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 40958
-	sw $18, 1612($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1616($29)
-	or $18, $17, $17
-	andi $18, $15, 40958
-	sw $18, 1620($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1624($29)
-	or $18, $17, $17
-	ori $18, $15, 40958
-	sw $18, 1628($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1632($29)
-	or $18, $17, $17
-	slti $18, $15, 40958
-	sw $18, 1636($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1640($29)
-	or $18, $17, $17
-	sltiu $18, $15, 40958
-	sw $18, 1644($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1648($29)
-	or $18, $17, $17
-	xori $18, $15, 40958
-	sw $18, 1652($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1656($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 14500
-	sw $18, 1664($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1668($29)
-	or $18, $17, $17
-	andi $18, $15, 14500
-	sw $18, 1672($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1676($29)
-	or $18, $17, $17
-	ori $18, $15, 14500
-	sw $18, 1680($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1684($29)
-	or $18, $17, $17
-	slti $18, $15, 14500
-	sw $18, 1688($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1692($29)
-	or $18, $17, $17
-	sltiu $18, $15, 14500
-	sw $18, 1696($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1700($29)
-	or $18, $17, $17
-	xori $18, $15, 14500
-	sw $18, 1704($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1708($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 27106
-	sw $18, 1716($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1720($29)
-	or $18, $17, $17
-	andi $18, $15, 27106
-	sw $18, 1724($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1728($29)
-	or $18, $17, $17
-	ori $18, $15, 27106
-	sw $18, 1732($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1736($29)
-	or $18, $17, $17
-	slti $18, $15, 27106
-	sw $18, 1740($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1744($29)
-	or $18, $17, $17
-	sltiu $18, $15, 27106
-	sw $18, 1748($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1752($29)
-	or $18, $17, $17
-	xori $18, $15, 27106
-	sw $18, 1756($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1760($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 18461
-	sw $18, 1768($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1772($29)
-	or $18, $17, $17
-	andi $18, $15, 18461
-	sw $18, 1776($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1780($29)
-	or $18, $17, $17
-	ori $18, $15, 18461
-	sw $18, 1784($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1788($29)
-	or $18, $17, $17
-	slti $18, $15, 18461
-	sw $18, 1792($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1796($29)
-	or $18, $17, $17
-	sltiu $18, $15, 18461
-	sw $18, 1800($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1804($29)
-	or $18, $17, $17
-	xori $18, $15, 18461
-	sw $18, 1808($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1812($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 18823
-	sw $18, 1820($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1824($29)
-	or $18, $17, $17
-	andi $18, $15, 18823
-	sw $18, 1828($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1832($29)
-	or $18, $17, $17
-	ori $18, $15, 18823
-	sw $18, 1836($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1840($29)
-	or $18, $17, $17
-	slti $18, $15, 18823
-	sw $18, 1844($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1848($29)
-	or $18, $17, $17
-	sltiu $18, $15, 18823
-	sw $18, 1852($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1856($29)
-	or $18, $17, $17
-	xori $18, $15, 18823
-	sw $18, 1860($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1864($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 31305
-	sw $18, 1872($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1876($29)
-	or $18, $17, $17
-	andi $18, $15, 31305
-	sw $18, 1880($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1884($29)
-	or $18, $17, $17
-	ori $18, $15, 31305
-	sw $18, 1888($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1892($29)
-	or $18, $17, $17
-	slti $18, $15, 31305
-	sw $18, 1896($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1900($29)
-	or $18, $17, $17
-	sltiu $18, $15, 31305
-	sw $18, 1904($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1908($29)
-	or $18, $17, $17
-	xori $18, $15, 31305
-	sw $18, 1912($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1916($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 44931
-	sw $18, 1924($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1928($29)
-	or $18, $17, $17
-	andi $18, $15, 44931
-	sw $18, 1932($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1936($29)
-	or $18, $17, $17
-	ori $18, $15, 44931
-	sw $18, 1940($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1944($29)
-	or $18, $17, $17
-	slti $18, $15, 44931
-	sw $18, 1948($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 1952($29)
-	or $18, $17, $17
-	sltiu $18, $15, 44931
-	sw $18, 1956($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 1960($29)
-	or $18, $17, $17
-	xori $18, $15, 44931
-	sw $18, 1964($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 1968($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 41695
-	sw $18, 1976($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 1980($29)
-	or $18, $17, $17
-	andi $18, $15, 41695
-	sw $18, 1984($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 1988($29)
-	or $18, $17, $17
-	ori $18, $15, 41695
-	sw $18, 1992($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 1996($29)
-	or $18, $17, $17
-	slti $18, $15, 41695
-	sw $18, 2000($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2004($29)
-	or $18, $17, $17
-	sltiu $18, $15, 41695
-	sw $18, 2008($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2012($29)
-	or $18, $17, $17
-	xori $18, $15, 41695
-	sw $18, 2016($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2020($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 685
-	sw $18, 2028($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2032($29)
-	or $18, $17, $17
-	andi $18, $15, 685
-	sw $18, 2036($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2040($29)
-	or $18, $17, $17
-	ori $18, $15, 685
-	sw $18, 2044($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2048($29)
-	or $18, $17, $17
-	slti $18, $15, 685
-	sw $18, 2052($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2056($29)
-	or $18, $17, $17
-	sltiu $18, $15, 685
-	sw $18, 2060($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2064($29)
-	or $18, $17, $17
-	xori $18, $15, 685
-	sw $18, 2068($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2072($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 23920
-	sw $18, 2080($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2084($29)
-	or $18, $17, $17
-	andi $18, $15, 23920
-	sw $18, 2088($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2092($29)
-	or $18, $17, $17
-	ori $18, $15, 23920
-	sw $18, 2096($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2100($29)
-	or $18, $17, $17
-	slti $18, $15, 23920
-	sw $18, 2104($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2108($29)
-	or $18, $17, $17
-	sltiu $18, $15, 23920
-	sw $18, 2112($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2116($29)
-	or $18, $17, $17
-	xori $18, $15, 23920
-	sw $18, 2120($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2124($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 29712
-	sw $18, 2132($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2136($29)
-	or $18, $17, $17
-	andi $18, $15, 29712
-	sw $18, 2140($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2144($29)
-	or $18, $17, $17
-	ori $18, $15, 29712
-	sw $18, 2148($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2152($29)
-	or $18, $17, $17
-	slti $18, $15, 29712
-	sw $18, 2156($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2160($29)
-	or $18, $17, $17
-	sltiu $18, $15, 29712
-	sw $18, 2164($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2168($29)
-	or $18, $17, $17
-	xori $18, $15, 29712
-	sw $18, 2172($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2176($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 53630
-	sw $18, 2184($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2188($29)
-	or $18, $17, $17
-	andi $18, $15, 53630
-	sw $18, 2192($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2196($29)
-	or $18, $17, $17
-	ori $18, $15, 53630
-	sw $18, 2200($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2204($29)
-	or $18, $17, $17
-	slti $18, $15, 53630
-	sw $18, 2208($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2212($29)
-	or $18, $17, $17
-	sltiu $18, $15, 53630
-	sw $18, 2216($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2220($29)
-	or $18, $17, $17
-	xori $18, $15, 53630
-	sw $18, 2224($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2228($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 43816
-	sw $18, 2236($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2240($29)
-	or $18, $17, $17
-	andi $18, $15, 43816
-	sw $18, 2244($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2248($29)
-	or $18, $17, $17
-	ori $18, $15, 43816
-	sw $18, 2252($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2256($29)
-	or $18, $17, $17
-	slti $18, $15, 43816
-	sw $18, 2260($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2264($29)
-	or $18, $17, $17
-	sltiu $18, $15, 43816
-	sw $18, 2268($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2272($29)
-	or $18, $17, $17
-	xori $18, $15, 43816
-	sw $18, 2276($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2280($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 41391
-	sw $18, 2288($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2292($29)
-	or $18, $17, $17
-	andi $18, $15, 41391
-	sw $18, 2296($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2300($29)
-	or $18, $17, $17
-	ori $18, $15, 41391
-	sw $18, 2304($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2308($29)
-	or $18, $17, $17
-	slti $18, $15, 41391
-	sw $18, 2312($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2316($29)
-	or $18, $17, $17
-	sltiu $18, $15, 41391
-	sw $18, 2320($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2324($29)
-	or $18, $17, $17
-	xori $18, $15, 41391
-	sw $18, 2328($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2332($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 6687
-	sw $18, 2340($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2344($29)
-	or $18, $17, $17
-	andi $18, $15, 6687
-	sw $18, 2348($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2352($29)
-	or $18, $17, $17
-	ori $18, $15, 6687
-	sw $18, 2356($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2360($29)
-	or $18, $17, $17
-	slti $18, $15, 6687
-	sw $18, 2364($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2368($29)
-	or $18, $17, $17
-	sltiu $18, $15, 6687
-	sw $18, 2372($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2376($29)
-	or $18, $17, $17
-	xori $18, $15, 6687
-	sw $18, 2380($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2384($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 9065
-	sw $18, 2392($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2396($29)
-	or $18, $17, $17
-	andi $18, $15, 9065
-	sw $18, 2400($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2404($29)
-	or $18, $17, $17
-	ori $18, $15, 9065
-	sw $18, 2408($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2412($29)
-	or $18, $17, $17
-	slti $18, $15, 9065
-	sw $18, 2416($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2420($29)
-	or $18, $17, $17
-	sltiu $18, $15, 9065
-	sw $18, 2424($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2428($29)
-	or $18, $17, $17
-	xori $18, $15, 9065
-	sw $18, 2432($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2436($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 44990
-	sw $18, 2444($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2448($29)
-	or $18, $17, $17
-	andi $18, $15, 44990
-	sw $18, 2452($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2456($29)
-	or $18, $17, $17
-	ori $18, $15, 44990
-	sw $18, 2460($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2464($29)
-	or $18, $17, $17
-	slti $18, $15, 44990
-	sw $18, 2468($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2472($29)
-	or $18, $17, $17
-	sltiu $18, $15, 44990
-	sw $18, 2476($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2480($29)
-	or $18, $17, $17
-	xori $18, $15, 44990
-	sw $18, 2484($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2488($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 26743
-	sw $18, 2496($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2500($29)
-	or $18, $17, $17
-	andi $18, $15, 26743
-	sw $18, 2504($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2508($29)
-	or $18, $17, $17
-	ori $18, $15, 26743
-	sw $18, 2512($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2516($29)
-	or $18, $17, $17
-	slti $18, $15, 26743
-	sw $18, 2520($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2524($29)
-	or $18, $17, $17
-	sltiu $18, $15, 26743
-	sw $18, 2528($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2532($29)
-	or $18, $17, $17
-	xori $18, $15, 26743
-	sw $18, 2536($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2540($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 64416
-	sw $18, 2548($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2552($29)
-	or $18, $17, $17
-	andi $18, $15, 64416
-	sw $18, 2556($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2560($29)
-	or $18, $17, $17
-	ori $18, $15, 64416
-	sw $18, 2564($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2568($29)
-	or $18, $17, $17
-	slti $18, $15, 64416
-	sw $18, 2572($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2576($29)
-	or $18, $17, $17
-	sltiu $18, $15, 64416
-	sw $18, 2580($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2584($29)
-	or $18, $17, $17
-	xori $18, $15, 64416
-	sw $18, 2588($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2592($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 53241
-	sw $18, 2600($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2604($29)
-	or $18, $17, $17
-	andi $18, $15, 53241
-	sw $18, 2608($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2612($29)
-	or $18, $17, $17
-	ori $18, $15, 53241
-	sw $18, 2616($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2620($29)
-	or $18, $17, $17
-	slti $18, $15, 53241
-	sw $18, 2624($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2628($29)
-	or $18, $17, $17
-	sltiu $18, $15, 53241
-	sw $18, 2632($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2636($29)
-	or $18, $17, $17
-	xori $18, $15, 53241
-	sw $18, 2640($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2644($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 45390
-	sw $18, 2652($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2656($29)
-	or $18, $17, $17
-	andi $18, $15, 45390
-	sw $18, 2660($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2664($29)
-	or $18, $17, $17
-	ori $18, $15, 45390
-	sw $18, 2668($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2672($29)
-	or $18, $17, $17
-	slti $18, $15, 45390
-	sw $18, 2676($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2680($29)
-	or $18, $17, $17
-	sltiu $18, $15, 45390
-	sw $18, 2684($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2688($29)
-	or $18, $17, $17
-	xori $18, $15, 45390
-	sw $18, 2692($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2696($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 35532
-	sw $18, 2704($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2708($29)
-	or $18, $17, $17
-	andi $18, $15, 35532
-	sw $18, 2712($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2716($29)
-	or $18, $17, $17
-	ori $18, $15, 35532
-	sw $18, 2720($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2724($29)
-	or $18, $17, $17
-	slti $18, $15, 35532
-	sw $18, 2728($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2732($29)
-	or $18, $17, $17
-	sltiu $18, $15, 35532
-	sw $18, 2736($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2740($29)
-	or $18, $17, $17
-	xori $18, $15, 35532
-	sw $18, 2744($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2748($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 345
-	sw $18, 2756($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2760($29)
-	or $18, $17, $17
-	andi $18, $15, 345
-	sw $18, 2764($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2768($29)
-	or $18, $17, $17
-	ori $18, $15, 345
-	sw $18, 2772($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2776($29)
-	or $18, $17, $17
-	slti $18, $15, 345
-	sw $18, 2780($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2784($29)
-	or $18, $17, $17
-	sltiu $18, $15, 345
-	sw $18, 2788($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2792($29)
-	or $18, $17, $17
-	xori $18, $15, 345
-	sw $18, 2796($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2800($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 22658
-	sw $18, 2808($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2812($29)
-	or $18, $17, $17
-	andi $18, $15, 22658
-	sw $18, 2816($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2820($29)
-	or $18, $17, $17
-	ori $18, $15, 22658
-	sw $18, 2824($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2828($29)
-	or $18, $17, $17
-	slti $18, $15, 22658
-	sw $18, 2832($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2836($29)
-	or $18, $17, $17
-	sltiu $18, $15, 22658
-	sw $18, 2840($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2844($29)
-	or $18, $17, $17
-	xori $18, $15, 22658
-	sw $18, 2848($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2852($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 7880
-	sw $18, 2860($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2864($29)
-	or $18, $17, $17
-	andi $18, $15, 7880
-	sw $18, 2868($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2872($29)
-	or $18, $17, $17
-	ori $18, $15, 7880
-	sw $18, 2876($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2880($29)
-	or $18, $17, $17
-	slti $18, $15, 7880
-	sw $18, 2884($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2888($29)
-	or $18, $17, $17
-	sltiu $18, $15, 7880
-	sw $18, 2892($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2896($29)
-	or $18, $17, $17
-	xori $18, $15, 7880
-	sw $18, 2900($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2904($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 54556
-	sw $18, 2912($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2916($29)
-	or $18, $17, $17
-	andi $18, $15, 54556
-	sw $18, 2920($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2924($29)
-	or $18, $17, $17
-	ori $18, $15, 54556
-	sw $18, 2928($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2932($29)
-	or $18, $17, $17
-	slti $18, $15, 54556
-	sw $18, 2936($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2940($29)
-	or $18, $17, $17
-	sltiu $18, $15, 54556
-	sw $18, 2944($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 2948($29)
-	or $18, $17, $17
-	xori $18, $15, 54556
-	sw $18, 2952($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 2956($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 50408
-	sw $18, 2964($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 2968($29)
-	or $18, $17, $17
-	andi $18, $15, 50408
-	sw $18, 2972($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 2976($29)
-	or $18, $17, $17
-	ori $18, $15, 50408
-	sw $18, 2980($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 2984($29)
-	or $18, $17, $17
-	slti $18, $15, 50408
-	sw $18, 2988($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 2992($29)
-	or $18, $17, $17
-	sltiu $18, $15, 50408
-	sw $18, 2996($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 3000($29)
-	or $18, $17, $17
-	xori $18, $15, 50408
-	sw $18, 3004($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 3008($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 23728
-	sw $18, 3016($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 3020($29)
-	or $18, $17, $17
-	andi $18, $15, 23728
-	sw $18, 3024($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 3028($29)
-	or $18, $17, $17
-	ori $18, $15, 23728
-	sw $18, 3032($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 3036($29)
-	or $18, $17, $17
-	slti $18, $15, 23728
-	sw $18, 3040($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 3044($29)
-	or $18, $17, $17
-	sltiu $18, $15, 23728
-	sw $18, 3048($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 3052($29)
-	or $18, $17, $17
-	xori $18, $15, 23728
-	sw $18, 3056($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 3060($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 1733
-	sw $18, 3068($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 3072($29)
-	or $18, $17, $17
-	andi $18, $15, 1733
-	sw $18, 3076($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 3080($29)
-	or $18, $17, $17
-	ori $18, $15, 1733
-	sw $18, 3084($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 3088($29)
-	or $18, $17, $17
-	slti $18, $15, 1733
-	sw $18, 3092($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 3096($29)
-	or $18, $17, $17
-	sltiu $18, $15, 1733
-	sw $18, 3100($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 3104($29)
-	or $18, $17, $17
-	xori $18, $15, 1733
-	sw $18, 3108($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 3112($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 34730
-	sw $18, 3120($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 3124($29)
-	or $18, $17, $17
-	andi $18, $15, 34730
-	sw $18, 3128($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 3132($29)
-	or $18, $17, $17
-	ori $18, $15, 34730
-	sw $18, 3136($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 3140($29)
-	or $18, $17, $17
-	slti $18, $15, 34730
-	sw $18, 3144($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 3148($29)
-	or $18, $17, $17
-	sltiu $18, $15, 34730
-	sw $18, 3152($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 3156($29)
-	or $18, $17, $17
-	xori $18, $15, 34730
-	sw $18, 3160($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 3164($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 64195
-	sw $18, 3172($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 3176($29)
-	or $18, $17, $17
-	andi $18, $15, 64195
-	sw $18, 3180($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 3184($29)
-	or $18, $17, $17
-	ori $18, $15, 64195
-	sw $18, 3188($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 3192($29)
-	or $18, $17, $17
-	slti $18, $15, 64195
-	sw $18, 3196($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 3200($29)
-	or $18, $17, $17
-	sltiu $18, $15, 64195
-	sw $18, 3204($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 3208($29)
-	or $18, $17, $17
-	xori $18, $15, 64195
-	sw $18, 3212($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 3216($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 56108
-	sw $18, 3224($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 3228($29)
-	or $18, $17, $17
-	andi $18, $15, 56108
-	sw $18, 3232($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 3236($29)
-	or $18, $17, $17
-	ori $18, $15, 56108
-	sw $18, 3240($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 3244($29)
-	or $18, $17, $17
-	slti $18, $15, 56108
-	sw $18, 3248($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 3252($29)
-	or $18, $17, $17
-	sltiu $18, $15, 56108
-	sw $18, 3256($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 3260($29)
-	or $18, $17, $17
-	xori $18, $15, 56108
-	sw $18, 3264($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 3268($29)
-	jal increment_offset
-	jal load_patterns
-	or $18, $17, $17
-	addiu $18, $15, 64659
-	sw $18, 3276($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	addiu $18, $20, 0
-	sw $18, 3280($29)
-	or $18, $17, $17
-	andi $18, $15, 64659
-	sw $18, 3284($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	andi $18, $20, 0
-	sw $18, 3288($29)
-	or $18, $17, $17
-	ori $18, $15, 64659
-	sw $18, 3292($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	ori $18, $20, 0
-	sw $18, 3296($29)
-	or $18, $17, $17
-	slti $18, $15, 64659
-	sw $18, 3300($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	slti $18, $20, 0
-	sw $18, 3304($29)
-	or $18, $17, $17
-	sltiu $18, $15, 64659
-	sw $18, 3308($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	sltiu $18, $20, 0
-	sw $18, 3312($29)
-	or $18, $17, $17
-	xori $18, $15, 64659
-	sw $18, 3316($29)
-	lui $17, 65533
-	ori $17, $17, 65533
-	lui $20, 0
-	ori $20, $20, 0
-	xori $18, $20, 0
-	sw $18, 3320($29)
-	jal increment_offset
 
 ;..........system call..........;
 	jal init_cp
