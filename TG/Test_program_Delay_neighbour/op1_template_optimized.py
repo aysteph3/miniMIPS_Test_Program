@@ -26,7 +26,7 @@ for dec, opcode in op1_decoder.items():
 
 def generate_immediate(instruct, out, result_register, result_address, inputFile, src1, src2, transition_instruction):
 	data_lines = []
-	total_pattern = len(open('../input/data.txt').readlines())
+	total_pattern = len(open(inputFile).readlines())
  	f = open(inputFile,'r')
 	k = 0
 	n = 0
@@ -156,7 +156,7 @@ def branch_template(para, out, jump_address, result_register, result_address, in
 	else:
 		do='nothing'
 
-def ops1_template(para, out, result_register, result_address, inputFile,iterator, pattern_count, pattern_address, branch_count, src1, src2):
+def ops1_template(para, out, result_register, result_address,iterator, pattern_count, pattern_address, branch_count, src1, src2):
  Ins = open(para,'r')
  data_lines = []
  opcode = []
@@ -174,6 +174,19 @@ def ops1_template(para, out, result_register, result_address, inputFile,iterator
 		 instr = str.strip(instru)
 		 instruction = instr[0:]
 		 if (catergory == 'i_'):
+		 	if (instr == 'addi' or instr == 'addui'):
+		 		inputFile = '../input/dedicated_control/add.txt'
+		 	elif instr == 'slti':
+		 		inputFile = '../input/dedicated_control/slt.txt'
+		 	elif instr == 'sltiu':
+		 		inputFile = '../input/dedicated_control/sltu.txt'
+		 	elif instr == 'andi':
+		 		inputFile = '../input/dedicated_control/and.txt'
+		 	elif instr == 'ori':
+		 		inputFile = '../input/dedicated_control/or.txt'
+		 	elif instr == 'xori':
+		 		inputFile = '../input/dedicated_control/xor.txt'
+
 		 	for x in range(2):
 		 		if (x == 0):
 		 			if instr!=neighbour1:
