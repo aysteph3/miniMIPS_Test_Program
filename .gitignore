@@ -22,7 +22,7 @@ wlf*
 *.vcd
 *.ucdb
 cov*/
-transcript
+transcript*
 sc_dpiheader.h
 vsim.dbg
 
