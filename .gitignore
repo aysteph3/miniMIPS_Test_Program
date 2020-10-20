@@ -2,6 +2,9 @@
 [_@]*
 generated_files/
 sim_input/
+sim_generated_file/
+*.bin
+*.lst
 outputme*
 
 # ignore compilation output of ModelSim
