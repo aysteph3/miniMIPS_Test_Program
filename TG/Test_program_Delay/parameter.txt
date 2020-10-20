@@ -92,10 +92,10 @@ p_addi
 p_addiu
 p_andi
 p_ori
-;p_slti
-;p_sltiu
-;p_xori
-;p_lui
+p_slti
+p_sltiu
+p_xori
+p_lui
 ;;
 ;p_mtc0
 ;p_mfc0

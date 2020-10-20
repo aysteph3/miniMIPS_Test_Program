@@ -13,9 +13,9 @@
 # //  18 U.S.C. Section 1905.
 # //
 # do vsim_gui.tcl
-# 1603146810118560
+# 1603194137874534
 # vsim -vopt -coverage -simstats -voptargs=""+acc"" minimips_rtl.sim_minimips(bench) 
-# Start time: 01:33:30 on Oct 20,2020
+# Start time: 14:42:17 on Oct 20,2020
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading std.standard
 # Loading std.textio(body)
@@ -12189,18 +12189,18 @@
 #     mem: size during sim (VSZ)                 467.45 Mb
 # Elaboration Time                          
 #    elab: wall time                               0.75 s
-#    elab: cpu time                                0.16 s
+#    elab: cpu time                                0.15 s
 # Simulation Time                           
 #     sim: wall time                              24.44 s
 #     sim: cpu time                               24.33 s
 #     log: wall time                              24.44 s
-#     log: cpu time                                2.42 s
+#     log: cpu time                                2.39 s
 # Tcl Command Time                          
-#     cmd: wall time                               3.95 s
-#     cmd: cpu time                                0.79 s
+#     cmd: wall time                               3.88 s
+#     cmd: cpu time                                0.83 s
 # Total Time                                
-#   total: wall time                              29.14 s
+#   total: wall time                              29.07 s
 #   total: cpu time                               27.70 s
 # 
-# End time: 01:33:59 on Oct 20,2020, Elapsed time: 0:00:29
+# End time: 14:42:46 on Oct 20,2020, Elapsed time: 0:00:29
 # Errors: 12110, Warnings: 31

@@ -8523,6 +8523,17 @@ operation_multu_psuedo:
 	sw $18, 0($29)
 	jal increment
 
+jal reset_offsets
+operation_lui_psuedo:
+	lui $18, 21845
+	ori $18, $18, 21845
+	sw $18, 0($29)
+	jal increment
+	lui $18, 43690
+	ori $18, $18, 43690
+	sw $18, 0($29)
+	jal increment
+
 ;..........break..........;
 	jal init_cp
 	j breaks
