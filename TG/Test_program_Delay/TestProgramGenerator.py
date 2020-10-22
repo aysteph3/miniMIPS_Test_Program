@@ -127,8 +127,8 @@ out.write(" jal init_patterns\n")
 out.write(" jal init_branch\n\n")
 
 #template for op2
-##op2_template.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount)
-#op2_template_optimized.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount, source_register1, source_register2)
+#op2_template.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount)
+op2_template_optimized.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount, source_register1, source_register2)
 
 #template for op1
 #op1_template_optimized.ops1_template(parameter, out, result_register, result_address, inputFile, iterator, pattern_count, pattern_address, branch_count, source_register1, source_register2,source_register3, transition_address)
@@ -144,11 +144,11 @@ pipeline.syscall(out)
 #out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 10000))
 #transition_1to0.make_transition10_template(parameter,out, result_register,transition_address,source_register3)
 
-#template for psuedo-exhaustive data
-out.write(";..........data-path test..........;\n")
-out.write(" lui $%s, %d\n" % (result_address, 1))
-out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 10000))
-pseudo_template.make_pseudo_template(parameter,out, result_register)
+##template for psuedo-exhaustive data
+#out.write(";..........data-path test..........;\n")
+#out.write(" lui $%s, %d\n" % (result_address, 1))
+#out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 10000))
+#pseudo_template.make_pseudo_template(parameter,out, result_register)
 
 
 #break

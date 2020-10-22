@@ -15,7 +15,6 @@ def pseudo_template(inputFile, out, instruct, result_register):
       out.write("jal reset_hi_lo\n")
   if(instruction[0:] =="add" or instruction[0:] =="sub"):
       out.write("jal init_cp\n")
-  #out.write("operation_"+instruction+":\n")
   out.write("operation_"+instruction+"_psuedo:\n")
   offset = 0
   register = 2

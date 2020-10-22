@@ -37,6 +37,7 @@ def generate_immediate(instruct, out, result_register, result_address, inputFile
 	 immediate_fun_2(instruct, out, result_register,result_address, immediate, src1, src2, transition_instruction)
 	 if (total_pattern == n):
 	 	out.write("\n")
+	 	#print total_pattern
 	f.close()
 
 def immediate_fun(instruction, file, result_register, result_address, immediate,k, src1, src2):
