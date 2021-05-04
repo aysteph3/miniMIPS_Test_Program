@@ -1,7 +1,8 @@
 [Dolphin]
 GroupedSorting=true
 HeaderColumnWidths=360,89,72,86,100,79
-Timestamp=2020,10,20,19,59,53
+SortOrder=1
+Timestamp=2021,3,13,0,38,42
 Version=3
 ViewMode=1
 VisibleRoles=CustomizedDetails,Details_text,Details_permissions,Details_owner,Details_group,Details_date,Details_size

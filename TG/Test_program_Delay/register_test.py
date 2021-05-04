@@ -101,10 +101,184 @@ def reg_upward_special(out,data, data2, result_address):
 
  data_f.close
  data_f2.close
+
+def reg_tdf_10(out, result_address):
+ out.write("\t;.............tdf test 10 ...............;\n ")
+ global offset
+ for register in range(0,31):
+    out.write("\t;........Register....... %d;\n" % (register))
+    if not ((register == int(result_address))):
+      out.write("\tlui $%d, %d\n" % (register, 65535))
+      out.write("\tori $%d, $%d, %d\n" % (register, register, 65535))
+      for j in range(register+1, register+5):
+          if (register >=26):
+              j -= 5
+          out.write("\tlui $%d, %d\n" % (j, 0))
+          out.write("\tori $%d, $%d, %d\n" % (j, j, 0))
+          out.write("\tand $%d, $%d, $%d\n" % (register, register, register))
+          out.write("\tsw $%d, %d($%s)\n" % (register, offset, result_address))
+          offset += 4
+          out.write("\tand $%d, $%d, $%d\n" % (j, j, j))
+          out.write("\tsw $%d, %d($%s)\n" % (j, offset, result_address))
+          offset += 4
+ out.write("\n")
+
+def reg_tdf_01(out, result_address):
+ out.write("\t;.............tdf test 10 ...............;\n ")
+ global offset
+ for register in range(0,31):
+    out.write("\t;........Register....... %d;\n" % (register))
+    if not ((register == int(result_address))):
+      out.write("\tlui $%d, %d\n" % (register, 0))
+      out.write("\tori $%d, $%d, %d\n" % (register, register, 0))
+      for j in range(register+1, register+5):
+          if (register >=26):
+              j -= 5
+          out.write("\tlui $%d, %d\n" % (j, 65535))
+          out.write("\tori $%d, $%d, %d\n" % (j, j, 65535))
+          out.write("\tand $%d, $%d, $%d\n" % (register, register, register))
+          out.write("\tsw $%d, %d($%s)\n" % (register, offset, result_address))
+          offset += 4
+          out.write("\tand $%d, $%d, $%d\n" % (j, j, j))
+          out.write("\tsw $%d, %d($%s)\n" % (j, offset, result_address))
+          offset += 4
+ out.write("\n")
+
+
+def reg_tdf_hi_10(out, result_address):
+ out.write("\t;.............tdf test_hi register 10 ...............;\n ")
+ global offset
+ for register in range(0,31):
+    out.write("\t;........Register.......; %d\n" % (register))
+    if not ((register == result_address)):
+      out.write("\tlui $%d, %d\n" % (register, 65535))
+      out.write("\tori $%d, $%d, %d\n" % (register, register, 65535))
+      out.write("\tmthi $%d\n" % (register))
+      for j in range(register+1, register+5):
+          if (register >=26):
+              j -= 5
+          out.write("\tlui $%d, %d\n" % (j, 0))
+          out.write("\tori $%d, $%d, %d\n" % (j, j, 0))
+          out.write("\tmtlo $%d\n" % (j))
+          out.write("\tmfhi $%d\n" % (register))
+          out.write("\tsw $%d, %d($%s)\n" % (register, offset, result_address))
+          offset += 4
+          out.write("\tmflo $%d\n" % (j))
+          out.write("\tsw $%d, %d($%s)\n" % (j, offset, result_address))
+          offset += 4
+ out.write("\n")
+
+def reg_tdf_hi_01(out, result_address):
+ out.write("\t;.............tdf test_hi register 01 ...............;\n ")
+ global offset
+ for register in range(0,31):
+    out.write("\t;........Register.......; %d\n" % (register))
+    if not ((register == result_address)):
+      out.write("\tlui $%d, %d\n" % (register, 0))
+      out.write("\tori $%d, $%d, %d\n" % (register, register, 0))
+      out.write("\tmthi $%d\n" % (register))
+      for j in range(register+1, register+5):
+          if (register >=26):
+              j -= 5
+          out.write("\tlui $%d, %d\n" % (j, 65535))
+          out.write("\tori $%d, $%d, %d\n" % (j, j, 65535))
+          out.write("\tmtlo $%d\n" % (j))
+          out.write("\tmfhi $%d\n" % (register))
+          out.write("\tsw $%d, %d($%s)\n" % (register, offset, result_address))
+          offset += 4
+          out.write("\tmflo $%d\n" % (j))
+          out.write("\tsw $%d, %d($%s)\n" % (j, offset, result_address))
+          offset += 4
+ out.write("\n")
+
+def reg_tdf_datapath(out, result_address):
+ out.write("\t;........register tdf datapth.......; \n")
+ global offset
+ for register in range(0,31):
+    out.write("\t;........Register.......; %d\n" % (register))
+    if not ((register == int(result_address))):
+      out.write("\tlui $%d, %d\n" % (register, 65535))
+      out.write("\tori $%d, $%d, %d\n" % (register, register, 65535))
+      out.write("\tlui $%d, %d\n" % (register, 0))
+      out.write("\tori $%d, $%d, %d\n" % (register, register, 0))
+      out.write("\tsw $%d, %d($%s)\n" % (register, offset, result_address))
+      out.write("\tlui $%d, %d\n" % (register, 65535))
+      out.write("\tori $%d, $%d, %d\n" % (register, register, 65535))
+      offset += 4
+      out.write("\tsw $%d, %d($%s)\n" % (register, offset, result_address))
+      offset += 4
+ out.write("\n")
+
+#def reg_tdf_datapath_master(out, result_address):
+# out.write("\t;........register tdf datapth master.......; \n")
+# global offset
+# for register in range(0,31):
+#    out.write("\t;........Register.......; %d\n" % (register))
+#    if not ((register == int(result_address))):
+#      result_address = int(result_address)
+#      out.write("\tlui $%d, %d\n" % (result_address, 0))
+#      out.write("\tori $%d, $%d, %d\n" % (result_address, result_address, 0))
+#      out.write("\tlui $%d, %d\n" % (register, 65535))
+#      out.write("\tori $%d, $%d, %d\n" % (register, register, 65535))
+#      out.write("\tor $%d, $%d, $%d\n" % (result_address, register, register))
+#      out.write("\tsw $%d, %d($%s)\n" % (result_address, offset, result_address))
+#      out.write("\tlui $%d, %d\n" % (register, 0))
+#      out.write("\tori $%d, $%d, %d\n" % (register, register, 0))
+#      offset += 4
+#      out.write("\tor $%d, $%d, $%d\n" % (result_address, register, register))
+#      out.write("\tsw $%d, %d($%s)\n" % (result_address, offset, result_address))
+#      offset += 4
+# out.write("\n")
+
+def reg_tdf_load(out, result_address):
+ out.write("\t;.............tdf test 10 ...............;\n ")
+ global offset
+ for register in range(0,31):
+    out.write("\t;........Register....... %d;\n" % (register))
+    if not ((register == int(result_address))):
+      for j in range(register+1, register+5):
+          if (register >=26):
+              j -= 5
+          out.write("\tlui $%d, %d\n" % (register, 0))
+          out.write("\tori $%d, $%d, %d\n" % (register, register, 0))
+          out.write("\tsw $%d, %d($%s)\n" % (register, offset, result_address))
+          out.write("\tlui $%d, %d\n" % (j, 0))
+          out.write("\tori $%d, $%d, %d\n" % (j, j, 0))
+          out.write("\tlui $%d, %d\n" % (register, 65535))
+          out.write("\tori $%d, $%d, %d\n" % (register, register, 65535))
+          out.write("\tsw $%d, %d($%s)\n" % (register, offset, result_address))
+          offset += 4
+          out.write("\tsw $%d, %d($%s)\n" % (j, offset, result_address))
+          out.write("\tlui $%d, %d\n" % (register, 0))
+          out.write("\tori $%d, $%d, %d\n" % (register, register, 0))
+          out.write("\tlui $%d, %d\n" % (j, 65535))
+          out.write("\tori $%d, $%d, %d\n" % (j, j, 65535))
+          out.write("\tsw $%d, %d($%s)\n" % (j, offset, result_address))
+          offset += 4
+ out.write("\n")
+
+
+def reg_tdf_datapath_master_verson2(out, result_address):
+ out.write("\t;........register tdf datapth master.......; \n")
+ global offset
+ for register in range(0,31):
+    out.write("\t;........Register.......; %d\n" % (register))
+    if not ((register == int(result_address))):
+      result_address = int(result_address)
+      out.write("\tsw $%d, %d($%s)\n" % (0, offset, result_address))
+      out.write("\tlui $%d, %d\n" % (register, 65535))
+      out.write("\tori $%d, $%d, %d\n" % (register, register, 65535))
+      out.write("\tsw $%d, %d($%s)\n" % (register, offset, result_address))
+      out.write("\tlui $%d, %d\n" % (register, 0))
+      out.write("\tori $%d, $%d, %d\n" % (register, register, 0))
+      out.write("\tsw $%d, %d($%s)\n" % (register, offset, result_address))
+      offset += 4
+ out.write("\n")
+
 ##################################################################################
 
 def reg_upward_special_mirror(out,data, data2, result_address):
- out.write(";.............special register mirror.............;\n")
+ out.write(";.............general register mirror.............;\n")
  register = 0
  global offset
  data_f = open(data,'r')
@@ -388,20 +562,23 @@ def special_register(out):
   out.write("\n")
   data_f.close
 
-  out.write(";........test special purpose registers........;\n")
+  out.write(";........test general purpose registers........;\n")
   result_address = 1
   res_address = 1
   out.write("\tlui $%d, %d\n" % (result_address, 1))
   out.write("\tori $%d, $%d, %d\n\n" % (result_address, result_address, 2000))
 
+  out.write(";........SAF test for registers..............;\n")
   reg_upward_special(out,registerFile_1, registerFile_0, res_address)
   reg_upward_special_mirror(out,registerFile_0, registerFile_1, res_address)
+  out.write(";........tdf test for registers..............;\n")
 
-  #out.write(";........test special purpose registers with HILO........;\n")
-  #hi_lo_upward_special(out,"mthi",registerFile_1, registerFile_0, result_address)
-  #hi_lo_upward_special(out,"mtlo", registerFile_1, registerFile_0, result_address)
-  #hi_lo_upward_special(out,"mthi",registerFile_0, registerFile_1, result_address)
-  #hi_lo_upward_special(out,"mtlo", registerFile_0, registerFile_1, result_address)
+  out.write(";........tdf test for registers..............;\n")
+  reg_tdf_10(out, res_address)
+  reg_tdf_01(out, res_address)
+
+  #reg_tdf_load_01(out, result_address)
+  reg_tdf_load(out, result_address)
 
 
 def special_register_datapart(out):
@@ -600,21 +777,6 @@ def store_load_downward(out,data, number, pattern_address, result_address):
  out.write("\tjr $31\n\n")
  data_f.close
 
-##########################################################################
-#def reg_test(out, result_address, pattern_address):
-#  out.write("jal reset_offsets\n")
-#  out.write("register_operation:\n")
-#  out.write(" jal init_upward_1\n")
-#  out.write(" jal store_load_upward_0\n")
-#  out.write(" jal store_load_downward_1\n\n")
-#
-#  out.write("jal reset_offsets\n")
-#  out.write("register_operation_2:\n")
-#  out.write(" jal init_upward_0\n")
-#  out.write(" jal store_load_upward_1\n")
-#  out.write(" jal store_load_downward_0\n")
-#  out.write("\n")
-
 def hilo(out, result_address, pattern_address):
   ######################################
   out.write("jal reset_offsets\n")
@@ -633,12 +795,12 @@ def hilo(out, result_address, pattern_address):
   out.write("\tjal lo_downward_0\n")
   out.write("\n")
 
-  #out.write("jal reset_offsets\n")     #add later
-  #out.write("register_operation:\n")
-  #out.write(" jal init_upward_1\n")
-  #out.write(" jal store_load_upward_0\n")
-  #out.write(" jal store_load_downward_1\n\n")
+  reg_tdf_hi_10(out, result_address)
+  reg_tdf_hi_01(out, result_address)
 
+  #reg_tdf_datapath(out, result_address)
+  #reg_tdf_datapath_master(out, result_address)
+  reg_tdf_datapath_master_verson2(out, result_address)
 
 def cop_register_new(out,result_address):
   global offset

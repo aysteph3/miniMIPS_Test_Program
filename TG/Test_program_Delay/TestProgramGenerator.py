@@ -4,15 +4,19 @@ import load_memory
 import op2_template
 import op1_template
 import pseudo_template
-import register_test
+import register_test2
 import pipeline
+import pipeline_SAF
 import op2_template_optimized
 import op1_template_optimized
+import op2_template_optimized_SAF
+import op1_template_optimized_SAF
 import transition_1to0
 
 #test data file
 inputFile = "../input/data.txt"
 parameter = "parameter.txt"
+parameter2 = "parameter2.txt"
 data_f = open(inputFile,'r')
 
 l = open(parameter,'r')
@@ -90,28 +94,24 @@ print "...................................."
 
 out.write(" main:\n")
 #Special registers
-register_test.special_register(out)
-#register_test.special_register_datapart(out)
+register_test2.special_register(out)
 
 #template for pipeline
 out.write(";..........pipeline test..........;\n")
 out.write(" lui $%s, %d\n" % (result_address, 1))
 out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 5000))
-pipeline.pipeline_test(out, result_address, result_register)
+#pipeline.pipeline_test(out, result_address, result_register, "nor")
+pipeline_SAF.pipeline_test(out, result_address, result_register)
 
-
-####template for register testing
-###out.write(";..........register test..........;\n")
-###register_test.reg_test(out, result_address, pattern_address)
 
 #co_processor register testing
 out.write(";........co-co_processor registers........;\n")
 out.write(" lui $%s, %d\n" % (result_address, 1))
 out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 5500))
-register_test.cop_register(out, result_address)
+register_test2.cop_register(out, result_address)
 #register_test.cop_register_new(out, result_address)
 
-out.write(";........other test........;\n")
+#out.write(";........other test........;\n")
 out.write(";........reset $26 back for branch loops........;\n")
 out.write(" lui $%s, %d\n" % (branch_count, 0))
 out.write(" ori $%s, $%s, %d\n" % (branch_count, branch_count, branch_total_pattern*2))
@@ -125,39 +125,35 @@ out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 6000))
 out.write(" jal reset_offsets\n")
 out.write(" jal init_patterns\n")
 out.write(" jal init_branch\n\n")
+#
+##template for op2
+##op2_template.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount)
+#op2_template_optimized.op2_template(parameter,parameter2, out,result_register,result_address,iterator,pattern_count, shift_amount, source_register1, source_register2)
+op2_template_optimized_SAF.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount, source_register1, source_register2)
 
-#template for op2
-#op2_template.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount)
-op2_template_optimized.op2_template(parameter,out,result_register,result_address,iterator,pattern_count, shift_amount, source_register1, source_register2)
-
-#template for op1
+#
+##template for op1
 #op1_template_optimized.ops1_template(parameter, out, result_register, result_address, inputFile, iterator, pattern_count, pattern_address, branch_count, source_register1, source_register2,source_register3, transition_address)
-#out.write("jal reset_offsets\n\n") # reset offsets after all immediate operations. Remove if you plan other instructions after this
+op1_template_optimized_SAF.ops1_template(parameter, out, result_register, result_address, inputFile, iterator, pattern_count, pattern_address, branch_count, source_register1, source_register2)
+##out.write("jal reset_offsets\n\n") # reset offsets after all immediate operations. Remove if you plan other instructions after this
 
 #syscall
 out.write(";..........system call..........;\n")
 pipeline.syscall(out)
 
-##template for transition(1 to 0)
-#out.write(";..........transition_1 to 0..........;\n")
-#out.write(" lui $%s, %d\n" % (result_address, 1))
-#out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 10000))
-#transition_1to0.make_transition10_template(parameter,out, result_register,transition_address,source_register3)
-
-##template for psuedo-exhaustive data
-#out.write(";..........data-path test..........;\n")
-#out.write(" lui $%s, %d\n" % (result_address, 1))
-#out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 10000))
-#pseudo_template.make_pseudo_template(parameter,out, result_register)
-
+#template for psuedo-exhaustive data
+out.write(";..........data-path test..........;\n")
+out.write(" lui $%s, %d\n" % (result_address, 1))
+out.write(" ori $%s, $%s, %d\n\n" % (result_address, result_address, 10000))
+pseudo_template.make_pseudo_template(parameter,out, result_register)
 
 #break
 out.write(";..........break..........;\n")
 pipeline.breaks(out)
 
 #template for HILO
-out.write(";..........hilo test..........;\n")
-register_test.hilo(out, result_address, pattern_address)
+out.write(";..........special purose register test..........;\n")
+register_test2.hilo(out, result_address, pattern_address)
 
 #pattern loading, reset offset module, increment offset
 reset.end_program(out)
@@ -169,6 +165,8 @@ reset.increment(out, pattern_address,iterator, result_address)
 reset.store_branch(out,source_register1, result_address)
 reset.store(out,result_register, result_address)
 reset.init_cp(out)
+reset.reset_reg_0(out,1)
+reset.reset_reg_1(out,1)
 
 ##Branch templates
 out.write(";..........Branch templates..........;\n")
@@ -176,7 +174,7 @@ op1_template_optimized.branch_template(parameter, out, jump_address, result_regi
 
 #register initialization
 out.write(";..........register_initialization..........;\n")
-register_test.reg_test_dat(out,result_address,pattern_address)
+register_test2.reg_test_dat(out,result_address,pattern_address)
 
 
 #load data into memory

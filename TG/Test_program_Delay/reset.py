@@ -101,3 +101,31 @@ def store(file, result_register, result_address):
     result_register = int(result_register)+1
     file.write("\tsw $%d, %d($%s)\n" % (result_register, 4, result_address))
     file.write("\tjr $31\n\n")
+
+def reset_reg_0(file,result_address):
+    file.write("reset_reg_0:\n")
+    for i in range(0,31):
+        if not ((i == int(result_address))):
+            file.write("\tlui $%d, %d\n" % (i, 0))
+            file.write("\tori $%d, $%d, %d\n" % (i, i, 0))
+
+            if (i >= 31):
+                i = 0
+            else:
+                i += 1
+    file.write("\n")
+    file.write("\tjr $31\n\n")
+
+def reset_reg_1(file,result_address):
+    file.write("reset_reg_1:\n")
+    for i in range(0,31):
+        if not ((i == int(result_address))):
+            file.write("\tlui $%d, %d\n" % (i, 65535))
+            file.write("\tori $%d, $%d, %d\n" % (i, i, 65535))
+
+            if (i >= 31):
+                i = 0
+            else:
+                i += 1
+    file.write("\n")
+    file.write("\tjr $31\n\n")

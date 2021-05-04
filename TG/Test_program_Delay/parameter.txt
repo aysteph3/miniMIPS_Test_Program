@@ -13,13 +13,13 @@ shift_amount=5
 transition_address=17
 
 ;for testing OP1
-;y a_add
+y a_add
 n a_addu
-n a_and
+ a_and
 n a _nor
 n a_or
 n a_subu
-;y a_sub
+y a_sub
 n a_xor
 n a_sllv
 n a_slt
@@ -29,17 +29,17 @@ n a_srlv
 n a_sll
 n a_srl
 n a_sra
-
-;n a_mult
-;n a_multu
-;n a_mfhi
-;n a_mflo
-;n a_mthi
-;n a_mtlo
+;
+n a_mult
+n a_multu
+n a_mfhi
+n a_mflo
+n a_mthi
+n a_mtlo
 
 ;for testing HILO
-n b_mult
-n b_multu
+;n b_mult
+;n b_multu
 
 ;n c_mthi
 ;n c_mtlo
@@ -54,60 +54,60 @@ n i_sltiu
 n i_xori
 
 #for coprocssor writing
-n 1_mtc0
-n 1_mfc0
+;n 1_mtc0
+;n 1_mfc0
 
 #for load and store
-n 2_lw_sw
+;n 2_lw_sw
 
 # For co_processor load and store -- modify
-n 3_lw0_sw0
+;n 3_lw0_sw0
 
 
 #pseudo-exhaustive data
-p_add
-p_sub
-p_addu
-p_subu
-p_and
-p_or
-p_xor
-p_nor
-p_sll
-p_sllv
-p_srl
-p_srlv
-p_sra
-p_srav
-p_slt
-p_sltu
-p_mult
-p_multu
-p_mthi
-p_mtlo
-p_mfhi
-p_mflo
+;p_add
+;p_sub
+;p_addu
+;p_subu
+;p_and
+;p_or
+;p_xor
+;p_nor
+;p_sll
+;p_sllv
+;p_srl
+;p_srlv
+;p_sra
+;p_srav
+;p_slt
+;p_sltu
+;p_mult
+;p_multu
+;p_mthi
+;p_mtlo
+;p_mfhi
+;p_mflo
 ;;
-p_addi
-p_addiu
-p_andi
-p_ori
-p_slti
-p_sltiu
-p_xori
-p_lui
-;;
+;p_addi
+;p_addiu
+;p_andi
+;p_ori
+;p_slti
+;p_sltiu
+;p_xori
+;p_lui
+;
 ;p_mtc0
 ;p_mfc0
 ;p_lw_sw
 ;p_lw0_sw0
 
 ;Branches
-n d_beq
-n d_bne
-n e_bgez
-n e_bgezal
-n e_bgtz
-n e_blez
-n e_bltz
-n e_bltzal
+;n d_beq
+;n d_bne
+;n e_bgez
+;n e_bgezal
+;n e_bgtz
+;n e_blez
+;n e_bltz
+;n e_bltzal

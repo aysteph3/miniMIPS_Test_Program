@@ -52,11 +52,13 @@ def init_load_alu(out, number):
     out.write("\tori $%d, $%d, %d\n" % (31, 31, 65535))
 
     
-def test_alu_alu(out, fixed_register, test_register, result_address):
+def test_alu_alu(out, fixed_register, test_register, result_address, tdf_neighbour):
   global offset
   init_alu(out, 0)
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (fixed_register, test_register, test_register))
   out.write("\tand $%d, $%d, $%d\n" % (fixed_register, test_register, test_register))
   out.write("\tand $%d, $%d, $%d\n" % (2, fixed_register, test_register))
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (2, fixed_register, test_register))
   out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
@@ -64,8 +66,10 @@ def test_alu_alu(out, fixed_register, test_register, result_address):
   offset +=4
   
   init_alu(out, 1)
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (fixed_register, test_register, test_register)) ## added for TDF
   out.write("\tand $%d, $%d, $%d\n" % (fixed_register, test_register, test_register))
   out.write("\tand $%d, $%d, $%d\n" % (2, fixed_register, test_register))
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (2, fixed_register, test_register)) ##added for TDF 
   out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
@@ -73,8 +77,10 @@ def test_alu_alu(out, fixed_register, test_register, result_address):
   offset +=4
 
   init_alu(out, 0)
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (fixed_register, test_register, test_register)) ## added for TDF
   out.write("\tand $%d, $%d, $%d\n" % (fixed_register, test_register, test_register))
   out.write("\tand $%d, $%d, $%d\n" % (2, test_register, fixed_register))
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (2, fixed_register, test_register)) ##added for TDF 
   out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
@@ -82,8 +88,10 @@ def test_alu_alu(out, fixed_register, test_register, result_address):
   offset +=4
   
   init_alu(out, 1)
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (fixed_register, test_register, test_register)) ## added for TDF
   out.write("\tand $%d, $%d, $%d\n" % (fixed_register, test_register, test_register))
   out.write("\tand $%d, $%d, $%d\n" % (2, test_register, fixed_register))
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (2, fixed_register, test_register)) ##added for TDF 
   out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
@@ -91,9 +99,11 @@ def test_alu_alu(out, fixed_register, test_register, result_address):
   offset +=4
   
   init_alu_2(out, 0)
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (fixed_register, test_register, test_register)) ## added for TDF
   out.write("\tand $%d, $%d, $%d\n" % (fixed_register, test_register, test_register))
   out.write("\tand $%d, $%d, $%d\n" % (fixed_register, fixed_register, test_register))
   out.write("\tand $%d, $%d, $%d\n" % (2, fixed_register, test_register))
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (2, fixed_register, test_register)) ##added for TDF
   out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
@@ -101,23 +111,25 @@ def test_alu_alu(out, fixed_register, test_register, result_address):
   offset +=4
 
   init_alu_2(out, 1)
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (fixed_register, test_register, test_register)) ## added for TDF
   out.write("\tand $%d, $%d, $%d\n" % (fixed_register, test_register, test_register))
   out.write("\tand $%d, $%d, $%d\n" % (fixed_register, fixed_register, test_register))
   out.write("\tand $%d, $%d, $%d\n" % (2, fixed_register, test_register))
+  out.write("\t"+tdf_neighbour+" $%d, $%d, $%d\n" % (2, fixed_register, test_register)) ##added for TDF
   out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   #out.write("\tsll $%d, $%d, %d\n" % (0, 0, 0))
   out.write("\tsw $%d, %d($%s)\n\n" % (2, offset, result_address))
   offset +=4
 
-def pipeline_test(out, result_address, result_register):
+def pipeline_test(out, result_address, result_register, tdf_neighbour):
  
   global offset
   out.write("pipeline_operation:\n")
   out.write(";.............pipeline test_alu.............;\n")
  
-  test_alu_alu(out, 1, 31, result_address)
-  test_alu_alu(out, 31, 1, result_address)
+  test_alu_alu(out, 1, 31, result_address, tdf_neighbour)
+  #test_alu_alu(out, 31, 1, result_address, tdf_neighbour)
   
   out.write(";.............pipeline test_load_alu.............;\n")
   out.write("\tlui $%d, %d\n" % (1, 65535))

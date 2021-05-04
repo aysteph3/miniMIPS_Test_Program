@@ -1,0 +1,33 @@
+;for testing OP1
+y a_add
+n a_addu
+n a_and
+n a _nor
+n a_or
+n a_subu
+y a_sub
+n a_xor
+n a_sllv
+n a_slt
+n a_sltu
+n a_srav
+n a_srlv
+n a_sll
+n a_srl
+n a_sra
+;
+n a_mult
+n a_multu
+n a_mfhi
+n a_mflo
+n a_mthi
+n a_mtlo
+
+; for immediate
+;y i_addi
+;n i_addiu
+;n i_andi
+;n i_ori
+;n i_slti
+;n i_sltiu
+;n i_xori

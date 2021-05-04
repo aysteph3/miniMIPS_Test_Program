@@ -123,7 +123,14 @@ def pseudo_template(inputFile, out, instruct, result_register):
           out.write("\tmfhi $%s\n" % (result_register))
           out.write("\tsw $%s, %d($29)\n" % (result_register, offset))
           out.write("\tjal increment\n")
-          #offset += 4
+          out.write("\t%s $%d, $%d\n" % ("multu", register, register+1))
+          out.write("\tmflo $%s\n" % (result_register))
+          out.write("\tsw $%s, %d($29)\n" % (result_register, offset))
+          out.write("\tmfhi $%s\n" % (result_register))
+          out.write("\tsw $%s, %d($29)\n" % (result_register, offset))
+
+          out.write("\tjal increment\n")
+
 
   def hi_lo(file_name, offset,opcode):
       for i in (line):

@@ -18,13 +18,25 @@ def op2_func2(instruction, file, result_register,result_address,iterator,pattern
     file.write("\t%s $%s, $%s, $%s\n" % (instruction, result_register, src1, src2))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
         file.write("\t%s $%s ,$%s, %s\n" % (transition_instruction, result_register, src1, shift_amount ))
+    elif((transition_instruction == 'mult') or (transition_instruction == 'multu')):
+        file.write("\t%s $%s, $%s\n" % (transition_instruction, src1, src2))
+    elif((transition_instruction == 'mfhi') or (transition_instruction == 'mflo') or (transition_instruction == 'mthi') or (transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % (transition_instruction, result_register))
     else:
         file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
         file.write("\t%s $%s, $%s, %s\n" % (transition_instruction, str(int(result_register)+1), src1, shift_amount))
+    elif((transition_instruction == 'mult') or (transition_instruction == 'multu')):
+        file.write("\t%s $%s, $%s\n" % (transition_instruction, src1, src2))
+    elif((transition_instruction == 'mfhi') or (transition_instruction == 'mflo') or (transition_instruction == 'mthi') or (transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % (transition_instruction, str(int(result_register)+1)))
     else:
         file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, str(int(result_register)+1), src1, src2))
     file.write("\t%s $%s, $%s, $%s\n" % (instruction, str(int(result_register)+1), src1, src2))
+    if((transition_instruction == 'mult') or (transition_instruction == 'multu') or (transition_instruction == 'mthi')):
+        file.write("\t%s $%s\n" % ("mfhi", result_register))
+    elif((transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % ("mflo", result_register))
     file.write("\tjal store\n")
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
@@ -32,11 +44,27 @@ def op2_func2(instruction, file, result_register,result_address,iterator,pattern
 def op2_mult_u_func(instruction, file, result_register,result_address,iterator,pattern_count, instr, src1, src2, transition_instruction, shift_amount):
     file.write("\tjal load_patterns\n")
     file.write("\t%s $%s, $%s\n" % (instruction, src1, src2))
+    #file.write("\t%s $%s\n" % ('mfhi',result_register))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
         file.write("\t%s $%s ,$%s, %s\n" % (transition_instruction, result_register, src1, shift_amount ))
+    elif((transition_instruction == 'mult') or (transition_instruction == 'multu')):
+        file.write("\t%s $%s, $%s\n" % (transition_instruction, src1, src2))
+        #file.write("\t%s $%s\n" % ("mfhi", result_register))
+    elif((transition_instruction == 'mfhi') or (transition_instruction == 'mflo') or (transition_instruction == 'mthi') or (transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % (transition_instruction, result_register))
+    else:
+        file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
+    if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
+        file.write("\t%s $%s, $%s, %s\n" % (transition_instruction, str(int(result_register)+1), src1, shift_amount))
+    elif((transition_instruction == 'mult') or (transition_instruction == 'multu')):
+        file.write("\t%s $%s, $%s\n" % (transition_instruction, src1, src2))
+        #file.write("\t%s $%s\n" % ("mfhi", str(int(result_register)+1)))
+    elif((transition_instruction == 'mfhi') or (transition_instruction == 'mflo') or (transition_instruction == 'mthi') or (transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % (transition_instruction, str(int(result_register)+1)))
     else:
         file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
     file.write("\t%s $%s, $%s\n" % (instruction, src1, src2))
+    file.write("\t%s $%s\n" % ('mfhi',str(int(result_register)+1)))
     file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
     file.write("\tsw $%s, %d($%s)\n" % (str(int(result_register)+1), 4, result_address))
     file.write("\tjal increment_offset\n")
@@ -47,10 +75,29 @@ def op2_mthi_lo_func(instruction, file, result_register,result_address,iterator,
     file.write("\t%s $%s\n" % (instruction, src1))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
         file.write("\t%s $%s ,$%s, %s\n" % (transition_instruction, result_register, src1, shift_amount ))
+    elif((transition_instruction == 'mult') or (transition_instruction == 'multu')):
+        file.write("\t%s $%s, $%s\n" % (transition_instruction, src1, src2))
+        #file.write("\t%s $%s\n" % ("mfhi", result_register))
+    elif((transition_instruction == 'mfhi') or (transition_instruction == 'mflo') or (transition_instruction == 'mthi') or (transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % (transition_instruction, result_register))
+    else:
+        file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
+    if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
+        file.write("\t%s $%s, $%s, %s\n" % (transition_instruction, str(int(result_register)+1), src1, shift_amount))
+    elif((transition_instruction == 'mult') or (transition_instruction == 'multu')):
+        file.write("\t%s $%s, $%s\n" % (transition_instruction, src1, src2))
+        #file.write("\t%s $%s\n" % ("mfhi", str(int(result_register)+1)))
+    elif((transition_instruction == 'mfhi') or (transition_instruction == 'mflo') or (transition_instruction == 'mthi') or (transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % (transition_instruction, str(int(result_register)+1)))
     else:
         file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
     file.write("\t%s $%s\n" % (instruction, src1))
+    if((instruction == 'mthi')):
+        file.write("\t%s $%s\n" % ("mfhi", str(int(result_register)+1)))
+    else:
+        file.write("\t%s $%s\n" % ("mflo", str(int(result_register)+1)))
     file.write("\tsw $%s, %d($%s)\n" % (result_register, 0, result_address))
+    file.write("\tsw $%s, %d($%s)\n" % (str(int(result_register)+1), 4, result_address))
     file.write("\tjal increment_offset\n")
     file.write("\tbne $%s, $%s, operation_%s\n\n" % (iterator, pattern_count, instr))
 
@@ -59,6 +106,20 @@ def op2_mfhi_lo_func(instruction, file, result_register,result_address,iterator,
     file.write("\t%s $%s\n" % (instruction, result_register))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
         file.write("\t%s $%s ,$%s, %s\n" % (transition_instruction, result_register, src1, shift_amount ))
+    elif((transition_instruction == 'mult') or (transition_instruction == 'multu')):
+        file.write("\t%s $%s, $%s\n" % (transition_instruction, src1, src2))
+        #file.write("\t%s $%s\n" % ("mfhi", result_register))
+    elif((transition_instruction == 'mfhi') or (transition_instruction == 'mflo') or (transition_instruction == 'mthi') or (transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % (transition_instruction, result_register))
+    else:
+        file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
+    if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
+        file.write("\t%s $%s, $%s, %s\n" % (transition_instruction, str(int(result_register)+1), src1, shift_amount))
+    elif((transition_instruction == 'mult') or (transition_instruction == 'multu')):
+        file.write("\t%s $%s, $%s\n" % (transition_instruction, src1, src2))
+        #file.write("\t%s $%s\n" % ("mfhi", str(int(result_register)+1)))
+    elif((transition_instruction == 'mfhi') or (transition_instruction == 'mflo') or (transition_instruction == 'mthi') or (transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % (transition_instruction, str(int(result_register)+1)))
     else:
         file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
     file.write("\t%s $%s\n" % (instruction, str(int(result_register)+1)))
@@ -72,6 +133,20 @@ def op2_shift_amount_func(instruction, file, result_register,result_address,iter
     file.write("\t%s $%s ,$%s, %s\n" % (instruction, result_register, src1, shift_amount ))
     if ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
         file.write("\t%s $%s ,$%s, %s\n" % (transition_instruction, result_register, src1, shift_amount ))
+    elif((transition_instruction == 'mult') or (transition_instruction == 'multu')):
+        file.write("\t%s $%s, $%s\n" % (transition_instruction, src1, src2))
+        #file.write("\t%s $%s\n" % ("mfhi", result_register))
+    elif((transition_instruction == 'mfhi') or (transition_instruction == 'mflo') or (transition_instruction == 'mthi') or (transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % (transition_instruction, result_register))
+    else:
+        file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
+    if((transition_instruction == 'mult') or (transition_instruction == 'multu')):
+        file.write("\t%s $%s, $%s\n" % (transition_instruction, src1, src2))
+        #file.write("\t%s $%s\n" % ("mfhi", str(int(result_register)+1)))
+    elif((transition_instruction == 'mfhi') or (transition_instruction == 'mflo') or (transition_instruction == 'mthi') or (transition_instruction == 'mtlo')):
+        file.write("\t%s $%s\n" % (transition_instruction, str(int(result_register)+1)))
+    elif ((transition_instruction == 'sll') or (transition_instruction == 'sra') or (transition_instruction == 'srl')):
+        file.write("\t%s $%s ,$%s, %s\n" % (transition_instruction, str(int(result_register)+1), src1, shift_amount ))
     else:
         file.write("\t%s $%s, $%s, $%s\n" % (transition_instruction, result_register, src1, src2))
     file.write("\t%s $%s ,$%s, %s\n" % (instruction, str(int(result_register)+1), src1, shift_amount ))
@@ -130,9 +205,9 @@ def print_tags(file, instr):
     file.write("jal init_cp\n")
     file.write("operation_"+instr+":\n")
 
-def op2_template(para, out, result_register,result_address,iterator,pattern_count, shift_amount, src1, src2):
+def op2_template(para, para2, out, result_register,result_address,iterator,pattern_count, shift_amount, src1, src2):
  f = open(para,'r')
- f2 = open(para,'r')
+ f2 = open(para2,'r')
  firstPass = True
  opcode = []
 
@@ -167,13 +242,15 @@ def op2_template(para, out, result_register,result_address,iterator,pattern_coun
                             print_tags(out, inst)
                             op2_mult_u_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, shift_amount)
                     elif((instr == 'mthi') or (instr == 'mtlo')):
-                        print_tags(out, inst)
-                        op2_mthi_lo_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x,shift_amount)
+                        if not (instruction==x):
+                            print_tags(out, inst)
+                            op2_mthi_lo_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x,shift_amount)
                     elif((instr == 'mfhi') or (instr == 'mflo')):
-                        out.write("jal reset_offsets\n")
-                        out.write("jal reset_hi_lo\n")
-                        out.write("operation_"+inst+":\n")
-                        op2_mfhi_lo_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, shift_amount)
+                        if not (instruction==x):
+                            out.write("jal reset_offsets\n")
+                            out.write("jal reset_hi_lo\n")
+                            out.write("operation_"+inst+":\n")
+                            op2_mfhi_lo_func(instruction, out, result_register,result_address,iterator,pattern_count, inst, src1, src2, x, shift_amount)
                     elif((instr == 'sll') or (instr == 'sra') or (instr == 'srl')):
                         if not (instruction==x):
                             print_tags(out, inst)

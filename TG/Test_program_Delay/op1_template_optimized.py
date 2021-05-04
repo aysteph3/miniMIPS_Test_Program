@@ -20,14 +20,6 @@ def immediate_fun(instruction, file, result_register, result_address, immediate,
     #file.write("\tjal load_patterns\n")
     file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src1, immediate))
     file.write("\tsw $%s, %s($%s)\n" % (result_register, k, result_address))
-    file.write("\tlui $%s, %d\n" % (transition_address, 65533))
-    file.write("\tori $%s, $%s, %d\n" % (transition_address, transition_address, 65533))
-    file.write("\tlui $%s, %d\n" % (src3, 0))
-    file.write("\tori $%s, $%s, %d\n" % (src3, src3, 0))
-    k+=4
-    file.write("\t%s $%s, $%s, %s\n" % (instruction, result_register, src3, 0))
-    file.write("\tsw $%s, %s($%s)\n" % (result_register, k, result_address))
-    k+=4
     #file.write("\tjal increment_offset\n")
 
 def immediate_fun_2(instruction, file, result_register, result_address, immediate, src1, src2, transition_address):
@@ -208,7 +200,7 @@ def ops1_template(para, out, result_register, result_address, inputFile,iterator
   for x in opcode:
 	out.write("\t%s $%s, $%s, $%s\n" % ('or', result_register, transition_address, transition_address))
 	immediate_fun(x, out, result_register,result_address, immediate, offset, src1, src2, src3, transition_address)
-	offset+=8
+	offset+=4
   offset+=4
   out.write("\tjal increment_offset\n")
  out.write("\n")
